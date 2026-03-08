@@ -65,3 +65,5 @@ change request,変更要求,ai-agents,A requested repository or system modificat
 review plan,レビュー計画,ai-agents,A bounded plan that states checks scope and reviewer expectations before execution,Running example artifact
 approved change,承認済み変更,ai-agents,A change artifact that has passed required policy checks and human approval,Running example artifact
 policy gate,ポリシーゲート,ai-agents,A rule-driven checkpoint that blocks progress until stated policy conditions hold,Used in the running example and Chapter 01
+synchronization boundary,同期境界,software-design,A named fan-in contract that concurrent branches must satisfy before the workflow may continue,Core Chapter 08 term
+Kleisli composition,クライスリ合成,category-theory,The composition rule that chains effectful steps inside one explicit effect envelope,Core Chapter 09 term

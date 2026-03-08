@@ -57,6 +57,10 @@
       "path": "verification/coherence-failure.md"
     },
     {
+      "phase": "verification",
+      "path": "verification/acceptance-evidence.md"
+    },
+    {
       "phase": "runtime",
       "path": "runtime/runtime-view.md"
     },
@@ -67,6 +71,22 @@
     {
       "phase": "implementation",
       "path": "implementation/workflow.md"
+    },
+    {
+      "phase": "implementation",
+      "path": "implementation/orchestration-diagram.md"
+    },
+    {
+      "phase": "implementation",
+      "path": "implementation/synchronization-boundary.md"
+    },
+    {
+      "phase": "implementation",
+      "path": "implementation/effect-boundary.md"
+    },
+    {
+      "phase": "implementation",
+      "path": "implementation/execution-trace.md"
     }
   ]
 }

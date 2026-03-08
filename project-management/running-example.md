@@ -22,6 +22,7 @@ The selected example keeps the book centered on AI-assisted engineering rather t
 It naturally exposes responsibility boundaries, review artifacts, commutative claims, integration concerns, and effect boundaries.
 It is small enough for a minimal example and rich enough for the case-study chapter.
 `Approved Change` remains the single canonical approval artifact through Chapter 10.
+Post-approval execution is justified by execution trace and acceptance evidence rather than by a second approval artifact.
 
 ## Chapter Usage
 
@@ -35,6 +36,6 @@ It is small enough for a minimal example and rich enough for the case-study chap
 | Chapter 05 | Compare reviewer view, design view, and runtime view as natural transformations between models. |
 | Chapter 06 | Use the `design/variation-paths.md` artifact for combined review context, alternate review paths, and controlled variation. |
 | Chapter 07 | Use `design/shared-boundary.md`, `design/replacement-plan.md`, and `verification/coherence-failure.md` for pullbacks, pushouts, and migration review. |
-| Chapter 08 | Use the example workflow to explain sequential and parallel composition in orchestration. |
-| Chapter 09 | Make prompt, tool, and approval side effects explicit through effect boundaries. |
-| Chapter 10 | Reconstruct the example end to end from specification to verification and implementation. |
+| Chapter 08 | Use `implementation/orchestration-diagram.md` and `implementation/synchronization-boundary.md` to explain sequential and parallel composition, fan-in, and failure isolation. |
+| Chapter 09 | Use `implementation/effect-boundary.md` and `implementation/execution-trace.md` to make prompt, tool, approval, and dispatch effects explicit. |
+| Chapter 10 | Reconstruct the example end to end by combining the spec, design, review, runtime, implementation, and `verification/acceptance-evidence.md` artifacts. |

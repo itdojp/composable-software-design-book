@@ -10,7 +10,8 @@ It is the canonical example reused across the book.
 
 ## Example Scope
 
-The system accepts a change request, derives an AI-assisted review plan, applies policy checks, and requires human approval before execution.
+The system accepts a change request, derives an AI-assisted review plan, fans out policy and evidence work from one bounded plan, synchronizes a reviewer packet, and requires human approval before execution.
+It records execution trace entries and acceptance evidence so the same change can be reconstructed after delivery or return-for-rework.
 The artifact set is intentionally small enough to trace by hand.
 
 ## Artifact Phases
@@ -25,9 +26,14 @@ The artifact set is intentionally small enough to trace by hand.
 - [Verification checks](verification/review-checks/)
 - [Verification traceability matrix](verification/traceability-matrix/)
 - [Verification coherence failure](verification/coherence-failure/)
+- [Verification acceptance evidence](verification/acceptance-evidence/)
 - [Runtime view](runtime/runtime-view/)
 - [Reviewer view](review/reviewer-view/)
 - [Implementation workflow](implementation/workflow/)
+- [Implementation orchestration diagram](implementation/orchestration-diagram/)
+- [Implementation synchronization boundary](implementation/synchronization-boundary/)
+- [Implementation effect boundary](implementation/effect-boundary/)
+- [Implementation execution trace](implementation/execution-trace/)
 
 ## Why This Example Was Chosen
 

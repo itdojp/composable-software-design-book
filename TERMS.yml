@@ -39,6 +39,8 @@ terms:
     en: monad
   クライスリ:
     en: Kleisli
+  クライスリ合成:
+    en: Kleisli composition
   ランタイムビュー:
     en: runtime view
   レビュービュー:
@@ -57,6 +59,8 @@ terms:
     en: compositional design
   責任境界:
     en: responsibility boundary
+  オーケストレーション:
+    en: orchestration
   変更要求:
     en: change request
   レビュー計画:
@@ -65,6 +69,8 @@ terms:
     en: approved change
   ポリシーゲート:
     en: policy gate
+  同期境界:
+    en: synchronization boundary
   スキーマ写像:
     en: schema mapping
   移行計画:
@@ -73,3 +79,13 @@ terms:
     en: partial function
   全関数:
     en: total function
+  効果境界:
+    en: effect boundary
+  実行トレース:
+    en: execution trace
+  監査ログ:
+    en: audit log
+  プロンプト文脈:
+    en: prompt context
+  受入れ証跡:
+    en: acceptance evidence

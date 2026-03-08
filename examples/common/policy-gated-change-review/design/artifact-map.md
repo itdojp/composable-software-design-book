@@ -18,9 +18,14 @@ This artifact map defines the canonical files that support the running example.
 - `verification/review-checks.md`
 - `verification/traceability-matrix.md`
 - `verification/coherence-failure.md`
+- `verification/acceptance-evidence.md`
 - `runtime/runtime-view.md`
 - `review/reviewer-view.md`
 - `implementation/workflow.md`
+- `implementation/orchestration-diagram.md`
+- `implementation/synchronization-boundary.md`
+- `implementation/effect-boundary.md`
+- `implementation/execution-trace.md`
 
 ## Design Intent
 
@@ -32,3 +37,6 @@ It also mirrors the specification to implementation path used in Chapter 10.
 `design/variation-paths.md` is the design artifact introduced for Chapter 06 combination and variation work.
 `design/shared-boundary.md` and `design/replacement-plan.md` are the integration and migration artifacts introduced for Chapter 07.
 `verification/coherence-failure.md` is the reusable negative artifact introduced after Chapter 06 to keep later failure discussions anchored to one canonical example.
+`implementation/orchestration-diagram.md` and `implementation/synchronization-boundary.md` are the coordination artifacts introduced for Chapter 08.
+`implementation/effect-boundary.md` and `implementation/execution-trace.md` are the effect and audit artifacts introduced for Chapter 09.
+`verification/acceptance-evidence.md` is the end-to-end evidence artifact introduced for Chapter 10.

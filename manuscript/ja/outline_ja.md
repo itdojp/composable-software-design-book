@@ -19,7 +19,7 @@
 | chapter06 | 普遍性、積、余積 | Universality with Products and Coproducts |
 | chapter07 | 統合と移行のための pullback / pushout | Pullbacks and Pushouts for Integration and Migration |
 | chapter08 | モノイダル圏とストリング図式 | Monoidal Categories and String Diagrams |
-| chapter09 | モナド、Kleisli 合成、作用境界 | Monads, Kleisli Composition, and Effect Boundaries |
+| chapter09 | モナド、Kleisli 合成、効果境界 | Monads, Kleisli Composition, and Effect Boundaries |
 | chapter10 | ケーススタディ: 仕様から AI 支援実装へ | Case Study: From Specification to AI-Assisted Implementation |
 
 ## introduction
@@ -116,7 +116,7 @@
 
 | section_en | section_ja |
 | --- | --- |
-| Why effects need explicit boundaries | なぜ作用には明示的な境界が必要か |
+| Why effects need explicit boundaries | なぜ効果には明示的な境界が必要か |
 | Monads as operational envelopes | モナドを運用上の包みとして捉える |
 | Kleisli composition for agent orchestration | エージェントオーケストレーションにおける Kleisli 合成 |
 | Managing error, state, I/O, and external tools | エラー、状態、I/O、外部ツールの管理 |

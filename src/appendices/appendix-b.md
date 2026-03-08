@@ -70,6 +70,18 @@ See [Chapter 07](../chapter-chapter07/).
 **Pushout.** A construction that merges or replaces structures along a shared boundary while preserving the meaning that boundary carries.
 See [Chapter 07](../chapter-chapter07/).
 
+**Monoidal category.** A category equipped with a parallel composition operator and a unit object so sequential and parallel structure can be reasoned about together.
+See [Chapter 08](../chapter-chapter08/).
+
+**String diagram.** A diagrammatic notation in which wires represent preserved context or artifacts and boxes represent composed steps.
+See [Chapter 08](../chapter-chapter08/).
+
+**Monad.** A structure that packages effectful computation so later steps must handle its operational context explicitly.
+See [Chapter 09](../chapter-chapter09/).
+
+**Kleisli composition.** The composition rule that chains effectful steps while keeping them inside one explicit effect envelope.
+See [Chapter 09](../chapter-chapter09/).
+
 ## Software design terms
 
 This section stabilizes the engineering vocabulary that connects the formal model to implementation work.
@@ -136,6 +148,9 @@ See [Chapter 01](../chapter-chapter01/) and [Chapter 09](../chapter-chapter09/).
 **Orchestration.** The coordination of multiple effectful steps, tools, or agents into one workflow.
 See [Chapter 08](../chapter-chapter08/) and [Chapter 09](../chapter-chapter09/).
 
+**Synchronization boundary.** A named fan-in contract that concurrent branches must satisfy before a workflow may continue.
+See [Chapter 08](../chapter-chapter08/) and [Chapter 10](../chapter-chapter10/).
+
 ## AI agent and workflow terms
 
 This section defines the operational vocabulary for human-AI collaboration and tool-mediated delivery.
@@ -173,10 +188,16 @@ See [Chapter 09](../chapter-chapter09/).
 See [Chapter 09](../chapter-chapter09/).
 
 **Execution trace.** A recorded sequence of steps, inputs, outputs, and decisions that occurred during execution.
-See [Chapter 01](../chapter-chapter01/).
+See [Chapter 09](../chapter-chapter09/) and [Chapter 10](../chapter-chapter10/).
 
 **Audit log.** A durable record of actions, decisions, and changes kept for later inspection.
-See [Chapter 01](../chapter-chapter01/).
+See [Chapter 01](../chapter-chapter01/) and [Chapter 09](../chapter-chapter09/).
+
+**Prompt context.** The task state, instructions, and references supplied to a model call at invocation time.
+See [Chapter 09](../chapter-chapter09/).
+
+**Acceptance evidence.** The bundle of approved artifacts, checks, traces, and review outcomes used to justify acceptance of a change.
+See [Chapter 10](../chapter-chapter10/).
 
 ## Translation and usage notes
 

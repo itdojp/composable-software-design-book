@@ -15,6 +15,9 @@ It complements `verification/review-checks.md` rather than replacing it.
 | PGCR-01 | `spec/problem-statement.md#core-constraint` | `design/commutative-diagram.md` | `verification/review-checks.md` | `implementation/workflow.md#workflow-steps` |
 | PGCR-02 | `spec/acceptance-criteria.md#acceptance-criteria` | `design/artifact-map.md#artifact-list` | `verification/review-checks.md` | `implementation/workflow.md#implementation-boundary` |
 | PGCR-03 | `spec/acceptance-criteria.md#acceptance-criteria` | `design/commutative-diagram.md` | `verification/review-checks.md` | `implementation/workflow.md#workflow-steps` |
+| PGCR-04 | `spec/acceptance-criteria.md#acceptance-criteria` | `design/variation-paths.md#product-like-review-context` | `verification/review-checks.md` | `implementation/synchronization-boundary.md#synchronization-rules` |
+| PGCR-05 | `spec/problem-statement.md#core-constraint` | `design/artifact-map.md#artifact-list` | `verification/review-checks.md` | `implementation/effect-boundary.md#effectful-steps` |
+| PGCR-06 | `spec/acceptance-criteria.md#acceptance-criteria` | `design/shared-boundary.md#boundary-rules` | `verification/acceptance-evidence.md#acceptance-rule` | `implementation/execution-trace.md#trace-rules` |
 
 ## Usage Notes
 
