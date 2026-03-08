@@ -8,7 +8,8 @@ description: "Use universal properties to select the simplest correct decomposit
 
 # Universality with Products and Coproducts
 
-This chapter uses universal properties to choose simple, correct constructions for combination and variation.
+Once multiple views cohere, the next design question is not translation but choice.
+This chapter uses universal properties to decide which combined context should be canonical and where variation should become explicit instead of hiding in flags, routes, or reviewer folklore.
 It uses the [variation paths](../../examples/common/policy-gated-change-review/design/variation-paths/), the [reviewer view](../../examples/common/policy-gated-change-review/review/reviewer-view/), and the [implementation workflow](../../examples/common/policy-gated-change-review/implementation/workflow/) to keep products and coproducts tied to repository artifacts.
 Use the [traceability matrix](../../examples/common/policy-gated-change-review/verification/traceability-matrix/) to check that new combinations and new routes still preserve the same approval claim.
 
@@ -95,6 +96,8 @@ The reviewer-facing `Decision Packet` from Chapter 05 is the presentation of thi
 
 The combined requirements can be summarized as follows.
 
+Table 6.1. Required components of the combined review context.
+
 | Component | Why approval depends on it |
 | --- | --- |
 | `Requested Scope` | The reviewer must judge what the change intends to alter. |
@@ -104,7 +107,7 @@ The combined requirements can be summarized as follows.
 Figure 6.1 shows the product-like boundary that makes the approval packet recoverable instead of opaque.
 
 Figure 6.1. Product-like review context keeps all three approval inputs recoverable.
-The packet remains canonical only when scope, policy, and evidence can be projected back out.
+> **Reader takeaway.** A combined packet is trustworthy only when scope, policy, and evidence can still be recovered as distinct inputs.
 
 ```mermaid
 flowchart LR
@@ -179,6 +182,8 @@ The downstream workflow can then consume `Review Route` as one shared interface 
 
 The route split is concrete rather than stylistic.
 
+Table 6.2. Canonical review-route variants.
+
 | Variant | Trigger | Shared guarantee |
 | --- | --- | --- |
 | `Standard Review Path` | Default repository scope and satisfied policy status without exceptions | Human approval remains mandatory before `Approved Change`. |
@@ -187,7 +192,7 @@ The route split is concrete rather than stylistic.
 Figure 6.2 makes the route split explicit before the chapter returns to the formal coproduct sketch.
 
 Figure 6.2. Explicit review routes converge on one approval meaning.
-Route variation stays visible at the boundary without creating a second approval artifact.
+> **Reader takeaway.** Route variation is safe only when multiple paths stay explicit while converging on one approval meaning and one outcome artifact.
 
 ```mermaid
 flowchart LR
@@ -310,3 +315,9 @@ Once combination and variation are explicit inside one workflow, the next step i
 1. Which review packet in your current workflow is pretending to be one object while actually hiding three unrelated inputs.
 2. Which route variation in your system deserves a named coproduct-style boundary rather than a boolean flag.
 3. Which extra field in your review context is operationally convenient but not part of the smallest correct universal construction.
+
+## Notes and Further Reading
+
+- Mac Lane remains the long-term reference for universal constructions once you want the canonical statements behind this chapter's engineering paraphrases.
+- Fong and Spivak are the most practical companion because they connect products, coproducts, and compositional selection to applied systems rather than to notation alone.
+- Evans is again useful here because many supposed product or coproduct decisions are actually bounded-context decisions disguised as workflow convenience.

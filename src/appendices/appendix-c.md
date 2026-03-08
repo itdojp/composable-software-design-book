@@ -12,6 +12,33 @@ This appendix points readers to the sources that deepen the formal, practical, a
 It is intentionally selective.
 Each reference is included because it extends one concrete part of the manuscript rather than because it is historically comprehensive.
 
+## Chapter guide
+
+This section connects the selective bibliography to the body chapters so readers can deepen one chapter at a time instead of treating the appendix as a detached reading dump.
+
+| Chapter | Best first references | Why these sources fit |
+| --- | --- | --- |
+| Introduction | Fong and Spivak; *Software Architecture in Practice*; NIST AI RMF | They connect composition, architecture views, and governance language without forcing a proof-first start. |
+| Chapter 01 | *Software Architecture in Practice*; NIST SSDF 1.1; NIST SP 800-218A | They keep responsibility boundaries tied to concrete delivery controls and evidence expectations. |
+| Chapter 02 | Awodey; Riehl; Fong and Spivak; Evans | They support the move from basic categorical vocabulary to stable artifact and interface selection. |
+| Chapter 03 | Fong and Spivak; *Software Abstractions*; NIST SSDF 1.1 | They support diagrammatic reasoning, counterexample discipline, and reviewable control points. |
+| Chapter 04 | Riehl; Fong and Spivak; *Software Architecture in Practice* | They support structure-preserving translation across views and architecture artifacts. |
+| Chapter 05 | Awodey; Riehl; Evans | They support natural transformations while clarifying why this book uses engineering-facing view names. |
+| Chapter 06 | Mac Lane; Fong and Spivak; Evans | They support products, coproducts, and disciplined variation selection in software design. |
+| Chapter 07 | Riehl; Mac Lane; *Software Architecture in Practice*; Evans | They support governed integration, migration, and shared-boundary design. |
+| Chapter 08 | Fong and Spivak; ReAct; *Software Architecture in Practice* | They support monoidal reasoning while contrasting explicit orchestration with looser agent loops. |
+| Chapter 09 | Mac Lane; Awodey; NIST AI RMF; NIST SP 800-218A; ReAct | They support effect handling, operational governance, and tool-mediated execution boundaries. |
+| Chapter 10 | NIST SSDF 1.1; NIST SP 800-218A; NIST AI RMF; NIST AI 600-1; SWE-bench | They support the case study's delivery control model, acceptance evidence, and real repository evaluation pressure. |
+
+## Terminology bridges back to the literature
+
+This section flags the main places where the book intentionally prefers software-engineering wording over standard textbook phrasing.
+
+- `responsibility boundary` is the book's reader-facing synthesis term for the point where authority, review obligation, and evidence expectations become explicit.
+- `reviewer view` and `runtime view` are engineering-facing names for alternative coherent views of the same underlying design claim.
+- `effect boundary` is the book's practical label for the point where tool calls, writes, or dispatch steps stop behaving like pure artifact transformations.
+- `decision packet` is a canonical artifact name in the running example rather than a conventional formal term from the cited theory texts.
+
 ## Foundational texts
 
 This section groups the mathematical and conceptual sources that support the formal core of the book.

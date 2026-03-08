@@ -152,6 +152,15 @@
           "Point readers to foundational texts and practical follow-up material.",
           "Provide study paths for deeper work after the core chapters."
         ]
+      },
+      {
+        "id": "appendix-d",
+        "title": "Transfer Cases Across Domains",
+        "description": "Short transfer caselets that map the book's method into adjacent engineering domains.",
+        "objectives": [
+          "Show how the method transfers beyond repository change review.",
+          "Keep the main running example canonical while broadening applicability."
+        ]
       }
     ]
   },
@@ -163,7 +172,7 @@
       "checklistPack": false,
       "troubleshootingFlow": false,
       "conceptMap": true,
-      "figureIndex": false,
+      "figureIndex": true,
       "legalNotice": false,
       "glossary": true
     }

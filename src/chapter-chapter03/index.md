@@ -8,7 +8,9 @@ description: "Use diagrams to test consistency across requirements, architecture
 
 # Diagrams and Commutativity
 
-This chapter uses diagrams as compact proofs of consistency across multiple design views.
+Chapter 02 named the objects and morphisms of the workflow.
+This chapter turns those names into a stronger question: do the visible paths preserve the same approval meaning, or do they only look compatible on paper.
+It uses diagrams as compact proofs of consistency across multiple design views.
 It begins with the minimal policy-gated approval diagram before expanding to the richer repository-level diagram used by the common running example.
 Use the [minimal diagram](../../examples/minimal/policy-gated-change-review/diagram/), the [common commutative diagram](../../examples/common/policy-gated-change-review/design/commutative-diagram/), and the [traceability matrix](../../examples/common/policy-gated-change-review/verification/traceability-matrix/) together.
 They provide the shortest path from a design claim to a reviewable artifact set.
@@ -51,7 +53,7 @@ It is "Do these different routes preserve the same meaning?"
 Figure 3.1 shows the smallest version of that question in the running example.
 
 Figure 3.1. Minimal approval commutativity claim.
-The two approval paths are intended to preserve the same approval meaning.
+> **Reader takeaway.** The diagram matters only because the two visible paths are claiming one shared approval meaning.
 
 ```mermaid
 flowchart LR
@@ -100,7 +102,7 @@ It commutes only if the workflow preserves what the design says should be preser
 Figure 3.2 expands the same claim into the repository-level artifact path.
 
 Figure 3.2. Repository-level approval claim with explicit policy dependency (`PGCR-01`).
-The direct approval edge is valid only if the policy check preserves request meaning and review intent.
+> **Reader takeaway.** The direct approval edge is safe only if policy evaluation and human review preserve one invariant across named artifacts.
 
 ```mermaid
 flowchart LR
@@ -169,6 +171,16 @@ The running example keeps this small on purpose.
 The artifact map identifies the canonical files.
 The review checks verify that the names remain aligned.
 The traceability matrix shows where each core claim is represented across specification, design, verification, and implementation.
+
+Table 3.1. Minimal artifact map for the repository-level diagram.
+
+| Diagram label | Canonical artifact | Reader-facing question |
+| --- | --- | --- |
+| `Change Request` | `spec/problem-statement.md` and `spec/acceptance-criteria.md` | What request meaning is supposed to be preserved. |
+| `Review Plan` | `design/artifact-map.md` and `review/reviewer-view.md` | What bounded plan the reviewer actually evaluates. |
+| `Policy Check` | `runtime/runtime-view.md` and `implementation/workflow.md` | Which automated constraint shapes the approval path. |
+| `Approved Change` | `implementation/workflow.md` and `verification/acceptance-evidence.md` | Which governed outcome the repository claims to authorize. |
+| Claim `PGCR-01` | `verification/traceability-matrix.md` | Where specification, design, and verification still agree on one path claim. |
 
 That combination allows a reviewer to move from `policy-gated approval path` in the diagram to the surrounding repository evidence without inventing an informal interpretation.
 If a pull request changes one side of that mapping and not the other, the mismatch should be treated as a design regression.
@@ -258,3 +270,9 @@ When the claim changes, update all three together.
 1. Which diagram in your current system claims path equivalence without enough artifact evidence to justify it.
 2. Which invariant would fail first if one branch silently changed scope, policy meaning, or approval context.
 3. Which repository artifact should change in the same pull request when a commutative claim changes.
+
+## Notes and Further Reading
+
+- Fong and Spivak are the best next source if you want more examples of diagrams that carry operational meaning rather than decorative structure.
+- Jackson's *Software Abstractions* is the strongest companion when this chapter makes you want a firmer counterexample discipline around design claims.
+- NIST SSDF complements this chapter's diagram review heuristics by supplying a practical control vocabulary for synchronized, traceable change.

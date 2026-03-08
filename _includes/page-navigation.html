@@ -1,9 +1,9 @@
 <!-- Canonical Page Navigation (Previous/Next) -->
 {% comment %}
 Order resolution strategy (first match wins):
-1) site.data.navigation (keys: introduction, chapters, additional, resources, appendices, afterword)
+1) site.data.navigation (keys: additional, introduction, chapters, resources, appendices, backmatter, afterword)
 2) site.pages where layout: book and order exists, sorted by order
-3) Fallback by URL groups sorted by url: /introduction/, /chapters/, /additional/ or /resources/, /appendices/, /afterword/
+3) Fallback by URL groups sorted by url: /src/additional/, /src/chapter-*/, /src/parts/, /src/appendices/, /src/backmatter/, /src/afterword/
 {% endcomment %}
 
 {% assign nav_items = nil %}
@@ -37,7 +37,7 @@ level of such grouping so only leaf items (having `path`/`url`) participate.
 {%- assign data_items = "" | split: "|" -%}
 {%- if navigation -%}
   {%- assign seq = "" | split: "|" -%}
-  {%- assign _nav_sections = "introduction,chapters,additional,resources,appendices,afterword" | split: "," -%}
+  {%- assign _nav_sections = "additional,introduction,chapters,resources,appendices,backmatter,afterword" | split: "," -%}
   {%- for _sec in _nav_sections -%}
     {%- assign _items = navigation[_sec] -%}
     {%- if _items and _items.size > 0 -%}
@@ -72,12 +72,14 @@ level of such grouping so only leaf items (having `path`/`url`) participate.
 {% endif %}
 
 {% if nav_items == nil or nav_items.size == 0 %}
-  {%- assign intro = site.pages | where: "layout", "book" | where_exp: "p", "p.url contains '/introduction/'" | sort: "url" -%}
-  {%- assign chaps = site.pages | where: "layout", "book" | where_exp: "p", "p.url contains '/chapters/'" | sort: "url" -%}
-  {%- assign addtn = site.pages | where: "layout", "book" | where_exp: "p", "p.url contains '/additional/' or p.url contains '/resources/'" | sort: "url" -%}
-  {%- assign appdx = site.pages | where: "layout", "book" | where_exp: "p", "p.url contains '/appendices/'" | sort: "url" -%}
-  {%- assign aftwd = site.pages | where: "layout", "book" | where_exp: "p", "p.url contains '/afterword/'" | sort: "url" -%}
-  {%- assign seq = intro | concat: chaps | concat: addtn | concat: appdx | concat: aftwd -%}
+  {%- assign addtn = site.pages | where: "layout", "book" | where_exp: "p", "p.url contains '/src/additional/'" | sort: "url" -%}
+  {%- assign intro = site.pages | where: "layout", "book" | where_exp: "p", "p.url contains '/src/chapter-introduction/'" | sort: "url" -%}
+  {%- assign chaps = site.pages | where: "layout", "book" | where_exp: "p", "p.url contains '/src/chapter-chapter'" | sort: "url" -%}
+  {%- assign parts = site.pages | where: "layout", "book" | where_exp: "p", "p.url contains '/src/parts/'" | sort: "url" -%}
+  {%- assign appdx = site.pages | where: "layout", "book" | where_exp: "p", "p.url contains '/src/appendices/'" | sort: "url" -%}
+  {%- assign bkmtr = site.pages | where: "layout", "book" | where_exp: "p", "p.url contains '/src/backmatter/'" | sort: "url" -%}
+  {%- assign aftwd = site.pages | where: "layout", "book" | where_exp: "p", "p.url contains '/src/afterword/'" | sort: "url" -%}
+  {%- assign seq = addtn | concat: intro | concat: parts | concat: chaps | concat: appdx | concat: bkmtr | concat: aftwd -%}
   {% assign nav_items = seq %}
 {% endif %}
 

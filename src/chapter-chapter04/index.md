@@ -8,7 +8,9 @@ description: "Preserve structure while translating between domain, architecture,
 
 # Functors and Model Translation
 
-This chapter shows how structure-preserving translations connect domain, architecture, and runtime models.
+Chapter 03 showed how one diagram can fail when path equivalence is false.
+This chapter addresses the quieter failure mode in which every artifact looks reasonable on its own, but the translation between specification, design, runtime, and implementation no longer preserves the same claim.
+It shows how structure-preserving translations connect domain, architecture, and runtime models.
 It uses the [problem statement](../../examples/common/policy-gated-change-review/spec/problem-statement/), the [design diagram](../../examples/common/policy-gated-change-review/design/commutative-diagram/), the [runtime view](../../examples/common/policy-gated-change-review/runtime/runtime-view/), and the [implementation workflow](../../examples/common/policy-gated-change-review/implementation/workflow/) as one translation chain.
 Use [Appendix B](../appendices/appendix-b/) for canonical terms and keep the [traceability matrix](../../examples/common/policy-gated-change-review/verification/traceability-matrix/) nearby while reading.
 
@@ -50,6 +52,8 @@ The runtime view describes which execution-time states and transitions carry the
 
 The views can be summarized as follows.
 
+Table 4.1. Translation chain from specification to runtime.
+
 | View | Representative objects | Representative morphisms | Main review question |
 | --- | --- | --- | --- |
 | Specification | `Change Request`, core constraint, acceptance criteria | `require-human-approval`, `require-traceability` | What must always remain true. |
@@ -59,7 +63,7 @@ The views can be summarized as follows.
 Figure 4.1 summarizes the smallest design-to-runtime translation chain used throughout this chapter.
 
 Figure 4.1. Design-to-runtime translation keeps the approval path intact.
-The runtime view changes labels and execution detail, but it keeps policy evaluation and human approval explicit.
+> **Reader takeaway.** Translation is acceptable only when execution detail changes without hiding policy evaluation or human approval.
 
 ```mermaid
 flowchart LR
@@ -236,7 +240,7 @@ A stable source model is useful because later changes can be judged against it.
 If the target view changes but the source constraints do not, reviewers have a fixed point for comparison.
 That makes semantic drift easier to detect and deliberate approximation easier to justify.
 
-The running example is intentionally small enough that the source model can be read end to end.
+The running example is intentionally small enough that the source model can be read end-to-end.
 That size is a feature.
 It lets the reader see how translation discipline works before the book moves to larger systems.
 
@@ -265,3 +269,9 @@ That question sets up Chapter 05, where the book turns from translation between 
 1. Which invariant in your current system must survive the move from design view to runtime view.
 2. Where does one of your repository views preserve labels but not composition.
 3. Which translation in your workflow needs an explicit approximation note before it can be trusted.
+
+## Notes and Further Reading
+
+- Riehl is the strongest next stop if you want the formal account of functors after this chapter's engineering translation.
+- Fong and Spivak are especially useful here because they keep structure-preserving translation attached to real systems instead of to isolated notation.
+- Bass, Clements, and Kazman provide the architecture-view vocabulary that most closely parallels this chapter's concern with preserving meaning across specification, design, and runtime views.

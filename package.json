@@ -9,6 +9,7 @@
     "qa:examples": "python3 scripts/check-examples.py && npm run qa:examples:deep",
     "qa:examples:deep": "python3 scripts/collate-example-traces.py --report-dir qa-reports/examples",
     "qa": "npm run qa:core && npm run qa:examples",
+    "figures:render": "python3 scripts/render-publication-figures.py",
     "build:native": "bash scripts/check-native-build.sh",
     "build:podman": "bash scripts/check-podman-build.sh",
     "build:smoke": "bash scripts/check-build-smoke.sh",

@@ -77,6 +77,10 @@ def collect_public_facing_files() -> list[Path]:
     ]
     files.extend(sorted((ROOT / "src").glob("chapter-*/index.md")))
     files.extend(sorted((ROOT / "src" / "appendices").glob("*.md")))
+    files.extend(sorted((ROOT / "src" / "additional").glob("**/*.md")))
+    files.extend(sorted((ROOT / "src" / "parts").glob("**/*.md")))
+    files.extend(sorted((ROOT / "src" / "afterword").glob("**/*.md")))
+    files.extend(sorted((ROOT / "src" / "backmatter").glob("**/*.md")))
     return files
 
 

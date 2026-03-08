@@ -8,6 +8,7 @@ description: "Walk through a full design and delivery flow from problem framing 
 
 # Case Study: From Specification to AI-Assisted Implementation
 
+After nine chapters of local concepts, the method has to survive one continuous delivery story.
 This chapter demonstrates the full workflow from problem framing to delivery with explicit artifacts and review points.
 It uses the [running example](../../examples/common/policy-gated-change-review/README/) as one continuous artifact path from specification through verification and implementation.
 Read it with the [problem statement](../../examples/common/policy-gated-change-review/spec/problem-statement/), [artifact map](../../examples/common/policy-gated-change-review/design/artifact-map/), [orchestration diagram](../../examples/common/policy-gated-change-review/implementation/orchestration-diagram/), [execution trace](../../examples/common/policy-gated-change-review/implementation/execution-trace/), and [acceptance evidence](../../examples/common/policy-gated-change-review/verification/acceptance-evidence/).
@@ -39,7 +40,7 @@ Read it with the [problem statement](../../examples/common/policy-gated-change-r
 
 The case study matters because the earlier chapters were not meant to stay as isolated formal tools.
 They were meant to produce a workflow that a repository can actually use to govern AI-assisted change.
-Chapter 10 reconstructs that workflow end to end and shows which artifacts carry each design commitment.
+Chapter 10 reconstructs that workflow end-to-end and shows which artifacts carry each design commitment.
 
 ### Problem statement and system boundary
 
@@ -110,10 +111,20 @@ It records which claims about approval, synchronization, effect visibility, and 
 That matrix is deliberately lightweight.
 Its value comes from linking stable artifacts, not from replacing them with one master spreadsheet.
 
+Table 10.1. Artifact packet by delivery phase.
+
+| Delivery phase | Canonical artifact | Why the phase matters |
+| --- | --- | --- |
+| Specification | `problem-statement.md`, `acceptance-criteria.md` | Fixes the scope and non-goals that later automation must not rewrite. |
+| Design | `artifact-map.md`, `commutative-diagram.md`, `variation-paths.md` | States the structural claims and stable interfaces that later steps must preserve. |
+| Review | `reviewer-view.md`, `Decision Packet`, `review-checks.md` | Makes the human checkpoint explicit before approval. |
+| Implementation | `workflow.md`, `orchestration-diagram.md`, `effect-boundary.md` | Defines how governed automation and effectful execution may proceed. |
+| Verification and evidence | `traceability-matrix.md`, `execution-trace.md`, `acceptance-evidence.md` | Closes the loop from design claims to operational proof. |
+
 Figure 10.1 compresses the case study into the shortest reader-facing artifact path.
 
 Figure 10.1. End-to-end artifact path for the case study.
-The delivery argument is complete only when specification, design, review, implementation, and evidence remain connected as one path.
+> **Reader takeaway.** The delivery argument is complete only when specification, design, review, implementation, and evidence remain one connected path.
 
 ```mermaid
 flowchart LR
@@ -222,6 +233,8 @@ Acceptance can be justified by a small evidence bundle rather than by institutio
 Just as important, the example remains small enough to inspect manually.
 That matters because compositional design should sharpen engineering judgment before it becomes automation.
 If the example required a large platform before the reader could test the method, the method would be much weaker.
+Appendix D extends that claim by mapping the same backbone into deployment approval, customer-support escalation, and regulated change-management workflows.
+What remains invariant across those domains is the same bounded request, reviewable plan, synchronized packet, governed decision outcome, and post-approval evidence model.
 
 ### Where the method needs stronger tooling
 
@@ -246,3 +259,9 @@ The next stage is to harden selected parts of that path with stronger automation
 1. Which artifact in the case study would fail first if your team tried to skip a design step and rely on execution evidence alone.
 2. Which checkpoint in your current delivery process still lacks a clear packet equivalent to the running example's `Decision Packet`.
 3. Which validator or automation step would most improve confidence without changing the canonical artifact interfaces.
+
+## Notes and Further Reading
+
+- NIST SSDF and the generative-AI SSDF profile are the strongest practical companions if you want to harden the case study into a fuller delivery control program.
+- AI RMF and the Generative AI Profile extend the governance vocabulary around risk, monitoring, and disclosure beyond the repository scope of this case study.
+- SWE-bench is relevant here because it pressures AI-assisted repository workflows with issue-driven evaluation rather than with synthetic coding prompts alone.

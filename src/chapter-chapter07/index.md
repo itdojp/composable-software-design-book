@@ -8,7 +8,9 @@ description: "Structure integrations and migrations around shared boundaries, pr
 
 # Pullbacks and Pushouts for Integration and Migration
 
-This chapter applies categorical integration patterns to system joins, migrations, and controlled replacement.
+Chapter 06 made combination and variation explicit inside one governed workflow.
+This chapter moves to the harder problem of joining workflows across a shared boundary and replacing one subsystem with another without losing route semantics, provenance, or approval meaning.
+It applies categorical integration patterns to system joins, migrations, and controlled replacement.
 It uses the [shared boundary](../../examples/common/policy-gated-change-review/design/shared-boundary/), the [replacement plan](../../examples/common/policy-gated-change-review/design/replacement-plan/), and the [coherence failure artifact](../../examples/common/policy-gated-change-review/verification/coherence-failure/) to keep the formal vocabulary tied to repository artifacts.
 Use the [variation paths](../../examples/common/policy-gated-change-review/design/variation-paths/) and the [traceability matrix](../../examples/common/policy-gated-change-review/verification/traceability-matrix/) alongside this chapter.
 
@@ -47,6 +49,8 @@ The point is not to centralize every field in the repository.
 The point is to stabilize the smallest set of labels that reviewer, runtime, verification, and migration artifacts must agree on before they can be composed safely.
 
 The shared boundary can be summarized as follows.
+
+Table 7.1. Canonical shared-boundary elements.
 
 | Boundary element | Why it matters |
 | --- | --- |
@@ -99,7 +103,7 @@ If one side violates that contract, the right response is to narrow the join or 
 Figure 7.1 shows the constrained join that the shared boundary is supposed to permit.
 
 Figure 7.1. Constrained joins remain valid only through one preserved shared boundary.
-Reviewer and runtime artifacts may join only when they project the same route, scope, and policy meaning.
+> **Reader takeaway.** Integration is governed only when every joining branch projects the same route, scope, and policy meaning onto one shared boundary.
 
 ```mermaid
 flowchart LR
@@ -166,7 +170,7 @@ It would no longer preserve the boundary that made the migration governable.
 Figure 7.2 makes the replacement path visible before the chapter turns back to the pushout sketch.
 
 Figure 7.2. Controlled replacement stays anchored to one shared boundary.
-The new gateway is safe only when legacy and replacement outputs can be compared on the same route semantics.
+> **Reader takeaway.** Replacement is safe only when legacy and new outputs stay comparable on one preserved boundary during migration.
 
 ```mermaid
 flowchart LR
@@ -287,3 +291,9 @@ That conclusion sets up Chapter 08, where the book turns from integration bounda
 1. Which shared boundary in your current system is still too vague to support a constrained join.
 2. Which migration step in your repository is really changing approval meaning instead of only replacing an interface.
 3. Which lineage record would another engineer need in order to audit your latest cutover without reverse-engineering logs.
+
+## Notes and Further Reading
+
+- Riehl and Mac Lane provide the formal background for pullbacks and pushouts, but this chapter deliberately translates them into governed integration and migration decisions.
+- Bass, Clements, and Kazman help bridge these constructions back to real integration work because they keep views, interfaces, and quality tradeoffs explicit.
+- Evans is valuable here when the shared boundary is really a domain-language problem before it becomes a mapping or migration problem.

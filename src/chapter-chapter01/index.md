@@ -8,6 +8,7 @@ description: "Design the decision rights, artifacts, and control points that kee
 
 # Human and AI Responsibility Boundaries
 
+An AI assistant can draft a reviewable plan in seconds, but that speed is useless if nobody can say where proposal ends and accountable approval begins.
 This chapter defines the decision rights, artifacts, and control loops that keep AI-assisted work accountable.
 It uses the [policy-gated change review](../../examples/common/policy-gated-change-review/README/) to show how a `Change Request` becomes a `Review Plan` and then an `Approved Change`.
 The same artifact chain will anchor the formal chapters that follow.
@@ -46,6 +47,31 @@ The boundary determines who may transform an artifact, what evidence must exist,
 AI-assisted workflows often hide delegation inside prompts, tool wrappers, and merged automation.
 In the running example, one maintainer may write the original `Change Request`, an AI agent may draft the `Review Plan`, a policy engine may reject unsafe scope, and a reviewer may authorize the next step.
 If the repository records only the final diff, the team loses the boundary between proposal, evaluation, and approval.
+
+Figure 1.1 makes that separation visible before the chapter turns to the supporting artifacts.
+
+Figure 1.1. Responsibility boundaries separate decision artifacts from emitted evidence.
+> **Reader takeaway.** A trustworthy workflow keeps the approval outcome distinct from the evidence that later explains or audits it.
+
+```mermaid
+flowchart LR
+  CR[Change Request] -->|draft-review-plan| RP[Review Plan]
+  RP -->|synchronize-for-review| DP[Decision Packet]
+  DP -->|approve-or-return| AC[Approved Change]
+  DP -->|emit decision evidence| ADR[Approval Decision Record]
+  AC -->|dispatch-and-observe| ET[Execution Trace]
+  ET -->|assemble acceptance claim| AE[Acceptance Evidence]
+```
+
+Table 1.1. Canonical authority boundaries in the running example.
+
+| Artifact or boundary | Primary authority | Why the distinction matters |
+| --- | --- | --- |
+| `Change Request` | Request owner | Defines scope and constraints before automation expands them. |
+| `Review Plan` | Agent proposes, reviewer evaluates | Keeps delegated drafting separate from approval authority. |
+| `Decision Packet` | Workflow synchronization boundary | Prevents policy and evidence from reaching review as unrelated fragments. |
+| `Approved Change` | Human reviewer | Records the governed decision outcome. |
+| `Approval decision record`, `execution trace`, `acceptance evidence` | Workflow emits evidence after approval or execution | Explains what happened without redefining who accepted risk. |
 
 That loss creates three problems.
 The first is decision ambiguity, because the team cannot tell who accepted which risk.
@@ -209,6 +235,7 @@ When those criteria fail, later formal techniques will expose the failure more c
 
 When those criteria hold, the formal chapters become practical.
 They help the reader reason about preserved meaning instead of merely describing process steps.
+The next chapter starts that formal move by asking which artifacts and transformations are stable enough to model at all.
 
 ## Summary
 
@@ -221,3 +248,9 @@ They help the reader reason about preserved meaning instead of merely describing
 1. Which artifact in your current workflow marks the decision outcome, and which artifact records the evidence that justified that decision.
 2. Where does your current delivery path still blur the difference between policy evaluation and human approval.
 3. Which operational feedback signal should update the governing artifact set rather than only a prompt or script.
+
+## Notes and Further Reading
+
+- Bass, Clements, and Kazman's *Software Architecture in Practice* is useful here because responsibility boundaries become maintainable only when the artifact views and decision interfaces stay explicit.
+- NIST SSDF 1.1 and the SSDF community profile for generative AI are the closest operational counterparts to this chapter's approval, traceability, and evidence discipline.
+- The term `responsibility boundary` is a reader-facing phrase in this book, so readers looking for adjacent governance language will often find the best external bridge in AI RMF rather than in category theory textbooks.

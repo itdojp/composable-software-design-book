@@ -101,7 +101,7 @@ If a heading changes, verify the downstream links and navigation assumptions in 
 - Mermaid blocks are used when a compact reader-facing diagram is helpful inside a chapter.
   Repository artifacts may also hold the canonical longer-form diagram or workflow description.
 - Figure captions use the format `Figure N.M. Short declarative title.`
-  The next sentence states the intended reader takeaway.
+  The next line is a short `Reader takeaway` callout that teaches the reader how to read the figure.
 
 These conventions are intentionally lightweight.
 They are meant to make the book easier to maintain, review, and translate without turning every chapter into typesetting work.

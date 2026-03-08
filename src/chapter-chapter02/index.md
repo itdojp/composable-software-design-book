@@ -8,6 +8,7 @@ description: "Model systems, interfaces, and transformations with the core vocab
 
 # Objects, Morphisms, and Composition
 
+Once a workflow has explicit responsibility boundaries, the next question is which parts of that workflow are stable enough to deserve names and laws.
 This chapter introduces the core compositional vocabulary for modeling systems, interfaces, and transformations.
 It reuses the [minimal example](../../examples/minimal/policy-gated-change-review/README/) and the [common running example](../../examples/common/policy-gated-change-review/README/) so that the formal language remains tied to reviewable repository artifacts.
 Use [Appendix A](../appendices/appendix-a/) for notation and [Appendix B](../appendices/appendix-b/) for canonical definitions.
@@ -57,6 +58,29 @@ At this stage, they are usually implementation detail rather than the stable uni
 The right object choice is therefore driven by boundaries and invariants.
 If a unit carries a distinct contract, can survive a handoff, and supports a separate review question, it is a strong candidate for object status.
 If it exists only as a transient implementation convenience, it usually should not anchor the model.
+
+Figure 2.1 shows the smallest object-and-morphism chain that the rest of the book reuses.
+
+Figure 2.1. The running example becomes a model only when stable artifacts and named transformations are explicit.
+> **Reader takeaway.** Objects give the approval path durable boundaries, and morphisms state what each step must preserve across those boundaries.
+
+```mermaid
+flowchart LR
+  CR[Change Request] -->|draft-review-plan| RP[Review Plan]
+  RP -->|human-approval| AC[Approved Change]
+  CR -->|policy-gated-approval| AC
+```
+
+Table 2.1. Minimal modeling map for the running example.
+
+| Model element | Running example instance | Preserved design question |
+| --- | --- | --- |
+| Object | `Change Request` | What scope and constraints define the requested change. |
+| Object | `Review Plan` | What bounded transformation the workflow proposes for review. |
+| Object | `Approved Change` | Which governed outcome the reviewer may authorize. |
+| Morphism | `draft-review-plan` | Whether the request becomes a reviewable plan without losing intent. |
+| Morphism | `human-approval` | Whether the synchronized plan may cross into approved state. |
+| Composite morphism | `human-approval ◦ draft-review-plan` | Whether the longer path preserves the same approval meaning as the direct claim. |
 
 ### Objects as stable interfaces and states
 
@@ -225,6 +249,7 @@ If the model is built from stable contracts and preserved transformations, the t
 The test is whether the design claim survives a tool substitution.
 If one agent platform is replaced with another and the preserved artifact path remains the same, the object and morphism model was probably well chosen.
 If the model collapses immediately, it was describing mechanism rather than structure.
+With those object and morphism choices in place, Chapter 03 can ask the next harder question of whether multiple paths through the model still preserve one coherent meaning.
 
 ## Summary
 
@@ -237,3 +262,9 @@ If the model collapses immediately, it was describing mechanism rather than stru
 1. Which unit in your current workflow is stable enough to model as an object, and which one only looks stable because of tool habit.
 2. Which transformation in your process is really partial even though the team talks about it as if it were total.
 3. Which composed path in your repository deserves one explicit invariant before it grows further.
+
+## Notes and Further Reading
+
+- Awodey's *Category Theory* gives the most compact formal continuation from this chapter's definitions, while Riehl's *Category Theory in Context* provides a more example-driven route into the same vocabulary.
+- Fong and Spivak remain the closest match to this chapter's intent because they keep objects, morphisms, and composition connected to real engineered systems.
+- Evans's *Domain-Driven Design* is a valuable companion when object choice in this chapter overlaps with bounded contexts, canonical models, and interface language discipline.

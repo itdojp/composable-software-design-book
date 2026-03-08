@@ -26,6 +26,16 @@ function expectRegex(text, regex, message, errors) {
   }
 }
 
+function flattenNavItems(items) {
+  if (!Array.isArray(items)) {
+    return [];
+  }
+  if (items.length > 0 && Array.isArray(items[0].items)) {
+    return items.flatMap((group) => group.items || []);
+  }
+  return items;
+}
+
 function main() {
   const errors = [];
 
@@ -66,9 +76,13 @@ function main() {
     }
 
     const allNavItems = [
-      ...(nav.introduction || []),
-      ...(nav.chapters || []),
-      ...(nav.appendices || []),
+      ...flattenNavItems(nav.additional),
+      ...flattenNavItems(nav.introduction),
+      ...flattenNavItems(nav.chapters),
+      ...flattenNavItems(nav.resources),
+      ...flattenNavItems(nav.appendices),
+      ...flattenNavItems(nav.backmatter),
+      ...flattenNavItems(nav.afterword),
     ];
 
     if (allNavItems.length === 0) {

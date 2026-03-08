@@ -25,6 +25,21 @@
         </div>
 
         {% if navigation %}
+            {% if navigation.additional %}
+            <div class="toc-section">
+                <h4 class="toc-section-title">Front Matter</h4>
+                <ul class="toc-list">
+                    {% for item in navigation.additional %}
+                    <li class="toc-item">
+                        <a href="{{ item.path | relative_url }}" class="toc-link {% if page.url == item.path or page.url contains item.path %}active{% endif %}">
+                            {{ item.title }}
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+
             {% if navigation.introduction %}
             <div class="toc-section">
                 <h4 class="toc-section-title">Introduction</h4>
@@ -43,6 +58,26 @@
             {% if navigation.chapters %}
             <div class="toc-section">
                 <h4 class="toc-section-title">Chapters</h4>
+                {% assign grouped_chapters = false %}
+                {% if navigation.chapters[0] and navigation.chapters[0].items %}
+                    {% assign grouped_chapters = true %}
+                {% endif %}
+                {% if grouped_chapters %}
+                    {% for group in navigation.chapters %}
+                    <div class="toc-subsection">
+                        <h5 class="toc-section-title">{{ group.part }}</h5>
+                        <ul class="toc-list">
+                            {% for chapter in group.items %}
+                            <li class="toc-item toc-chapter">
+                                <a href="{{ chapter.path | relative_url }}" class="toc-link {% if page.url == chapter.path or page.url contains chapter.path %}active{% endif %}">
+                                    {{ chapter.title }}
+                                </a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endfor %}
+                {% else %}
                 <ul class="toc-list">
                     {% for chapter in navigation.chapters %}
                     <li class="toc-item toc-chapter">
@@ -52,21 +87,7 @@
                     </li>
                     {% endfor %}
                 </ul>
-            </div>
-            {% endif %}
-
-            {% if navigation.additional %}
-            <div class="toc-section">
-                <h4 class="toc-section-title">Additional</h4>
-                <ul class="toc-list">
-                    {% for item in navigation.additional %}
-                    <li class="toc-item">
-                        <a href="{{ item.path | relative_url }}" class="toc-link {% if page.url == item.path or page.url contains item.path %}active{% endif %}">
-                            {{ item.title }}
-                        </a>
-                    </li>
-                    {% endfor %}
-                </ul>
+                {% endif %}
             </div>
             {% endif %}
 
@@ -90,6 +111,21 @@
                 <h4 class="toc-section-title">Appendices</h4>
                 <ul class="toc-list">
                     {% for item in navigation.appendices %}
+                    <li class="toc-item">
+                        <a href="{{ item.path | relative_url }}" class="toc-link {% if page.url == item.path or page.url contains item.path %}active{% endif %}">
+                            {{ item.title }}
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+
+            {% if navigation.backmatter %}
+            <div class="toc-section">
+                <h4 class="toc-section-title">Backmatter</h4>
+                <ul class="toc-list">
+                    {% for item in navigation.backmatter %}
                     <li class="toc-item">
                         <a href="{{ item.path | relative_url }}" class="toc-link {% if page.url == item.path or page.url contains item.path %}active{% endif %}">
                             {{ item.title }}

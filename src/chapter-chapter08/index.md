@@ -8,7 +8,8 @@ description: "Design concurrent workflows, toolchains, and review loops with seq
 
 # Monoidal Categories and String Diagrams
 
-This chapter models concurrent workflows and coordination structures with sequential and parallel composition.
+Integration discipline is not enough once several governed branches run at the same time.
+This chapter models concurrent workflows and coordination structures with sequential and parallel composition so the reader can tell the difference between safe parallel preparation and faster ambiguity.
 It uses the [orchestration diagram](../../examples/common/policy-gated-change-review/implementation/orchestration-diagram/) and the [synchronization boundary](../../examples/common/policy-gated-change-review/implementation/synchronization-boundary/) to keep monoidal language tied to repository artifacts.
 Read it with the [implementation workflow](../../examples/common/policy-gated-change-review/implementation/workflow/) and the [reviewer view](../../examples/common/policy-gated-change-review/review/reviewer-view/).
 
@@ -71,7 +72,7 @@ Branches may proceed side by side, but they do not gain authority by racing to t
 Figure 8.1 makes that governed fan-out explicit before the chapter turns to the string-diagram reading.
 
 Figure 8.1. Running example fan-out and synchronization boundary.
-The workflow permits parallel preparation only while one explicit fan-in restores a single review packet.
+> **Reader takeaway.** Parallel work is acceptable only when one explicit fan-in restores a single review packet before authority can advance.
 
 ```mermaid
 flowchart LR
@@ -86,6 +87,15 @@ This is also where teams often over-parallelize.
 If a faster path can substitute for a slower path without a named rule, the design has confused throughput with correctness.
 The right question is not "Can this run concurrently?"
 The right question is "What invariant lets these branches be rejoined without changing the approval meaning?"
+
+Table 8.1. Branch responsibilities at the synchronization boundary.
+
+| Branch or boundary | Primary job | Failure if underspecified |
+| --- | --- | --- |
+| `evaluate-policy` | Preserve route and policy semantics for the current plan revision. | Review proceeds on stale or ambiguous policy meaning. |
+| `collect-evidence-links` | Preserve the evidence set required for human judgment. | The packet reaches review without inspectable support. |
+| `synchronize-for-review` | Rejoin branch outputs under one change identity and one revision. | Parallel work produces fragments instead of one governed decision packet. |
+| `approve-or-return` | Convert one synchronized packet into a governed decision. | Preparation work silently becomes authorization. |
 
 ## Monoidal structure in systems and teams
 
@@ -266,3 +276,9 @@ Chapter 09 builds on this point by making the effect boundaries of those branche
 1. Which branch in your current orchestration still claims independence without a stable shared input wire.
 2. Which synchronization boundary in your workflow is doing too much implicit reconstruction.
 3. Which morphism alone should be allowed to create the next authoritative state in your parallel flow.
+
+## Notes and Further Reading
+
+- Fong and Spivak are the most relevant mathematical follow-up here because they keep monoidal reasoning tied to compositional systems and diagrams that engineers can actually read.
+- ReAct is a useful contrast case because it highlights how reasoning-and-acting loops become risky when their coordination boundaries are implicit.
+- Bass, Clements, and Kazman complement this chapter by supplying architectural language for coordination cost, shared resources, and failure isolation.

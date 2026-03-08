@@ -8,7 +8,9 @@ description: "Coordinate alternative views of the same system without breaking c
 
 # Natural Transformations and View Changes
 
-This chapter explains how multiple views of one design can evolve without losing semantic coherence.
+Chapter 04 argued that translation between views must preserve structure.
+This chapter takes the next step by asking how several legitimate views can change without splintering the same approval story into incompatible narratives.
+It explains how multiple views of one design can evolve without losing semantic coherence.
 It uses the [design diagram](../../examples/common/policy-gated-change-review/design/commutative-diagram/), the [reviewer view](../../examples/common/policy-gated-change-review/review/reviewer-view/), and the [runtime view](../../examples/common/policy-gated-change-review/runtime/runtime-view/) to make natural transformations concrete.
 Use the [traceability matrix](../../examples/common/policy-gated-change-review/verification/traceability-matrix/) to keep the same claim visible across views.
 
@@ -110,7 +112,7 @@ The naturality check is therefore a design review rule, not only a formal defini
 Figure 5.1 shows the smallest reviewer-facing square that Chapter 05 expects to commute.
 
 Figure 5.1. Reviewer-facing naturality square for one approval move.
-Packaging for review and projecting the decision outcome must preserve the same approval meaning as the design path.
+> **Reader takeaway.** A new view is coherent only if packaging for review preserves the same approval meaning as the design path it summarizes.
 
 ```mermaid
 flowchart LR
@@ -133,6 +135,14 @@ project-review-outcome : Approved Change -> Review Outcome
 
 The square says the reviewer-facing transformation must preserve the same approval meaning that the design view assigns to `human approval`.
 If packaging a `Decision Packet` changes who may authorize the outcome or hides the policy distinction, the square no longer commutes in the engineering sense that this chapter needs.
+
+Table 5.1. Practical tests for a natural reviewer-facing change.
+
+| Review question | Healthy signal | Warning signal |
+| --- | --- | --- |
+| Does the new view preserve approval authority. | `approve-or-return` still expresses the same human checkpoint. | Approval appears to move into packaging or tool-mediated preprocessing. |
+| Does the new view preserve policy meaning. | Route and policy labels remain recoverable from the packet. | Important policy distinctions disappear behind a simplified summary. |
+| Does the new view preserve traceability. | Claim IDs and artifact references still map to the same design path. | The new view cannot be reconciled with the traceability matrix without extra explanation. |
 
 ## Refactoring without semantic drift
 
@@ -251,3 +261,9 @@ That sets up Chapter 06, where the book moves from coherent view change to selec
 1. Which view in your current system most often claims to be equivalent while hiding a different approval meaning.
 2. Which path in your repository would you use as the naturality test for a claimed presentation-only change.
 3. Where should a traceability update occur if a reviewer-facing facade changes but the runtime path is supposed to stay equivalent.
+
+## Notes and Further Reading
+
+- Awodey and Riehl supply the formal account of natural transformations, but this chapter intentionally recasts that account as a repository review question.
+- Evans's *Domain-Driven Design* is a useful practical companion because many failed view changes collapse first at the level of language discipline and boundary meaning.
+- The terms `reviewer view` and `runtime view` are engineering-facing labels rather than standard textbook phrasing, so Appendix C remains the main bridge back to the formal literature.

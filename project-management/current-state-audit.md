@@ -9,6 +9,11 @@
 - The repository now has a full first-draft publication path from specification through AI-assisted implementation, including orchestration, effect, execution-trace, and acceptance-evidence artifacts.
 - All drafted chapters now include the reader-facing chapter packet sections required for the first publication milestone: learning goals, prerequisites, key concepts, running example linkage, summary, and review prompts.
 - The theory chapters now include compact formal bridge blocks so the categorical title of each chapter pays off in reader-visible structure tied to the running example.
+- The book package now includes front matter, part openers, afterword, and reader-facing backmatter so the manuscript reads as a book rather than as a repository outline.
+- Appendix D now provides three transfer caselets that show how the method carries into deployment approval, support escalation, and regulated change-management domains.
+- The manuscript now includes chapter-end notes and further reading blocks, a chapter-to-reference map, and an Appendix C chapter guide so source guidance is chapter-aware rather than appendix-only.
+- A publication-grade figure program now exists for the highest-value diagrams, including generated screen and print assets under `assets/figures/publication/`.
+- The repository now has a stable house style guide and editorial decision log for capitalization, hyphenation, figure caption policy, and recurring chapter-level prose decisions.
 - The glossary, editorial term base, and Japanese support map now cover the stable late-chapter running-example vocabulary and the clarified approval-evidence model.
 - Appendix A now provides a stable notation, figure-caption, and naming reference for the manuscript.
 - Appendix C now provides an annotated follow-on reading set for category theory, software architecture, lightweight formal methods, AI governance, and agent evaluation.
@@ -24,20 +29,22 @@
 | --- | --- |
 | Book metadata and chapter order | `book-config.json` |
 | Public landing page | `index.md` |
-| Canonical English manuscript | `src/chapter-*/index.md` and `src/appendices/*.md` |
+| Canonical English manuscript | `src/additional/**/index.md`, `src/parts/**/index.md`, `src/chapter-*/index.md`, `src/appendices/*.md`, `src/backmatter/**/index.md`, and `src/afterword/**/index.md` |
 | English TOC source | `project-management/toc_en.md` |
 | Chapter-to-file mapping | `project-management/chapter-map.md` |
+| Chapter-to-reference mapping | `project-management/chapter-reference-map.md` |
 | Running example decision | `project-management/running-example.md` |
 | Supporting policy decisions | `project-management/claim-id-visibility-decision.md`, `project-management/build-support-policy.md`, `project-management/variation-artifact-decision.md`, and `project-management/non-natural-counterexample-decision.md` |
+| Figure inventory and asset policy | `project-management/figure-program.md` and `assets/figures/publication/` |
 | Release notes and history | `project-management/release-v0.1.0-rc1.md` and `CHANGELOG.md` |
 | Running example artifacts | `examples/minimal/policy-gated-change-review/` and `examples/common/policy-gated-change-review/` |
-| Editorial rules | `docs/style/*.md` and `project-management/editorial-checklist.md` |
+| Editorial rules | `docs/style/*.md`, `project-management/editorial-checklist.md`, and `project-management/editorial-style-decision-log.md` |
 | Translation workflow and rules | `project-management/translation_workflow.md` and `project-management/translation_rules.md` |
 | Editorial term base | `project-management/term-base.csv` |
 | Repository term map | `TERMS.yml` |
 | JSON schemas for structured QA input | `schemas/*.schema.json` |
 | Translation input area | `manuscript/ja/` |
-| QA and build entry points | `scripts/check_translation_inputs.py`, `scripts/qa.sh`, `scripts/check-manuscript-structure.py`, `scripts/check-examples.py`, `scripts/collate-example-traces.py`, `scripts/validate-github-pages.js`, and `package.json` |
+| QA and build entry points | `scripts/check_translation_inputs.py`, `scripts/qa.sh`, `scripts/check-manuscript-structure.py`, `scripts/check-examples.py`, `scripts/collate-example-traces.py`, `scripts/render-publication-figures.py`, `scripts/validate-github-pages.js`, and `package.json` |
 
 ## Assumptions
 

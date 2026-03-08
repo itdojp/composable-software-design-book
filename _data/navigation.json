@@ -5,46 +5,87 @@
       "path": "/src/chapter-introduction/"
     }
   ],
+  "additional": [
+    {
+      "title": "Preface",
+      "path": "/src/additional/preface/"
+    },
+    {
+      "title": "How to Use This Book",
+      "path": "/src/additional/how-to-use-this-book/"
+    },
+    {
+      "title": "Who This Book Is For",
+      "path": "/src/additional/who-this-book-is-for/"
+    }
+  ],
   "chapters": [
     {
-      "title": "Chapter 01. Human and AI Responsibility Boundaries",
-      "path": "/src/chapter-chapter01/"
+      "part": "Part I. Foundations and Responsibility Boundaries",
+      "items": [
+        {
+          "title": "Part I Opener. Foundations and Responsibility Boundaries",
+          "path": "/src/parts/part-i/"
+        },
+        {
+          "title": "Chapter 01. Human and AI Responsibility Boundaries",
+          "path": "/src/chapter-chapter01/"
+        },
+        {
+          "title": "Chapter 02. Objects, Morphisms, and Composition",
+          "path": "/src/chapter-chapter02/"
+        },
+        {
+          "title": "Chapter 03. Diagrams and Commutativity",
+          "path": "/src/chapter-chapter03/"
+        }
+      ]
     },
     {
-      "title": "Chapter 02. Objects, Morphisms, and Composition",
-      "path": "/src/chapter-chapter02/"
+      "part": "Part II. Structure-Preserving Translation and Integration",
+      "items": [
+        {
+          "title": "Part II Opener. Structure-Preserving Translation and Integration",
+          "path": "/src/parts/part-ii/"
+        },
+        {
+          "title": "Chapter 04. Functors and Model Translation",
+          "path": "/src/chapter-chapter04/"
+        },
+        {
+          "title": "Chapter 05. Natural Transformations and View Changes",
+          "path": "/src/chapter-chapter05/"
+        },
+        {
+          "title": "Chapter 06. Universality with Products and Coproducts",
+          "path": "/src/chapter-chapter06/"
+        },
+        {
+          "title": "Chapter 07. Pullbacks and Pushouts for Integration and Migration",
+          "path": "/src/chapter-chapter07/"
+        }
+      ]
     },
     {
-      "title": "Chapter 03. Diagrams and Commutativity",
-      "path": "/src/chapter-chapter03/"
-    },
-    {
-      "title": "Chapter 04. Functors and Model Translation",
-      "path": "/src/chapter-chapter04/"
-    },
-    {
-      "title": "Chapter 05. Natural Transformations and View Changes",
-      "path": "/src/chapter-chapter05/"
-    },
-    {
-      "title": "Chapter 06. Universality with Products and Coproducts",
-      "path": "/src/chapter-chapter06/"
-    },
-    {
-      "title": "Chapter 07. Pullbacks and Pushouts for Integration and Migration",
-      "path": "/src/chapter-chapter07/"
-    },
-    {
-      "title": "Chapter 08. Monoidal Categories and String Diagrams",
-      "path": "/src/chapter-chapter08/"
-    },
-    {
-      "title": "Chapter 09. Monads, Kleisli Composition, and Effect Boundaries",
-      "path": "/src/chapter-chapter09/"
-    },
-    {
-      "title": "Chapter 10. Case Study: From Specification to AI-Assisted Implementation",
-      "path": "/src/chapter-chapter10/"
+      "part": "Part III. Coordination, Effects, and Delivery",
+      "items": [
+        {
+          "title": "Part III Opener. Coordination, Effects, and Delivery",
+          "path": "/src/parts/part-iii/"
+        },
+        {
+          "title": "Chapter 08. Monoidal Categories and String Diagrams",
+          "path": "/src/chapter-chapter08/"
+        },
+        {
+          "title": "Chapter 09. Monads, Kleisli Composition, and Effect Boundaries",
+          "path": "/src/chapter-chapter09/"
+        },
+        {
+          "title": "Chapter 10. Case Study: From Specification to AI-Assisted Implementation",
+          "path": "/src/chapter-chapter10/"
+        }
+      ]
     }
   ],
   "appendices": [
@@ -59,6 +100,30 @@
     {
       "title": "Appendix C. References and Further Study",
       "path": "/src/appendices/appendix-c/"
+    },
+    {
+      "title": "Appendix D. Transfer Cases Across Domains",
+      "path": "/src/appendices/appendix-d/"
+    }
+  ],
+  "backmatter": [
+    {
+      "title": "Subject Index",
+      "path": "/src/backmatter/subject-index/"
+    },
+    {
+      "title": "List of Figures and Tables",
+      "path": "/src/backmatter/list-of-figures/"
+    }
+  ],
+  "afterword": [
+    {
+      "title": "About the Author and ITDO",
+      "path": "/src/afterword/about-the-author-and-itdo/"
+    },
+    {
+      "title": "Acknowledgments",
+      "path": "/src/afterword/acknowledgments/"
     }
   ]
 }

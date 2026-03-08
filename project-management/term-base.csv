@@ -56,7 +56,7 @@ policy-evaluated plan,ポリシー評価済み計画,software-design,A runtime-s
 execution-ready change,実行準備済み変更,software-design,A runtime-state translation of the approved change that is ready for controlled dispatch,Core Chapter 04 and Chapter 09 artifact
 evidence bundle,証跡バンドル,software-design,A collected set of evidence links and supporting material synchronized into the decision packet,Core Chapter 08 and Chapter 10 artifact
 bounded delegation,境界付き委任,ai-agents,A delegation pattern that limits agent authority by task scope and policy,Core workflow rule
-AI agent,AIエージェント,ai-agents,A software actor that plans or acts using model driven reasoning and tools,Core domain term
+AI agent,AIエージェント,ai-agents,A software actor that plans or acts using model-driven reasoning and tools,Core domain term
 agentic workflow,エージェント型ワークフロー,ai-agents,A workflow that includes agent planning action and handoff steps,Used in the title and TOC
 tool call,ツール呼び出し,ai-agents,An invocation of an external capability by an agent or orchestrator,Central to Chapter 09
 human review gate,人手レビューゲート,ai-agents,A mandatory human approval step before higher risk actions continue,Supports responsibility boundaries

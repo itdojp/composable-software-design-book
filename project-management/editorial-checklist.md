@@ -3,9 +3,11 @@
 ## Reference Set
 
 - Chapter template: `docs/style/chapter-template.md`
+- House style guide: `docs/style/house-style.md`
 - Notation guide: `docs/style/notation.md`
 - Diagram guide: `docs/style/diagram-style.md`
 - Terminology guide: `docs/style/terminology.md`
+- Editorial style decision log: `project-management/editorial-style-decision-log.md`
 - Term base: `project-management/term-base.csv`
 - English TOC: `project-management/toc_en.md`
 
@@ -27,6 +29,7 @@
 
 - Formal notation follows `docs/style/notation.md`.
 - Diagram captions and invariants follow `docs/style/diagram-style.md`.
+- Numbered figures use one `Reader takeaway` callout line between caption and figure body.
 - Claim IDs, when used, appear only in matrix-backed captions or chapter-level review callouts.
 - Code, math, and pseudocode are visually distinct and tagged consistently.
 
@@ -39,5 +42,6 @@
 ## Content Progress Checks
 
 - Learning goals, prerequisites, key concepts, running example linkage, summary, and review prompts are present in drafted public chapters unless an explicit editorial exception is recorded.
+- Notes and Further Reading are present in drafted public chapters.
 - Running example linkage uses the canonical `policy-gated-change-review` example and points readers to the relevant artifact or example landing page.
 - QA and translation validation scripts still pass after the edit set.

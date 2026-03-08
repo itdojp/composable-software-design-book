@@ -16,6 +16,7 @@ REQUIRED_PACKET_HEADINGS = [
     "## Running example linkage",
     "## Summary",
     "## Review prompts",
+    "## Notes and Further Reading",
 ]
 MANUSCRIPT_FILES = {
     "introduction": ROOT / "src" / "chapter-introduction" / "index.md",
@@ -31,6 +32,8 @@ MANUSCRIPT_FILES = {
     "chapter10": ROOT / "src" / "chapter-chapter10" / "index.md",
 }
 FIGURE_REQUIRED = {
+    "chapter01": 1,
+    "chapter02": 2,
     "chapter03": 3,
     "chapter04": 4,
     "chapter05": 5,

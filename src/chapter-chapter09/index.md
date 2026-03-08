@@ -8,7 +8,9 @@ description: "Make effects explicit so agent orchestration remains safe, reviewa
 
 # Monads, Kleisli Composition, and Effect Boundaries
 
-This chapter makes effects explicit so AI-assisted orchestration remains safe, reviewable, and testable.
+Chapter 08 made coordination visible.
+This chapter addresses what coordination alone cannot solve: prompts, tool calls, state changes, and dispatch steps that cross effect boundaries and therefore cannot be reasoned about as if they were pure artifact moves.
+It makes effects explicit so AI-assisted orchestration remains safe, reviewable, and testable.
 It uses the [effect boundary](../../examples/common/policy-gated-change-review/implementation/effect-boundary/), the [execution trace](../../examples/common/policy-gated-change-review/implementation/execution-trace/), and the [acceptance evidence artifact](../../examples/common/policy-gated-change-review/verification/acceptance-evidence/) to connect categorical language to repository operations.
 Read it with the [orchestration diagram](../../examples/common/policy-gated-change-review/implementation/orchestration-diagram/) from Chapter 08.
 
@@ -88,7 +90,7 @@ That is why the [effect boundary](../../examples/common/policy-gated-change-revi
 Figure 9.1 shows the governed effect chain that the trace and acceptance artifacts must later justify.
 
 Figure 9.1. Governed effect chain for the running example.
-Each effectful step preserves one reviewed context instead of dropping authority and evidence between tool calls.
+> **Reader takeaway.** Effectful steps stay governable only when reviewed context, authority, and evidence survive each tool-mediated move.
 
 ```mermaid
 flowchart LR
@@ -102,6 +104,15 @@ This separation has an immediate engineering benefit.
 If the pure core says evidence is incomplete, the repository can reject the packet without needing to replay external effects.
 If the effectful shell fails, the team knows which external dependency or irreversible step was involved.
 The design becomes easier to test because not every correctness question requires live tool execution.
+
+Table 9.1. Dominant effect classes in the running example.
+
+| Effectful step | Effect class | Required emitted evidence |
+| --- | --- | --- |
+| `draft-plan-with-agent` | Prompt and model invocation | Plan revision identity, prompt context reference, generated plan output |
+| `evaluate-policy` | Repository read plus policy engine evaluation | Policy classification, policy source, evaluation timestamp |
+| `record-review-decision` | Human decision plus durable write | Approval decision record, route, reviewer identity |
+| `dispatch-execution` | External state change | Execution trace entry, dispatch target, resulting operational status |
 
 ### Reading unit and bind in engineering terms
 
@@ -263,3 +274,9 @@ The last chapter uses specification, diagrams, view translations, orchestration 
 1. Which step in your current workflow changes authority or external state without a visible effect boundary.
 2. Which effectful chain in your repository still drops context between tool calls or retries.
 3. Which escape hatch in your system should be treated as a governance event rather than as an operational convenience.
+
+## Notes and Further Reading
+
+- Mac Lane and Awodey provide the formal background for monads and compositional effect handling, but this chapter deliberately uses them to reason about governed operational envelopes.
+- NIST AI RMF and the SSDF community profile for generative AI are the best practical companions when you need a control vocabulary for effectful tool use, retries, and human checkpoints.
+- ReAct is again a useful comparison because it shows the performance appeal of tool-mediated reasoning while leaving this chapter's stronger effect boundary discipline to the reader.

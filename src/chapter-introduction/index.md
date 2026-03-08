@@ -8,7 +8,8 @@ description: "Purpose, audience, scope, and reading strategy for the book."
 
 # Introduction: Why Compositional Design Matters
 
-This introduction frames the book as a practical guide to compositional reasoning for AI-assisted engineering.
+Many AI-assisted teams can explain which tool ran, but they cannot explain why one generated path was allowed to alter production-bound software.
+This introduction frames the book around that gap between automation detail and governable design.
 Its running example is the [policy-gated change review](../../examples/common/policy-gated-change-review/README/), which follows a `Change Request` through a `Review Plan` to an `Approved Change`.
 Use [Appendix A](../appendices/appendix-a/) for notation and [Appendix B](../appendices/appendix-b/) for canonical terms.
 
@@ -34,6 +35,20 @@ Use [Appendix A](../appendices/appendix-a/) for notation and [Appendix B](../app
 
 - Read the [common running example](../../examples/common/policy-gated-change-review/README/) as the canonical artifact path for the full manuscript.
 - Inspect the [minimal example](../../examples/minimal/policy-gated-change-review/README/) when you want the shortest possible statement of the approval claim before later chapters add richer structure.
+
+Figure 0.1 gives the reader one compact map of the governed path before the later chapters formalize each boundary.
+
+Figure 0.1. Compositional design keeps authority attached to artifacts instead of to opaque automation.
+> **Reader takeaway.** The book's core promise is that higher-stakes AI-assisted work should cross visible artifact, approval, and evidence boundaries rather than one opaque automation boundary.
+
+```mermaid
+flowchart LR
+  CR[Change Request] -->|draft bounded proposal| RP[Review Plan]
+  RP -->|synchronize evidence| DP[Decision Packet]
+  DP -->|human approval| AC[Approved Change]
+  AC -->|dispatch governed execution| ERC[Execution-Ready Change]
+  ERC -->|emit trace and evidence| AE[Acceptance Evidence]
+```
 
 ## Why AI-assisted engineering needs stronger structure
 
@@ -164,6 +179,15 @@ If you already know the formal vocabulary but need the workflow, read the runnin
 In every reading path, inspect the [minimal example](../../examples/minimal/policy-gated-change-review/README/) early.
 It gives the shortest route to the book's central claim that a policy-gated approval path can be modeled, reviewed, and reused rather than treated as informal process lore.
 
+Table 0.1. Reading paths by immediate engineering need.
+
+| Immediate need | Read first | Then continue |
+| --- | --- | --- |
+| Responsibility and governance | Introduction, Chapter 01, Chapter 03 | Chapter 09, then Chapter 10 |
+| Architecture and modeling | Introduction, Chapter 01, Chapter 02 | Chapter 03, then Chapter 04 |
+| Workflow coordination and automation | Introduction, Chapter 01, Chapter 08 | Chapter 09, then Chapter 10 |
+| End-to-end adoption | Introduction through Chapter 03 in order | Continue sequentially through Chapter 10 |
+
 ## Conventions used throughout the book
 
 The manuscript uses a small number of editorial conventions so that readers can move between chapters and repository artifacts without translation overhead.
@@ -195,6 +219,7 @@ When a term such as `Change Request` or `effect boundary` is introduced, the boo
 The same discipline applies to review vocabulary.
 A `policy gate` is not interchangeable with a `human review gate`, because they assign different kinds of authority.
 That distinction is one of the book's main design claims.
+It also leads directly into Chapter 01, which turns that claim into an explicit responsibility model rather than a general warning about AI risk.
 
 ## Summary
 
@@ -207,3 +232,9 @@ That distinction is one of the book's main design claims.
 1. Which hidden transformations in your current workflow would need explicit artifacts before you could review them confidently.
 2. Which reading path in this introduction best matches your immediate engineering problem.
 3. Which artifact labels in the running example must stay stable if later chapters are to remain reviewable.
+
+## Notes and Further Reading
+
+- Fong and Spivak's *An Invitation to Applied Category Theory* is the closest external match to this introduction because it treats composition as a practical modeling move rather than as detached formalism.
+- Bass, Clements, and Kazman's *Software Architecture in Practice* is the strongest bridge for readers who want to connect this introduction's artifact discipline to views, interfaces, and decision documentation.
+- NIST AI RMF 1.0 and the Generative AI Profile provide the broader organizational risk vocabulary behind this chapter's repository-centered governance framing.

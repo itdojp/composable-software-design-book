@@ -23,6 +23,7 @@ Contributor workflow and local build guidance are documented in [`CONTRIBUTING.m
 - `npm run qa:examples`
 - `npm run qa:examples:deep`
 - `npm run qa`
+- `npm run figures:render`
 - `npm run build`
 - `npm run build:native`
 - `npm run build:podman`
@@ -43,6 +44,16 @@ Contributor workflow and local build guidance are documented in [`CONTRIBUTING.m
 - Next open questions: [`project-management/next-open-questions.md`](project-management/next-open-questions.md)
 - Release candidate note: [`project-management/release-v0.1.0-rc1.md`](project-management/release-v0.1.0-rc1.md)
 - Changelog: [`CHANGELOG.md`](CHANGELOG.md)
+- Chapter-to-reference map: [`project-management/chapter-reference-map.md`](project-management/chapter-reference-map.md)
+- Figure program: [`project-management/figure-program.md`](project-management/figure-program.md)
+
+## Editorial And Style
+
+- House style: `docs/style/house-style.md`
+- Chapter template: `docs/style/chapter-template.md`
+- Diagram style: `docs/style/diagram-style.md`
+- Terminology guide: `docs/style/terminology.md`
+- Editorial checklist: `project-management/editorial-checklist.md`
 
 ## QA
 
@@ -52,6 +63,7 @@ It also runs the repository-local manuscript structure check for chapter packets
 Run `npm run qa:examples` to execute manifest schema validation, lightweight example checks, and generated trace collation for the running example.
 The generated example reports are written to `qa-reports/examples/`.
 Use `npm run qa` as the default local gate.
+Run `npm run figures:render` when the publication-grade redraws under `assets/figures/publication/` need to be regenerated from the canonical figure definitions.
 
 ## Preview And Publish
 
