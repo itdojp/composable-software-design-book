@@ -87,6 +87,19 @@ It records which claims about approval, synchronization, effect visibility, and 
 That matrix is deliberately lightweight.
 Its value comes from linking stable artifacts, not from replacing them with one master spreadsheet.
 
+Figure 10.1. End-to-end artifact path for the case study.
+The delivery argument is complete only when specification, design, review, implementation, and evidence remain connected as one path.
+
+```mermaid
+flowchart LR
+  PS[Problem Statement] --> ACR[Acceptance Criteria]
+  ACR --> DAS[Design Artifact Set]
+  DAS --> DP[Decision Packet]
+  DP --> ACH[Approved Change]
+  ACH --> ET[Execution Trace]
+  ET --> AE[Acceptance Evidence]
+```
+
 This is the chapter's central case-study lesson.
 A strong artifact set does not mean more documents for their own sake.
 It means each important claim has one stable place to live and a short path to the other places that depend on it.

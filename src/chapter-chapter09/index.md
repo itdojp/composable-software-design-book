@@ -62,6 +62,17 @@ Prompting an agent, reading repository metadata, querying a policy engine, recor
 Each one changes what later steps are allowed to believe.
 That is why the [effect boundary](../../examples/common/policy-gated-change-review/implementation/effect-boundary/) keeps the pure core small and names the shell explicitly.
 
+Figure 9.1. Governed effect chain for the running example.
+Each effectful step preserves one reviewed context instead of dropping authority and evidence between tool calls.
+
+```mermaid
+flowchart LR
+  RP[Review Plan] -->|draft-plan-with-agent| RP2[Reviewed Plan Revision]
+  RP2 -->|evaluate-policy| PEP[Policy-Evaluated Plan]
+  PEP -->|record-review-decision| AC[Approved Change]
+  AC -->|dispatch-execution| ECS[Executable Change Set]
+```
+
 This separation has an immediate engineering benefit.
 If the pure core says evidence is incomplete, the repository can reject the packet without needing to replay external effects.
 If the effectful shell fails, the team knows which external dependency or irreversible step was involved.
