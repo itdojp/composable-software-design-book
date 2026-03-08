@@ -35,6 +35,9 @@ See [Chapter 02](../chapter-chapter02/).
 **Commutative diagram.** A diagram in which different paths are claimed to preserve the same result or meaning.
 See [Chapter 03](../chapter-chapter03/).
 
+**Traceability matrix.** A table that links requirements, design choices, verification checks, and implementation evidence across related artifacts.
+See [Chapter 03](../chapter-chapter03/) and [Chapter 10](../chapter-chapter10/).
+
 ### Functors, natural transformations, and universal constructions
 
 **Functor.** A structure-preserving translation between categories or design views.

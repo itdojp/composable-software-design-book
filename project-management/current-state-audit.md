@@ -4,7 +4,7 @@
 
 - Repository bootstrap, metadata, TOC definition, translation workflow, QA and CI, publishing setup, editorial guidance, and running example selection are complete.
 - Navigation, publishing configuration, and example manifests are already wired into the repository structure.
-- The current milestone moves the manuscript from skeleton chapters to publication-quality English content for the Introduction, Chapter 01, and Chapter 02.
+- The current milestone moves the manuscript from skeleton chapters to publication-quality English content for the Introduction, Chapter 01, Chapter 02, and Chapter 03.
 
 ## Canonical source paths
 
@@ -34,7 +34,7 @@
 
 ## Concrete blockers
 
-- None for the Introduction through Chapter 02 publication milestone.
+- None for the Introduction through Chapter 03 publication milestone.
 
 ## Operational caveats
 
