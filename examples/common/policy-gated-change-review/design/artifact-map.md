@@ -32,6 +32,9 @@ This artifact map defines the canonical files that support the running example.
 The map keeps the example small enough to audit manually.
 It also mirrors the specification to implementation path used in Chapter 10.
 `Approved Change` remains the single canonical approval artifact for this example, so no separate approval-record file is introduced at this stage.
+`Approved Change` records the decision outcome only.
+It is not the execution-evidence artifact for the workflow.
+Execution evidence belongs in `implementation/execution-trace.md` and `verification/acceptance-evidence.md`.
 `runtime/runtime-view.md` is the lightweight runtime proxy introduced for Chapter 04 model translation work.
 `review/reviewer-view.md` is the reviewer-facing projection introduced for Chapter 05 view-change work.
 `design/variation-paths.md` is the design artifact introduced for Chapter 06 combination and variation work.

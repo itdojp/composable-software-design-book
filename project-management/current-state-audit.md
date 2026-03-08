@@ -11,6 +11,7 @@
 - Appendix C now provides an annotated follow-on reading set for category theory, software architecture, lightweight formal methods, AI governance, and agent evaluation.
 - CI now runs repository QA and a separate native Ruby/Bundler build job, so the canonical primary build path remains under continuous verification.
 - Example QA now includes manifest schema validation, generated trace collation, and section-level checks for the Chapter 08 through Chapter 10 artifacts.
+- The pre-Chapter-03 decision bundle is fully absorbed into the current Chapter 03 manuscript, contributor workflow, and running-example artifact set, so no stage-specific blocker remains.
 
 ## Canonical source paths
 
