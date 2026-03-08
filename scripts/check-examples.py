@@ -277,11 +277,13 @@ def main() -> int:
         acceptance_evidence_text = acceptance_evidence_path.read_text(encoding="utf-8")
         for needle in [
             "Approved Change",
+            "approval decision record",
             "implementation/execution-trace.md",
             "Change Identity",
             "Plan Revision",
             "PGCR-06",
             "dispatch-execution",
+            "Execution result or return-for-rework note",
         ]:
             if needle not in acceptance_evidence_text:
                 errors.append(f"acceptance evidence is missing required reference: {needle}")
@@ -291,13 +293,18 @@ def main() -> int:
 
     readme_text = (ROOT / "README.md").read_text(encoding="utf-8")
     index_text = (ROOT / "index.md").read_text(encoding="utf-8")
-    required_links = [
-        "examples/minimal/policy-gated-change-review/",
-        "examples/common/policy-gated-change-review/",
+    readme_required_links = [
+        "examples/minimal/policy-gated-change-review/README.md",
+        "examples/common/policy-gated-change-review/README.md",
     ]
-    for link in required_links:
+    index_required_links = [
+        "examples/minimal/policy-gated-change-review/README/",
+        "examples/common/policy-gated-change-review/README/",
+    ]
+    for link in readme_required_links:
         if link not in readme_text:
             errors.append(f"README.md is missing quickstart link: {link}")
+    for link in index_required_links:
         if link not in index_text:
             errors.append(f"index.md is missing quickstart link: {link}")
 

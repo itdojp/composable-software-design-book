@@ -9,7 +9,7 @@ description: "Purpose, audience, scope, and reading strategy for the book."
 # Introduction: Why Compositional Design Matters
 
 This introduction frames the book as a practical guide to compositional reasoning for AI-assisted engineering.
-Its running example is the [policy-gated change review](../../examples/common/policy-gated-change-review/), which follows a `Change Request` through a `Review Plan` to an `Approved Change`.
+Its running example is the [policy-gated change review](../../examples/common/policy-gated-change-review/README/), which follows a `Change Request` through a `Review Plan` to an `Approved Change`.
 Use [Appendix A](../appendices/appendix-a/) for notation and [Appendix B](../appendices/appendix-b/) for canonical terms.
 
 ## Learning goals
@@ -32,8 +32,8 @@ Use [Appendix A](../appendices/appendix-a/) for notation and [Appendix B](../app
 
 ## Running example linkage
 
-- Read the [common running example](../../examples/common/policy-gated-change-review/) as the canonical artifact path for the full manuscript.
-- Inspect the [minimal example](../../examples/minimal/policy-gated-change-review/) when you want the shortest possible statement of the approval claim before later chapters add richer structure.
+- Read the [common running example](../../examples/common/policy-gated-change-review/README/) as the canonical artifact path for the full manuscript.
+- Inspect the [minimal example](../../examples/minimal/policy-gated-change-review/README/) when you want the shortest possible statement of the approval claim before later chapters add richer structure.
 
 ## Why AI-assisted engineering needs stronger structure
 
@@ -105,7 +105,7 @@ That stance matters more here than mathematical fluency.
 
 A reader who can already review a risky change request will have enough background to follow the argument.
 A reader who wants a pure mathematics treatment of category theory will find the formal content selective by design.
-The center of the book is software design for the AI-agent era, not category theory for its own sake.
+The center of the book is software design for the AI agent era, not category theory for its own sake.
 
 ## What the reader will gain
 
@@ -161,7 +161,7 @@ If your immediate concern is AI governance, read this Introduction, Chapter 01, 
 If your immediate concern is architectural modeling, read this Introduction, Chapter 01, Chapter 02, Chapter 03, and Chapter 04 before moving to the later chapters.
 
 If you already know the formal vocabulary but need the workflow, read the running example materials alongside Chapter 01 and Chapter 10.
-In every reading path, inspect the [minimal example](../../examples/minimal/policy-gated-change-review/) early.
+In every reading path, inspect the [minimal example](../../examples/minimal/policy-gated-change-review/README/) early.
 It gives the shortest route to the book's central claim that a policy-gated approval path can be modeled, reviewed, and reused rather than treated as informal process lore.
 
 ## Conventions used throughout the book

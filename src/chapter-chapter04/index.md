@@ -56,6 +56,29 @@ The views can be summarized as follows.
 | Design | `Change Request`, `Review Plan`, `Policy Check`, `Approved Change` | `derive review plan`, `policy check`, `human approval` | How is the constraint realized structurally. |
 | Runtime | `Pending Request`, `Planned Review`, `Policy-Evaluated Plan`, `Execution-Ready Change` | `classify-request`, `evaluate-policy`, `request-human-approval` | What executes, and where is the evidence emitted. |
 
+Figure 4.1 summarizes the smallest design-to-runtime translation chain used throughout this chapter.
+
+Figure 4.1. Design-to-runtime translation keeps the approval path intact.
+The runtime view changes labels and execution detail, but it keeps policy evaluation and human approval explicit.
+
+```mermaid
+flowchart LR
+  subgraph DV[Design view]
+    CR[Change Request] -->|policy check| PC[Policy Check]
+    PC -->|satisfied| RP[Review Plan]
+    RP -->|human approval| AC[Approved Change]
+  end
+  subgraph RV[Runtime view]
+    PR[Pending Request] -->|classify-request| PL[Planned Review]
+    PL -->|evaluate-policy| PEP[Policy-Evaluated Plan]
+    PEP -->|request-human-approval| ERC[Execution-Ready Change]
+  end
+  CR -.translate.-> PR
+  PC -.translate.-> PEP
+  RP -.translate.-> PL
+  AC -.translate.-> ERC
+```
+
 The chapter treats each view as a category only to the extent that objects and morphisms can be mapped coherently.
 This is not an invitation to remodel every operational detail.
 It is a way to reason about whether one view still preserves the structure that another view cares about.
@@ -98,7 +121,7 @@ When that collapse happens, the translation has stopped being structure preservi
 
 The stronger claim is not only that individual objects correspond.
 It is that composed paths correspond as well.
-If the design view says `policy check` followed by `human approval` yields a legitimate approval path, the runtime view should preserve the same composed meaning in execution-time terms.
+If the design view says the policy-checked path reaches approval only after a satisfied policy result and human approval, the runtime view should preserve the same composed meaning in execution-time terms.
 
 This is where functorial thinking becomes practical.
 A translation that preserves objects but not composition is still misleading.
@@ -111,10 +134,11 @@ For reviews and audits, that loss is often more dangerous than a mislabeled node
 Let F map the design view to the runtime view.
 
 F(Change Request) = Pending Request
+F(Policy Check) = Policy-Evaluated Plan
 F(Review Plan) = Planned Review
 F(Approved Change) = Execution-Ready Change
 
-F(human approval ◦ derive review plan)
+F(human approval ◦ satisfied ◦ policy check)
   = request-human-approval ◦ evaluate-policy ◦ classify-request
 ```
 

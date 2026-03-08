@@ -26,8 +26,8 @@ The pure core compares scope, route rules, evidence completeness, and acceptance
 | `draft-plan-with-agent` | Prompt + model invocation | LLM runtime and prompt context | Plan revision note |
 | `evaluate-policy` | Tool call + repository read | Policy engine and repository metadata | Policy evaluation record |
 | `collect-evidence-links` | Repository read + I/O | Diff snapshot, test outputs, linked artifacts | Evidence bundle |
-| `record-review-decision` | Human approval + audit write | Reviewer action and audit store | Approval decision record |
-| `dispatch-execution` | External tool + state change | Execution environment | Execution trace entry |
+| `record-review-decision` | Human approval + audit write | Reviewer action and audit store | approval decision record |
+| `dispatch-execution` | External tool + state change | Execution environment | Execution report |
 
 ## Boundary Rules
 

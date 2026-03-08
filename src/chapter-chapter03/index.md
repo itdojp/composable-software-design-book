@@ -45,8 +45,10 @@ The argument matters when a team needs to compare multiple paths, preserve one i
 
 Prose can describe a workflow step by step, but it often hides the relation between alternative paths.
 A diagram makes those paths visible at once.
-That visibility matters because the review question is usually not "What happens next."
-It is "Do these different routes preserve the same meaning."
+That visibility matters because the review question is usually not "What happens next?"
+It is "Do these different routes preserve the same meaning?"
+
+Figure 3.1 shows the smallest version of that question in the running example.
 
 Figure 3.1. Minimal approval commutativity claim.
 The two approval paths are intended to preserve the same approval meaning.
@@ -94,6 +96,8 @@ A diagram commutes when different compatible paths preserve the same intended me
 In this book, that meaning is always tied to explicit artifacts and an explicit invariant.
 The diagram does not commute because the arrows look symmetrical.
 It commutes only if the workflow preserves what the design says should be preserved.
+
+Figure 3.2 expands the same claim into the repository-level artifact path.
 
 Figure 3.2. Repository-level approval claim with explicit policy dependency (`PGCR-01`).
 The direct approval edge is valid only if the policy check preserves request meaning and review intent.

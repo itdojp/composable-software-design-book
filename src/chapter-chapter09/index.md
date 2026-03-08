@@ -85,6 +85,8 @@ Prompting an agent, reading repository metadata, querying a policy engine, recor
 Each one changes what later steps are allowed to believe.
 That is why the [effect boundary](../../examples/common/policy-gated-change-review/implementation/effect-boundary/) keeps the pure core small and names the shell explicitly.
 
+Figure 9.1 shows the governed effect chain that the trace and acceptance artifacts must later justify.
+
 Figure 9.1. Governed effect chain for the running example.
 Each effectful step preserves one reviewed context instead of dropping authority and evidence between tool calls.
 

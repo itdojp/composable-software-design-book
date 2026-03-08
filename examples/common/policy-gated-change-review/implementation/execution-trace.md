@@ -31,7 +31,7 @@ It also carries the emitted `approval decision record` that documents the review
 | `evaluate-policy` | Review Plan | Tool call + repository read | Policy-Evaluated Plan | Policy engine | Policy evaluation record |
 | `collect-evidence-links` | Review Plan | Repository read + I/O | Evidence Bundle | Evidence collector | Evidence bundle |
 | `synchronize-for-review` | Policy-Evaluated Plan + Evidence Bundle | Synchronization | Decision Packet | Review orchestrator | Synchronization boundary check |
-| `record-review-decision` | Decision Packet | Human approval + audit write | Approved Change | Assigned reviewer | Approval decision record |
+| `record-review-decision` | Decision Packet | Human approval + audit write | Approved Change | Assigned reviewer | approval decision record |
 | `dispatch-execution` | Approved Change | External tool + state change | Executable Change Set | Implementation executor | Execution report |
 
 ## Trace Rules

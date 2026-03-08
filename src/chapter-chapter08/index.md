@@ -68,6 +68,8 @@ Policy evaluation can classify risk while evidence collection gathers links beca
 That is the practical reading of tensor-like composition in this chapter.
 Branches may proceed side by side, but they do not gain authority by racing to the end.
 
+Figure 8.1 makes that governed fan-out explicit before the chapter turns to the string-diagram reading.
+
 Figure 8.1. Running example fan-out and synchronization boundary.
 The workflow permits parallel preparation only while one explicit fan-in restores a single review packet.
 
@@ -82,8 +84,8 @@ flowchart LR
 
 This is also where teams often over-parallelize.
 If a faster path can substitute for a slower path without a named rule, the design has confused throughput with correctness.
-The right question is not "Can this run concurrently."
-The right question is "What invariant lets these branches be rejoined without changing the approval meaning."
+The right question is not "Can this run concurrently?"
+The right question is "What invariant lets these branches be rejoined without changing the approval meaning?"
 
 ## Monoidal structure in systems and teams
 

@@ -101,6 +101,18 @@ The combined requirements can be summarized as follows.
 | `Policy Result` | The reviewer must know which automated constraints have already been checked. |
 | `Evidence Links` | The reviewer must be able to inspect the supporting diff, logs, or proofs. |
 
+Figure 6.1 shows the product-like boundary that makes the approval packet recoverable instead of opaque.
+
+Figure 6.1. Product-like review context keeps all three approval inputs recoverable.
+The packet remains canonical only when scope, policy, and evidence can be projected back out.
+
+```mermaid
+flowchart LR
+  CRC[Combined Review Context] -->|scope-of| RS[Requested Scope]
+  CRC -->|policy-status-of| PR[Policy Result]
+  CRC -->|evidence-links-of| EL[Evidence Links]
+```
+
 **Formal bridge.**
 
 ```text
@@ -171,6 +183,18 @@ The route split is concrete rather than stylistic.
 | --- | --- | --- |
 | `Standard Review Path` | Default repository scope and satisfied policy status without exceptions | Human approval remains mandatory before `Approved Change`. |
 | `Escalated Review Path` | Protected files, elevated operational risk, or policy exceptions | Human approval remains mandatory before `Approved Change`. |
+
+Figure 6.2 makes the route split explicit before the chapter returns to the formal coproduct sketch.
+
+Figure 6.2. Explicit review routes converge on one approval meaning.
+Route variation stays visible at the boundary without creating a second approval artifact.
+
+```mermaid
+flowchart LR
+  SRP[Standard Review Path] -->|enter-standard| RR[Review Route]
+  ERP[Escalated Review Path] -->|enter-escalated| RR
+  RR -->|approve-or-return| AC[Approved Change]
+```
 
 **Formal bridge.**
 

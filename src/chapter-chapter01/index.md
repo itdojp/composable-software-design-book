@@ -9,7 +9,7 @@ description: "Design the decision rights, artifacts, and control points that kee
 # Human and AI Responsibility Boundaries
 
 This chapter defines the decision rights, artifacts, and control loops that keep AI-assisted work accountable.
-It uses the [policy-gated change review](../../examples/common/policy-gated-change-review/) to show how a `Change Request` becomes a `Review Plan` and then an `Approved Change`.
+It uses the [policy-gated change review](../../examples/common/policy-gated-change-review/README/) to show how a `Change Request` becomes a `Review Plan` and then an `Approved Change`.
 The same artifact chain will anchor the formal chapters that follow.
 It also distinguishes the decision outcome from the emitted evidence that later justifies acceptance and audit.
 

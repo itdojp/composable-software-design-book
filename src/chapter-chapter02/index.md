@@ -9,7 +9,7 @@ description: "Model systems, interfaces, and transformations with the core vocab
 # Objects, Morphisms, and Composition
 
 This chapter introduces the core compositional vocabulary for modeling systems, interfaces, and transformations.
-It reuses the [minimal example](../../examples/minimal/policy-gated-change-review/) and the [common running example](../../examples/common/policy-gated-change-review/) so that the formal language remains tied to reviewable repository artifacts.
+It reuses the [minimal example](../../examples/minimal/policy-gated-change-review/README/) and the [common running example](../../examples/common/policy-gated-change-review/README/) so that the formal language remains tied to reviewable repository artifacts.
 Use [Appendix A](../appendices/appendix-a/) for notation and [Appendix B](../appendices/appendix-b/) for canonical definitions.
 
 ## Learning goals

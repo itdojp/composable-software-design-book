@@ -121,6 +121,9 @@ run_core() {
   log "Running placeholder check"
   python3 "${ROOT}/scripts/check-placeholders.py" > "${REPORT_DIR}/check-placeholders.json"
 
+  log "Running manuscript structure check"
+  python3 "${ROOT}/scripts/check-manuscript-structure.py" > "${REPORT_DIR}/check-manuscript-structure.json"
+
   cat > "${REPORT_DIR}/summary.txt" <<EOF
 QA mode: ${MODE}
 Repository root: ${ROOT}
@@ -133,6 +136,7 @@ Reports:
 - check-markdown-structure.json
 - check-textlint.json
 - check-placeholders.json
+- check-manuscript-structure.json
 EOF
 
   log "Core QA completed"

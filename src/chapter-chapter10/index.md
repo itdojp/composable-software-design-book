@@ -9,7 +9,7 @@ description: "Walk through a full design and delivery flow from problem framing 
 # Case Study: From Specification to AI-Assisted Implementation
 
 This chapter demonstrates the full workflow from problem framing to delivery with explicit artifacts and review points.
-It uses the [running example](../../examples/common/policy-gated-change-review/) as one continuous artifact path from specification through verification and implementation.
+It uses the [running example](../../examples/common/policy-gated-change-review/README/) as one continuous artifact path from specification through verification and implementation.
 Read it with the [problem statement](../../examples/common/policy-gated-change-review/spec/problem-statement/), [artifact map](../../examples/common/policy-gated-change-review/design/artifact-map/), [orchestration diagram](../../examples/common/policy-gated-change-review/implementation/orchestration-diagram/), [execution trace](../../examples/common/policy-gated-change-review/implementation/execution-trace/), and [acceptance evidence](../../examples/common/policy-gated-change-review/verification/acceptance-evidence/).
 
 ## Learning goals
@@ -32,7 +32,7 @@ Read it with the [problem statement](../../examples/common/policy-gated-change-r
 
 ## Running example linkage
 
-- Read the [running example](../../examples/common/policy-gated-change-review/) as the canonical packet for this case study rather than as a separate appendix.
+- Read the [running example](../../examples/common/policy-gated-change-review/README/) as the canonical artifact path for this case study rather than as a separate appendix.
 - Keep the [artifact map](../../examples/common/policy-gated-change-review/design/artifact-map/), [execution trace](../../examples/common/policy-gated-change-review/implementation/execution-trace/), and [acceptance evidence](../../examples/common/policy-gated-change-review/verification/acceptance-evidence/) visible while following the chapter.
 
 ## Framing the case study
@@ -109,6 +109,8 @@ The [traceability matrix](../../examples/common/policy-gated-change-review/verif
 It records which claims about approval, synchronization, effect visibility, and evidence can be traced from specification to implementation.
 That matrix is deliberately lightweight.
 Its value comes from linking stable artifacts, not from replacing them with one master spreadsheet.
+
+Figure 10.1 compresses the case study into the shortest reader-facing artifact path.
 
 Figure 10.1. End-to-end artifact path for the case study.
 The delivery argument is complete only when specification, design, review, implementation, and evidence remain connected as one path.

@@ -12,8 +12,10 @@
 - The glossary, editorial term base, and Japanese support map now cover the stable late-chapter running-example vocabulary and the clarified approval-evidence model.
 - Appendix A now provides a stable notation, figure-caption, and naming reference for the manuscript.
 - Appendix C now provides an annotated follow-on reading set for category theory, software architecture, lightweight formal methods, AI governance, and agent evaluation.
+- The repository now has an explicit `v0.1.0-rc1` release-candidate note and changelog entry for stabilization review.
 - CI now runs repository QA and a separate native Ruby/Bundler build job, so the canonical primary build path remains under continuous verification.
 - Example QA now includes manifest schema validation, generated trace collation, and section-level checks for the Chapter 08 through Chapter 10 artifacts.
+- Core QA now includes a repository-local manuscript structure check for chapter packets and reader-facing figure captions in Chapters 03 through 10.
 - The pre-Chapter-03 decision bundle is fully absorbed into the current Chapter 03 manuscript, contributor workflow, and running-example artifact set, so no stage-specific blocker remains.
 
 ## Canonical source paths
@@ -27,6 +29,7 @@
 | Chapter-to-file mapping | `project-management/chapter-map.md` |
 | Running example decision | `project-management/running-example.md` |
 | Supporting policy decisions | `project-management/claim-id-visibility-decision.md`, `project-management/build-support-policy.md`, `project-management/variation-artifact-decision.md`, and `project-management/non-natural-counterexample-decision.md` |
+| Release notes and history | `project-management/release-v0.1.0-rc1.md` and `CHANGELOG.md` |
 | Running example artifacts | `examples/minimal/policy-gated-change-review/` and `examples/common/policy-gated-change-review/` |
 | Editorial rules | `docs/style/*.md` and `project-management/editorial-checklist.md` |
 | Translation workflow and rules | `project-management/translation_workflow.md` and `project-management/translation_rules.md` |
@@ -34,7 +37,7 @@
 | Repository term map | `TERMS.yml` |
 | JSON schemas for structured QA input | `schemas/*.schema.json` |
 | Translation input area | `manuscript/ja/` |
-| QA and build entry points | `scripts/check_translation_inputs.py`, `scripts/qa.sh`, `scripts/check-examples.py`, `scripts/collate-example-traces.py`, `scripts/validate-github-pages.js`, and `package.json` |
+| QA and build entry points | `scripts/check_translation_inputs.py`, `scripts/qa.sh`, `scripts/check-manuscript-structure.py`, `scripts/check-examples.py`, `scripts/collate-example-traces.py`, `scripts/validate-github-pages.js`, and `package.json` |
 
 ## Assumptions
 
@@ -46,7 +49,7 @@
 
 ## Concrete blockers
 
-- None for the current full-draft stabilization milestone.
+- None for the current `v0.1.0-rc1` stabilization milestone.
 
 ## Operational caveats
 

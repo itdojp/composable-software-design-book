@@ -99,23 +99,36 @@ If the source model follows a morphism and then changes view, the result should 
 The order of those operations may differ, but the preserved meaning should not.
 
 For the running example, consider the move from `Review Plan` toward approval.
-The reviewer view interprets that move as forming a `Decision Packet` and then reaching `Review Outcome`.
-The runtime view interprets it as policy evaluation followed by an execution-ready state.
+The reviewer-facing square changes view by packaging a `Decision Packet` and then reaching `Review Outcome`.
+The runtime view remains a second comparison point, but Figure 5.1 isolates the smallest reviewer-facing naturality claim.
 The transformation is natural only if both views still preserve the same approval meaning and the same boundary between policy evaluation and human judgment.
 
 This is the practical reading of naturality.
 A view change is coherent when it does not silently alter what the workflow claims to mean.
 The naturality check is therefore a design review rule, not only a formal definition.
 
+Figure 5.1 shows the smallest reviewer-facing square that Chapter 05 expects to commute.
+
+Figure 5.1. Reviewer-facing naturality square for one approval move.
+Packaging for review and projecting the decision outcome must preserve the same approval meaning as the design path.
+
+```mermaid
+flowchart LR
+  RP[Review Plan] -->|human approval| AC[Approved Change]
+  RP -->|package-for-review| DP[Decision Packet]
+  DP -->|approve-or-return| RO[Review Outcome]
+  AC -->|project-review-outcome| RO
+```
+
 **Formal bridge.**
 
 ```text
-η_ApprovedChange ◦ human approval
-  = approve-or-return ◦ η_ReviewPlan
+project-review-outcome ◦ human approval
+  = approve-or-return ◦ package-for-review
 
 where
-η_ReviewPlan : Review Plan -> Decision Packet
-η_ApprovedChange : Approved Change -> Review Outcome
+package-for-review : Review Plan -> Decision Packet
+project-review-outcome : Approved Change -> Review Outcome
 ```
 
 The square says the reviewer-facing transformation must preserve the same approval meaning that the design view assigns to `human approval`.

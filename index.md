@@ -38,8 +38,8 @@ Read Chapter 10 after the core chapters to see the method applied end to end.
 
 ## Quickstart
 
-Start with the [minimal example](examples/minimal/policy-gated-change-review/) to see the smallest reusable chain of objects, morphisms, and a diagram.
-Continue with the [common running example](examples/common/policy-gated-change-review/) to inspect the specification, design, verification, and implementation artifacts that the book reuses across chapters.
+Start with the [minimal example](examples/minimal/policy-gated-change-review/README/) to see the smallest reusable chain of objects, morphisms, and a diagram.
+Continue with the [common running example](examples/common/policy-gated-change-review/README/) to inspect the specification, design, verification, and implementation artifacts that the book reuses across chapters.
 
 ## Part I. Foundations and Responsibility Boundaries
 

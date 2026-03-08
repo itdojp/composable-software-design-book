@@ -41,11 +41,14 @@ Contributor workflow and local build guidance are documented in [`CONTRIBUTING.m
 
 - Current state audit: [`project-management/current-state-audit.md`](project-management/current-state-audit.md)
 - Next open questions: [`project-management/next-open-questions.md`](project-management/next-open-questions.md)
+- Release candidate note: [`project-management/release-v0.1.0-rc1.md`](project-management/release-v0.1.0-rc1.md)
+- Changelog: [`CHANGELOG.md`](CHANGELOG.md)
 
 ## QA
 
 Run `npm run qa:core` before opening a pull request.
 This command fetches the current `book-formatter` QA tooling into `.cache/book-formatter`, runs the core checks, and writes reports to `qa-reports/core/`.
+It also runs the repository-local manuscript structure check for chapter packets and reader-facing figure coverage.
 Run `npm run qa:examples` to execute manifest schema validation, lightweight example checks, and generated trace collation for the running example.
 The generated example reports are written to `qa-reports/examples/`.
 Use `npm run qa` as the default local gate.
@@ -63,8 +66,8 @@ GitHub Actions continuously verifies the canonical primary path through a separa
 
 ## Running Example Quickstart
 
-Start with the [minimal example](examples/minimal/policy-gated-change-review/) to see one object-morphism-diagram chain.
-Then move to the [common running example](examples/common/policy-gated-change-review/) to follow the full specification-to-implementation artifact path.
+Start with the [minimal example](examples/minimal/policy-gated-change-review/README.md) to see one object-morphism-diagram chain.
+Then move to the [common running example](examples/common/policy-gated-change-review/README.md) to follow the full specification-to-implementation artifact path.
 
 ## English-first authoring policy
 

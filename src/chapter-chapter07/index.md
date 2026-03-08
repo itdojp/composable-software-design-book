@@ -96,6 +96,18 @@ The [shared boundary artifact](../../examples/common/policy-gated-change-review/
 It lets the team state clearly which reviewer evidence, runtime evidence, and verification evidence may be treated as one integrated context.
 If one side violates that contract, the right response is to narrow the join or redesign the boundary.
 
+Figure 7.1 shows the constrained join that the shared boundary is supposed to permit.
+
+Figure 7.1. Constrained joins remain valid only through one preserved shared boundary.
+Reviewer and runtime artifacts may join only when they project the same route, scope, and policy meaning.
+
+```mermaid
+flowchart LR
+  RV[Reviewer View] -->|project boundary| SB[Shared Boundary]
+  PEP[Policy-Evaluated Plan] -->|project boundary| SB
+  SB -->|permit constrained join| DP[Decision Packet]
+```
+
 **Formal bridge.**
 
 ```text
@@ -150,6 +162,18 @@ It carries `Change Identity`, `Repository Scope`, `Policy Classification`, and `
 If the new gateway changes any of those without an explicit mapping, the replacement has already stepped outside the pushout discipline.
 The result might still compile.
 It would no longer preserve the boundary that made the migration governable.
+
+Figure 7.2 makes the replacement path visible before the chapter turns back to the pushout sketch.
+
+Figure 7.2. Controlled replacement stays anchored to one shared boundary.
+The new gateway is safe only when legacy and replacement outputs can be compared on the same route semantics.
+
+```mermaid
+flowchart LR
+  LRM[Legacy Route Mapper] -->|legacy fields| SB[Shared Boundary]
+  RM[Replacement Mapper] -->|mapped fields| SB
+  SB -->|preserved interface| URG[Unified Review Gateway]
+```
 
 **Formal bridge.**
 

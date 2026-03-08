@@ -186,19 +186,19 @@ See [Introduction](../chapter-introduction/).
 See [Chapter 01](../chapter-chapter01/).
 
 **Policy gate.** A rule-driven checkpoint that blocks progress until stated policy conditions hold.
-See [Chapter 01](../chapter-chapter01/) and the [running example](../../examples/common/policy-gated-change-review/).
+See [Chapter 01](../chapter-chapter01/) and the [running example](../../examples/common/policy-gated-change-review/README/).
 
 **Human review gate.** A mandatory human approval step before a higher-risk action or workflow transition may continue.
 See [Chapter 01](../chapter-chapter01/).
 
 **Change Request.** The artifact that states the requested outcome, scope, and constraints before delegated work begins.
-See [Chapter 01](../chapter-chapter01/) and the [running example](../../examples/common/policy-gated-change-review/).
+See [Chapter 01](../chapter-chapter01/) and the [running example](../../examples/common/policy-gated-change-review/README/).
 
 **Review Plan.** The artifact that scopes delegated work, names required checks, and records what still requires human judgment.
-See [Chapter 01](../chapter-chapter01/) and the [running example](../../examples/common/policy-gated-change-review/).
+See [Chapter 01](../chapter-chapter01/) and the [running example](../../examples/common/policy-gated-change-review/README/).
 
 **Approved Change.** The canonical decision outcome artifact state reached after required policy checks and human approval are both satisfied.
-See [Chapter 01](../chapter-chapter01/) and the [running example](../../examples/common/policy-gated-change-review/).
+See [Chapter 01](../chapter-chapter01/) and the [running example](../../examples/common/policy-gated-change-review/README/).
 
 **Approval decision record.** The emitted evidence item written at the review decision step that names the reviewer, route, packet, and outcome.
 See [Chapter 01](../chapter-chapter01/), [Chapter 09](../chapter-chapter09/), and [Chapter 10](../chapter-chapter10/).

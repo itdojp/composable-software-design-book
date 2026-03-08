@@ -15,12 +15,19 @@ DEFAULT_REPORT_DIR = ROOT / "qa-reports" / "examples"
 TRACEABILITY_PATH = COMMON_DIR / "verification" / "traceability-matrix.md"
 ACCEPTANCE_EVIDENCE_PATH = COMMON_DIR / "verification" / "acceptance-evidence.md"
 EXECUTION_TRACE_PATH = COMMON_DIR / "implementation" / "execution-trace.md"
+EFFECT_BOUNDARY_PATH = COMMON_DIR / "implementation" / "effect-boundary.md"
 COMMON_MANIFEST_PATH = COMMON_DIR / "manifest.json"
 KNOWN_SYMBOLIC_REFS = {
     "Approved Change",
+    "approval decision record",
     "Execution result or return-for-rework note",
     "Change Identity",
     "Plan Revision",
+    "Plan revision note",
+    "Policy evaluation record",
+    "Evidence bundle",
+    "Synchronization boundary check",
+    "Execution report",
 }
 
 
@@ -163,6 +170,7 @@ def build_summary_markdown(report: dict) -> str:
         f"- Trace steps collated: {len(report['execution_trace']['steps'])}",
         f"- Required evidence rows: {len(report['acceptance_evidence']['required_evidence'])}",
         f"- Claim coverage rows: {len(report['acceptance_evidence']['claim_coverage'])}",
+        f"- Effectful steps collated: {len(report['effect_boundary']['steps'])}",
         "",
         "## Consistency",
         "",
@@ -170,6 +178,10 @@ def build_summary_markdown(report: dict) -> str:
         f"- Missing artifact reference: {len(consistency['missing_artifact_reference'])}",
         f"- Dangling references: {len(consistency['dangling_references'])}",
         f"- Unexpected unmapped trace items: {len(consistency['unexpected_unmapped_trace_items'])}",
+        f"- Missing required evidence refs: {len(consistency['missing_required_evidence_reference'])}",
+        f"- Missing effect trace steps: {len(consistency['missing_effect_trace_step'])}",
+        f"- Effect class mismatches: {len(consistency['effect_class_mismatch'])}",
+        f"- Evidence link mismatches: {len(consistency['effect_evidence_mismatch'])}",
     ]
     return "\n".join(lines) + "\n"
 
@@ -184,7 +196,7 @@ def main() -> int:
     args = parser.parse_args()
 
     errors: list[str] = []
-    for path in [TRACEABILITY_PATH, ACCEPTANCE_EVIDENCE_PATH, EXECUTION_TRACE_PATH, COMMON_MANIFEST_PATH]:
+    for path in [TRACEABILITY_PATH, ACCEPTANCE_EVIDENCE_PATH, EXECUTION_TRACE_PATH, EFFECT_BOUNDARY_PATH, COMMON_MANIFEST_PATH]:
         if not path.exists():
             errors.append(f"missing required artifact: {path.relative_to(ROOT)}")
 
@@ -201,6 +213,7 @@ def main() -> int:
     traceability_text = read_text(TRACEABILITY_PATH)
     acceptance_text = read_text(ACCEPTANCE_EVIDENCE_PATH)
     execution_text = read_text(EXECUTION_TRACE_PATH)
+    effect_boundary_text = read_text(EFFECT_BOUNDARY_PATH)
 
     try:
         traceability_rows = parse_markdown_table(traceability_text, "## Traceability Matrix")
@@ -208,16 +221,19 @@ def main() -> int:
         claim_coverage_rows = parse_markdown_table(acceptance_text, "## Claim Coverage")
         trace_fields = parse_bullet_section(execution_text, "## Trace Fields")
         execution_rows = parse_markdown_table(execution_text, "## Representative Trace")
+        effect_rows = parse_markdown_table(effect_boundary_text, "## Effectful Steps")
     except ValueError as exc:
         print("FAIL")
         print(f"- {exc}")
         return 1
 
     trace_step_ids = {row["step_id"].strip("`") for row in execution_rows}
+    execution_rows_by_step = {row["step_id"].strip("`"): row for row in execution_rows}
     known_symbolic_refs = set(KNOWN_SYMBOLIC_REFS)
     for row in execution_rows:
         known_symbolic_refs.add(row["input_artifact"])
         known_symbolic_refs.add(row["output_artifact"])
+        known_symbolic_refs.add(row["evidence_link"])
     KNOWN_SYMBOLIC_REFS.update(known_symbolic_refs)
 
     resolved_refs: list[dict[str, object]] = []
@@ -249,6 +265,17 @@ def main() -> int:
                 "evidence_item": row["evidence_item"],
                 "why_it_is_required": row["why_it_is_required"],
                 "references": refs,
+            }
+        )
+
+    effect_steps: list[dict[str, object]] = []
+    for row in effect_rows:
+        effect_steps.append(
+            {
+                "step": row["step"].strip("`"),
+                "effect_class": row["effect_class"],
+                "external_dependency": row["external_dependency"],
+                "emitted_evidence": row["emitted_evidence"],
             }
         )
 
@@ -295,6 +322,26 @@ def main() -> int:
 
     covered_trace_steps = {row["trace_step"] for row in claim_coverage}
     unexpected_unmapped_trace_items = sorted(trace_step_ids - covered_trace_steps)
+    missing_required_evidence_reference = sorted(
+        row["evidence_item"] for row in required_evidence if not row["references"]
+    )
+
+    missing_effect_trace_step: list[str] = []
+    effect_class_mismatch: list[str] = []
+    effect_evidence_mismatch: list[str] = []
+    for row in effect_steps:
+        trace_row = execution_rows_by_step.get(row["step"])
+        if trace_row is None:
+            missing_effect_trace_step.append(row["step"])
+            continue
+        if trace_row["effect_class"] != row["effect_class"]:
+            effect_class_mismatch.append(
+                f"{row['step']}: effect-boundary={row['effect_class']} trace={trace_row['effect_class']}"
+            )
+        if trace_row["evidence_link"] != row["emitted_evidence"]:
+            effect_evidence_mismatch.append(
+                f"{row['step']}: effect-boundary={row['emitted_evidence']} trace={trace_row['evidence_link']}"
+            )
 
     report = {
         "example_id": manifest["example_id"],
@@ -302,6 +349,7 @@ def main() -> int:
             "traceability_matrix": str(TRACEABILITY_PATH.relative_to(ROOT)),
             "acceptance_evidence": str(ACCEPTANCE_EVIDENCE_PATH.relative_to(ROOT)),
             "execution_trace": str(EXECUTION_TRACE_PATH.relative_to(ROOT)),
+            "effect_boundary": str(EFFECT_BOUNDARY_PATH.relative_to(ROOT)),
         },
         "traceability": {
             "claims": claims,
@@ -314,11 +362,18 @@ def main() -> int:
             "fields": trace_fields,
             "steps": execution_rows,
         },
+        "effect_boundary": {
+            "steps": effect_steps,
+        },
         "consistency": {
             "missing_claim_coverage": missing_claim_coverage,
             "missing_artifact_reference": missing_artifact_reference,
             "dangling_references": dangling_references,
             "unexpected_unmapped_trace_items": unexpected_unmapped_trace_items,
+            "missing_required_evidence_reference": missing_required_evidence_reference,
+            "missing_effect_trace_step": missing_effect_trace_step,
+            "effect_class_mismatch": effect_class_mismatch,
+            "effect_evidence_mismatch": effect_evidence_mismatch,
         },
     }
 
@@ -336,6 +391,10 @@ def main() -> int:
         or missing_artifact_reference
         or dangling_references
         or unexpected_unmapped_trace_items
+        or missing_required_evidence_reference
+        or missing_effect_trace_step
+        or effect_class_mismatch
+        or effect_evidence_mismatch
     ):
         print("FAIL")
         for category, values in report["consistency"].items():
