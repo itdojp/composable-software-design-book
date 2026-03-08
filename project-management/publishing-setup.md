@@ -47,15 +47,21 @@ podman run --rm --userns=keep-id \
 - `npm run pages-status`
 - `bundle exec jekyll build`
 
-## GitHub Pages Manual Settings
+## GitHub Pages Settings
 
 1. Open `Settings` > `Pages` in the GitHub repository.
-2. Set `Build and deployment` to `Deploy from a branch`.
-3. Select branch `gh-pages` and folder `/ (root)`.
-4. Leave `Custom domain` empty unless a later issue explicitly introduces one.
-5. After the first deployment, verify `https://itdojp.github.io/composable-software-design-book/`.
+2. Set `Build and deployment` to `GitHub Actions`.
+3. Leave `Custom domain` empty unless a later issue explicitly introduces one.
+4. Verify that the published URL is `https://itdojp.github.io/composable-software-design-book/`.
+5. Trigger the `Deploy GitHub Pages` workflow by pushing to `main` or by manual dispatch.
 
 ## Deployment Baseline
 
-The repository currently uses `npm run deploy` to publish `_site/` to the `gh-pages` branch.
-Run `npm run validate-deploy` before deployment so metadata, baseurl, and navigation assumptions are checked first.
+The canonical publication workflow is `.github/workflows/pages.yml`.
+It runs `npm run validate-deploy`, builds `_site/` from the repository root, uploads the Pages artifact, and deploys it through `actions/deploy-pages`.
+
+## Legacy Note
+
+The repository still contains `npm run deploy` as a legacy helper for branch-based publication experiments.
+It is no longer the canonical GitHub Pages path.
+For release operations, prefer the GitHub Actions workflow and verify the published result at the GitHub Pages URL after deployment.

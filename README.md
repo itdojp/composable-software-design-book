@@ -71,6 +71,7 @@ Install Ruby and Bundler, then run `bundle install`.
 Use `bundle exec jekyll serve --livereload` for local preview and `npm run build:native` for the primary static build smoke check.
 Use `npm run build:smoke` as a local convenience wrapper that prefers the native path and falls back to Podman only when native Bundler is unavailable.
 Run `npm run validate-deploy` before publishing.
+GitHub Pages publication is handled by the [`Deploy GitHub Pages` workflow](.github/workflows/pages.yml), which builds from the repository root and deploys `_site/` through GitHub Actions.
 Repository-level publishing setup is documented in `project-management/publishing-setup.md`.
 If native Ruby or Bundler is unavailable, use `npm run build:podman` as the documented fallback described in [`CONTRIBUTING.md`](CONTRIBUTING.md).
 The support boundary for native and Podman paths is documented in `project-management/build-support-policy.md`.

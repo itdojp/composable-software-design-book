@@ -19,6 +19,7 @@
 - Appendix C now provides an annotated follow-on reading set for category theory, software architecture, lightweight formal methods, AI governance, and agent evaluation.
 - The repository now has an explicit `v0.1.0-rc1` release-candidate note and changelog entry for stabilization review.
 - CI now runs repository QA and a separate native Ruby/Bundler build job, so the canonical primary build path remains under continuous verification.
+- GitHub Pages publication now uses a dedicated GitHub Actions workflow that builds from the repository root and deploys the generated `_site/` artifact.
 - Example QA now includes manifest schema validation, generated trace collation, and section-level checks for the Chapter 08 through Chapter 10 artifacts.
 - Core QA now includes a repository-local manuscript structure check for chapter packets and reader-facing figure captions in Chapters 03 through 10.
 - The pre-Chapter-03 decision bundle is fully absorbed into the current Chapter 03 manuscript, contributor workflow, and running-example artifact set, so no stage-specific blocker remains.
@@ -45,6 +46,7 @@
 | JSON schemas for structured QA input | `schemas/*.schema.json` |
 | Translation input area | `manuscript/ja/` |
 | QA and build entry points | `scripts/check_translation_inputs.py`, `scripts/qa.sh`, `scripts/check-manuscript-structure.py`, `scripts/check-examples.py`, `scripts/collate-example-traces.py`, `scripts/render-publication-figures.py`, `scripts/validate-github-pages.js`, and `package.json` |
+| GitHub Pages deployment workflow | `.github/workflows/pages.yml` |
 
 ## Assumptions
 
