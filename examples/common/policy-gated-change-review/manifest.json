@@ -37,6 +37,14 @@
       "path": "design/variation-paths.md"
     },
     {
+      "phase": "design",
+      "path": "design/shared-boundary.md"
+    },
+    {
+      "phase": "design",
+      "path": "design/replacement-plan.md"
+    },
+    {
       "phase": "verification",
       "path": "verification/review-checks.md"
     },

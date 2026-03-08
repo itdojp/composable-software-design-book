@@ -1,7 +1,7 @@
 # Next Open Questions
 
-1. Should the repository example gain a dedicated shared-boundary artifact before Chapter 07, or can canonical keys and policy joins remain chapter-local pullback constructions?
-   This affects how concrete the constrained-join discussion can be.
+1. Should the repository example gain a dedicated orchestration artifact before Chapter 08, or can sequential and parallel composition remain chapter-local string-diagram constructions?
+   This affects how concrete the monoidal structure discussion can be.
 
-2. Should the repository example gain a dedicated replacement artifact before Chapter 07, or can controlled component swap and migration remain chapter-local pushout constructions?
-   This affects how concrete the merger and migration discussion can be.
+2. Should the repository example gain a dedicated synchronization-boundary artifact before Chapter 08, or can coordination costs and failure isolation remain chapter-local review notes?
+   This affects how concrete the coordination and failure-isolation discussion can be.

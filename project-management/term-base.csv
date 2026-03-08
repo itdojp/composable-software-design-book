@@ -17,8 +17,8 @@ string diagram,ストリング図式,category-theory,A graphical notation for se
 monad,モナド,category-theory,A structure that packages effectful computation behind explicit composition rules,Required by TERMS.yml
 Kleisli,クライスリ,category-theory,A form of composition specialized for effectful computations,Required by TERMS.yml
 category,圏,category-theory,A collection of objects and morphisms with associative composition and identities,Used throughout the formal chapters
-pullback,引き戻し,category-theory,A construction for joining structures under a shared constraint,Central to Chapter 07
-pushout,押し出し,category-theory,A construction for merging structures along a shared boundary,Central to Chapter 07
+pullback,引き戻し,category-theory,A construction that joins structures only where they agree on a stated shared boundary or constraint,Core Chapter 07 term
+pushout,押し出し,category-theory,A construction that merges or replaces structures along a shared boundary while preserving the meaning that boundary carries,Core Chapter 07 term
 associativity,結合律,category-theory,A law stating that grouping does not change the result of composition,Supports modular reasoning
 invariant,不変条件,formal-methods,A property that must remain true across transformations or execution steps,Used in reviews and verification
 behavioral equivalence,振る舞い同値,formal-methods,A claim that two structures produce the same observable behavior,Important in refactoring review
@@ -38,6 +38,7 @@ architecture model,アーキテクチャモデル,software-design,A structural d
 runtime view,ランタイムビュー,software-design,A representation of the system during execution including operational states transitions and evidence obligations,Core Chapter 04 translation artifact
 semantic drift,意味ドリフト,software-design,A mismatch where a translated artifact no longer preserves the intended meaning of its source view,Core Chapter 04 risk term
 reviewer view,レビュービュー,software-design,A reviewer-facing representation that preserves decision-relevant meaning while omitting operational detail that does not affect judgment,Core Chapter 05 artifact
+shared boundary,共有境界,software-design,A canonical set of keys schemas or policy labels that multiple artifacts must preserve before they can be safely joined or replaced,Core Chapter 07 term
 schema mapping,スキーマ写像,software-design,A defined translation between data structures or interface schemas,Important in migration
 migration plan,移行計画,software-design,A staged plan for replacing or restructuring a running system,Important in Chapter 07
 adapter,アダプタ,software-design,A component that reshapes one interface into another compatible form,Appears in Chapter 05

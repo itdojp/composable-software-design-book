@@ -64,6 +64,12 @@ See [Chapter 06](../chapter-chapter06/).
 **Coproduct.** A construction that makes alternatives explicit by giving each variant a named entry into one shared boundary.
 See [Chapter 06](../chapter-chapter06/).
 
+**Pullback.** A construction that joins structures only where they agree on a stated shared boundary or constraint.
+See [Chapter 07](../chapter-chapter07/).
+
+**Pushout.** A construction that merges or replaces structures along a shared boundary while preserving the meaning that boundary carries.
+See [Chapter 07](../chapter-chapter07/).
+
 ## Software design terms
 
 This section stabilizes the engineering vocabulary that connects the formal model to implementation work.
@@ -107,7 +113,19 @@ See [Chapter 05](../chapter-chapter05/).
 **Coherence failure.** A mismatch in which supposedly corresponding paths or views no longer preserve the same design meaning.
 See [Chapter 05](../chapter-chapter05/) and [Chapter 07](../chapter-chapter07/).
 
+**Shared boundary.** The canonical set of keys, schemas, or policy labels that multiple artifacts must preserve before they can be safely joined or replaced.
+See [Chapter 07](../chapter-chapter07/).
+
 ### Integration boundaries, migrations, and orchestration
+
+**Provenance.** The recorded origin and transformation history of an artifact, field, or decision used during integration or migration.
+See [Chapter 07](../chapter-chapter07/).
+
+**Schema mapping.** A defined correspondence between old and new data or interface fields used during controlled migration.
+See [Chapter 07](../chapter-chapter07/).
+
+**Migration plan.** A staged plan for replacing or restructuring a system while preserving required invariants and rollback options.
+See [Chapter 07](../chapter-chapter07/).
 
 **Operational workflow.** A sequence of runtime or human activities that moves an artifact set from one reviewed state to the next.
 See [Chapter 01](../chapter-chapter01/) and [Chapter 10](../chapter-chapter10/).

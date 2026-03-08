@@ -20,6 +20,8 @@ The artifact set is intentionally small enough to trace by hand.
 - [Design artifact map](design/artifact-map/)
 - [Design commutative diagram](design/commutative-diagram/)
 - [Design variation paths](design/variation-paths/)
+- [Design shared boundary](design/shared-boundary/)
+- [Design replacement plan](design/replacement-plan/)
 - [Verification checks](verification/review-checks/)
 - [Verification traceability matrix](verification/traceability-matrix/)
 - [Verification coherence failure](verification/coherence-failure/)
