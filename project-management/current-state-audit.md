@@ -4,9 +4,11 @@
 
 - Repository bootstrap, metadata, TOC definition, translation workflow, QA and CI, publishing setup, editorial guidance, and running example selection are complete.
 - Navigation, publishing configuration, and example manifests are already wired into the repository structure.
-- The current milestone moves the manuscript from skeleton chapters to publication-quality English content for the Introduction, Chapter 01, Chapter 02, Chapter 03, Chapter 04, Chapter 05, Chapter 06, Chapter 07, Chapter 08, Chapter 09, and Chapter 10.
+- The current milestone moves the manuscript from skeleton chapters to publication-quality English content for the Introduction, Chapter 01, Chapter 02, Chapter 03, Chapter 04, Chapter 05, Chapter 06, Chapter 07, Chapter 08, Chapter 09, Chapter 10, and Appendix C.
 - Claim ID visibility, supported local build paths, variation artifact policy, and reusable counterexample policy are now documented as explicit repository decisions.
 - The repository now has a full first-draft publication path from specification through AI-assisted implementation, including orchestration, effect, execution-trace, and acceptance-evidence artifacts.
+- Appendix C now provides an annotated follow-on reading set for category theory, software architecture, lightweight formal methods, AI governance, and agent evaluation.
+- Example QA now checks the presence and section structure of the Chapter 08 through Chapter 10 artifacts, including synchronization, effect, execution-trace, and acceptance-evidence files.
 
 ## Canonical source paths
 
