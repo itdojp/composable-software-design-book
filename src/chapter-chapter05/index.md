@@ -184,6 +184,7 @@ Another signal is asymmetric simplification.
 The reviewer view becomes simpler, but only by hiding information that the runtime and design views still require for governance.
 A final signal is unexplained version skew across linked artifacts.
 If the traceability matrix and the changed view can no longer point back to the same claim, the transformation is probably not coherent enough to approve.
+The running example keeps one reusable [coherence failure artifact](../../examples/common/policy-gated-change-review/verification/coherence-failure/) so later chapters can cite the same broken claim instead of inventing a new one.
 
 These signals are intentionally concrete.
 They allow reviewers to reject vague equivalence claims without requiring advanced mathematics in the review thread.

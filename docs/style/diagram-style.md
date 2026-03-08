@@ -38,6 +38,8 @@ Use it together with `docs/style/notation.md`.
 - Use the format `Figure N.M. Short declarative title.` for numbered figures.
 - Follow the title sentence with one short sentence that states the intended reader takeaway.
 - If a diagram supports an invariant, name the invariant in the caption or adjacent prose.
+- Claim IDs may appear only when they already exist in `verification/traceability-matrix.md`.
+- Reader-visible claim IDs belong in figure captions and chapter-level review callouts, not in ordinary body paragraphs or diagram node labels.
 
 ## Invariant Mapping
 

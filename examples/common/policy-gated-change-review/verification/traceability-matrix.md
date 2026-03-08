@@ -19,4 +19,5 @@ It complements `verification/review-checks.md` rather than replacing it.
 ## Usage Notes
 
 Use this matrix when Chapter 03 needs to connect diagram claims back to named repository artifacts.
+Expose a claim ID to readers only in a figure caption or chapter-level review callout when the surrounding chapter truly needs the traceability anchor.
 Keep `verification/review-checks.md` as the short review-facing checklist.

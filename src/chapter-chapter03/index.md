@@ -72,7 +72,7 @@ In this book, that meaning is always tied to explicit artifacts and an explicit 
 The diagram does not commute because the arrows look symmetrical.
 It commutes only if the workflow preserves what the design says should be preserved.
 
-Figure 3.2. Repository-level approval claim with explicit policy dependency.
+Figure 3.2. Repository-level approval claim with explicit policy dependency (`PGCR-01`).
 The direct approval edge is valid only if the policy check preserves request meaning and review intent.
 
 ```mermaid
@@ -85,8 +85,11 @@ flowchart LR
 ```
 
 The [traceability matrix](../../examples/common/policy-gated-change-review/verification/traceability-matrix/) matters because it anchors this diagram to named repository artifacts.
-`PGCR-01` ties the approval claim back to the problem statement, the diagram, the review checks, and the implementation workflow.
 That link prevents the diagram from drifting into a standalone picture with no verification consequence.
+
+> **Review traceability.**
+> Claim `PGCR-01` is the reader-visible anchor for Figure 3.2 in review discussion.
+> Use the traceability matrix when the chapter needs the corresponding specification, verification, and implementation sources.
 
 The practical reading is simple.
 If one route from request to approved change loses a constraint or weakens the review meaning, the diagram does not commute for the invariant the team cares about.
@@ -177,6 +180,7 @@ Ask what happens if an implementation step bypasses the named approval path enti
 These are not adversarial exercises for their own sake.
 They are ways to discover whether the diagram is missing a node, an arrow, a branch, or a scope restriction.
 If a counterexample invalidates the claim, the team should update the diagram and the artifacts together rather than arguing that the edge case is too operational to matter.
+The running example keeps one reusable [coherence failure artifact](../../examples/common/policy-gated-change-review/verification/coherence-failure/) so later chapters can cite the same broken claim without inventing a new negative example each time.
 
 Edge cases are also useful for review sequencing.
 The team can often decide whether a diagram is safe enough for a design review before any code exists.

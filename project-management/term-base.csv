@@ -43,6 +43,7 @@ migration plan,移行計画,software-design,A staged plan for replacing or restr
 adapter,アダプタ,software-design,A component that reshapes one interface into another compatible form,Appears in Chapter 05
 facade,ファサード,software-design,A simplified interface that hides internal complexity behind one boundary,Appears in Chapter 05
 version skew,バージョンスキュー,software-design,A condition where linked views or artifacts evolve at different times and temporarily disagree,Important in Chapter 05 review work
+coherence failure,整合失敗,software-design,A mismatch in which supposedly corresponding paths or views no longer preserve the same design meaning,Reusable negative case after Chapter 06
 review checkpoint,レビューチェックポイント,software-design,A planned decision point where artifacts and risks are examined,Supports controlled delivery
 rollback,ロールバック,software-design,A controlled return to a previous safe operational state,Appears in Chapters 01 and 09
 operational workflow,運用ワークフロー,software-design,A sequence of runtime or human activities that delivers system outcomes,Appears in Chapters 04 and 10

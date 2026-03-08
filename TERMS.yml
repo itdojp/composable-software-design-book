@@ -41,6 +41,8 @@ terms:
     en: reviewer view
   バージョンスキュー:
     en: version skew
+  整合失敗:
+    en: coherence failure
   意味ドリフト:
     en: semantic drift
   合成的設計:

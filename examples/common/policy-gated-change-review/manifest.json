@@ -45,6 +45,10 @@
       "path": "verification/traceability-matrix.md"
     },
     {
+      "phase": "verification",
+      "path": "verification/coherence-failure.md"
+    },
+    {
       "phase": "runtime",
       "path": "runtime/runtime-view.md"
     },

@@ -5,6 +5,7 @@
 - Repository bootstrap, metadata, TOC definition, translation workflow, QA and CI, publishing setup, editorial guidance, and running example selection are complete.
 - Navigation, publishing configuration, and example manifests are already wired into the repository structure.
 - The current milestone moves the manuscript from skeleton chapters to publication-quality English content for the Introduction, Chapter 01, Chapter 02, Chapter 03, Chapter 04, Chapter 05, and Chapter 06.
+- Claim ID visibility, supported local build paths, and reusable counterexample policy are now documented as explicit repository decisions.
 
 ## Canonical source paths
 
@@ -16,6 +17,7 @@
 | English TOC source | `project-management/toc_en.md` |
 | Chapter-to-file mapping | `project-management/chapter-map.md` |
 | Running example decision | `project-management/running-example.md` |
+| Supporting policy decisions | `project-management/claim-id-visibility-decision.md`, `project-management/build-support-policy.md`, and `project-management/non-natural-counterexample-decision.md` |
 | Running example artifacts | `examples/minimal/policy-gated-change-review/` and `examples/common/policy-gated-change-review/` |
 | Editorial rules | `docs/style/*.md` and `project-management/editorial-checklist.md` |
 | Translation workflow and rules | `project-management/translation_workflow.md` and `project-management/translation_rules.md` |
@@ -38,4 +40,4 @@
 
 ## Operational caveats
 
-- Native Ruby and Bundler are still environment-dependent, but the primary workflow and Podman fallback are now documented in `CONTRIBUTING.md`.
+- Native Ruby and Bundler are still environment-dependent, but the supported matrix and smoke checks are now documented in `project-management/build-support-policy.md` and `CONTRIBUTING.md`.

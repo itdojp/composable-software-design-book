@@ -23,6 +23,8 @@ Contributor workflow and local build guidance are documented in [`CONTRIBUTING.m
 - `npm run qa:examples`
 - `npm run qa`
 - `npm run build`
+- `npm run build:native`
+- `npm run build:podman`
 - `npm run serve`
 - `npm run validate-deploy`
 - `npm run pages-status`
@@ -47,10 +49,11 @@ Use `npm run qa` as the default local gate when no example-specific checks are r
 ## Preview And Publish
 
 Install Ruby and Bundler, then run `bundle install`.
-Use `bundle exec jekyll serve --livereload` for local preview and `bundle exec jekyll build` for a static build check.
+Use `bundle exec jekyll serve --livereload` for local preview and `npm run build:native` for the primary static build smoke check.
 Run `npm run validate-deploy` before publishing.
 Repository-level publishing setup is documented in `project-management/publishing-setup.md`.
-If native Ruby or Bundler is unavailable, use the Podman fallback described in [`CONTRIBUTING.md`](CONTRIBUTING.md).
+If native Ruby or Bundler is unavailable, use `npm run build:podman` as the documented fallback described in [`CONTRIBUTING.md`](CONTRIBUTING.md).
+The support boundary for native and Podman paths is documented in `project-management/build-support-policy.md`.
 
 ## Running Example Quickstart
 

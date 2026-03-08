@@ -33,7 +33,7 @@ It is small enough for a minimal example and rich enough for the case-study chap
 | Chapter 04 | Translate the example across specification, architecture, runtime, and operational views by using the new runtime view artifact. |
 | Chapter 05 | Compare reviewer view, design view, and runtime view as natural transformations between models. |
 | Chapter 06 | Use the `design/variation-paths.md` artifact for combined review context, alternate review paths, and controlled variation. |
-| Chapter 07 | Reuse the example for repository migration and toolchain integration boundaries. |
+| Chapter 07 | Reuse the example for repository migration and toolchain integration boundaries, with `verification/coherence-failure.md` as the reusable negative case. |
 | Chapter 08 | Use the example workflow to explain sequential and parallel composition in orchestration. |
 | Chapter 09 | Make prompt, tool, and approval side effects explicit through effect boundaries. |
 | Chapter 10 | Reconstruct the example end to end from specification to verification and implementation. |

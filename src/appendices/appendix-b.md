@@ -104,6 +104,9 @@ See [Chapter 05](../chapter-chapter05/).
 **Version skew.** A state in which linked views or artifacts are updated at different times and temporarily disagree about the same system claim.
 See [Chapter 05](../chapter-chapter05/).
 
+**Coherence failure.** A mismatch in which supposedly corresponding paths or views no longer preserve the same design meaning.
+See [Chapter 05](../chapter-chapter05/) and [Chapter 07](../chapter-chapter07/).
+
 ### Integration boundaries, migrations, and orchestration
 
 **Operational workflow.** A sequence of runtime or human activities that moves an artifact set from one reviewed state to the next.

@@ -8,6 +8,8 @@
     "qa:core": "bash scripts/qa.sh core",
     "qa:examples": "python3 scripts/check-examples.py",
     "qa": "npm run qa:core && npm run qa:examples",
+    "build:native": "bash scripts/check-native-build.sh",
+    "build:podman": "bash scripts/check-podman-build.sh",
     "build": "bundle exec jekyll build",
     "serve": "bundle exec jekyll serve --livereload",
     "deploy": "npm run build && gh-pages -d _site",

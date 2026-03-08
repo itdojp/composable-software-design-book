@@ -11,19 +11,28 @@ Canonical terminology is governed by `project-management/term-base.csv` and `TER
 Install Ruby and Bundler locally for the primary preview and build path.
 Run `bundle install` before the first local preview or build.
 Use `bundle exec jekyll serve --livereload` for local preview.
-Use `bundle exec jekyll build` for the primary static build check.
+Use `bash scripts/check-native-build.sh` or `npm run build:native` for the primary static build smoke check.
+
+## Supported Build Matrix
+
+| Path | Support level | Supported tasks | Primary commands |
+| --- | --- | --- | --- |
+| Native Ruby + Bundler | Primary | preview, static build, repository QA | `bundle exec jekyll serve --livereload`, `npm run build:native`, `npm run qa`, `npm run validate-deploy` |
+| Podman container build | Fallback | static build verification, repository QA on the host | `npm run build:podman`, `npm run qa`, `npm run validate-deploy` |
 
 ## Container Fallback
 
 If native Ruby or Bundler is unavailable, use Podman as the documented fallback.
-Run `podman run --rm --userns=keep-id -v "$PWD:/work" -w /work docker.io/library/ruby:3.3 bash -lc 'bundle install && bundle exec jekyll build'`.
+Run `bash scripts/check-podman-build.sh` or `npm run build:podman`.
 Treat the container command as the fallback for build verification, not as the canonical authoring workflow.
+Podman live preview is not a supported authoring path in the current repository policy.
 
 ## Required Checks
 
 Run `./scripts/check_translation_inputs.py` after updating canonical English content or Japanese working drafts.
 Run `npm run qa` as the default repository gate.
 Run `npm run validate-deploy` before publish-related changes are merged.
+The supported build matrix and smoke-check policy are documented in `project-management/build-support-policy.md`.
 
 ## Running Example Notes
 

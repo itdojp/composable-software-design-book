@@ -22,6 +22,7 @@ The artifact set is intentionally small enough to trace by hand.
 - [Design variation paths](design/variation-paths/)
 - [Verification checks](verification/review-checks/)
 - [Verification traceability matrix](verification/traceability-matrix/)
+- [Verification coherence failure](verification/coherence-failure/)
 - [Runtime view](runtime/runtime-view/)
 - [Reviewer view](review/reviewer-view/)
 - [Implementation workflow](implementation/workflow/)

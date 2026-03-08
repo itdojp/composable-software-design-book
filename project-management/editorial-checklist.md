@@ -27,6 +27,7 @@
 
 - Formal notation follows `docs/style/notation.md`.
 - Diagram captions and invariants follow `docs/style/diagram-style.md`.
+- Claim IDs, when used, appear only in matrix-backed captions or chapter-level review callouts.
 - Code, math, and pseudocode are visually distinct and tagged consistently.
 
 ## Terminology Checks
