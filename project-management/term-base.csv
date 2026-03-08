@@ -24,7 +24,7 @@ invariant,不変条件,formal-methods,A property that must remain true across tr
 behavioral equivalence,振る舞い同値,formal-methods,A claim that two structures produce the same observable behavior,Important in refactoring review
 formal specification,形式仕様,formal-methods,A precise statement of required behavior constraints and assumptions,Use before implementation
 verification plan,検証計画,formal-methods,A documented method for checking that claims and constraints hold,Appears in the artifact set
-acceptance evidence,受入れ証跡,formal-methods,The concrete records that justify acceptance of a deliverable,Use at review checkpoints
+acceptance evidence,受入れ証跡,formal-methods,The governed bundle of specification references design artifacts checks traces decision outcomes and operational results used to justify acceptance of a change,Use at review checkpoints
 traceability matrix,トレーサビリティ行列,formal-methods,A table that links requirements design choices tests and evidence,Supports Chapter 10
 safety constraint,安全制約,formal-methods,A condition that limits allowed behavior to reduce risk,Useful for governance work
 provenance,来歴,formal-methods,Recorded origin and transformation history of an artifact or datum,Important in integration and audit
@@ -38,7 +38,11 @@ architecture model,アーキテクチャモデル,software-design,A structural d
 runtime view,ランタイムビュー,software-design,A representation of the system during execution including operational states transitions and evidence obligations,Core Chapter 04 translation artifact
 semantic drift,意味ドリフト,software-design,A mismatch where a translated artifact no longer preserves the intended meaning of its source view,Core Chapter 04 risk term
 reviewer view,レビュービュー,software-design,A reviewer-facing representation that preserves decision-relevant meaning while omitting operational detail that does not affect judgment,Core Chapter 05 artifact
+decision packet,決定パケット,software-design,A synchronized reviewer-facing packet that combines requested scope policy result and evidence links before human judgment,Core Chapter 05 and Chapter 10 artifact
+combined review context,統合レビュー文脈,software-design,The smallest shared context from which requested scope policy result and evidence links can be projected for review,Core Chapter 06 term
+review route,レビュールート,software-design,A named shared boundary that keeps review variants explicit before they converge on one approval model,Core Chapter 06 term
 shared boundary,共有境界,software-design,A canonical set of keys schemas or policy labels that multiple artifacts must preserve before they can be safely joined or replaced,Core Chapter 07 term
+approval route id,承認ルートID,software-design,A stable route label that records which review path a change followed across design runtime and migration artifacts,Core Chapter 07 term
 schema mapping,スキーマ写像,software-design,A defined translation between data structures or interface schemas,Important in migration
 migration plan,移行計画,software-design,A staged plan for replacing or restructuring a running system,Important in Chapter 07
 adapter,アダプタ,software-design,A component that reshapes one interface into another compatible form,Appears in Chapter 05
@@ -48,6 +52,9 @@ coherence failure,整合失敗,software-design,A mismatch in which supposedly co
 review checkpoint,レビューチェックポイント,software-design,A planned decision point where artifacts and risks are examined,Supports controlled delivery
 rollback,ロールバック,software-design,A controlled return to a previous safe operational state,Appears in Chapters 01 and 09
 operational workflow,運用ワークフロー,software-design,A sequence of runtime or human activities that delivers system outcomes,Appears in Chapters 04 and 10
+policy-evaluated plan,ポリシー評価済み計画,software-design,A runtime-side plan after policy evaluation and before human approval or execution readiness,Core Chapter 04 Chapter 08 and Chapter 09 artifact
+execution-ready change,実行準備済み変更,software-design,A runtime-state translation of the approved change that is ready for controlled dispatch,Core Chapter 04 and Chapter 09 artifact
+evidence bundle,証跡バンドル,software-design,A collected set of evidence links and supporting material synchronized into the decision packet,Core Chapter 08 and Chapter 10 artifact
 bounded delegation,境界付き委任,ai-agents,A delegation pattern that limits agent authority by task scope and policy,Core workflow rule
 AI agent,AIエージェント,ai-agents,A software actor that plans or acts using model driven reasoning and tools,Core domain term
 agentic workflow,エージェント型ワークフロー,ai-agents,A workflow that includes agent planning action and handoff steps,Used in the title and TOC
@@ -57,13 +64,14 @@ escalation policy,エスカレーション方針,ai-agents,A rule that routes un
 execution trace,実行トレース,ai-agents,A recorded sequence of steps inputs outputs and decisions during execution,Required for auditability
 orchestration,オーケストレーション,ai-agents,The coordination of multiple effectful steps tools or agents into one flow,Used in Chapters 08 and 09
 effect boundary,効果境界,ai-agents,A boundary that makes side effects explicit and reviewable,Core Chapter 09 term
-audit log,監査ログ,ai-agents,A durable record of actions decisions and changes for later inspection,Supports operational governance
+audit log,監査ログ,ai-agents,A broader durable record of actions decisions authority changes and operational events for later inspection,Supports operational governance
 prompt context,プロンプト文脈,ai-agents,The task state instructions and references supplied to a model at invocation time,Useful when reviewing agent behavior
 compositional design,合成的設計,software-design,A design approach that reasons about systems through explicit artifacts boundaries and composable transformations,Core framing term in Introduction
 responsibility boundary,責任境界,software-design,A documented boundary that assigns decision rights obligations and escalation rules across people tools and systems,Core Chapter 01 term
 change request,変更要求,ai-agents,A requested repository or system modification that enters the governed review flow,Running example artifact
 review plan,レビュー計画,ai-agents,A bounded plan that states checks scope and reviewer expectations before execution,Running example artifact
-approved change,承認済み変更,ai-agents,A change artifact that has passed required policy checks and human approval,Running example artifact
+approved change,承認済み変更,ai-agents,The canonical decision outcome artifact state reached after required policy checks and human approval,Running example artifact
+approval decision record,承認決定記録,ai-agents,The emitted evidence item that records which reviewer route and packet produced the decision outcome,Distinct from approved change and the broader audit log
 policy gate,ポリシーゲート,ai-agents,A rule-driven checkpoint that blocks progress until stated policy conditions hold,Used in the running example and Chapter 01
 synchronization boundary,同期境界,software-design,A named fan-in contract that concurrent branches must satisfy before the workflow may continue,Core Chapter 08 term
 Kleisli composition,クライスリ合成,category-theory,The composition rule that chains effectful steps inside one explicit effect envelope,Core Chapter 09 term

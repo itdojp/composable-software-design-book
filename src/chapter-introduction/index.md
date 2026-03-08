@@ -12,6 +12,29 @@ This introduction frames the book as a practical guide to compositional reasonin
 Its running example is the [policy-gated change review](../../examples/common/policy-gated-change-review/), which follows a `Change Request` through a `Review Plan` to an `Approved Change`.
 Use [Appendix A](../appendices/appendix-a/) for notation and [Appendix B](../appendices/appendix-b/) for canonical terms.
 
+## Learning goals
+
+- Explain why AI-assisted engineering needs explicit artifacts, boundaries, and compositional review claims.
+- Identify the audience, reading paths, and reference material that organize the rest of the book.
+- Understand how the running example anchors later formal chapters to one reusable repository workflow.
+
+## Prerequisites
+
+- Familiarity with repositories, pull requests, architecture diagrams, and technical review.
+- Willingness to inspect example artifacts alongside the prose when a chapter introduces a new formal term.
+
+## Key concepts
+
+- `compositional design`
+- `AI agent`
+- `responsibility boundary`
+- `Change Request`
+
+## Running example linkage
+
+- Read the [common running example](../../examples/common/policy-gated-change-review/) as the canonical artifact path for the full manuscript.
+- Inspect the [minimal example](../../examples/minimal/policy-gated-change-review/) when you want the shortest possible statement of the approval claim before later chapters add richer structure.
+
 ## Why AI-assisted engineering needs stronger structure
 
 AI assistance increases delivery speed, but it also inserts more hidden transformations between intent and execution.
@@ -172,3 +195,15 @@ When a term such as `Change Request` or `effect boundary` is introduced, the boo
 The same discipline applies to review vocabulary.
 A `policy gate` is not interchangeable with a `human review gate`, because they assign different kinds of authority.
 That distinction is one of the book's main design claims.
+
+## Summary
+
+- AI-assisted delivery needs explicit artifact paths because hidden transformations make review and governance brittle.
+- The book is organized to move from responsibility boundaries and formal vocabulary to a full governed case study.
+- The running example and appendices provide stable interfaces that the later chapters reuse instead of redefining.
+
+## Review prompts
+
+1. Which hidden transformations in your current workflow would need explicit artifacts before you could review them confidently.
+2. Which reading path in this introduction best matches your immediate engineering problem.
+3. Which artifact labels in the running example must stay stable if later chapters are to remain reviewable.

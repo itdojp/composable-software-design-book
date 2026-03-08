@@ -13,6 +13,29 @@ It begins with the minimal policy-gated approval diagram before expanding to the
 Use the [minimal diagram](../../examples/minimal/policy-gated-change-review/diagram/), the [common commutative diagram](../../examples/common/policy-gated-change-review/design/commutative-diagram/), and the [traceability matrix](../../examples/common/policy-gated-change-review/verification/traceability-matrix/) together.
 They provide the shortest path from a design claim to a reviewable artifact set.
 
+## Learning goals
+
+- Read a diagram as a design argument about preserved meaning rather than as decoration.
+- Use commutativity to test whether multiple workflow paths still justify the same claim.
+- Connect diagram labels to repository artifacts, review questions, and verification consequences.
+
+## Prerequisites
+
+- The object, morphism, and composition vocabulary from [Chapter 02](../chapter-chapter02/).
+- Familiarity with the running example artifact names `Change Request`, `Review Plan`, and `Approved Change`.
+
+## Key concepts
+
+- `commutative diagram`
+- `traceability matrix`
+- `coherence failure`
+- `invariant`
+
+## Running example linkage
+
+- Start with the [minimal diagram](../../examples/minimal/policy-gated-change-review/diagram/) before moving to the [common commutative diagram](../../examples/common/policy-gated-change-review/design/commutative-diagram/).
+- Use the [traceability matrix](../../examples/common/policy-gated-change-review/verification/traceability-matrix/) and [coherence failure artifact](../../examples/common/policy-gated-change-review/verification/coherence-failure/) when checking whether a square is genuinely reviewable.
+
 ## Why diagrams matter in engineering
 
 This chapter treats a diagram as a compact design argument rather than an illustration.
@@ -219,3 +242,15 @@ The maintenance rule is straightforward.
 Treat a diagram as a first-class design artifact.
 Version it with the specification and verification evidence it depends on.
 When the claim changes, update all three together.
+
+## Summary
+
+- Diagrams matter because they compress a workflow claim into a visible proof obligation.
+- Commutativity is valuable only when paths preserve one named invariant across real repository artifacts.
+- Broken squares are design defects because they reveal hidden semantic drift rather than harmless notation differences.
+
+## Review prompts
+
+1. Which diagram in your current system claims path equivalence without enough artifact evidence to justify it.
+2. Which invariant would fail first if one branch silently changed scope, policy meaning, or approval context.
+3. Which repository artifact should change in the same pull request when a commutative claim changes.

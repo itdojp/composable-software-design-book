@@ -12,6 +12,29 @@ This chapter demonstrates the full workflow from problem framing to delivery wit
 It uses the [running example](../../examples/common/policy-gated-change-review/) as one continuous artifact path from specification through verification and implementation.
 Read it with the [problem statement](../../examples/common/policy-gated-change-review/spec/problem-statement/), [artifact map](../../examples/common/policy-gated-change-review/design/artifact-map/), [orchestration diagram](../../examples/common/policy-gated-change-review/implementation/orchestration-diagram/), [execution trace](../../examples/common/policy-gated-change-review/implementation/execution-trace/), and [acceptance evidence](../../examples/common/policy-gated-change-review/verification/acceptance-evidence/).
 
+## Learning goals
+
+- Reconstruct the full governed delivery path from specification to AI-assisted implementation.
+- Identify where each chapter's formal vocabulary becomes a concrete artifact, review gate, or verification consequence.
+- Evaluate whether the running example remains auditable, reviewable, and extensible as one composed workflow.
+
+## Prerequisites
+
+- The earlier chapters, especially [Chapter 01](../chapter-chapter01/), [Chapter 03](../chapter-chapter03/), [Chapter 08](../chapter-chapter08/), and [Chapter 09](../chapter-chapter09/).
+- Familiarity with the canonical running example artifact set.
+
+## Key concepts
+
+- `Decision Packet`
+- `execution trace`
+- `acceptance evidence`
+- `traceability matrix`
+
+## Running example linkage
+
+- Read the [running example](../../examples/common/policy-gated-change-review/) as the canonical packet for this case study rather than as a separate appendix.
+- Keep the [artifact map](../../examples/common/policy-gated-change-review/design/artifact-map/), [execution trace](../../examples/common/policy-gated-change-review/implementation/execution-trace/), and [acceptance evidence](../../examples/common/policy-gated-change-review/verification/acceptance-evidence/) visible while following the chapter.
+
 ## Framing the case study
 
 The case study matters because the earlier chapters were not meant to stay as isolated formal tools.
@@ -209,3 +232,15 @@ Those are not reasons to discard the method.
 They are reasons to treat the current manuscript as a first publication milestone rather than a finished platform.
 The book now has a full artifact path from specification to AI-assisted implementation.
 The next stage is to harden selected parts of that path with stronger automation while preserving the same canonical interfaces.
+
+## Summary
+
+- The case study validates that the book's formal vocabulary becomes useful when it maps cleanly onto repository artifacts, review gates, and evidence obligations.
+- The artifact set, traceability matrix, execution trace, and acceptance evidence together make the delivery argument reconstructable after the fact.
+- The remaining work is not to replace the method, but to harden selected interfaces and validators while preserving the same governed path.
+
+## Review prompts
+
+1. Which artifact in the case study would fail first if your team tried to skip a design step and rely on execution evidence alone.
+2. Which checkpoint in your current delivery process still lacks a clear packet equivalent to the running example's `Decision Packet`.
+3. Which validator or automation step would most improve confidence without changing the canonical artifact interfaces.

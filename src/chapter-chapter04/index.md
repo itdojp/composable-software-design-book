@@ -12,6 +12,29 @@ This chapter shows how structure-preserving translations connect domain, archite
 It uses the [problem statement](../../examples/common/policy-gated-change-review/spec/problem-statement/), the [design diagram](../../examples/common/policy-gated-change-review/design/commutative-diagram/), the [runtime view](../../examples/common/policy-gated-change-review/runtime/runtime-view/), and the [implementation workflow](../../examples/common/policy-gated-change-review/implementation/workflow/) as one translation chain.
 Use [Appendix B](../appendices/appendix-b/) for canonical terms and keep the [traceability matrix](../../examples/common/policy-gated-change-review/verification/traceability-matrix/) nearby while reading.
 
+## Learning goals
+
+- Identify which invariants must survive translation between specification, design, and runtime views.
+- Read a functor as a structure-preserving translation rule rather than as loose naming similarity.
+- Detect semantic drift and deliberate approximation in cross-view repository artifacts.
+
+## Prerequisites
+
+- The modeling vocabulary from [Chapter 02](../chapter-chapter02/).
+- The diagram and commutativity review patterns from [Chapter 03](../chapter-chapter03/).
+
+## Key concepts
+
+- `functor`
+- `runtime view`
+- `semantic drift`
+- `traceability matrix`
+
+## Running example linkage
+
+- Inspect the [runtime view](../../examples/common/policy-gated-change-review/runtime/runtime-view/) and [implementation workflow](../../examples/common/policy-gated-change-review/implementation/workflow/) alongside the [design diagram](../../examples/common/policy-gated-change-review/design/commutative-diagram/).
+- Use the [traceability matrix](../../examples/common/policy-gated-change-review/verification/traceability-matrix/) to verify that the same approval claim survives each translation step.
+
 ## Multiple abstraction levels in one system
 
 One system usually needs more than one model because different readers ask different questions.
@@ -81,6 +104,22 @@ This is where functorial thinking becomes practical.
 A translation that preserves objects but not composition is still misleading.
 It tells the reader what the parts are called, but it loses how the parts work together.
 For reviews and audits, that loss is often more dangerous than a mislabeled node.
+
+**Formal bridge.**
+
+```text
+Let F map the design view to the runtime view.
+
+F(Change Request) = Pending Request
+F(Review Plan) = Planned Review
+F(Approved Change) = Execution-Ready Change
+
+F(human approval ◦ derive review plan)
+  = request-human-approval ◦ evaluate-policy ◦ classify-request
+```
+
+The law says the runtime path may be more operationally explicit than the design path while still preserving the same approval meaning.
+If one side removes human approval, collapses policy evaluation, or loses traceability, the translation stops behaving like the chapter's intended functor.
 
 The [traceability matrix](../../examples/common/policy-gated-change-review/verification/traceability-matrix/) provides lightweight evidence that composition has not been forgotten.
 It does not prove full functorial correctness.
@@ -190,3 +229,15 @@ If the design diagram changes, the specification claim it realizes should be rec
 This is the engineering payoff of functorial thinking.
 It gives the team a concrete way to ask whether change has preserved structure or only moved text around.
 That question sets up Chapter 05, where the book turns from translation between views to coherent change between alternative views of the same system.
+
+## Summary
+
+- Functorial translation matters because engineering views are trustworthy only when they preserve the invariants the source model cares about.
+- A translation must preserve composed paths, not only label correspondences, if it is to support review and audit.
+- Semantic drift should be handled as a design defect unless the omitted detail and preserved invariant are both explicit.
+
+## Review prompts
+
+1. Which invariant in your current system must survive the move from design view to runtime view.
+2. Where does one of your repository views preserve labels but not composition.
+3. Which translation in your workflow needs an explicit approximation note before it can be trusted.

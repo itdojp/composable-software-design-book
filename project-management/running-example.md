@@ -22,6 +22,7 @@ The selected example keeps the book centered on AI-assisted engineering rather t
 It naturally exposes responsibility boundaries, review artifacts, commutative claims, integration concerns, and effect boundaries.
 It is small enough for a minimal example and rich enough for the case-study chapter.
 `Approved Change` remains the single canonical approval artifact through Chapter 10.
+The emitted `approval decision record`, the broader `audit log`, and the final `acceptance evidence` remain evidence layers around that outcome rather than parallel approval artifacts.
 Post-approval execution is justified by execution trace and acceptance evidence rather than by a second approval artifact.
 
 ## Chapter Usage

@@ -12,6 +12,29 @@ This chapter uses universal properties to choose simple, correct constructions f
 It uses the [variation paths](../../examples/common/policy-gated-change-review/design/variation-paths/), the [reviewer view](../../examples/common/policy-gated-change-review/review/reviewer-view/), and the [implementation workflow](../../examples/common/policy-gated-change-review/implementation/workflow/) to keep products and coproducts tied to repository artifacts.
 Use the [traceability matrix](../../examples/common/policy-gated-change-review/verification/traceability-matrix/) to check that new combinations and new routes still preserve the same approval claim.
 
+## Learning goals
+
+- Recognize when a workflow needs one canonical combined context instead of loosely synchronized fields.
+- Recognize when route variation deserves an explicit shared boundary instead of hidden flags.
+- Use universal-property reasoning to select the smallest reusable construction that still preserves approval meaning.
+
+## Prerequisites
+
+- The coherence rules for multiple views from [Chapter 05](../chapter-chapter05/).
+- Familiarity with the [variation paths](../../examples/common/policy-gated-change-review/design/variation-paths/) artifact.
+
+## Key concepts
+
+- `universal property`
+- `product`
+- `coproduct`
+- `Combined Review Context`
+
+## Running example linkage
+
+- Read the [variation paths](../../examples/common/policy-gated-change-review/design/variation-paths/) artifact before comparing `Combined Review Context` and `Review Route`.
+- Keep the [reviewer view](../../examples/common/policy-gated-change-review/review/reviewer-view/) and [implementation workflow](../../examples/common/policy-gated-change-review/implementation/workflow/) nearby when deciding whether the construction really supports reuse.
+
 ## Universal properties as design criteria
 
 Universal properties matter when several designs look plausible but only one gives the cleanest reusable boundary.
@@ -78,6 +101,24 @@ The combined requirements can be summarized as follows.
 | `Policy Result` | The reviewer must know which automated constraints have already been checked. |
 | `Evidence Links` | The reviewer must be able to inspect the supporting diff, logs, or proofs. |
 
+**Formal bridge.**
+
+```text
+Product sketch:
+π_scope : Combined Review Context -> Requested Scope
+π_policy : Combined Review Context -> Policy Result
+π_evidence : Combined Review Context -> Evidence Links
+
+For any X with
+s : X -> Requested Scope,
+p : X -> Policy Result,
+e : X -> Evidence Links,
+there exists a unique ⟨s, p, e⟩ : X -> Combined Review Context.
+```
+
+This sketch makes the product claim visible.
+Any richer review packet is acceptable only if it still reduces to the same canonical context without inventing another approval boundary.
+
 This matters because approval is not a property of any one component alone.
 Scope without policy status is incomplete.
 Policy status without evidence is hard to trust.
@@ -130,6 +171,17 @@ The route split is concrete rather than stylistic.
 | --- | --- | --- |
 | `Standard Review Path` | Default repository scope and satisfied policy status without exceptions | Human approval remains mandatory before `Approved Change`. |
 | `Escalated Review Path` | Protected files, elevated operational risk, or policy exceptions | Human approval remains mandatory before `Approved Change`. |
+
+**Formal bridge.**
+
+```text
+Coproduct sketch:
+ι_standard : Standard Review Path -> Review Route
+ι_escalated : Escalated Review Path -> Review Route
+```
+
+The injections make route origin explicit while preserving one downstream review boundary.
+The workflow may branch on route-specific obligations, but it should not create a second canonical approval meaning after route selection.
 
 This is better than hiding the distinction inside free-form comments or a boolean flag.
 An opaque flag says that some difference exists.
@@ -222,3 +274,15 @@ It is simply not yet structured enough to support the stronger reuse and review 
 
 That conclusion sets up Chapter 07.
 Once combination and variation are explicit inside one workflow, the next step is to connect workflows across shared boundaries and controlled replacement paths.
+
+## Summary
+
+- Product-like structures are useful when several components must be present together at one decision boundary.
+- Coproduct-like structures are useful when genuine alternatives need one explicit shared consumer boundary.
+- Universality rewards the smallest construction that supports reuse and rejects ad hoc branching that hides review consequences.
+
+## Review prompts
+
+1. Which review packet in your current workflow is pretending to be one object while actually hiding three unrelated inputs.
+2. Which route variation in your system deserves a named coproduct-style boundary rather than a boolean flag.
+3. Which extra field in your review context is operationally convenient but not part of the smallest correct universal construction.

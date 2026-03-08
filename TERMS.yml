@@ -45,12 +45,20 @@ terms:
     en: runtime view
   レビュービュー:
     en: reviewer view
+  決定パケット:
+    en: decision packet
+  統合レビュー文脈:
+    en: combined review context
+  レビュールート:
+    en: review route
   バージョンスキュー:
     en: version skew
   来歴:
     en: provenance
   共有境界:
     en: shared boundary
+  承認ルートID:
+    en: approval route id
   整合失敗:
     en: coherence failure
   意味ドリフト:
@@ -67,6 +75,8 @@ terms:
     en: review plan
   承認済み変更:
     en: approved change
+  承認決定記録:
+    en: approval decision record
   ポリシーゲート:
     en: policy gate
   同期境界:
@@ -75,6 +85,12 @@ terms:
     en: schema mapping
   移行計画:
     en: migration plan
+  ポリシー評価済み計画:
+    en: policy-evaluated plan
+  実行準備済み変更:
+    en: execution-ready change
+  証跡バンドル:
+    en: evidence bundle
   部分関数:
     en: partial function
   全関数:

@@ -7,6 +7,9 @@
 - The current milestone moves the manuscript from skeleton chapters to publication-quality English content for the Introduction, Chapter 01, Chapter 02, Chapter 03, Chapter 04, Chapter 05, Chapter 06, Chapter 07, Chapter 08, Chapter 09, Chapter 10, Appendix A, and Appendix C.
 - Claim ID visibility, supported local build paths, variation artifact policy, and reusable counterexample policy are now documented as explicit repository decisions.
 - The repository now has a full first-draft publication path from specification through AI-assisted implementation, including orchestration, effect, execution-trace, and acceptance-evidence artifacts.
+- All drafted chapters now include the reader-facing chapter packet sections required for the first publication milestone: learning goals, prerequisites, key concepts, running example linkage, summary, and review prompts.
+- The theory chapters now include compact formal bridge blocks so the categorical title of each chapter pays off in reader-visible structure tied to the running example.
+- The glossary, editorial term base, and Japanese support map now cover the stable late-chapter running-example vocabulary and the clarified approval-evidence model.
 - Appendix A now provides a stable notation, figure-caption, and naming reference for the manuscript.
 - Appendix C now provides an annotated follow-on reading set for category theory, software architecture, lightweight formal methods, AI governance, and agent evaluation.
 - CI now runs repository QA and a separate native Ruby/Bundler build job, so the canonical primary build path remains under continuous verification.

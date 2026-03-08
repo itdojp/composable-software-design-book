@@ -12,6 +12,29 @@ This chapter introduces the core compositional vocabulary for modeling systems, 
 It reuses the [minimal example](../../examples/minimal/policy-gated-change-review/) and the [common running example](../../examples/common/policy-gated-change-review/) so that the formal language remains tied to reviewable repository artifacts.
 Use [Appendix A](../appendices/appendix-a/) for notation and [Appendix B](../appendices/appendix-b/) for canonical definitions.
 
+## Learning goals
+
+- Choose stable software artifacts and states that are worth modeling as objects.
+- Distinguish meaningful morphisms from incidental implementation detail.
+- Use composition, identity, and contract boundaries to reason about longer workflow claims.
+
+## Prerequisites
+
+- The responsibility-boundary framing from [Chapter 01](../chapter-chapter01/).
+- Basic comfort reading repository artifacts and workflow diagrams.
+
+## Key concepts
+
+- `object`
+- `morphism`
+- `composition`
+- `identity morphism`
+
+## Running example linkage
+
+- Inspect the [minimal diagram](../../examples/minimal/policy-gated-change-review/diagram/) for the smallest object-and-morphism set that still carries the approval claim.
+- Use the [artifact map](../../examples/common/policy-gated-change-review/design/artifact-map/) to compare abstract object choice with concrete repository artifacts.
+
 ## Modeling systems as objects
 
 This chapter does not begin by treating every file, function, or event as an object.
@@ -202,3 +225,15 @@ If the model is built from stable contracts and preserved transformations, the t
 The test is whether the design claim survives a tool substitution.
 If one agent platform is replaced with another and the preserved artifact path remains the same, the object and morphism model was probably well chosen.
 If the model collapses immediately, it was describing mechanism rather than structure.
+
+## Summary
+
+- Objects should name stable artifacts or states that support separate review questions.
+- Morphisms should name preserved transformations rather than transient implementation detail.
+- Composition is the core move that turns local artifact checks into a whole-workflow claim.
+
+## Review prompts
+
+1. Which unit in your current workflow is stable enough to model as an object, and which one only looks stable because of tool habit.
+2. Which transformation in your process is really partial even though the team talks about it as if it were total.
+3. Which composed path in your repository deserves one explicit invariant before it grows further.

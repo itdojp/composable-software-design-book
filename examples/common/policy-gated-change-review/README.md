@@ -12,6 +12,8 @@ It is the canonical example reused across the book.
 
 The system accepts a change request, derives an AI-assisted review plan, fans out policy and evidence work from one bounded plan, synchronizes a reviewer packet, and requires human approval before execution.
 It records execution trace entries and acceptance evidence so the same change can be reconstructed after delivery or return-for-rework.
+`Approved Change` is the decision outcome artifact for that flow.
+The `approval decision record`, the broader `audit log`, the `execution trace`, and the final `acceptance evidence` are emitted evidence layers around that outcome rather than parallel approval artifacts.
 The artifact set is intentionally small enough to trace by hand.
 
 ## Artifact Phases
@@ -40,3 +42,4 @@ The artifact set is intentionally small enough to trace by hand.
 It connects human responsibility, design artifacts, diagrams, verification evidence, and AI-assisted implementation in one flow.
 That makes it suitable for reuse from Chapter 01 through Chapter 10.
 `Approved Change` remains the single canonical approval artifact for the current manuscript scope.
+The evidence model stays compact because approval evidence is emitted into the trace and acceptance bundle rather than expanded into a second canonical approval file.

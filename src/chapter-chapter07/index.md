@@ -12,6 +12,29 @@ This chapter applies categorical integration patterns to system joins, migration
 It uses the [shared boundary](../../examples/common/policy-gated-change-review/design/shared-boundary/), the [replacement plan](../../examples/common/policy-gated-change-review/design/replacement-plan/), and the [coherence failure artifact](../../examples/common/policy-gated-change-review/verification/coherence-failure/) to keep the formal vocabulary tied to repository artifacts.
 Use the [variation paths](../../examples/common/policy-gated-change-review/design/variation-paths/) and the [traceability matrix](../../examples/common/policy-gated-change-review/verification/traceability-matrix/) alongside this chapter.
 
+## Learning goals
+
+- Identify the shared boundary that must stay stable before integration or migration can be trusted.
+- Read pullbacks as constrained joins and pushouts as controlled replacements along one preserved boundary.
+- Decide when a mismatch requires redesign instead of a broader mapping layer.
+
+## Prerequisites
+
+- The product and coproduct discipline from [Chapter 06](../chapter-chapter06/).
+- Familiarity with the [shared boundary](../../examples/common/policy-gated-change-review/design/shared-boundary/) and [replacement plan](../../examples/common/policy-gated-change-review/design/replacement-plan/) artifacts.
+
+## Key concepts
+
+- `pullback`
+- `pushout`
+- `shared boundary`
+- `Approval Route ID`
+
+## Running example linkage
+
+- Read the [shared boundary](../../examples/common/policy-gated-change-review/design/shared-boundary/) before interpreting any integration or migration claim in this chapter.
+- Keep the [replacement plan](../../examples/common/policy-gated-change-review/design/replacement-plan/) and [coherence failure artifact](../../examples/common/policy-gated-change-review/verification/coherence-failure/) open when evaluating whether a join or replacement really preserves approval meaning.
+
 ## Shared boundaries in integration work
 
 Integration begins by naming the boundary that multiple systems are supposed to share.
@@ -73,6 +96,20 @@ The [shared boundary artifact](../../examples/common/policy-gated-change-review/
 It lets the team state clearly which reviewer evidence, runtime evidence, and verification evidence may be treated as one integrated context.
 If one side violates that contract, the right response is to narrow the join or redesign the boundary.
 
+**Formal bridge.**
+
+```text
+Pullback sketch:
+
+Decision Packet --------> Reviewer View
+      |                        |
+      v                        v
+Policy-Evaluated Plan -> Shared Boundary
+```
+
+The join is valid only where both lower paths preserve `Change Identity`, `Repository Scope`, `Policy Classification`, and `Approval Route ID`.
+If one of those boundary elements drifts, the repository no longer has the constrained join that justified treating the records as one governed packet.
+
 That matters operationally.
 A reviewer who sees one route while the runtime logs another is not looking at a minor inconsistency.
 The repository has lost the constrained join that justified treating those records as one governed approval path.
@@ -113,6 +150,20 @@ It carries `Change Identity`, `Repository Scope`, `Policy Classification`, and `
 If the new gateway changes any of those without an explicit mapping, the replacement has already stepped outside the pushout discipline.
 The result might still compile.
 It would no longer preserve the boundary that made the migration governable.
+
+**Formal bridge.**
+
+```text
+Pushout sketch:
+
+Legacy Route Mapper ----> Unified Review Gateway
+        |                          ^
+        v                          |
+   Shared Boundary <---- Replacement Mapper
+```
+
+The pushout claim is that both old and replacement components meet at one shared interface before downstream artifacts consume the new gateway.
+If the cutover changes the shared boundary itself, the migration is no longer a controlled replacement of the same approval path.
 
 This is why blind cutovers are dangerous in AI-assisted systems.
 Tooling can be replaced quickly, but approval meaning changes more slowly.
@@ -200,3 +251,15 @@ They do not remove the need to decide when integration is worthwhile and when re
 
 If these criteria cannot be met, the repository should narrow the scope of the migration or redesign the boundary first.
 That conclusion sets up Chapter 08, where the book turns from integration boundaries to sequential and parallel composition in orchestrated workflows.
+
+## Summary
+
+- Pullbacks are useful when the repository should join artifacts only where identity, scope, and policy meaning already agree.
+- Pushouts are useful when replacement proceeds through one preserved boundary rather than through blind cutover.
+- Provenance, schema mapping, and lineage matter because integration and migration claims must remain auditable after the change lands.
+
+## Review prompts
+
+1. Which shared boundary in your current system is still too vague to support a constrained join.
+2. Which migration step in your repository is really changing approval meaning instead of only replacing an interface.
+3. Which lineage record would another engineer need in order to audit your latest cutover without reverse-engineering logs.

@@ -113,6 +113,15 @@ See [Chapter 01](../chapter-chapter01/).
 **Reviewer view.** A reviewer-facing representation that preserves decision-relevant meaning while hiding operational detail that does not affect judgment.
 See [Chapter 05](../chapter-chapter05/).
 
+**Decision Packet.** A synchronized reviewer-facing packet that combines requested scope, policy result, and evidence links before human judgment.
+See [Chapter 05](../chapter-chapter05/), [Chapter 08](../chapter-chapter08/), and [Chapter 10](../chapter-chapter10/).
+
+**Combined Review Context.** The smallest shared context from which requested scope, policy result, and evidence links can be projected for review.
+See [Chapter 06](../chapter-chapter06/).
+
+**Review Route.** A named shared boundary that keeps review variants explicit before they converge on one canonical approval meaning.
+See [Chapter 06](../chapter-chapter06/).
+
 **Adapter.** A component or representation that reshapes one interface into another compatible form.
 See [Chapter 05](../chapter-chapter05/).
 
@@ -128,6 +137,9 @@ See [Chapter 05](../chapter-chapter05/) and [Chapter 07](../chapter-chapter07/).
 **Shared boundary.** The canonical set of keys, schemas, or policy labels that multiple artifacts must preserve before they can be safely joined or replaced.
 See [Chapter 07](../chapter-chapter07/).
 
+**Approval Route ID.** The stable route label that records which review path a change followed across design, runtime, and migration artifacts.
+See [Chapter 07](../chapter-chapter07/).
+
 ### Integration boundaries, migrations, and orchestration
 
 **Provenance.** The recorded origin and transformation history of an artifact, field, or decision used during integration or migration.
@@ -141,6 +153,15 @@ See [Chapter 07](../chapter-chapter07/).
 
 **Operational workflow.** A sequence of runtime or human activities that moves an artifact set from one reviewed state to the next.
 See [Chapter 01](../chapter-chapter01/) and [Chapter 10](../chapter-chapter10/).
+
+**Policy-Evaluated Plan.** The runtime-side plan after policy evaluation and before human approval or execution readiness.
+See [Chapter 04](../chapter-chapter04/), [Chapter 08](../chapter-chapter08/), and [Chapter 09](../chapter-chapter09/).
+
+**Execution-Ready Change.** The runtime-state translation of an approved change that is ready for controlled dispatch.
+See [Chapter 04](../chapter-chapter04/) and [Chapter 09](../chapter-chapter09/).
+
+**Evidence Bundle.** The collected evidence links and supporting material synchronized into the reviewer-facing decision packet.
+See [Chapter 08](../chapter-chapter08/), [Chapter 09](../chapter-chapter09/), and [Chapter 10](../chapter-chapter10/).
 
 **Rollback.** A controlled return to a previously safe state after an implementation or operational step violates an expected invariant.
 See [Chapter 01](../chapter-chapter01/) and [Chapter 09](../chapter-chapter09/).
@@ -176,8 +197,11 @@ See [Chapter 01](../chapter-chapter01/) and the [running example](../../examples
 **Review Plan.** The artifact that scopes delegated work, names required checks, and records what still requires human judgment.
 See [Chapter 01](../chapter-chapter01/) and the [running example](../../examples/common/policy-gated-change-review/).
 
-**Approved Change.** The artifact state reached after required policy checks and human approval are both satisfied.
+**Approved Change.** The canonical decision outcome artifact state reached after required policy checks and human approval are both satisfied.
 See [Chapter 01](../chapter-chapter01/) and the [running example](../../examples/common/policy-gated-change-review/).
+
+**Approval decision record.** The emitted evidence item written at the review decision step that names the reviewer, route, packet, and outcome.
+See [Chapter 01](../chapter-chapter01/), [Chapter 09](../chapter-chapter09/), and [Chapter 10](../chapter-chapter10/).
 
 ### Effect boundaries, tool calls, and execution traces
 
@@ -190,13 +214,13 @@ See [Chapter 09](../chapter-chapter09/).
 **Execution trace.** A recorded sequence of steps, inputs, outputs, and decisions that occurred during execution.
 See [Chapter 09](../chapter-chapter09/) and [Chapter 10](../chapter-chapter10/).
 
-**Audit log.** A durable record of actions, decisions, and changes kept for later inspection.
+**Audit log.** A broader durable record of actions, decisions, authority changes, and operational events kept for later inspection.
 See [Chapter 01](../chapter-chapter01/) and [Chapter 09](../chapter-chapter09/).
 
 **Prompt context.** The task state, instructions, and references supplied to a model call at invocation time.
 See [Chapter 09](../chapter-chapter09/).
 
-**Acceptance evidence.** The bundle of approved artifacts, checks, traces, and review outcomes used to justify acceptance of a change.
+**Acceptance evidence.** The governed bundle of specification references, design artifacts, checks, traces, decision outcomes, and operational results used to justify acceptance of a change.
 See [Chapter 10](../chapter-chapter10/).
 
 ## Translation and usage notes

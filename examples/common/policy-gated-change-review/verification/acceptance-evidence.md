@@ -15,13 +15,14 @@ It keeps Chapter 10 grounded in repository evidence rather than retrospective na
 | `spec/problem-statement.md` and `spec/acceptance-criteria.md` | Proves the accepted result still matches the stated problem and acceptance conditions. |
 | `design/commutative-diagram.md` and `design/artifact-map.md` | Proves the accepted result follows the canonical artifact path. |
 | `verification/review-checks.md` and `verification/traceability-matrix.md` | Proves the core claims were reviewed and can be traced across artifacts. |
-| `Approved Change` | Proves human approval occurred on the named artifact boundary. |
+| `Approved Change` | Proves the workflow reached the canonical decision outcome artifact. |
+| approval decision record | Proves which reviewer, route, and packet produced the decision outcome. |
 | `implementation/execution-trace.md` | Proves effectful execution followed the governed path. |
 | Execution result or return-for-rework note | Proves the workflow ended in a named operational outcome. |
 
 ## Acceptance Rule
 
-An accepted change exists only when the evidence bundle points to one `Change Identity`, one accepted `Plan Revision`, and one `Approved Change` or named return outcome.
+An accepted change exists only when the evidence bundle points to one `Change Identity`, one accepted `Plan Revision`, one `Approved Change`, and the corresponding approval decision record.
 If those references disagree, the change is not accepted even if some individual artifacts look complete.
 
 ## Return-For-Rework Rule
@@ -46,3 +47,4 @@ The workflow may discard stale implementation outputs, but it may not discard th
 
 This artifact depends on `verification/review-checks.md`, `verification/traceability-matrix.md`, `implementation/effect-boundary.md`, and `implementation/execution-trace.md`.
 It closes the specification-to-implementation path used in Chapter 10.
+It may cite broader `audit log` evidence when operational review needs it, but those records do not replace the canonical decision outcome or the emitted approval decision record.

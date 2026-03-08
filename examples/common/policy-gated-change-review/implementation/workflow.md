@@ -14,8 +14,8 @@ This workflow shows how the running example crosses from specification into cont
 3. Run policy evaluation and evidence collection in parallel against the same plan revision.
 4. Synchronize those branch outputs into one reviewer-facing `Decision Packet`.
 5. Route the packet to the standard or escalated human review path according to the recorded risk boundary.
-6. Execute implementation only after the approved artifact set is complete and the effect boundary permits dispatch.
-7. Record execution trace entries and acceptance evidence for the executed or returned change.
+6. Execute implementation only after `Approved Change` exists as the decision outcome artifact and the effect boundary permits dispatch.
+7. Emit the `approval decision record`, execution trace entries, and acceptance evidence for the executed or returned change.
 
 ## Implementation Boundary
 
@@ -24,3 +24,4 @@ The workflow therefore preserves a clear human responsibility boundary.
 Escalation changes the route to review, but it does not remove the mandatory human approval step.
 Parallelism is allowed only between named branches that still synchronize before `Decision Packet`, `Approved Change`, or execution dispatch exists.
 Effectful steps remain explicit through `implementation/effect-boundary.md` and `implementation/execution-trace.md`.
+The emitted `approval decision record` supports audit and acceptance review, but it does not replace `Approved Change` as the canonical decision outcome artifact.

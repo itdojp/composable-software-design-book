@@ -11,6 +11,30 @@ description: "Design the decision rights, artifacts, and control points that kee
 This chapter defines the decision rights, artifacts, and control loops that keep AI-assisted work accountable.
 It uses the [policy-gated change review](../../examples/common/policy-gated-change-review/) to show how a `Change Request` becomes a `Review Plan` and then an `Approved Change`.
 The same artifact chain will anchor the formal chapters that follow.
+It also distinguishes the decision outcome from the emitted evidence that later justifies acceptance and audit.
+
+## Learning goals
+
+- Distinguish responsibility boundaries from informal team custom or retrospective compliance work.
+- Separate decision outcome artifacts from emitted evidence, execution trace, and later acceptance evidence.
+- Identify where delegation, escalation, rollback, and review authority must remain explicit in an AI-assisted workflow.
+
+## Prerequisites
+
+- The framing in the [Introduction](../chapter-introduction/).
+- Working knowledge of repository review, policy checks, and operational change control.
+
+## Key concepts
+
+- `responsibility boundary`
+- `bounded delegation`
+- `policy gate`
+- `human review gate`
+
+## Running example linkage
+
+- Read the [problem statement](../../examples/common/policy-gated-change-review/spec/problem-statement/) and [acceptance criteria](../../examples/common/policy-gated-change-review/spec/acceptance-criteria/) before evaluating the chapter's boundary claims.
+- Keep the [review checks](../../examples/common/policy-gated-change-review/verification/review-checks/), [execution trace](../../examples/common/policy-gated-change-review/implementation/execution-trace/), and [acceptance evidence](../../examples/common/policy-gated-change-review/verification/acceptance-evidence/) nearby when comparing decision outcome and evidence roles.
 
 ## Why responsibility boundaries matter
 
@@ -73,6 +97,12 @@ They protect against a common failure mode in AI-assisted work, where a team del
 Not every conversational detail needs to become a permanent artifact.
 The durable record is the subset that explains why the boundary was crossed.
 For the running example, that subset includes the approved request scope, the accepted review plan, the outcome of the policy gate, the human decision at the review checkpoint, and the trace that shows which implementation steps actually ran.
+
+The running example uses four related records with different jobs.
+`Approved Change` is the decision outcome artifact that marks the governed approval state.
+An `approval decision record` is the emitted evidence entry that records who approved which `Decision Packet` and under which route.
+An `audit log` is the broader durable record of actions and authority changes across the workflow.
+`Acceptance evidence` is the final evidence bundle that ties specification, checks, the decision outcome, and the executed path into one acceptance claim.
 
 An `audit log` and an `execution trace` are useful here because they record actions after the artifacts are defined.
 They do not replace the artifacts themselves.
@@ -179,3 +209,15 @@ When those criteria fail, later formal techniques will expose the failure more c
 
 When those criteria hold, the formal chapters become practical.
 They help the reader reason about preserved meaning instead of merely describing process steps.
+
+## Summary
+
+- Responsibility boundaries become real only when decision rights, stop conditions, and evidence obligations are attached to durable artifacts.
+- `Approved Change`, approval evidence, execution trace, and acceptance evidence play different roles and should not be collapsed into one vague approval story.
+- Delegation remains trustworthy only when escalation, rollback, and operational feedback stay explicit across the workflow.
+
+## Review prompts
+
+1. Which artifact in your current workflow marks the decision outcome, and which artifact records the evidence that justified that decision.
+2. Where does your current delivery path still blur the difference between policy evaluation and human approval.
+3. Which operational feedback signal should update the governing artifact set rather than only a prompt or script.

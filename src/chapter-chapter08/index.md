@@ -12,6 +12,29 @@ This chapter models concurrent workflows and coordination structures with sequen
 It uses the [orchestration diagram](../../examples/common/policy-gated-change-review/implementation/orchestration-diagram/) and the [synchronization boundary](../../examples/common/policy-gated-change-review/implementation/synchronization-boundary/) to keep monoidal language tied to repository artifacts.
 Read it with the [implementation workflow](../../examples/common/policy-gated-change-review/implementation/workflow/) and the [reviewer view](../../examples/common/policy-gated-change-review/review/reviewer-view/).
 
+## Learning goals
+
+- Distinguish ordered workflow obligations from safely parallelizable preparation work.
+- Read monoidal composition as a design claim about shared context and explicit fan-in, not only as runtime concurrency.
+- Use a string-diagram-style reading to expose hidden coupling and brittle synchronization boundaries.
+
+## Prerequisites
+
+- The integration and shared-boundary discipline from [Chapter 07](../chapter-chapter07/).
+- Familiarity with the [orchestration diagram](../../examples/common/policy-gated-change-review/implementation/orchestration-diagram/) and [synchronization boundary](../../examples/common/policy-gated-change-review/implementation/synchronization-boundary/).
+
+## Key concepts
+
+- `monoidal category`
+- `string diagram`
+- `orchestration`
+- `synchronization boundary`
+
+## Running example linkage
+
+- Read the [orchestration diagram](../../examples/common/policy-gated-change-review/implementation/orchestration-diagram/) as the canonical concurrency artifact for this chapter.
+- Keep the [synchronization boundary](../../examples/common/policy-gated-change-review/implementation/synchronization-boundary/) and [implementation workflow](../../examples/common/policy-gated-change-review/implementation/workflow/) nearby when deciding whether two branches are genuinely independent.
+
 ## Sequential and parallel composition
 
 Sequential and parallel composition are design claims before they are scheduling choices.
@@ -124,6 +147,27 @@ It shows that only the `approve-or-return` morphism can create `Approved Change`
 Every earlier branch may prepare information.
 None of them may silently turn preparation into authorization.
 
+**Formal bridge.**
+
+The published Mermaid figure is a reader-facing approximation of the string-diagram reading below.
+
+```text
+approve-or-return ◦ synchronize-for-review
+◦ (evaluate-policy ⊗ collect-evidence-links)
+: Review Plan -> Approved Change
+```
+
+```text
+Review Plan
+  |\
+  | \ collect-evidence-links ----> Evidence Bundle ----\
+  |                                                     > synchronize-for-review -> Decision Packet -> approve-or-return -> Approved Change
+  \--- evaluate-policy -----------> Policy-Evaluated Plan --/
+```
+
+The tensor-like operator `⊗` marks the point where two branches may proceed in parallel while preserving the same `Review Plan`, `Change Identity`, and `Plan Revision`.
+The synchronization morphism is what turns those parallel results back into one governed packet instead of two unrelated outputs.
+
 ### Exposing hidden coupling in workflows
 
 String diagrams expose hidden coupling by forcing the author to draw every preserved dependency.
@@ -208,3 +252,15 @@ They mutate scope or route labels without creating a new revision boundary.
 When those signs appear, the design problem is not simply "add more locks" or "serialize the queue."
 The workflow is missing a compositional interface.
 Chapter 09 builds on this point by making the effect boundaries of those branches explicit so the next chapter can reason about prompts, tool calls, approval writes, and execution dispatch without hiding risk.
+
+## Summary
+
+- Sequential and parallel composition are safe only when the workflow makes authority, shared context, and synchronization boundaries explicit.
+- Monoidal structure is useful because it explains which branches may run side by side without changing approval meaning.
+- String-diagram-style reasoning exposes hidden coupling that ordinary prose can hide inside vague workflow verbs.
+
+## Review prompts
+
+1. Which branch in your current orchestration still claims independence without a stable shared input wire.
+2. Which synchronization boundary in your workflow is doing too much implicit reconstruction.
+3. Which morphism alone should be allowed to create the next authoritative state in your parallel flow.

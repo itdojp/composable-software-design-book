@@ -12,6 +12,29 @@ This chapter makes effects explicit so AI-assisted orchestration remains safe, r
 It uses the [effect boundary](../../examples/common/policy-gated-change-review/implementation/effect-boundary/), the [execution trace](../../examples/common/policy-gated-change-review/implementation/execution-trace/), and the [acceptance evidence artifact](../../examples/common/policy-gated-change-review/verification/acceptance-evidence/) to connect categorical language to repository operations.
 Read it with the [orchestration diagram](../../examples/common/policy-gated-change-review/implementation/orchestration-diagram/) from Chapter 08.
 
+## Learning goals
+
+- Distinguish pure artifact reasoning from effectful operational steps that change authority or external state.
+- Read monads and Kleisli composition as workflow envelopes that preserve evidence and next-step obligations across tool calls.
+- Review effect boundaries, retries, and escape hatches without losing the governed approval story.
+
+## Prerequisites
+
+- The orchestration and synchronization patterns from [Chapter 08](../chapter-chapter08/).
+- Familiarity with the [effect boundary](../../examples/common/policy-gated-change-review/implementation/effect-boundary/), [execution trace](../../examples/common/policy-gated-change-review/implementation/execution-trace/), and [acceptance evidence](../../examples/common/policy-gated-change-review/verification/acceptance-evidence/) artifacts.
+
+## Key concepts
+
+- `monad`
+- `Kleisli composition`
+- `effect boundary`
+- `execution trace`
+
+## Running example linkage
+
+- Read the [effect boundary](../../examples/common/policy-gated-change-review/implementation/effect-boundary/) first to see which steps are pure and which are effectful.
+- Keep the [execution trace](../../examples/common/policy-gated-change-review/implementation/execution-trace/) and [acceptance evidence](../../examples/common/policy-gated-change-review/verification/acceptance-evidence/) open when assessing whether effectful chaining remains auditable.
+
 ## Why effects need explicit boundaries
 
 Effects matter because the workflow does not live only in design diagrams.
@@ -116,6 +139,22 @@ This is why the [execution trace](../../examples/common/policy-gated-change-revi
 It is the concrete record of how Kleisli-style chaining happened in the repository.
 Each step carries the artifact boundary, the effect class, the actor or tool, and the evidence link that justifies continuing.
 
+**Formal bridge.**
+
+```text
+Effectful chain:
+draft-plan-with-agent : Review Plan -> M Reviewed Plan Revision
+evaluate-policy : Reviewed Plan Revision -> M Policy-Evaluated Plan
+record-review-decision : Policy-Evaluated Plan -> M Approved Change
+dispatch-execution : Approved Change -> M Executable Change Set
+
+Combined path:
+Review Plan -> M Executable Change Set
+```
+
+Here `M` is the governed effect envelope that carries trace obligations, authority changes, and permitted next actions together with the value.
+The chain is safe only when each step returns another governed state instead of dropping context between tool calls.
+
 ### Chaining effectful steps safely
 
 Safe chaining means each step consumes explicit input and returns explicit output plus operational obligations.
@@ -210,3 +249,15 @@ Together they keep rollback and audit attached to the same governed story instea
 
 With those boundaries in place, Chapter 10 can treat the running example as a full case study rather than as a collection of disconnected abstractions.
 The last chapter uses specification, diagrams, view translations, orchestration artifacts, and effect evidence as one continuous delivery argument.
+
+## Summary
+
+- Effect boundaries matter because tool calls, approval writes, and execution dispatch change what later steps may safely assume.
+- Monadic and Kleisli language is useful when it keeps value, evidence, and authority inside one explicit operational envelope.
+- Escape hatches, retries, rollback, and audit remain trustworthy only when they emit reviewable evidence at named boundaries.
+
+## Review prompts
+
+1. Which step in your current workflow changes authority or external state without a visible effect boundary.
+2. Which effectful chain in your repository still drops context between tool calls or retries.
+3. Which escape hatch in your system should be treated as a governance event rather than as an operational convenience.

@@ -7,6 +7,7 @@ description: "Minimum execution trace schema for the running example."
 
 This artifact records the minimum execution trace that the running example expects after planning, review, and dispatch.
 It exists so Chapters 09 and 10 can discuss auditability with one canonical trace shape.
+It also carries the emitted `approval decision record` that documents the review action without becoming a second canonical approval artifact.
 
 ## Trace Fields
 
@@ -44,3 +45,4 @@ It exists so Chapters 09 and 10 can discuss auditability with one canonical trac
 
 This trace refines `implementation/workflow.md` and `implementation/effect-boundary.md`.
 It aligns with `verification/acceptance-evidence.md` when the evidence bundle points back to the same `Approved Change` or named rework outcome.
+The `record-review-decision` step emits the `approval decision record`, which is narrower than the broader `audit log` and distinct from the `Approved Change` decision outcome.

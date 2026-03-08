@@ -12,6 +12,29 @@ This chapter explains how multiple views of one design can evolve without losing
 It uses the [design diagram](../../examples/common/policy-gated-change-review/design/commutative-diagram/), the [reviewer view](../../examples/common/policy-gated-change-review/review/reviewer-view/), and the [runtime view](../../examples/common/policy-gated-change-review/runtime/runtime-view/) to make natural transformations concrete.
 Use the [traceability matrix](../../examples/common/policy-gated-change-review/verification/traceability-matrix/) to keep the same claim visible across views.
 
+## Learning goals
+
+- Distinguish multiple valid views of one design from semantically conflicting parallel stories.
+- Read naturality as a review condition on whole paths, not only on object names.
+- Evaluate whether a claimed refactor or adapter really preserves approval meaning across views.
+
+## Prerequisites
+
+- The translation discipline from [Chapter 04](../chapter-chapter04/).
+- Familiarity with the [reviewer view](../../examples/common/policy-gated-change-review/review/reviewer-view/) and [runtime view](../../examples/common/policy-gated-change-review/runtime/runtime-view/).
+
+## Key concepts
+
+- `natural transformation`
+- `naturality`
+- `reviewer view`
+- `version skew`
+
+## Running example linkage
+
+- Read the [reviewer view](../../examples/common/policy-gated-change-review/review/reviewer-view/) as the human-facing projection of the design claim.
+- Compare it with the [runtime view](../../examples/common/policy-gated-change-review/runtime/runtime-view/) and the [coherence failure artifact](../../examples/common/policy-gated-change-review/verification/coherence-failure/) when testing whether one view change is still coherent.
+
 ## Why alternative views must cohere
 
 Alternative views are useful because no single model serves every reader equally well.
@@ -83,6 +106,20 @@ The transformation is natural only if both views still preserve the same approva
 This is the practical reading of naturality.
 A view change is coherent when it does not silently alter what the workflow claims to mean.
 The naturality check is therefore a design review rule, not only a formal definition.
+
+**Formal bridge.**
+
+```text
+η_ApprovedChange ◦ human approval
+  = approve-or-return ◦ η_ReviewPlan
+
+where
+η_ReviewPlan : Review Plan -> Decision Packet
+η_ApprovedChange : Approved Change -> Review Outcome
+```
+
+The square says the reviewer-facing transformation must preserve the same approval meaning that the design view assigns to `human approval`.
+If packaging a `Decision Packet` changes who may authorize the outcome or hides the policy distinction, the square no longer commutes in the engineering sense that this chapter needs.
 
 ## Refactoring without semantic drift
 
@@ -189,3 +226,15 @@ The running example keeps one reusable [coherence failure artifact](../../exampl
 These signals are intentionally concrete.
 They allow reviewers to reject vague equivalence claims without requiring advanced mathematics in the review thread.
 That sets up Chapter 06, where the book moves from coherent view change to selecting the simplest correct construction for combination and variation.
+
+## Summary
+
+- Multiple views are useful only while they preserve one coherent design claim across corresponding paths.
+- Naturality turns a view-change claim into a concrete review question about preserved meaning.
+- Adapters, facades, and refactors are acceptable only when version skew and evidence drift remain controlled.
+
+## Review prompts
+
+1. Which view in your current system most often claims to be equivalent while hiding a different approval meaning.
+2. Which path in your repository would you use as the naturality test for a claimed presentation-only change.
+3. Where should a traceability update occur if a reviewer-facing facade changes but the runtime path is supposed to stay equivalent.
