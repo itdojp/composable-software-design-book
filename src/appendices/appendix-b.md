@@ -52,6 +52,9 @@ See [Chapter 04](../chapter-chapter04/).
 **Natural transformation.** A coherent change between functorial views of the same design space.
 See [Chapter 05](../chapter-chapter05/).
 
+**Naturality.** The consistency condition that says a change of view preserves meaning across corresponding paths, not only across isolated labels.
+See [Chapter 05](../chapter-chapter05/).
+
 **Universal property.** A definition that characterizes a construction by the unique way other structures map to or from it.
 See [Chapter 06](../chapter-chapter06/).
 
@@ -82,6 +85,18 @@ See [Chapter 01](../chapter-chapter01/).
 
 **Responsibility boundary.** A documented boundary that assigns decision rights, required evidence, and escalation rules across humans, agents, and automation.
 See [Chapter 01](../chapter-chapter01/).
+
+**Reviewer view.** A reviewer-facing representation that preserves decision-relevant meaning while hiding operational detail that does not affect judgment.
+See [Chapter 05](../chapter-chapter05/).
+
+**Adapter.** A component or representation that reshapes one interface into another compatible form.
+See [Chapter 05](../chapter-chapter05/).
+
+**Facade.** A simplified boundary that hides internal complexity behind a smaller external view.
+See [Chapter 05](../chapter-chapter05/).
+
+**Version skew.** A state in which linked views or artifacts are updated at different times and temporarily disagree about the same system claim.
+See [Chapter 05](../chapter-chapter05/).
 
 ### Integration boundaries, migrations, and orchestration
 

@@ -45,6 +45,10 @@
       "path": "runtime/runtime-view.md"
     },
     {
+      "phase": "review",
+      "path": "review/reviewer-view.md"
+    },
+    {
       "phase": "implementation",
       "path": "implementation/workflow.md"
     }

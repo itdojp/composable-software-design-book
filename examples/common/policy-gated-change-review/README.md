@@ -22,6 +22,7 @@ The artifact set is intentionally small enough to trace by hand.
 - [Verification checks](verification/review-checks/)
 - [Verification traceability matrix](verification/traceability-matrix/)
 - [Runtime view](runtime/runtime-view/)
+- [Reviewer view](review/reviewer-view/)
 - [Implementation workflow](implementation/workflow/)
 
 ## Why This Example Was Chosen

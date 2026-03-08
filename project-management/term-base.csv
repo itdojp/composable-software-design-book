@@ -7,6 +7,7 @@ diagram,図式,category-theory,A structured picture that states objects morphism
 commutative,可換,category-theory,Describes a diagram where alternative paths preserve the same meaning,Required by TERMS.yml
 functor,関手,category-theory,A map between categories that preserves objects morphisms and composition,Required by TERMS.yml
 natural transformation,自然変換,category-theory,A coherent mapping between functors over the same source category,Required by TERMS.yml
+naturality,自然性,category-theory,A consistency condition stating that corresponding paths preserve the same meaning under a change of view,Core Chapter 05 term
 adjunction,随伴,category-theory,A paired relationship between functors that captures a best fit translation,Required by TERMS.yml
 universal property,普遍性,category-theory,A definition that characterizes a construction by its unique mapping behavior,Required by TERMS.yml
 product,積,category-theory,A construction that combines multiple inputs through a universal interface,Required by TERMS.yml
@@ -36,10 +37,12 @@ canonical model,正準モデル,software-design,The authoritative representation
 architecture model,アーキテクチャモデル,software-design,A structural description of components boundaries and interactions,Used in TOC and case study
 runtime view,ランタイムビュー,software-design,A representation of the system during execution including operational states transitions and evidence obligations,Core Chapter 04 translation artifact
 semantic drift,意味ドリフト,software-design,A mismatch where a translated artifact no longer preserves the intended meaning of its source view,Core Chapter 04 risk term
+reviewer view,レビュービュー,software-design,A reviewer-facing representation that preserves decision-relevant meaning while omitting operational detail that does not affect judgment,Core Chapter 05 artifact
 schema mapping,スキーマ写像,software-design,A defined translation between data structures or interface schemas,Important in migration
 migration plan,移行計画,software-design,A staged plan for replacing or restructuring a running system,Important in Chapter 07
 adapter,アダプタ,software-design,A component that reshapes one interface into another compatible form,Appears in Chapter 05
 facade,ファサード,software-design,A simplified interface that hides internal complexity behind one boundary,Appears in Chapter 05
+version skew,バージョンスキュー,software-design,A condition where linked views or artifacts evolve at different times and temporarily disagree,Important in Chapter 05 review work
 review checkpoint,レビューチェックポイント,software-design,A planned decision point where artifacts and risks are examined,Supports controlled delivery
 rollback,ロールバック,software-design,A controlled return to a previous safe operational state,Appears in Chapters 01 and 09
 operational workflow,運用ワークフロー,software-design,A sequence of runtime or human activities that delivers system outcomes,Appears in Chapters 04 and 10

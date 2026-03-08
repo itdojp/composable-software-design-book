@@ -17,6 +17,8 @@ terms:
     en: functor
   自然変換:
     en: natural transformation
+  自然性:
+    en: naturality
   随伴:
     en: adjunction
   普遍性:
@@ -35,6 +37,10 @@ terms:
     en: Kleisli
   ランタイムビュー:
     en: runtime view
+  レビュービュー:
+    en: reviewer view
+  バージョンスキュー:
+    en: version skew
   意味ドリフト:
     en: semantic drift
   合成的設計:

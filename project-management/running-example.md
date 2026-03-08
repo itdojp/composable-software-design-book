@@ -31,7 +31,7 @@ It is small enough for a minimal example and rich enough for the case-study chap
 | Chapter 02 | Model the change request, review plan, and approved change as objects linked by morphisms. |
 | Chapter 03 | Start from the minimal policy-gated approval diagram, then expand to the richer repository diagram and lightweight traceability matrix. |
 | Chapter 04 | Translate the example across specification, architecture, runtime, and operational views by using the new runtime view artifact. |
-| Chapter 05 | Compare reviewer view, system view, and execution view as natural transformations between models. |
+| Chapter 05 | Compare reviewer view, design view, and runtime view as natural transformations between models. |
 | Chapter 06 | Use products and coproducts for combined checks, alternate review paths, and controlled variation. |
 | Chapter 07 | Reuse the example for repository migration and toolchain integration boundaries. |
 | Chapter 08 | Use the example workflow to explain sequential and parallel composition in orchestration. |
