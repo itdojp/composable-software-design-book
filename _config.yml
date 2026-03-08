@@ -49,7 +49,9 @@ exclude:
   - project-management/
   - qa-reports/
   - .cache/
+  - .bundle/
   - README.md
+  - vendor/
 
 kramdown:
   input: GFM
