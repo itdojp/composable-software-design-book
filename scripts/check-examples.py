@@ -3,13 +3,22 @@
 from __future__ import annotations
 
 import json
+import re
 import sys
 from pathlib import Path
+
+try:
+    from jsonschema import Draft202012Validator
+except ImportError:  # pragma: no cover - dependency fallback
+    Draft202012Validator = None
 
 
 ROOT = Path(__file__).resolve().parents[1]
 MINIMAL_DIR = ROOT / "examples" / "minimal" / "policy-gated-change-review"
 COMMON_DIR = ROOT / "examples" / "common" / "policy-gated-change-review"
+SCHEMA_DIR = ROOT / "schemas"
+MINIMAL_SCHEMA_PATH = SCHEMA_DIR / "minimal-example-manifest.schema.json"
+COMMON_SCHEMA_PATH = SCHEMA_DIR / "common-example-manifest.schema.json"
 REQUIRED_COMMON_ARTIFACTS = {
     "spec/problem-statement.md",
     "spec/acceptance-criteria.md",
@@ -55,6 +64,7 @@ REQUIRED_MARKDOWN_SECTIONS = {
         "## Required Evidence",
         "## Acceptance Rule",
         "## Return-For-Rework Rule",
+        "## Claim Coverage",
     ],
 }
 TRACEABILITY_REQUIRED_IDS = {
@@ -73,8 +83,94 @@ TRACEABILITY_REQUIRED_PATHS = {
 }
 
 
-def load_json(path: Path) -> dict:
-    return json.loads(path.read_text(encoding="utf-8"))
+def load_json_file(path: Path, errors: list[str]) -> dict | None:
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        errors.append(f"missing required file: {path.relative_to(ROOT)}")
+    except json.JSONDecodeError as exc:
+        errors.append(f"invalid JSON in {path.relative_to(ROOT)}: {exc.msg} at line {exc.lineno} column {exc.colno}")
+    return None
+
+
+def format_instance_path(parts: list[object]) -> str:
+    if not parts:
+        return "$"
+    formatted: list[str] = ["$"]
+    for part in parts:
+        if isinstance(part, int):
+            formatted.append(f"[{part}]")
+        else:
+            formatted.append(f".{part}")
+    return "".join(formatted)
+
+
+def validate_with_subset(instance: object, schema: dict, path: list[object] | None = None) -> list[str]:
+    current_path = path or []
+    errors: list[str] = []
+    path_label = format_instance_path(current_path)
+
+    expected_type = schema.get("type")
+    if expected_type == "object":
+        if not isinstance(instance, dict):
+            return [f"{path_label}: expected object"]
+        required = schema.get("required", [])
+        for key in required:
+            if key not in instance:
+                errors.append(f"{path_label}: missing required property '{key}'")
+        properties = schema.get("properties", {})
+        if schema.get("additionalProperties") is False:
+            extras = sorted(set(instance) - set(properties))
+            for key in extras:
+                errors.append(f"{path_label}: unexpected property '{key}'")
+        for key, subschema in properties.items():
+            if key in instance:
+                errors.extend(validate_with_subset(instance[key], subschema, current_path + [key]))
+    elif expected_type == "array":
+        if not isinstance(instance, list):
+            return [f"{path_label}: expected array"]
+        min_items = schema.get("minItems")
+        if min_items is not None and len(instance) < min_items:
+            errors.append(f"{path_label}: expected at least {min_items} items")
+        if schema.get("uniqueItems"):
+            seen: set[str] = set()
+            for index, item in enumerate(instance):
+                marker = json.dumps(item, sort_keys=True)
+                if marker in seen:
+                    errors.append(f"{path_label}: duplicate array item at index {index}")
+                seen.add(marker)
+        item_schema = schema.get("items")
+        if item_schema:
+            for index, item in enumerate(instance):
+                errors.extend(validate_with_subset(item, item_schema, current_path + [index]))
+    elif expected_type == "string":
+        if not isinstance(instance, str):
+            return [f"{path_label}: expected string"]
+        min_length = schema.get("minLength")
+        if min_length is not None and len(instance) < min_length:
+            errors.append(f"{path_label}: string must be at least {min_length} characters")
+        pattern = schema.get("pattern")
+        if pattern and not re.fullmatch(pattern, instance):
+            errors.append(f"{path_label}: string does not match pattern {pattern!r}")
+
+    if "const" in schema and instance != schema["const"]:
+        errors.append(f"{path_label}: expected constant value {schema['const']!r}")
+    if "enum" in schema and instance not in schema["enum"]:
+        errors.append(f"{path_label}: expected one of {schema['enum']!r}")
+
+    return errors
+
+
+def validate_schema_instance(label: str, instance: dict, schema: dict, errors: list[str]) -> None:
+    if Draft202012Validator is not None:
+        validator = Draft202012Validator(schema)
+        for error in validator.iter_errors(instance):
+            location = format_instance_path(list(error.absolute_path))
+            errors.append(f"{label} schema validation failed at {location}: {error.message}")
+        return
+
+    for message in validate_with_subset(instance, schema):
+        errors.append(f"{label} schema validation failed at {message}")
 
 
 def main() -> int:
@@ -84,20 +180,41 @@ def main() -> int:
     artifact_decision = ROOT / "project-management" / "artifact-location-decision.md"
     minimal_manifest_path = MINIMAL_DIR / "manifest.json"
     common_manifest_path = COMMON_DIR / "manifest.json"
+    book_config_path = ROOT / "book-config.json"
 
-    for path in [running_example, artifact_decision, minimal_manifest_path, common_manifest_path]:
+    for path in [
+        running_example,
+        artifact_decision,
+        minimal_manifest_path,
+        common_manifest_path,
+        book_config_path,
+        MINIMAL_SCHEMA_PATH,
+        COMMON_SCHEMA_PATH,
+    ]:
         if not path.exists():
             errors.append(f"missing required file: {path.relative_to(ROOT)}")
 
-    if errors:
+    minimal_schema = load_json_file(MINIMAL_SCHEMA_PATH, errors) if MINIMAL_SCHEMA_PATH.exists() else None
+    common_schema = load_json_file(COMMON_SCHEMA_PATH, errors) if COMMON_SCHEMA_PATH.exists() else None
+    minimal = load_json_file(minimal_manifest_path, errors) if minimal_manifest_path.exists() else None
+    common = load_json_file(common_manifest_path, errors) if common_manifest_path.exists() else None
+    book_config = load_json_file(book_config_path, errors) if book_config_path.exists() else None
+
+    if errors and (minimal is None or common is None or book_config is None):
         print("FAIL")
         for error in errors:
             print(f"- {error}")
         return 1
 
-    minimal = load_json(minimal_manifest_path)
-    common = load_json(common_manifest_path)
-    book_config = load_json(ROOT / "book-config.json")
+    assert minimal is not None
+    assert common is not None
+    assert book_config is not None
+
+    if minimal_schema is not None:
+        validate_schema_instance("minimal manifest", minimal, minimal_schema, errors)
+    if common_schema is not None:
+        validate_schema_instance("common manifest", common, common_schema, errors)
+
     chapter_ids = [chapter["id"] for chapter in book_config["structure"]["chapters"]]
 
     if minimal.get("example_id") != "policy-gated-change-review":
@@ -163,6 +280,8 @@ def main() -> int:
             "implementation/execution-trace.md",
             "Change Identity",
             "Plan Revision",
+            "PGCR-06",
+            "dispatch-execution",
         ]:
             if needle not in acceptance_evidence_text:
                 errors.append(f"acceptance evidence is missing required reference: {needle}")

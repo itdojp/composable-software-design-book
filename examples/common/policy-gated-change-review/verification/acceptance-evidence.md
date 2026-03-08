@@ -29,6 +29,19 @@ If those references disagree, the change is not accepted even if some individual
 A return-for-rework decision is still a governed outcome and must keep the same evidence shape.
 The workflow may discard stale implementation outputs, but it may not discard the trace, policy result, or reviewer reason that caused the return.
 
+## Claim Coverage
+
+| Claim ID | Evidence reference | Trace step |
+| --- | --- | --- |
+| PGCR-02 | `design/artifact-map.md`, `verification/traceability-matrix.md` | `scope-and-bound` |
+| PGCR-02 | `verification/review-checks.md`, `verification/traceability-matrix.md` | `draft-plan-with-agent` |
+| PGCR-03 | `design/commutative-diagram.md`, `verification/review-checks.md` | `record-review-decision` |
+| PGCR-05 | `implementation/effect-boundary.md`, `verification/review-checks.md` | `evaluate-policy` |
+| PGCR-04 | `implementation/synchronization-boundary.md`, `verification/review-checks.md` | `collect-evidence-links` |
+| PGCR-04 | `implementation/synchronization-boundary.md`, `verification/traceability-matrix.md` | `synchronize-for-review` |
+| PGCR-01 | `Approved Change`, `verification/review-checks.md` | `record-review-decision` |
+| PGCR-06 | `implementation/execution-trace.md`, `verification/acceptance-evidence.md` | `dispatch-execution` |
+
 ## Relationship To Other Artifacts
 
 This artifact depends on `verification/review-checks.md`, `verification/traceability-matrix.md`, `implementation/effect-boundary.md`, and `implementation/execution-trace.md`.

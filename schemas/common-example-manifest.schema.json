@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Common running example manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "example_id",
+    "title",
+    "scope",
+    "chapter_coverage",
+    "artifacts"
+  ],
+  "properties": {
+    "example_id": {
+      "const": "policy-gated-change-review"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scope": {
+      "const": "common"
+    },
+    "chapter_coverage": {
+      "type": "array",
+      "minItems": 11,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": [
+          "introduction",
+          "chapter01",
+          "chapter02",
+          "chapter03",
+          "chapter04",
+          "chapter05",
+          "chapter06",
+          "chapter07",
+          "chapter08",
+          "chapter09",
+          "chapter10"
+        ]
+      }
+    },
+    "artifacts": {
+      "type": "array",
+      "minItems": 18,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "phase",
+          "path"
+        ],
+        "properties": {
+          "phase": {
+            "type": "string",
+            "enum": [
+              "spec",
+              "design",
+              "verification",
+              "runtime",
+              "review",
+              "implementation"
+            ]
+          },
+          "path": {
+            "type": "string",
+            "pattern": "^[a-z0-9./-]+\\.md$"
+          }
+        }
+      }
+    }
+  }
+}

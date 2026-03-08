@@ -9,7 +9,8 @@
 - The repository now has a full first-draft publication path from specification through AI-assisted implementation, including orchestration, effect, execution-trace, and acceptance-evidence artifacts.
 - Appendix A now provides a stable notation, figure-caption, and naming reference for the manuscript.
 - Appendix C now provides an annotated follow-on reading set for category theory, software architecture, lightweight formal methods, AI governance, and agent evaluation.
-- Example QA now checks the presence and section structure of the Chapter 08 through Chapter 10 artifacts, including synchronization, effect, execution-trace, and acceptance-evidence files.
+- CI now runs repository QA and a separate native Ruby/Bundler build job, so the canonical primary build path remains under continuous verification.
+- Example QA now includes manifest schema validation, generated trace collation, and section-level checks for the Chapter 08 through Chapter 10 artifacts.
 
 ## Canonical source paths
 
@@ -27,8 +28,9 @@
 | Translation workflow and rules | `project-management/translation_workflow.md` and `project-management/translation_rules.md` |
 | Editorial term base | `project-management/term-base.csv` |
 | Repository term map | `TERMS.yml` |
+| JSON schemas for structured QA input | `schemas/*.schema.json` |
 | Translation input area | `manuscript/ja/` |
-| QA and build entry points | `scripts/check_translation_inputs.py`, `scripts/qa.sh`, `scripts/check-examples.py`, `scripts/validate-github-pages.js`, and `package.json` |
+| QA and build entry points | `scripts/check_translation_inputs.py`, `scripts/qa.sh`, `scripts/check-examples.py`, `scripts/collate-example-traces.py`, `scripts/validate-github-pages.js`, and `package.json` |
 
 ## Assumptions
 

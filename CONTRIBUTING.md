@@ -12,6 +12,7 @@ Install Ruby and Bundler locally for the primary preview and build path.
 Run `bundle install` before the first local preview or build.
 Use `bundle exec jekyll serve --livereload` for local preview.
 Use `bash scripts/check-native-build.sh` or `npm run build:native` for the primary static build smoke check.
+Use `npm run build:smoke` only as a convenience wrapper that prefers the native path and falls back to Podman when native Bundler is unavailable.
 
 ## Supported Build Matrix
 
@@ -19,6 +20,8 @@ Use `bash scripts/check-native-build.sh` or `npm run build:native` for the prima
 | --- | --- | --- | --- |
 | Native Ruby + Bundler | Primary | preview, static build, repository QA | `bundle exec jekyll serve --livereload`, `npm run build:native`, `npm run qa`, `npm run validate-deploy` |
 | Podman container build | Fallback | static build verification, repository QA on the host | `npm run build:podman`, `npm run qa`, `npm run validate-deploy` |
+
+GitHub Actions runs a separate native Ruby/Bundler build job so the canonical primary path stays under continuous verification even when some contributors use the local Podman fallback.
 
 ## Container Fallback
 
@@ -31,6 +34,8 @@ Podman live preview is not a supported authoring path in the current repository 
 
 Run `./scripts/check_translation_inputs.py` after updating canonical English content or Japanese working drafts.
 Run `npm run qa` as the default repository gate.
+Use `npm run qa:examples:deep` when you need to inspect the generated trace collation report directly under `qa-reports/examples/`.
+Run `npm run build:native` when native Ruby/Bundler is available, or `npm run build:podman` when using the documented fallback.
 Run `npm run validate-deploy` before publish-related changes are merged.
 The supported build matrix and smoke-check policy are documented in `project-management/build-support-policy.md`.
 

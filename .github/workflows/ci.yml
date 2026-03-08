@@ -1,4 +1,4 @@
-name: QA
+name: QA and Build
 
 on:
   push:
@@ -34,4 +34,42 @@ jobs:
         with:
           name: qa-reports
           path: qa-reports/
+          if-no-files-found: warn
+
+  build-native:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.3
+          bundler-cache: true
+
+      - name: Verify Ruby toolchain
+        run: |
+          ruby --version
+          bundle --version
+
+      - name: Install Jekyll dependencies
+        run: bundle install --jobs 4 --retry 3
+
+      - name: Run native build smoke check
+        run: npm run build:native
+
+      - name: Upload native build output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: native-build-site
+          path: _site/
           if-no-files-found: warn

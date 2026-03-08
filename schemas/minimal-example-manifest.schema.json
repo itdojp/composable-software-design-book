@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Minimal running example manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "example_id",
+    "title",
+    "scope",
+    "objects",
+    "morphisms",
+    "diagram_file"
+  ],
+  "properties": {
+    "example_id": {
+      "const": "policy-gated-change-review"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scope": {
+      "const": "minimal"
+    },
+    "objects": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "title"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "morphisms": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "from",
+          "to"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "from": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "to": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          }
+        }
+      }
+    },
+    "diagram_file": {
+      "type": "string",
+      "pattern": "^[a-z0-9./-]+\\.md$"
+    }
+  }
+}

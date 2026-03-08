@@ -21,10 +21,12 @@ Contributor workflow and local build guidance are documented in [`CONTRIBUTING.m
 
 - `npm run qa:core`
 - `npm run qa:examples`
+- `npm run qa:examples:deep`
 - `npm run qa`
 - `npm run build`
 - `npm run build:native`
 - `npm run build:podman`
+- `npm run build:smoke`
 - `npm run serve`
 - `npm run validate-deploy`
 - `npm run pages-status`
@@ -44,16 +46,20 @@ Contributor workflow and local build guidance are documented in [`CONTRIBUTING.m
 
 Run `npm run qa:core` before opening a pull request.
 This command fetches the current `book-formatter` QA tooling into `.cache/book-formatter`, runs the core checks, and writes reports to `qa-reports/core/`.
-Use `npm run qa` as the default local gate when no example-specific checks are required yet.
+Run `npm run qa:examples` to execute manifest schema validation, lightweight example checks, and generated trace collation for the running example.
+The generated example reports are written to `qa-reports/examples/`.
+Use `npm run qa` as the default local gate.
 
 ## Preview And Publish
 
 Install Ruby and Bundler, then run `bundle install`.
 Use `bundle exec jekyll serve --livereload` for local preview and `npm run build:native` for the primary static build smoke check.
+Use `npm run build:smoke` as a local convenience wrapper that prefers the native path and falls back to Podman only when native Bundler is unavailable.
 Run `npm run validate-deploy` before publishing.
 Repository-level publishing setup is documented in `project-management/publishing-setup.md`.
 If native Ruby or Bundler is unavailable, use `npm run build:podman` as the documented fallback described in [`CONTRIBUTING.md`](CONTRIBUTING.md).
 The support boundary for native and Podman paths is documented in `project-management/build-support-policy.md`.
+GitHub Actions continuously verifies the canonical primary path through a separate native Ruby/Bundler build job, so fallback usage on a local host does not redefine the repository's primary build policy.
 
 ## Running Example Quickstart
 

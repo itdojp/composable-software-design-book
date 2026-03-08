@@ -5,6 +5,7 @@
 This document defines the supported local build paths for contributors.
 Native Ruby and Bundler remain the primary authoring workflow.
 Podman remains a fallback for static build verification when native tooling is unavailable.
+GitHub Actions continuously verifies the native primary path in CI so local fallback usage does not redefine repository policy.
 
 ## Supported Local Build Matrix
 
@@ -28,10 +29,17 @@ Podman remains a fallback for static build verification when native tooling is u
 - `./scripts/check_translation_inputs.py`, `npm run qa`, and `npm run validate-deploy` complete on the host environment.
 - Podman is used for static build verification only, not as the canonical authoring preview workflow.
 
+## CI Coverage
+
+- GitHub Actions runs `npm run qa` in a repository QA job.
+- GitHub Actions runs a separate native Ruby + Bundler job that executes `bundle install` and `npm run build:native`.
+- CI-native coverage is the canonical proof that the primary build path remains healthy even when some local hosts rely on `npm run build:podman`.
+
 ## Smoke Checks
 
 - Native static build smoke check: `bash scripts/check-native-build.sh`
 - Podman static build smoke check: `bash scripts/check-podman-build.sh`
+- Convenience smoke wrapper: `bash scripts/check-build-smoke.sh`
 
 ## Manual Validation Procedure
 
