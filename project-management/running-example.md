@@ -14,6 +14,7 @@
 - Running example: Policy-Gated Change Review for AI-Assisted Repository Work
 - Minimal example: Policy-Gated Change Review
 - Common example root: `examples/common/policy-gated-change-review/`
+- Reusable variation artifact: `examples/common/policy-gated-change-review/design/variation-paths.md`
 
 ## Adoption Rationale
 

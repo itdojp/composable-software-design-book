@@ -20,11 +20,17 @@ The common example uses the following phase-oriented subdirectories.
 
 - `spec/`
 - `design/`
+- `review/`
+- `runtime/`
 - `verification/`
 - `implementation/`
+
+The reusable variation artifact introduced for Chapter 06 lives at `design/variation-paths.md`.
+It stays under `design/` rather than creating a dedicated top-level variation phase.
 
 ## Decision Rationale
 
 This layout keeps the example source tree discoverable from the repository root.
 It avoids mixing source assets with publish configuration or project-management notes.
 It also makes it easy to attach validation hooks to one root without scattering path rules across the repository.
+Keeping the variation artifact under `design/` preserves this structure while still giving Chapter 06 one canonical reusable location.
