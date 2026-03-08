@@ -1,0 +1,10 @@
+/.cache/
+/.bundle/
+/vendor/
+/node_modules/
+/qa-reports/
+/_site/
+/.jekyll-cache/
+/.sass-cache/
+__pycache__/
+*.pyc

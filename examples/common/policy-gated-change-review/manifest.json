@@ -1,0 +1,44 @@
+{
+  "example_id": "policy-gated-change-review",
+  "title": "Policy-Gated Change Review for AI-Assisted Repository Work",
+  "scope": "common",
+  "chapter_coverage": [
+    "introduction",
+    "chapter01",
+    "chapter02",
+    "chapter03",
+    "chapter04",
+    "chapter05",
+    "chapter06",
+    "chapter07",
+    "chapter08",
+    "chapter09",
+    "chapter10"
+  ],
+  "artifacts": [
+    {
+      "phase": "spec",
+      "path": "spec/problem-statement.md"
+    },
+    {
+      "phase": "spec",
+      "path": "spec/acceptance-criteria.md"
+    },
+    {
+      "phase": "design",
+      "path": "design/artifact-map.md"
+    },
+    {
+      "phase": "design",
+      "path": "design/commutative-diagram.md"
+    },
+    {
+      "phase": "verification",
+      "path": "verification/review-checks.md"
+    },
+    {
+      "phase": "implementation",
+      "path": "implementation/workflow.md"
+    }
+  ]
+}

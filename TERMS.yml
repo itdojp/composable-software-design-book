@@ -1,0 +1,51 @@
+terms:
+  対象:
+    en: object
+  射:
+    en: morphism
+  合成:
+    en: composition
+  結合律:
+    en: associativity
+  恒等射:
+    en: identity morphism
+  図式:
+    en: diagram
+  可換:
+    en: commutative
+  関手:
+    en: functor
+  自然変換:
+    en: natural transformation
+  随伴:
+    en: adjunction
+  普遍性:
+    en: universal property
+  積:
+    en: product
+  余積:
+    en: coproduct
+  モノイダル圏:
+    en: monoidal category
+  ストリング図式:
+    en: string diagram
+  モナド:
+    en: monad
+  クライスリ:
+    en: Kleisli
+  合成的設計:
+    en: compositional design
+  責任境界:
+    en: responsibility boundary
+  変更要求:
+    en: change request
+  レビュー計画:
+    en: review plan
+  承認済み変更:
+    en: approved change
+  ポリシーゲート:
+    en: policy gate
+  部分関数:
+    en: partial function
+  全関数:
+    en: total function

@@ -1,0 +1,56 @@
+title: "Compositional Software Design for Agentic Systems"
+subtitle: "A Category-Theoretic Guide to Human-AI Boundaries and Verifiable Engineering"
+description: "A practical guide to designing AI-assisted software systems with composition, diagrams, and effect boundaries that remain auditable and verifiable."
+author: "ITDO Inc."
+version: "0.1.0"
+lang: "en"
+url: "https://itdojp.github.io"
+baseurl: "/composable-software-design-book"
+repository: "itdojp/composable-software-design-book"
+repository_url: "https://github.com/itdojp/composable-software-design-book"
+repository_branch: "main"
+license_text: "Content licensed under CC BY-NC-SA 4.0 (commercial use requires a separate agreement)."
+
+markdown: kramdown
+highlighter: rouge
+theme: minima
+permalink: pretty
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      lang: en
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: book
+  - scope:
+      path: "src"
+    values:
+      layout: book
+      lang: en
+
+exclude:
+  - node_modules/
+  - package.json
+  - package-lock.json
+  - Gemfile
+  - Gemfile.lock
+  - scripts/
+  - tests/
+  - manuscript/
+  - project-management/
+  - qa-reports/
+  - .cache/
+  - README.md
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge

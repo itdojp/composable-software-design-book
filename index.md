@@ -1,0 +1,84 @@
+---
+layout: book
+title: "Compositional Software Design for Agentic Systems"
+subtitle: "A Category-Theoretic Guide to Human-AI Boundaries and Verifiable Engineering"
+description: "A practical guide to designing AI-assisted software systems with composition, diagrams, and effect boundaries that remain auditable and verifiable."
+author: "ITDO Inc."
+version: "0.1.0"
+---
+
+# Compositional Software Design for Agentic Systems
+
+A Category-Theoretic Guide to Human-AI Boundaries and Verifiable Engineering
+
+A practical guide to designing AI-assisted software systems with composition, diagrams, and effect boundaries that remain auditable and verifiable.
+
+## What You Will Learn
+
+- Define clear responsibility boundaries between human reviewers and AI-assisted workflows.
+- Model software systems with objects, morphisms, composition, and diagrams.
+- Use universal constructions and effect boundaries to reason about integration, migration, and orchestration.
+- Translate the formal vocabulary into an auditable end-to-end engineering workflow.
+
+## Intended Readers
+
+This book is written for software architects, staff engineers, technical leads, platform engineers, and AI product builders.
+It assumes readers care about both formal rigor and delivery realism.
+
+## Prerequisites
+
+Readers should be comfortable with software architecture, interface design, and technical review.
+Prior exposure to category theory is helpful but not required.
+
+## Reading Guide
+
+Read the introduction and Chapter 01 first if you need the governance and scope frame.
+Read Chapters 02 through 09 in order if you want the conceptual build-up.
+Read Chapter 10 after the core chapters to see the method applied end to end.
+
+## Quickstart
+
+Start with the [minimal example](examples/minimal/policy-gated-change-review/) to see the smallest reusable chain of objects, morphisms, and a diagram.
+Continue with the [common running example](examples/common/policy-gated-change-review/) to inspect the specification, design, verification, and implementation artifacts that the book reuses across chapters.
+
+## Part I. Foundations and Responsibility Boundaries
+
+- [Introduction: Why Compositional Design Matters](src/chapter-introduction/)
+- [Chapter 01. Human and AI Responsibility Boundaries](src/chapter-chapter01/)
+- [Chapter 02. Objects, Morphisms, and Composition](src/chapter-chapter02/)
+- [Chapter 03. Diagrams and Commutativity](src/chapter-chapter03/)
+
+## Part II. Structure-Preserving Translation and Integration
+
+- [Chapter 04. Functors and Model Translation](src/chapter-chapter04/)
+- [Chapter 05. Natural Transformations and View Changes](src/chapter-chapter05/)
+- [Chapter 06. Universality with Products and Coproducts](src/chapter-chapter06/)
+- [Chapter 07. Pullbacks and Pushouts for Integration and Migration](src/chapter-chapter07/)
+
+## Part III. Coordination, Effects, and Delivery
+
+- [Chapter 08. Monoidal Categories and String Diagrams](src/chapter-chapter08/)
+- [Chapter 09. Monads, Kleisli Composition, and Effect Boundaries](src/chapter-chapter09/)
+- [Chapter 10. Case Study: From Specification to AI-Assisted Implementation](src/chapter-chapter10/)
+
+## Appendices
+
+- [Appendix A. Notation and Diagram Conventions](src/appendices/appendix-a/)
+- [Appendix B. Glossary of Category-Theoretic and Engineering Terms](src/appendices/appendix-b/)
+- [Appendix C. References and Further Study](src/appendices/appendix-c/)
+
+## Publication Policy
+
+English text is the canonical source for publication.
+Japanese drafts under `manuscript/ja/` are editorial inputs and are not published as-is.
+
+## License
+
+This book is published under CC BY-NC-SA 4.0.
+Commercial use requires a separate agreement.
+
+---
+
+**Author:** ITDO Inc.  
+**Version:** 0.1.0  
+**Last updated:** 2026-03-08

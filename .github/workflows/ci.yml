@@ -1,0 +1,37 @@
+name: QA
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  qa-core:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Verify toolchain
+        run: |
+          node --version
+          npm --version
+          python3 --version
+          git --version
+
+      - name: Run repository QA
+        run: npm run qa
+
+      - name: Upload QA reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: qa-reports
+          path: qa-reports/
+          if-no-files-found: warn

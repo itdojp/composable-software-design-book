@@ -1,0 +1,37 @@
+{
+  "example_id": "policy-gated-change-review",
+  "title": "Policy-Gated Change Review",
+  "scope": "minimal",
+  "objects": [
+    {
+      "id": "change-request",
+      "title": "Change Request"
+    },
+    {
+      "id": "review-plan",
+      "title": "Review Plan"
+    },
+    {
+      "id": "approved-change",
+      "title": "Approved Change"
+    }
+  ],
+  "morphisms": [
+    {
+      "id": "draft-review-plan",
+      "from": "change-request",
+      "to": "review-plan"
+    },
+    {
+      "id": "human-approval",
+      "from": "review-plan",
+      "to": "approved-change"
+    },
+    {
+      "id": "policy-gated-approval",
+      "from": "change-request",
+      "to": "approved-change"
+    }
+  ],
+  "diagram_file": "diagram.md"
+}

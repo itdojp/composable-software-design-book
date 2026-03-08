@@ -1,0 +1,26 @@
+{
+  "name": "composable-software-design-book",
+  "version": "0.1.0",
+  "description": "A practical guide to designing AI-assisted software systems with composition, diagrams, and effect boundaries that remain auditable and verifiable.",
+  "author": "ITDO Inc.",
+  "license": "CC BY-NC-SA 4.0",
+  "scripts": {
+    "qa:core": "bash scripts/qa.sh core",
+    "qa:examples": "python3 scripts/check-examples.py",
+    "qa": "npm run qa:core && npm run qa:examples",
+    "build": "bundle exec jekyll build",
+    "serve": "bundle exec jekyll serve --livereload",
+    "deploy": "npm run build && gh-pages -d _site",
+    "deploy-setup": "npm run validate-deploy",
+    "validate-deploy": "node scripts/validate-github-pages.js",
+    "pages-status": "node scripts/check-pages-status.js"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/itdojp/composable-software-design-book.git"
+  },
+  "homepage": "https://itdojp.github.io/composable-software-design-book"
+}

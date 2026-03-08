@@ -1,0 +1,171 @@
+{
+  "title": "Compositional Software Design for Agentic Systems",
+  "subtitle": "A Category-Theoretic Guide to Human-AI Boundaries and Verifiable Engineering",
+  "description": "A practical guide to designing AI-assisted software systems with composition, diagrams, and effect boundaries that remain auditable and verifiable.",
+  "author": "ITDO Inc.",
+  "version": "0.1.0",
+  "language": "en",
+  "license": "CC BY-NC-SA 4.0",
+  "repository": {
+    "url": "https://github.com/itdojp/composable-software-design-book.git",
+    "branch": "main",
+    "owner": "itdojp",
+    "name": "composable-software-design-book"
+  },
+  "structure": {
+    "chapters": [
+      {
+        "id": "introduction",
+        "title": "Introduction: Why Compositional Design Matters",
+        "description": "Purpose, audience, scope, and reading strategy for the book.",
+        "objectives": [
+          "Understand the design problem the book addresses.",
+          "Identify the target audience, prerequisites, and expected outcomes.",
+          "Choose an effective reading path based on the reader's goals."
+        ]
+      },
+      {
+        "id": "chapter01",
+        "title": "Human and AI Responsibility Boundaries",
+        "description": "Design the decision rights, artifacts, and control points that keep AI-assisted work accountable.",
+        "objectives": [
+          "Define responsibility boundaries between human reviewers and AI agents.",
+          "Identify the minimum artifact set needed for auditability.",
+          "Separate safe delegation from judgments that must remain human-led."
+        ]
+      },
+      {
+        "id": "chapter02",
+        "title": "Objects, Morphisms, and Composition",
+        "description": "Model systems, interfaces, and transformations with the core vocabulary of composition.",
+        "objectives": [
+          "Represent system elements as objects and transformations as morphisms.",
+          "Use composition and identity to reason about stable interfaces.",
+          "Connect categorical structure to everyday software design decisions."
+        ]
+      },
+      {
+        "id": "chapter03",
+        "title": "Diagrams and Commutativity",
+        "description": "Use diagrams to test consistency across requirements, architecture, and implementation views.",
+        "objectives": [
+          "Read and create commutative diagrams for design reviews.",
+          "Detect broken mappings between multiple system representations.",
+          "Turn diagram checks into practical review heuristics."
+        ]
+      },
+      {
+        "id": "chapter04",
+        "title": "Functors and Model Translation",
+        "description": "Preserve structure while translating between domain, architecture, and runtime models.",
+        "objectives": [
+          "Explain what a structure-preserving translation must keep intact.",
+          "Evaluate when a model translation is lossy or misleading.",
+          "Apply functorial thinking to layered system design."
+        ]
+      },
+      {
+        "id": "chapter05",
+        "title": "Natural Transformations and View Changes",
+        "description": "Coordinate alternative views of the same system without breaking consistency.",
+        "objectives": [
+          "Relate multiple functorial views of one design space.",
+          "Use naturality to evaluate refactoring and interface adaptation.",
+          "Recognize when two views are not coherently aligned."
+        ]
+      },
+      {
+        "id": "chapter06",
+        "title": "Universality with Products and Coproducts",
+        "description": "Use universal properties to select the simplest correct decomposition or variation point.",
+        "objectives": [
+          "Apply products to combined requirements and shared constraints.",
+          "Apply coproducts to alternative behaviors and variability.",
+          "Use universal properties as design selection criteria."
+        ]
+      },
+      {
+        "id": "chapter07",
+        "title": "Pullbacks and Pushouts for Integration and Migration",
+        "description": "Structure integrations and migrations around shared boundaries, provenance, and conflict handling.",
+        "objectives": [
+          "Use pullbacks to reason about constrained joins across systems.",
+          "Use pushouts to plan mergers, replacements, and migration paths.",
+          "Capture compatibility assumptions before implementation begins."
+        ]
+      },
+      {
+        "id": "chapter08",
+        "title": "Monoidal Categories and String Diagrams",
+        "description": "Design concurrent workflows, toolchains, and review loops with sequential and parallel composition.",
+        "objectives": [
+          "Distinguish sequential and parallel composition in system workflows.",
+          "Read string diagrams as coordination models for people and tools.",
+          "Improve failure isolation and handoff design in composed pipelines."
+        ]
+      },
+      {
+        "id": "chapter09",
+        "title": "Monads, Kleisli Composition, and Effect Boundaries",
+        "description": "Make effects explicit so agent orchestration remains safe, reviewable, and testable.",
+        "objectives": [
+          "Explain why side effects require explicit boundaries.",
+          "Use monadic structure to reason about effectful steps.",
+          "Apply Kleisli composition to agent and tool orchestration without hiding risk."
+        ]
+      },
+      {
+        "id": "chapter10",
+        "title": "Case Study: From Specification to AI-Assisted Implementation",
+        "description": "Walk through a full design and delivery flow from problem framing to verified AI-assisted implementation.",
+        "objectives": [
+          "Trace artifacts from specification through implementation and verification.",
+          "See how compositional abstractions guide practical design decisions.",
+          "Evaluate the limits and extension points of the proposed workflow."
+        ]
+      }
+    ],
+    "appendices": [
+      {
+        "id": "appendix-a",
+        "title": "Notation and Diagram Conventions",
+        "description": "Shared notation, diagram reading rules, and naming conventions used throughout the book.",
+        "objectives": [
+          "Provide a stable reference for notation and symbols.",
+          "Clarify how diagrams and identifiers are interpreted across chapters."
+        ]
+      },
+      {
+        "id": "appendix-b",
+        "title": "Glossary of Category-Theoretic and Engineering Terms",
+        "description": "Definitions and cross-references for the canonical terms used in the book.",
+        "objectives": [
+          "Keep terminology stable across theory, software design, and AI workflows.",
+          "Offer a fast lookup source for cross-domain readers."
+        ]
+      },
+      {
+        "id": "appendix-c",
+        "title": "References and Further Study",
+        "description": "Annotated references for theory, engineering practice, and AI-assisted system design.",
+        "objectives": [
+          "Point readers to foundational texts and practical follow-up material.",
+          "Provide study paths for deeper work after the core chapters."
+        ]
+      }
+    ]
+  },
+  "ux": {
+    "profile": "A",
+    "modules": {
+      "quickStart": true,
+      "readingGuide": true,
+      "checklistPack": false,
+      "troubleshootingFlow": false,
+      "conceptMap": true,
+      "figureIndex": false,
+      "legalNotice": false,
+      "glossary": true
+    }
+  }
+}
