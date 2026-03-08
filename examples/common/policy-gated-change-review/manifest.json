@@ -41,6 +41,10 @@
       "path": "verification/traceability-matrix.md"
     },
     {
+      "phase": "runtime",
+      "path": "runtime/runtime-view.md"
+    },
+    {
       "phase": "implementation",
       "path": "implementation/workflow.md"
     }

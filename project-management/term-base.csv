@@ -34,6 +34,8 @@ total function,全関数,software-design,A transformation defined for every inpu
 design artifact,設計成果物,software-design,A durable document or model used to explain review and govern a system,Used in Chapter 01 and Chapter 10
 canonical model,正準モデル,software-design,The authoritative representation used to align multiple design views,Useful for translation work
 architecture model,アーキテクチャモデル,software-design,A structural description of components boundaries and interactions,Used in TOC and case study
+runtime view,ランタイムビュー,software-design,A representation of the system during execution including operational states transitions and evidence obligations,Core Chapter 04 translation artifact
+semantic drift,意味ドリフト,software-design,A mismatch where a translated artifact no longer preserves the intended meaning of its source view,Core Chapter 04 risk term
 schema mapping,スキーマ写像,software-design,A defined translation between data structures or interface schemas,Important in migration
 migration plan,移行計画,software-design,A staged plan for replacing or restructuring a running system,Important in Chapter 07
 adapter,アダプタ,software-design,A component that reshapes one interface into another compatible form,Appears in Chapter 05

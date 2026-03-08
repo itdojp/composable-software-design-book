@@ -43,6 +43,12 @@ See [Chapter 03](../chapter-chapter03/) and [Chapter 10](../chapter-chapter10/).
 **Functor.** A structure-preserving translation between categories or design views.
 See [Chapter 04](../chapter-chapter04/).
 
+**Runtime view.** A representation of the system as observed during execution, including operational states, transitions, and evidence obligations.
+See [Chapter 04](../chapter-chapter04/).
+
+**Semantic drift.** A mismatch in which a translated artifact no longer preserves the intended meaning of its source view.
+See [Chapter 04](../chapter-chapter04/).
+
 **Natural transformation.** A coherent change between functorial views of the same design space.
 See [Chapter 05](../chapter-chapter05/).
 

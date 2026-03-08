@@ -33,6 +33,10 @@ terms:
     en: monad
   クライスリ:
     en: Kleisli
+  ランタイムビュー:
+    en: runtime view
+  意味ドリフト:
+    en: semantic drift
   合成的設計:
     en: compositional design
   責任境界:

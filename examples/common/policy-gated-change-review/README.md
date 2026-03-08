@@ -21,6 +21,7 @@ The artifact set is intentionally small enough to trace by hand.
 - [Design commutative diagram](design/commutative-diagram/)
 - [Verification checks](verification/review-checks/)
 - [Verification traceability matrix](verification/traceability-matrix/)
+- [Runtime view](runtime/runtime-view/)
 - [Implementation workflow](implementation/workflow/)
 
 ## Why This Example Was Chosen
