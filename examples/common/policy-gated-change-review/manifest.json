@@ -37,6 +37,10 @@
       "path": "verification/review-checks.md"
     },
     {
+      "phase": "verification",
+      "path": "verification/traceability-matrix.md"
+    },
+    {
       "phase": "implementation",
       "path": "implementation/workflow.md"
     }

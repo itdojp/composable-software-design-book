@@ -20,6 +20,7 @@
 The selected example keeps the book centered on AI-assisted engineering rather than an unrelated domain.
 It naturally exposes responsibility boundaries, review artifacts, commutative claims, integration concerns, and effect boundaries.
 It is small enough for a minimal example and rich enough for the case-study chapter.
+`Approved Change` remains the single canonical approval artifact through Chapter 10.
 
 ## Chapter Usage
 
@@ -28,7 +29,7 @@ It is small enough for a minimal example and rich enough for the case-study chap
 | Introduction | Motivate why the example needs compositional structure and auditability. |
 | Chapter 01 | Show the human and AI responsibility boundary for proposing and approving changes. |
 | Chapter 02 | Model the change request, review plan, and approved change as objects linked by morphisms. |
-| Chapter 03 | Express the policy-gated approval path as a diagram and discuss commutativity claims. |
+| Chapter 03 | Start from the minimal policy-gated approval diagram, then expand to the richer repository diagram and lightweight traceability matrix. |
 | Chapter 04 | Translate the example across specification, architecture, and operational views. |
 | Chapter 05 | Compare reviewer view, system view, and execution view as natural transformations between models. |
 | Chapter 06 | Use products and coproducts for combined checks, alternate review paths, and controlled variation. |

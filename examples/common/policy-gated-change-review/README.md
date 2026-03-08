@@ -20,9 +20,11 @@ The artifact set is intentionally small enough to trace by hand.
 - [Design artifact map](design/artifact-map/)
 - [Design commutative diagram](design/commutative-diagram/)
 - [Verification checks](verification/review-checks/)
+- [Verification traceability matrix](verification/traceability-matrix/)
 - [Implementation workflow](implementation/workflow/)
 
 ## Why This Example Was Chosen
 
 It connects human responsibility, design artifacts, diagrams, verification evidence, and AI-assisted implementation in one flow.
 That makes it suitable for reuse from Chapter 01 through Chapter 10.
+`Approved Change` remains the single canonical approval artifact for the current manuscript scope.

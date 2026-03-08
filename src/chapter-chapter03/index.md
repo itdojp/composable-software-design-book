@@ -9,6 +9,7 @@ description: "Use diagrams to test consistency across requirements, architecture
 # Diagrams and Commutativity
 
 This chapter uses diagrams as compact proofs of consistency across multiple design views.
+It begins with the minimal policy-gated approval diagram before expanding to the richer repository-level diagram used by the common running example.
 
 ## Why diagrams matter in engineering
 

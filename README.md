@@ -8,6 +8,7 @@ A practical guide to designing AI-assisted software systems with composition, di
 
 This repository contains the English canonical manuscript and the supporting project management assets.
 Japanese drafts under `manuscript/ja/` are working inputs and are not published.
+Contributor workflow and local build guidance are documented in [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
 ## Repository Structure
 
@@ -49,6 +50,7 @@ Install Ruby and Bundler, then run `bundle install`.
 Use `bundle exec jekyll serve --livereload` for local preview and `bundle exec jekyll build` for a static build check.
 Run `npm run validate-deploy` before publishing.
 Repository-level publishing setup is documented in `project-management/publishing-setup.md`.
+If native Ruby or Bundler is unavailable, use the Podman fallback described in [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
 ## Running Example Quickstart
 

@@ -38,5 +38,4 @@
 
 ## Operational caveats
 
-- This workspace is not currently mounted as a git worktree, so change reporting relies on direct file inspection rather than `git diff`.
-- Build reproducibility still depends on either a local Bundler installation or the documented container fallback.
+- Native Ruby and Bundler are still environment-dependent, but the primary workflow and Podman fallback are now documented in `CONTRIBUTING.md`.
