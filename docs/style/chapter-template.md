@@ -5,11 +5,11 @@
 Use this template for the English canonical chapter draft.
 Use it together with `docs/style/notation.md`, `docs/style/diagram-style.md`, and `docs/style/terminology.md`.
 
-## Skeleton-Stage Compatibility
+## Current Draft State
 
-The current repository is still in the skeleton stage.
-At this stage, a chapter may contain only the title, a framing paragraph, and the ordered H2/H3 map that matches the TOC.
-Learning goals, prerequisites, key concepts, running example linkage, summary, and exercises become explicit sections as prose drafting advances.
+The repository is now in a full first-draft state.
+Drafted public chapters are expected to include the complete chapter packet rather than only a title, framing paragraph, and TOC-aligned section map.
+Deferral of packet sections should be treated as an editorial exception and recorded outside public-facing manuscript prose.
 
 ## Recommended Chapter Packet
 
@@ -20,15 +20,16 @@ Learning goals, prerequisites, key concepts, running example linkage, summary, a
 5. Running example linkage.
 6. Main body sections that follow the TOC.
 7. Summary.
-8. Exercises or review prompts.
+8. Review prompts.
 
 ## Authoring Rules
 
 - State the chapter purpose in one sentence immediately under the H1.
 - Keep the H2 and H3 order aligned with `project-management/toc_en.md`.
 - Keep one sentence per line in prose paragraphs.
-- Treat the running example linkage as required once `project-management/running-example.md` exists.
-- If summary or exercises are intentionally deferred, keep the decision in editorial notes rather than public placeholders.
+- Treat the running example linkage as required in drafted public chapters.
+- Treat summary and review prompts as expected public sections unless an explicit editorial exception is recorded.
+- If a packet section is intentionally deferred, keep the decision in editorial notes rather than public placeholders.
 
 ## Drafting Template
 
@@ -71,13 +72,14 @@ Subsection purpose sentence.
 
 Short recap of the chapter claims and their design implications.
 
-## Exercises
+## Review prompts
 
 1. Review question.
 2. Design prompt.
 ```
 
-## Mapping To The Current Skeleton
+## Applying The Template In Revision
 
-The present chapter skeletons already satisfy the title, framing paragraph, and ordered section map requirements.
-When prose writing begins, add the chapter packet above without changing chapter IDs, source paths, or TOC order.
+The current manuscript already uses the chapter packet in drafted public chapters.
+Use the template above when revising a chapter, backfilling a weaker section, or drafting a new canonical chapter file.
+Do so without changing chapter IDs, source paths, or TOC order.

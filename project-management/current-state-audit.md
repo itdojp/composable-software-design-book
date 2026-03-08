@@ -4,7 +4,7 @@
 
 - Repository bootstrap, metadata, TOC definition, translation workflow, QA and CI, publishing setup, editorial guidance, and running example selection are complete.
 - Navigation, publishing configuration, and example manifests are already wired into the repository structure.
-- The current milestone moves the manuscript from skeleton chapters to publication-quality English content for the Introduction, Chapter 01, Chapter 02, Chapter 03, Chapter 04, Chapter 05, Chapter 06, Chapter 07, Chapter 08, Chapter 09, Chapter 10, Appendix A, and Appendix C.
+- The current manuscript now contains publication-quality English content for the Introduction, Chapter 01, Chapter 02, Chapter 03, Chapter 04, Chapter 05, Chapter 06, Chapter 07, Chapter 08, Chapter 09, Chapter 10, Appendix A, and Appendix C.
 - Claim ID visibility, supported local build paths, variation artifact policy, and reusable counterexample policy are now documented as explicit repository decisions.
 - The repository now has a full first-draft publication path from specification through AI-assisted implementation, including orchestration, effect, execution-trace, and acceptance-evidence artifacts.
 - All drafted chapters now include the reader-facing chapter packet sections required for the first publication milestone: learning goals, prerequisites, key concepts, running example linkage, summary, and review prompts.
@@ -41,12 +41,12 @@
 - English remains the publication source of truth for all reader-facing content.
 - Japanese files under `manuscript/ja/` remain working inputs and do not become publish artifacts as-is.
 - The running example remains `policy-gated-change-review` for Chapters 01 through 10 unless the TOC and project-management files are intentionally revised together.
-- Appendix B may expand incrementally as new chapters leave skeleton state, but canonical wording should remain stable once introduced.
+- Appendix B may expand incrementally as later revisions introduce genuinely new canonical terms, but established wording should remain stable once introduced.
 - Containerized Jekyll build remains an acceptable fallback when native Ruby and Bundler are unavailable in the contributor environment.
 
 ## Concrete blockers
 
-- None for the current full-draft publication milestone.
+- None for the current full-draft stabilization milestone.
 
 ## Operational caveats
 

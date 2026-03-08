@@ -38,6 +38,6 @@
 
 ## Content Progress Checks
 
-- Learning goals, prerequisites, key concepts, running example linkage, summary, and exercises are either present or explicitly deferred by editorial decision.
-- Running example linkage uses the canonical example decision once Issue 9 assets exist.
+- Learning goals, prerequisites, key concepts, running example linkage, summary, and review prompts are present in drafted public chapters unless an explicit editorial exception is recorded.
+- Running example linkage uses the canonical `policy-gated-change-review` example and points readers to the relevant artifact or example landing page.
 - QA and translation validation scripts still pass after the edit set.
