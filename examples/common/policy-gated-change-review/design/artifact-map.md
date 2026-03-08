@@ -12,6 +12,7 @@ This artifact map defines the canonical files that support the running example.
 - `spec/problem-statement.md`
 - `spec/acceptance-criteria.md`
 - `design/commutative-diagram.md`
+- `design/variation-paths.md`
 - `verification/review-checks.md`
 - `verification/traceability-matrix.md`
 - `runtime/runtime-view.md`
@@ -25,3 +26,4 @@ It also mirrors the specification to implementation path used in Chapter 10.
 `Approved Change` remains the single canonical approval artifact for this example, so no separate approval-record file is introduced at this stage.
 `runtime/runtime-view.md` is the lightweight runtime proxy introduced for Chapter 04 model translation work.
 `review/reviewer-view.md` is the reviewer-facing projection introduced for Chapter 05 view-change work.
+`design/variation-paths.md` is the design artifact introduced for Chapter 06 combination and variation work.

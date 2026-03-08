@@ -19,6 +19,7 @@ The artifact set is intentionally small enough to trace by hand.
 - [Acceptance criteria](spec/acceptance-criteria/)
 - [Design artifact map](design/artifact-map/)
 - [Design commutative diagram](design/commutative-diagram/)
+- [Design variation paths](design/variation-paths/)
 - [Verification checks](verification/review-checks/)
 - [Verification traceability matrix](verification/traceability-matrix/)
 - [Runtime view](runtime/runtime-view/)

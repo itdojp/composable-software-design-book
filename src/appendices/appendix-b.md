@@ -58,6 +58,12 @@ See [Chapter 05](../chapter-chapter05/).
 **Universal property.** A definition that characterizes a construction by the unique way other structures map to or from it.
 See [Chapter 06](../chapter-chapter06/).
 
+**Product.** A construction that combines required components into one canonical object from which each component can be recovered.
+See [Chapter 06](../chapter-chapter06/).
+
+**Coproduct.** A construction that makes alternatives explicit by giving each variant a named entry into one shared boundary.
+See [Chapter 06](../chapter-chapter06/).
+
 ## Software design terms
 
 This section stabilizes the engineering vocabulary that connects the formal model to implementation work.

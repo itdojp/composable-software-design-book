@@ -10,8 +10,8 @@ natural transformation,自然変換,category-theory,A coherent mapping between f
 naturality,自然性,category-theory,A consistency condition stating that corresponding paths preserve the same meaning under a change of view,Core Chapter 05 term
 adjunction,随伴,category-theory,A paired relationship between functors that captures a best fit translation,Required by TERMS.yml
 universal property,普遍性,category-theory,A definition that characterizes a construction by its unique mapping behavior,Required by TERMS.yml
-product,積,category-theory,A construction that combines multiple inputs through a universal interface,Required by TERMS.yml
-coproduct,余積,category-theory,A construction that represents explicit alternatives through a universal injection,Required by TERMS.yml
+product,積,category-theory,A construction that combines required components into one canonical object from which each component can be recovered,Core Chapter 06 term
+coproduct,余積,category-theory,A construction that makes alternatives explicit by giving each variant a named entry into one shared boundary,Core Chapter 06 term
 monoidal category,モノイダル圏,category-theory,A category equipped with a tensor like way to compose things in parallel,Required by TERMS.yml
 string diagram,ストリング図式,category-theory,A graphical notation for sequential and parallel composition,Required by TERMS.yml
 monad,モナド,category-theory,A structure that packages effectful computation behind explicit composition rules,Required by TERMS.yml
