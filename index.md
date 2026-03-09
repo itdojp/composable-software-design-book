@@ -18,7 +18,7 @@ A practical guide to designing AI-assisted software systems with composition, di
 - `圏論によるAIエージェント時代の合成的ソフトウェア設計` (`categorical-software-design-book`) is a related but independent Japanese book.
 - This English book is not a rename or replacement for that Japanese book.
 - Start here if you want the English-first canonical manuscript and the current part-based composition.
-- Start with the Japanese book if you want a Japanese reader-facing guide focused on AI-agent-era software design artifacts, Context Pack usage, and GitHub/CI-oriented guidance.
+- Start with the Japanese book if you want a Japanese reader-facing guide focused on software design artifacts for the AI agent era, Context Pack usage, and GitHub/CI-oriented guidance.
 - Related Japanese book: [Public site](https://itdojp.github.io/categorical-software-design-book/) / [Repository](https://github.com/itdojp/categorical-software-design-book)
 
 ## What You Will Learn
