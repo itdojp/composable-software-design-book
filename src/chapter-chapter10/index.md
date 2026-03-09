@@ -11,7 +11,7 @@ description: "Walk through a full design and delivery flow from problem framing 
 After nine chapters of local concepts, the method has to survive one continuous delivery story.
 This chapter is where the manuscript stops arguing chapter by chapter and has to earn its keep as one governed packet from request to evidence.
 The risk at this stage is that the earlier formal vocabulary still reads like a stack of local tools rather than one delivery argument.
-This chapter therefore reconstructs that full argument locally before it sends the reader back to the canonical repository packet.
+This chapter therefore reconstructs that full argument locally as one case-study packet before it turns back to repository detail.
 
 ## Learning goals
 
@@ -44,7 +44,7 @@ Chapter 10 reconstructs that workflow end-to-end and shows which artifacts carry
 
 ### Problem statement and system boundary
 
-The case study begins with [spec/problem-statement.md](../../examples/common/policy-gated-change-review/spec/problem-statement/).
+The case study begins with one bounded request and one explicit system boundary.
 The problem is intentionally narrow.
 The repository must process change requests that may be partially prepared by an AI agent while remaining auditable, reviewable, and reversible.
 The workflow now extends through execution or return-for-rework rather than stopping at a pre-execution approval placeholder.
@@ -60,7 +60,7 @@ If a step cannot be linked back to the problem statement, it is likely operation
 
 ### Success criteria and non-goals
 
-The [acceptance criteria](../../examples/common/policy-gated-change-review/spec/acceptance-criteria/) define success in artifact terms.
+The acceptance criteria define success in artifact terms.
 The workflow must expose `Change Request`, `Review Plan`, `Decision Packet`, `Approved Change`, and acceptance evidence as explicit artifacts.
 It must keep policy evaluation, evidence collection, and human approval separate even when some work runs in parallel.
 It must preserve a reviewable synchronization boundary and an execution trace that remains linked to one change identity and one plan revision.
@@ -253,7 +253,7 @@ Claim IDs are traceable, but they are not yet rendered automatically into diagra
 Execution trace collation remains a documented structure rather than a generated report.
 
 Those are not reasons to discard the method.
-They are reasons to treat the current manuscript as a first publication milestone rather than a finished platform.
+They are reasons to treat the current book as a usable method rather than as a finished platform.
 The book now has a full artifact path from specification to AI-assisted implementation.
 The next stage is to harden selected parts of that path with stronger automation while preserving the same canonical interfaces.
 

@@ -54,7 +54,7 @@ Figure 3.1 shows the smallest version of that question in the running example.
 Figure 3.1. Minimal approval commutativity claim.
 > **Reader takeaway.** The diagram matters only because the two visible paths are claiming one shared approval meaning.
 
-![Publication redraw of Figure 3.1 showing the minimal approval commutativity claim.](../../assets/figures/publication/object-composition-screen.svg)
+![Publication redraw of Figure 3.1 showing the minimal approval commutativity claim.](../../assets/figures/publication/minimal-approval-commutativity-screen.svg)
 
 The minimal diagram does not yet describe every operational detail.
 It isolates one design claim that can be reviewed by hand.

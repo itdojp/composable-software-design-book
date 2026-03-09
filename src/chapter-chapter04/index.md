@@ -12,7 +12,6 @@ Chapter 03 showed how a diagram fails when path equivalence is false.
 The more common engineering failure is quieter.
 Several artifacts all look reasonable until the translation between specification, design, runtime, and implementation stops preserving the same approval claim.
 This chapter treats Table 4.1 and Figure 4.1 as the local proof that those translations still carry one meaning.
-Use [Appendix B](../appendices/appendix-b/) only when a label needs exact repository wording.
 
 ## Learning goals
 

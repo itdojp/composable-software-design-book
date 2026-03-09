@@ -8,7 +8,7 @@ description: "Reader-facing list of figures, tables, and publication asset refer
 
 This list is optimized for re-use after a first read.
 Use it when you remember the claim but not the exact chapter.
-The `Publication asset` column points to the publication-grade redraw when one exists.
+The `Publication asset` column names the publication-grade redraw used for each numbered figure.
 
 ## Edition policy
 
@@ -17,6 +17,7 @@ The `Publication asset` column points to the publication-grade redraw when one e
 - Print production should prefer the matching `*-print.svg` or `*-print.pdf`.
 - Production may omit asset filenames from the rendered page, but the claim text and figure numbering stay unchanged.
 - The publication asset column is a production aid for retrieval and reuse, not a second caption system.
+- Every numbered figure listed below now has a publication asset.
 
 ## Figures
 
@@ -25,7 +26,7 @@ The `Publication asset` column points to the publication-grade redraw when one e
 | Figure 0.1 | [Introduction](../../chapter-introduction/) | Compositional design keeps authority attached to artifacts instead of to opaque automation. | [`introduction-governed-path-screen.svg`](../../../assets/figures/publication/introduction-governed-path-screen.svg) |
 | Figure 1.1 | [Chapter 01](../../chapter-chapter01/) | Responsibility boundaries separate decision artifacts from emitted evidence. | [`responsibility-boundaries-screen.svg`](../../../assets/figures/publication/responsibility-boundaries-screen.svg) |
 | Figure 2.1 | [Chapter 02](../../chapter-chapter02/) | The running example becomes a model only when stable artifacts and named transformations are explicit. | [`object-composition-screen.svg`](../../../assets/figures/publication/object-composition-screen.svg) |
-| Figure 3.1 | [Chapter 03](../../chapter-chapter03/) | Minimal approval commutativity claim. | [`object-composition-screen.svg`](../../../assets/figures/publication/object-composition-screen.svg) |
+| Figure 3.1 | [Chapter 03](../../chapter-chapter03/) | Minimal approval commutativity claim. | [`minimal-approval-commutativity-screen.svg`](../../../assets/figures/publication/minimal-approval-commutativity-screen.svg) |
 | Figure 3.2 | [Chapter 03](../../chapter-chapter03/) | Repository-level approval claim with explicit policy dependency. | [`commutative-approval-screen.svg`](../../../assets/figures/publication/commutative-approval-screen.svg) |
 | Figure 4.1 | [Chapter 04](../../chapter-chapter04/) | Design-to-runtime translation keeps the approval path intact. | [`design-runtime-translation-screen.svg`](../../../assets/figures/publication/design-runtime-translation-screen.svg) |
 | Figure 5.1 | [Chapter 05](../../chapter-chapter05/) | Reviewer-facing naturality square for one approval move. | [`reviewer-naturality-screen.svg`](../../../assets/figures/publication/reviewer-naturality-screen.svg) |

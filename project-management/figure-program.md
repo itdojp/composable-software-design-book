@@ -23,7 +23,8 @@ The main reader-facing argument figures use the publication assets under `assets
 | --- | --- | --- | --- |
 | Introduction governed path | Figure 0.1 | `src/chapter-introduction/index.md` | `introduction-governed-path-*` |
 | Responsibility boundaries | Figure 1.1 | `src/chapter-chapter01/index.md` | `responsibility-boundaries-*` |
-| Minimal object composition baseline | Figure 2.1 and Figure 3.1 | `src/chapter-chapter02/index.md` and `src/chapter-chapter03/index.md` | `object-composition-*` |
+| Minimal object composition baseline | Figure 2.1 | `src/chapter-chapter02/index.md` | `object-composition-*` |
+| Minimal approval commutativity | Figure 3.1 | `src/chapter-chapter03/index.md` | `minimal-approval-commutativity-*` |
 | Commutative approval claim | Figure 3.2 | `examples/common/policy-gated-change-review/design/commutative-diagram.md` | `commutative-approval-*` |
 | Design-to-runtime translation | Figure 4.1 | `src/chapter-chapter04/index.md` | `design-runtime-translation-*` |
 | Reviewer-facing naturality | Figure 5.1 | `src/chapter-chapter05/index.md` | `reviewer-naturality-*` |
@@ -41,7 +42,6 @@ The main reader-facing argument figures use the publication assets under `assets
 - `*-screen.svg` is the ebook-safe and web-safe asset.
 - `*-print.svg` is the grayscale-safe vector asset.
 - `*-print.pdf` is the print-distribution fallback asset generated from the same canonical drawing spec.
-- A single publication asset may be reused by more than one figure when the reader-facing semantics are intentionally the same baseline claim.
 - Do not hand-edit generated assets.
 - Regenerate assets by running `npm run figures:render` or `python3 scripts/render-publication-figures.py`.
 

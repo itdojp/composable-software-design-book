@@ -20,6 +20,6 @@ It lets the reader see one governed approval path repeatedly while the formal vo
 That design choice reflects the book's core promise.
 If a concept cannot improve one bounded engineering workflow, it does not belong here as a central technique.
 
-This first publication milestone should therefore be read as a book with an operational companion.
+This book should therefore be read as a book with an operational companion.
 The prose explains the method.
 The repository artifacts, validators, and example files show what the method looks like when it is versioned, reviewed, and extended in practice.

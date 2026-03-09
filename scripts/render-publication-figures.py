@@ -336,6 +336,22 @@ FIGURES = [
             {"from": "cr", "to": "ac", "label": "policy-gated approval", "bend": 160},
         ],
     },
+    {
+        "slug": "minimal-approval-commutativity",
+        "width": 1080,
+        "height": 520,
+        "zones": [],
+        "nodes": [
+            {"id": "cr", "label": "Change Request", "x": 70, "y": 180, "w": 190, "h": 64, "kind": "object"},
+            {"id": "rp", "label": "Review Plan", "x": 430, "y": 90, "w": 180, "h": 64, "kind": "object"},
+            {"id": "ac", "label": "Approved Change", "x": 780, "y": 250, "w": 210, "h": 64, "kind": "decision"},
+        ],
+        "edges": [
+            {"from": "cr", "to": "rp", "label": "draft review plan"},
+            {"from": "rp", "to": "ac", "label": "human approval"},
+            {"from": "cr", "to": "ac", "label": "minimal commutative claim", "bend": 160},
+        ],
+    },
 ]
 
 

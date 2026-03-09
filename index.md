@@ -4,7 +4,7 @@ title: "Compositional Software Design for Agentic Systems"
 subtitle: "A Category-Theoretic Guide to Human-AI Boundaries and Verifiable Engineering"
 description: "A practical guide to designing AI-assisted software systems with composition, diagrams, and effect boundaries that remain auditable and verifiable."
 author: "ITDO Inc."
-version: "0.1.0"
+version: "First Edition"
 ---
 
 # Compositional Software Design for Agentic Systems
@@ -103,5 +103,5 @@ Commercial use requires a separate agreement.
 ---
 
 **Author:** ITDO Inc.  
-**Version:** 0.1.0  
-**Last updated:** 2026-03-08
+**Edition:** First Edition
+**Last updated:** 2026-03-09

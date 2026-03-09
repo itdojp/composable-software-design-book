@@ -11,7 +11,7 @@ description: "Design concurrent workflows, toolchains, and review loops with seq
 Integration discipline is not enough once several governed branches run at the same time.
 Parallelism is attractive because it promises speed.
 In governed workflows, it mostly tests whether the team can name one lawful fan-out and one lawful fan-in without manufacturing a new approval meaning along the way.
-Figure 8.1 and Table 8.1 restate that governed fan-out locally before the reader returns to the canonical repository artifacts.
+Figure 8.1 and Table 8.1 carry that governed fan-out argument inside the chapter before the reader returns to repository detail.
 
 ## Learning goals
 
