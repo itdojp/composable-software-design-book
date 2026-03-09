@@ -8,7 +8,19 @@ A practical guide to designing AI-assisted software systems with composition, di
 
 This repository contains the English canonical manuscript and the supporting project management assets.
 Japanese drafts under `manuscript/ja/` are working inputs and are not published.
+Those internal drafts are distinct from the separately published Japanese book in `categorical-software-design-book`.
 Contributor workflow and local build guidance are documented in [`CONTRIBUTING.md`](CONTRIBUTING.md).
+
+## Relationship to the related Japanese book
+
+- This repository is an independent English book.
+- The related Japanese book is `圏論によるAIエージェント時代の合成的ソフトウェア設計` (`categorical-software-design-book`).
+- The two books share themes and some terminology, but they are not legacy/current versions and are not simple translations of each other.
+- Start with this repository if you want the English-first canonical manuscript and the current composition centered on compositional design for agentic systems.
+- Start with the Japanese book if you want a Japanese reader-facing book focused on design artifacts for the AI agent era, Context Pack usage, and GitHub/CI-oriented guidance.
+- Related Japanese book:
+  - Public site: https://itdojp.github.io/categorical-software-design-book/
+  - Repository: https://github.com/itdojp/categorical-software-design-book
 
 ## Repository Structure
 
