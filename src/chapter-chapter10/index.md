@@ -12,7 +12,7 @@ After nine chapters of local concepts, the method has to survive one continuous 
 This chapter is where the book has to earn its claims as one governed packet from request to evidence.
 The risk at this stage is not missing terminology.
 It is that the earlier vocabulary still reads like separate local tools instead of one delivery argument a reader could actually apply.
-This chapter therefore reconstructs that full argument locally as one case-study packet before it turns back to repository detail.
+This chapter therefore reconstructs that full argument locally as one case-study packet.
 
 ## Learning goals
 
@@ -35,7 +35,8 @@ This chapter therefore reconstructs that full argument locally as one case-study
 ## Running example linkage
 
 - The [running example](../../examples/common/policy-gated-change-review/README/) remains the canonical repository source for the case study.
-- For a first reading, Table 10.1 and Figure 10.1 restate the minimum end-to-end packet locally, while the [artifact map](../../examples/common/policy-gated-change-review/design/artifact-map/), [execution trace](../../examples/common/policy-gated-change-review/implementation/execution-trace/), and [acceptance evidence](../../examples/common/policy-gated-change-review/verification/acceptance-evidence/) provide the repository-level audit detail.
+- For a first reading, Table 10.1 and Figure 10.1 restate the minimum end-to-end packet locally.
+- Use the design and evidence artifacts later when you want file-level audit detail beyond the chapter's case-study path.
 
 ## Framing the case study
 
@@ -246,9 +247,9 @@ Release automation may prepare a rollout path, but the delivery argument still d
 Appendix D provides the fuller transfer appendix.
 What matters in the body chapter is that the same composed packet can govern repository delivery and release delivery without forking the method into a second narrative.
 
-### Where the method needs stronger tooling
+### Where teams may want stronger tooling
 
-The case study also exposes concrete tooling gaps.
+The case study also shows where teams may want stronger tooling support.
 The synchronization boundary is still checked by repository discipline and lightweight review artifacts rather than by a dedicated validator.
 Claim IDs are traceable, but they are not yet rendered automatically into diagrams or acceptance evidence bundles.
 Execution trace collation remains a documented structure rather than a generated report.

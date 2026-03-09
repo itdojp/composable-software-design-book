@@ -16,7 +16,7 @@ Later mentions should point back to that primary chapter unless the concept is m
 - Use `See also` to move between closely related concepts that the manuscript treats separately.
 - Use Appendix B when you need the canonical term definition before returning to the chapter discussion.
 - In web and ebook reading, this index and the list of figures are reader-facing navigation aids.
-- In print workflows, the same entries can be split into separate index and figure-list pages without changing the canonical wording below.
+- In print editions, the index and figure list may appear on separate pages, but the wording of the entries remains the same.
 
 ## Indexed concepts
 

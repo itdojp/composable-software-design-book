@@ -11,7 +11,6 @@ description: "Design concurrent workflows, toolchains, and review loops with seq
 Integration discipline is not enough once several governed branches run at the same time.
 Parallelism looks attractive because it promises speed without obvious design cost.
 This chapter argues that the real question is not how many branches a workflow can run, but whether those branches can return to one lawful approval story without hidden reconstruction.
-Figure 8.1 and Table 8.1 carry that argument inside the chapter before the reader ever needs repository detail.
 
 ## Learning goals
 
@@ -34,7 +33,7 @@ Figure 8.1 and Table 8.1 carry that argument inside the chapter before the reade
 ## Running example linkage
 
 - The [orchestration diagram](../../examples/common/policy-gated-change-review/implementation/orchestration-diagram/) is the canonical source behind Figure 8.1.
-- The [synchronization boundary](../../examples/common/policy-gated-change-review/implementation/synchronization-boundary/), [implementation workflow](../../examples/common/policy-gated-change-review/implementation/workflow/), and [reviewer view](../../examples/common/policy-gated-change-review/review/reviewer-view/) provide repository detail after the local figure and table establish the fan-out and fan-in argument.
+- The synchronization and workflow artifacts remain available for deeper inspection after the local figure and table have established the fan-out and fan-in argument.
 
 ## Sequential and parallel composition
 

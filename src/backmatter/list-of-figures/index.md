@@ -15,8 +15,8 @@ The `Publication asset` column names the publication-grade redraw used for each 
 - Web and ebook editions keep the same figure and table numbering as the canonical manuscript.
 - Web and ebook readers should prefer `*-screen.svg`.
 - Print production should prefer the matching `*-print.svg` or `*-print.pdf`.
-- Production may omit asset filenames from the rendered page, but the claim text and figure numbering stay unchanged.
-- The publication asset column is a production aid for retrieval and reuse, not a second caption system.
+- Rendered editions may omit asset filenames, but the claim text and figure numbering stay unchanged.
+- The publication asset column is a retrieval aid for readers who want to reconnect a figure claim to its companion asset.
 - Every numbered figure listed below now has a publication asset.
 
 ## Figures

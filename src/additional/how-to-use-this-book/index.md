@@ -10,7 +10,7 @@ This book supports more than one reading mode.
 Some readers need a sequential conceptual build.
 Others need a targeted path for governance, architecture, or delivery work.
 In every case, the book is meant to carry the primary reading experience.
-Use the repository companion when you want to inspect the running example, validators, or file-level realization of a chapter claim.
+Use the companion repository later when you want to inspect the running example, validators, or file-level realization of a chapter claim.
 
 ## Read it front to back if you are adopting the full method
 
@@ -33,7 +33,7 @@ Use this path when your team already has a delivery workflow but struggles with 
 Read the Introduction, Chapter 01, Chapter 08, Chapter 09, and Chapter 10.
 Use this path when concurrency, tool use, effect boundaries, and acceptance evidence are the dominant operational concerns.
 
-## Use the repository companion after the chapter argument is clear
+## Use the companion material selectively
 
 The canonical running example remains the shortest operational proof of the book's claims.
 When a chapter points to an artifact, inspect it after the prose has established the main claim.

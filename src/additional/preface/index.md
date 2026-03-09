@@ -21,6 +21,6 @@ That design choice reflects the book's core promise.
 If a concept cannot improve one bounded engineering workflow, it does not belong here as a central technique.
 
 This book should therefore be read as the primary explanation of the method.
-The repository companion exists so readers can inspect the same method at artifact level, with validators, example files, and versioned changes.
+Readers who want file-level examples, validators, and versioned artifacts can use the companion repository after the chapter argument is clear.
 The explanation belongs in the book.
-The companion material exists to deepen inspection after the argument is already clear.
+The companion material exists to deepen inspection, not to carry the method in place of the prose.

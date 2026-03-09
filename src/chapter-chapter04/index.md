@@ -11,7 +11,6 @@ description: "Preserve structure while translating between domain, architecture,
 Chapter 03 showed how a design can fail visibly when path equivalence is false.
 Translation failure is more deceptive.
 A system can look well documented all the way from specification to runtime while still losing the one approval meaning that made the workflow governable in the first place.
-This chapter uses Table 4.1 and Figure 4.1 to show how readers can test that one meaning before they ever inspect companion artifacts.
 
 ## Learning goals
 
@@ -33,8 +32,8 @@ This chapter uses Table 4.1 and Figure 4.1 to show how readers can test that one
 
 ## Running example linkage
 
-- The [design diagram](../../examples/common/policy-gated-change-review/design/commutative-diagram/), [runtime view](../../examples/common/policy-gated-change-review/runtime/runtime-view/), and [implementation workflow](../../examples/common/policy-gated-change-review/implementation/workflow/) are the canonical sources behind Table 4.1 and Figure 4.1.
-- The [traceability matrix](../../examples/common/policy-gated-change-review/verification/traceability-matrix/) is the secondary audit artifact when you want to verify the same translation claim across files instead of only across the local exhibit.
+- The design, runtime, and implementation views are the canonical companion sources behind Table 4.1 and Figure 4.1.
+- Use the [traceability matrix](../../examples/common/policy-gated-change-review/verification/traceability-matrix/) when you want file-level audit detail beyond the local chapter argument.
 
 ## Multiple abstraction levels in one system
 
