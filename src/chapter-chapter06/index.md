@@ -10,8 +10,7 @@ description: "Use universal properties to select the simplest correct decomposit
 
 Once multiple views cohere, the next design question is not translation but choice.
 This chapter uses universal properties to decide which combined context should be canonical and where variation should become explicit instead of hiding in flags, routes, or reviewer folklore.
-It uses the [variation paths](../../examples/common/policy-gated-change-review/design/variation-paths/), the [reviewer view](../../examples/common/policy-gated-change-review/review/reviewer-view/), and the [implementation workflow](../../examples/common/policy-gated-change-review/implementation/workflow/) to keep products and coproducts tied to repository artifacts.
-Use the [traceability matrix](../../examples/common/policy-gated-change-review/verification/traceability-matrix/) to check that new combinations and new routes still preserve the same approval claim.
+The chapter-local figures and tables carry the first-reading case for one canonical combination and one explicit route split before the reader returns to the repository artifacts that anchor them.
 
 ## Learning goals
 
@@ -33,8 +32,8 @@ Use the [traceability matrix](../../examples/common/policy-gated-change-review/v
 
 ## Running example linkage
 
-- Read the [variation paths](../../examples/common/policy-gated-change-review/design/variation-paths/) artifact before comparing `Combined Review Context` and `Review Route`.
-- Keep the [reviewer view](../../examples/common/policy-gated-change-review/review/reviewer-view/) and [implementation workflow](../../examples/common/policy-gated-change-review/implementation/workflow/) nearby when deciding whether the construction really supports reuse.
+- The [variation paths](../../examples/common/policy-gated-change-review/design/variation-paths/) artifact is the canonical source behind Figure 6.2.
+- The [reviewer view](../../examples/common/policy-gated-change-review/review/reviewer-view/), [implementation workflow](../../examples/common/policy-gated-change-review/implementation/workflow/), and [traceability matrix](../../examples/common/policy-gated-change-review/verification/traceability-matrix/) remain the repository-level check once Figure 6.1, Figure 6.2, Table 6.1, and Table 6.2 have established the chapter's local argument.
 
 ## Universal properties as design criteria
 
@@ -90,7 +89,7 @@ The reviewer must see the requested scope.
 The reviewer must see the current policy result.
 The reviewer must see links to the evidence that justifies the claim.
 
-The new [variation paths](../../examples/common/policy-gated-change-review/design/variation-paths/) artifact captures that combination as `Combined Review Context`.
+The running example captures that combination as `Combined Review Context`.
 This object is product-like because it treats those three inputs as jointly required and supports canonical projections back to each one.
 The reviewer-facing `Decision Packet` from Chapter 05 is the presentation of this combined context, not a separate source of truth.
 
@@ -109,12 +108,7 @@ Figure 6.1 shows the product-like boundary that makes the approval packet recove
 Figure 6.1. Product-like review context keeps all three approval inputs recoverable.
 > **Reader takeaway.** A combined packet is trustworthy only when scope, policy, and evidence can still be recovered as distinct inputs.
 
-```mermaid
-flowchart LR
-  CRC[Combined Review Context] -->|scope-of| RS[Requested Scope]
-  CRC -->|policy-status-of| PR[Policy Result]
-  CRC -->|evidence-links-of| EL[Evidence Links]
-```
+![Publication redraw of Figure 6.1 showing the product-like review context.](../../assets/figures/publication/review-context-product-screen.svg)
 
 **Formal bridge.**
 
@@ -194,12 +188,7 @@ Figure 6.2 makes the route split explicit before the chapter returns to the form
 Figure 6.2. Explicit review routes converge on one approval meaning.
 > **Reader takeaway.** Route variation is safe only when multiple paths stay explicit while converging on one approval meaning and one outcome artifact.
 
-```mermaid
-flowchart LR
-  SRP[Standard Review Path] -->|enter-standard| RR[Review Route]
-  ERP[Escalated Review Path] -->|enter-escalated| RR
-  RR -->|approve-or-return| AC[Approved Change]
-```
+![Publication redraw of Figure 6.2 showing explicit review routes converging on one approval meaning.](../../assets/figures/publication/variation-paths-screen.svg)
 
 **Formal bridge.**
 
@@ -301,8 +290,8 @@ If these questions do not have clear answers, the repository is probably not rea
 The design may still work.
 It is simply not yet structured enough to support the stronger reuse and review guarantees that products and coproducts promise.
 
-That conclusion sets up Chapter 07.
-Once combination and variation are explicit inside one workflow, the next step is to connect workflows across shared boundaries and controlled replacement paths.
+Chapter 07 puts these constructions under pressure.
+Once combination and variation are explicit inside one workflow, the next question is whether they still survive joins, migrations, and controlled replacement.
 
 ## Summary
 

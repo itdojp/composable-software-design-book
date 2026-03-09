@@ -33,8 +33,8 @@ Use [Appendix A](../appendices/appendix-a/) for notation and [Appendix B](../app
 
 ## Running example linkage
 
-- Inspect the [minimal diagram](../../examples/minimal/policy-gated-change-review/diagram/) for the smallest object-and-morphism set that still carries the approval claim.
-- Use the [artifact map](../../examples/common/policy-gated-change-review/design/artifact-map/) to compare abstract object choice with concrete repository artifacts.
+- The [minimal diagram](../../examples/minimal/policy-gated-change-review/diagram/) and the [artifact map](../../examples/common/policy-gated-change-review/design/artifact-map/) are the canonical sources behind Figure 2.1 and Table 2.1.
+- For a first reading, the local figure and table carry the model-selection argument, while the linked artifacts remain the repository detail for later inspection.
 
 ## Modeling systems as objects
 
@@ -64,12 +64,7 @@ Figure 2.1 shows the smallest object-and-morphism chain that the rest of the boo
 Figure 2.1. The running example becomes a model only when stable artifacts and named transformations are explicit.
 > **Reader takeaway.** Objects give the approval path durable boundaries, and morphisms state what each step must preserve across those boundaries.
 
-```mermaid
-flowchart LR
-  CR[Change Request] -->|draft-review-plan| RP[Review Plan]
-  RP -->|human-approval| AC[Approved Change]
-  CR -->|policy-gated-approval| AC
-```
+![Publication redraw of Figure 2.1 showing the minimal object-and-morphism chain.](../../assets/figures/publication/object-composition-screen.svg)
 
 Table 2.1. Minimal modeling map for the running example.
 

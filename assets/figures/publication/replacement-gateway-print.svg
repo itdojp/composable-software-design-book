@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="560" viewBox="0 0 1160 560">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<defs>
+<marker id="arrow-print" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+<path d="M0,0 L12,6 L0,12 z" fill="#333333"/>
+</marker>
+</defs>
+<g style="color:#111111">
+<rect x="420" y="170" width="250" height="180" rx="20" ry="20" fill="#ffffff" fill-opacity="0.55" stroke="#6b6b6b" stroke-width="3" stroke-dasharray="12 8"/>
+<text x="545.0" y="158" fill="currentColor" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="600" text-anchor="middle">Shared boundary</text>
+<line x1="300" y1="142.0" x2="445" y2="262.0" stroke="#333333" stroke-width="4" marker-end="url(#arrow-print)"/>
+<text x="372.5" y="188.0" fill="currentColor" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="500" text-anchor="middle">legacy fields</text>
+<line x1="300" y1="382.0" x2="445" y2="262.0" stroke="#333333" stroke-width="4" marker-end="url(#arrow-print)"/>
+<text x="372.5" y="308.0" fill="currentColor" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="500" text-anchor="middle">mapped fields</text>
+<line x1="645" y1="262.0" x2="840" y2="262.0" stroke="#333333" stroke-width="4" marker-end="url(#arrow-print)"/>
+<text x="742.5" y="248.0" fill="currentColor" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="500" text-anchor="middle">preserved interface</text>
+<rect x="70" y="110" width="230" height="64" rx="18" ry="18" fill="#f0f0f0" stroke="#3f3f3f" stroke-width="3"/>
+<text x="185.0" y="149.0" fill="currentColor" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="600" text-anchor="middle">Legacy Route Mapper</text>
+<rect x="70" y="350" width="230" height="64" rx="18" ry="18" fill="#f0f0f0" stroke="#3f3f3f" stroke-width="3"/>
+<text x="185.0" y="389.0" fill="currentColor" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="600" text-anchor="middle">Replacement Mapper</text>
+<rect x="445" y="230" width="200" height="64" rx="18" ry="18" fill="#f0f0f0" stroke="#3f3f3f" stroke-width="3"/>
+<text x="545.0" y="269.0" fill="currentColor" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="600" text-anchor="middle">Shared Boundary</text>
+<rect x="840" y="230" width="240" height="64" rx="18" ry="18" fill="#d9d9d9" stroke="#111111" stroke-width="3"/>
+<text x="960.0" y="269.0" fill="currentColor" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="600" text-anchor="middle">Unified Review Gateway</text>
+</g></svg>

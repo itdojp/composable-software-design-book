@@ -9,10 +9,9 @@ description: "Coordinate alternative views of the same system without breaking c
 # Natural Transformations and View Changes
 
 Chapter 04 argued that translation between views must preserve structure.
-This chapter takes the next step by asking how several legitimate views can change without splintering the same approval story into incompatible narratives.
-It explains how multiple views of one design can evolve without losing semantic coherence.
-It uses the [design diagram](../../examples/common/policy-gated-change-review/design/commutative-diagram/), the [reviewer view](../../examples/common/policy-gated-change-review/review/reviewer-view/), and the [runtime view](../../examples/common/policy-gated-change-review/runtime/runtime-view/) to make natural transformations concrete.
-Use the [traceability matrix](../../examples/common/policy-gated-change-review/verification/traceability-matrix/) to keep the same claim visible across views.
+View drift rarely announces itself as a new theory.
+It usually arrives as a harmless-looking facade, reviewer summary, or runtime rename that quietly changes what the workflow means.
+This chapter restates the core view-change argument locally through Figure 5.1 and Table 5.1 so the reader can judge coherence before opening the canonical repository artifacts.
 
 ## Learning goals
 
@@ -34,8 +33,8 @@ Use the [traceability matrix](../../examples/common/policy-gated-change-review/v
 
 ## Running example linkage
 
-- Read the [reviewer view](../../examples/common/policy-gated-change-review/review/reviewer-view/) as the human-facing projection of the design claim.
-- Compare it with the [runtime view](../../examples/common/policy-gated-change-review/runtime/runtime-view/) and the [coherence failure artifact](../../examples/common/policy-gated-change-review/verification/coherence-failure/) when testing whether one view change is still coherent.
+- The [reviewer view](../../examples/common/policy-gated-change-review/review/reviewer-view/) and [runtime view](../../examples/common/policy-gated-change-review/runtime/runtime-view/) are the canonical sources behind Figure 5.1 and Table 5.1.
+- The [coherence failure artifact](../../examples/common/policy-gated-change-review/verification/coherence-failure/) and [traceability matrix](../../examples/common/policy-gated-change-review/verification/traceability-matrix/) deepen the review when a claimed facade or adapter must be tested against the repository record.
 
 ## Why alternative views must cohere
 
@@ -114,13 +113,7 @@ Figure 5.1 shows the smallest reviewer-facing square that Chapter 05 expects to 
 Figure 5.1. Reviewer-facing naturality square for one approval move.
 > **Reader takeaway.** A new view is coherent only if packaging for review preserves the same approval meaning as the design path it summarizes.
 
-```mermaid
-flowchart LR
-  RP[Review Plan] -->|human approval| AC[Approved Change]
-  RP -->|package-for-review| DP[Decision Packet]
-  DP -->|approve-or-return| RO[Review Outcome]
-  AC -->|project-review-outcome| RO
-```
+![Publication redraw of Figure 5.1 showing the reviewer-facing naturality square.](../../assets/figures/publication/reviewer-naturality-screen.svg)
 
 **Formal bridge.**
 
@@ -248,7 +241,7 @@ The running example keeps one reusable [coherence failure artifact](../../exampl
 
 These signals are intentionally concrete.
 They allow reviewers to reject vague equivalence claims without requiring advanced mathematics in the review thread.
-That sets up Chapter 06, where the book moves from coherent view change to selecting the simplest correct construction for combination and variation.
+Chapter 06 starts where that review leaves off: once several views can stay coherent, which combined boundary and which explicit variation point should become canonical.
 
 ## Summary
 

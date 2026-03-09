@@ -9,10 +9,11 @@ description: "Structure integrations and migrations around shared boundaries, pr
 # Pullbacks and Pushouts for Integration and Migration
 
 Chapter 06 made combination and variation explicit inside one governed workflow.
-This chapter moves to the harder problem of joining workflows across a shared boundary and replacing one subsystem with another without losing route semantics, provenance, or approval meaning.
-It applies categorical integration patterns to system joins, migrations, and controlled replacement.
-It uses the [shared boundary](../../examples/common/policy-gated-change-review/design/shared-boundary/), the [replacement plan](../../examples/common/policy-gated-change-review/design/replacement-plan/), and the [coherence failure artifact](../../examples/common/policy-gated-change-review/verification/coherence-failure/) to keep the formal vocabulary tied to repository artifacts.
-Use the [variation paths](../../examples/common/policy-gated-change-review/design/variation-paths/) and the [traceability matrix](../../examples/common/policy-gated-change-review/verification/traceability-matrix/) alongside this chapter.
+Integration work fails less often at the moment of cutover than at the moment a team decides two artifacts "mean the same thing" without proving a shared boundary.
+This chapter applies categorical integration patterns to joins, migrations, and controlled replacement where route semantics, provenance, and approval meaning are under pressure.
+The danger is not visible incompatibility.
+It is the quieter case where two systems appear to join successfully while route, scope, or policy meaning has already drifted.
+The chapter therefore restates the shared boundary and both migration patterns locally before returning to the canonical repository artifacts.
 
 ## Learning goals
 
@@ -34,8 +35,8 @@ Use the [variation paths](../../examples/common/policy-gated-change-review/desig
 
 ## Running example linkage
 
-- Read the [shared boundary](../../examples/common/policy-gated-change-review/design/shared-boundary/) before interpreting any integration or migration claim in this chapter.
-- Keep the [replacement plan](../../examples/common/policy-gated-change-review/design/replacement-plan/) and [coherence failure artifact](../../examples/common/policy-gated-change-review/verification/coherence-failure/) open when evaluating whether a join or replacement really preserves approval meaning.
+- The [shared boundary](../../examples/common/policy-gated-change-review/design/shared-boundary/) and [replacement plan](../../examples/common/policy-gated-change-review/design/replacement-plan/) are the canonical sources behind Table 7.1, Figure 7.1, and Figure 7.2.
+- The [coherence failure artifact](../../examples/common/policy-gated-change-review/verification/coherence-failure/), [variation paths](../../examples/common/policy-gated-change-review/design/variation-paths/), and [traceability matrix](../../examples/common/policy-gated-change-review/verification/traceability-matrix/) remain the repository-level evidence when a join or replacement must be inspected in full.
 
 ## Shared boundaries in integration work
 
@@ -44,7 +45,7 @@ If that boundary is vague, every later join or migration becomes a negotiation i
 
 ### Canonical keys, schemas, and policies
 
-The running example now makes this boundary explicit in [design/shared-boundary.md](../../examples/common/policy-gated-change-review/design/shared-boundary/).
+The running example makes this boundary explicit as one small contract shared by design, review, runtime, and migration artifacts.
 The point is not to centralize every field in the repository.
 The point is to stabilize the smallest set of labels that reviewer, runtime, verification, and migration artifacts must agree on before they can be composed safely.
 
@@ -59,6 +60,22 @@ Table 7.1. Canonical shared-boundary elements.
 | `Policy Classification` | Preserves the meaning of satisfied, exception-required, and rejected outcomes. |
 | `Approval Route ID` | Keeps route-sensitive logic aligned with `Standard Review Path` and `Escalated Review Path`. |
 
+### Transfer case: regulated change-management review
+
+The same shared-boundary logic appears in regulated change-management work.
+Documentation, policy interpretation, and authorization may be joined only if they project onto one preserved audit boundary rather than onto three loosely related records.
+
+| Running-example role | Regulated change-management review |
+| --- | --- |
+| Core objects | `Regulated Change Proposal`, `Control Review Packet`, `Authorized Change` |
+| Core morphisms | `derive-control-review`, `evaluate-control-policy`, `approve-regulated-change` |
+| Core diagram claim | The authorized path is valid only if policy interpretation, control evidence, and sign-off preserve one regulatory scope. |
+| Effect boundary | Control-state update, audit-log write, external filing, remediation trigger |
+| Approval and evidence model | Approval is the signed authorization record, while evidence includes control mappings, exception records, filing references, and remediation status. |
+
+Appendix D extends this transfer case, but the point needed for Chapter 07 is already visible here.
+The join succeeds only where audit scope, policy meaning, and formal authorization still project onto one shared boundary.
+
 These are design commitments, not merely data fields.
 If one artifact drops `Approval Route ID`, the repository can no longer tell whether reviewer evidence and runtime evidence describe the same path.
 If one artifact renames `Policy Classification` without an explicit schema mapping, the integration boundary has already started to drift.
@@ -72,7 +89,7 @@ Integration usually fails before any merge algorithm runs.
 It fails when two systems claim to talk about the same change while using different identifiers, route labels, or policy vocabularies.
 At that point the apparent join is only a coincidence of partial overlap.
 
-The running example's [coherence failure artifact](../../examples/common/policy-gated-change-review/verification/coherence-failure/) shows the cost of ignoring this.
+A reusable coherence-failure example in the repository shows the cost of ignoring this.
 The route still appears to converge on `Approved Change`, but the reviewer-facing packet has already lost the policy distinction that the runtime view preserves.
 That is not an integration success with incomplete documentation.
 It is a broken shared boundary.
@@ -96,7 +113,7 @@ This is stricter than an ordinary database join.
 Matching one identifier is not enough if route labels or policy meanings differ.
 The pullback discipline says that the repository should refuse the join instead of hiding the mismatch behind one coerced record.
 
-The [shared boundary artifact](../../examples/common/policy-gated-change-review/design/shared-boundary/) therefore acts as the contract for valid joins.
+The shared-boundary definition therefore acts as the contract for valid joins.
 It lets the team state clearly which reviewer evidence, runtime evidence, and verification evidence may be treated as one integrated context.
 If one side violates that contract, the right response is to narrow the join or redesign the boundary.
 
@@ -105,12 +122,7 @@ Figure 7.1 shows the constrained join that the shared boundary is supposed to pe
 Figure 7.1. Constrained joins remain valid only through one preserved shared boundary.
 > **Reader takeaway.** Integration is governed only when every joining branch projects the same route, scope, and policy meaning onto one shared boundary.
 
-```mermaid
-flowchart LR
-  RV[Reviewer View] -->|project boundary| SB[Shared Boundary]
-  PEP[Policy-Evaluated Plan] -->|project boundary| SB
-  SB -->|permit constrained join| DP[Decision Packet]
-```
+![Publication redraw of Figure 7.1 showing the shared-boundary join.](../../assets/figures/publication/shared-boundary-join-screen.svg)
 
 **Formal bridge.**
 
@@ -172,12 +184,7 @@ Figure 7.2 makes the replacement path visible before the chapter turns back to t
 Figure 7.2. Controlled replacement stays anchored to one shared boundary.
 > **Reader takeaway.** Replacement is safe only when legacy and new outputs stay comparable on one preserved boundary during migration.
 
-```mermaid
-flowchart LR
-  LRM[Legacy Route Mapper] -->|legacy fields| SB[Shared Boundary]
-  RM[Replacement Mapper] -->|mapped fields| SB
-  SB -->|preserved interface| URG[Unified Review Gateway]
-```
+![Publication redraw of Figure 7.2 showing controlled replacement through one preserved boundary.](../../assets/figures/publication/replacement-gateway-screen.svg)
 
 **Formal bridge.**
 
@@ -278,7 +285,7 @@ They do not remove the need to decide when integration is worthwhile and when re
 - The migration preserves the same approval meaning and the same human review obligations after cutover.
 
 If these criteria cannot be met, the repository should narrow the scope of the migration or redesign the boundary first.
-That conclusion sets up Chapter 08, where the book turns from integration boundaries to sequential and parallel composition in orchestrated workflows.
+Chapter 08 follows the same governed meaning into a different failure mode: parallel preparation that looks efficient until one missing fan-in breaks the approval story.
 
 ## Summary
 

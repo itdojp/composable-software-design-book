@@ -25,6 +25,8 @@ If one domain cannot support an explicit object boundary, one stable morphism ch
 
 This caselet maps the running example into a staged production deployment workflow where release automation proposes a rollout but humans retain final release authority.
 
+Exhibit D.1. Transfer mapping for the deployment approval pipeline.
+
 | Book concept | Deployment approval pipeline |
 | --- | --- |
 | Core objects | `Deployment Request`, `Release Plan`, `Approved Release`, `Execution Window` |
@@ -42,6 +44,8 @@ The compositional method still cares about bounded authority, synchronized evide
 
 This caselet maps the method into a support escalation path where an AI assistant can draft triage and summaries but escalation authority remains governed by human operators.
 
+Exhibit D.2. Transfer mapping for the customer-support escalation workflow.
+
 | Book concept | Customer-support escalation workflow |
 | --- | --- |
 | Core objects | `Support Request`, `Escalation Packet`, `Approved Escalation`, `Action Record` |
@@ -57,6 +61,8 @@ Even so, the method still depends on stable packet boundaries, explicit route se
 ## Transfer case 3. Regulated change-management review
 
 This caselet maps the method into a regulated compliance workflow where documentation, control evidence, and formal approval must survive audit and policy review.
+
+Exhibit D.3. Transfer mapping for the regulated change-management review.
 
 | Book concept | Regulated change-management review |
 | --- | --- |

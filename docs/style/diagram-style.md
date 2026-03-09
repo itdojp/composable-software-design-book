@@ -37,6 +37,8 @@ Use it together with `docs/style/notation.md`.
 
 - Use the format `Figure N.M. Short declarative title.` for numbered figures.
 - Follow the title sentence with one short `> **Reader takeaway.** ...` callout sentence before the figure body.
+- Use a publication-grade image asset for reader-facing core figures when `project-management/figure-program.md` defines one.
+- Use a Mermaid block only when a chapter needs a lightweight local sketch or no publication-grade redraw exists yet.
 - If a diagram supports an invariant, name the invariant in the caption or adjacent prose.
 - Claim IDs may appear only when they already exist in `verification/traceability-matrix.md`.
 - Reader-visible claim IDs belong in figure captions and chapter-level review callouts, not in ordinary body paragraphs or diagram node labels.

@@ -32,6 +32,7 @@ MANUSCRIPT_FILES = {
     "chapter10": ROOT / "src" / "chapter-chapter10" / "index.md",
 }
 FIGURE_REQUIRED = {
+    "introduction": 0,
     "chapter01": 1,
     "chapter02": 2,
     "chapter03": 3,
@@ -51,6 +52,12 @@ def next_nonempty(lines: list[str], start_index: int) -> tuple[int | None, str |
         if lines[index].strip():
             return index, lines[index].rstrip("\n")
     return None, None
+
+
+def is_supported_figure_body(line: str | None) -> bool:
+    if line is None:
+        return False
+    return line == "```mermaid" or line.startswith("![")
 
 
 def check_packet_sections(label: str, lines: list[str], errors: list[str]) -> None:
@@ -98,8 +105,10 @@ def check_figures(label: str, lines: list[str], expected_major: int, errors: lis
             continue
 
         _, block_line = next_nonempty(lines, takeaway_index + 1)
-        if block_line != "```mermaid":
-            errors.append(f"{label}: {reference_token} must use a Mermaid block immediately after the takeaway sentence")
+        if not is_supported_figure_body(block_line):
+            errors.append(
+                f"{label}: {reference_token} must use a Mermaid block or publication image immediately after the takeaway sentence"
+            )
 
     if not found_minors:
         errors.append(f"{label}: missing required reader-facing figure caption")

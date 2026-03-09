@@ -8,11 +8,11 @@ description: "Preserve structure while translating between domain, architecture,
 
 # Functors and Model Translation
 
-Chapter 03 showed how one diagram can fail when path equivalence is false.
-This chapter addresses the quieter failure mode in which every artifact looks reasonable on its own, but the translation between specification, design, runtime, and implementation no longer preserves the same claim.
-It shows how structure-preserving translations connect domain, architecture, and runtime models.
-It uses the [problem statement](../../examples/common/policy-gated-change-review/spec/problem-statement/), the [design diagram](../../examples/common/policy-gated-change-review/design/commutative-diagram/), the [runtime view](../../examples/common/policy-gated-change-review/runtime/runtime-view/), and the [implementation workflow](../../examples/common/policy-gated-change-review/implementation/workflow/) as one translation chain.
-Use [Appendix B](../appendices/appendix-b/) for canonical terms and keep the [traceability matrix](../../examples/common/policy-gated-change-review/verification/traceability-matrix/) nearby while reading.
+Chapter 03 showed how a diagram fails when path equivalence is false.
+The more common engineering failure is quieter.
+Several artifacts all look reasonable until the translation between specification, design, runtime, and implementation stops preserving the same approval claim.
+This chapter treats Table 4.1 and Figure 4.1 as the local proof that those translations still carry one meaning.
+Use [Appendix B](../appendices/appendix-b/) only when a label needs exact repository wording.
 
 ## Learning goals
 
@@ -34,8 +34,8 @@ Use [Appendix B](../appendices/appendix-b/) for canonical terms and keep the [tr
 
 ## Running example linkage
 
-- Inspect the [runtime view](../../examples/common/policy-gated-change-review/runtime/runtime-view/) and [implementation workflow](../../examples/common/policy-gated-change-review/implementation/workflow/) alongside the [design diagram](../../examples/common/policy-gated-change-review/design/commutative-diagram/).
-- Use the [traceability matrix](../../examples/common/policy-gated-change-review/verification/traceability-matrix/) to verify that the same approval claim survives each translation step.
+- The [design diagram](../../examples/common/policy-gated-change-review/design/commutative-diagram/), [runtime view](../../examples/common/policy-gated-change-review/runtime/runtime-view/), and [implementation workflow](../../examples/common/policy-gated-change-review/implementation/workflow/) are the canonical sources behind Table 4.1 and Figure 4.1.
+- The [traceability matrix](../../examples/common/policy-gated-change-review/verification/traceability-matrix/) is the secondary audit artifact when you want to verify the same translation claim across files instead of only across the local exhibit.
 
 ## Multiple abstraction levels in one system
 
@@ -65,23 +65,7 @@ Figure 4.1 summarizes the smallest design-to-runtime translation chain used thro
 Figure 4.1. Design-to-runtime translation keeps the approval path intact.
 > **Reader takeaway.** Translation is acceptable only when execution detail changes without hiding policy evaluation or human approval.
 
-```mermaid
-flowchart LR
-  subgraph DV[Design view]
-    CR[Change Request] -->|policy check| PC[Policy Check]
-    PC -->|satisfied| RP[Review Plan]
-    RP -->|human approval| AC[Approved Change]
-  end
-  subgraph RV[Runtime view]
-    PR[Pending Request] -->|classify-request| PL[Planned Review]
-    PL -->|evaluate-policy| PEP[Policy-Evaluated Plan]
-    PEP -->|request-human-approval| ERC[Execution-Ready Change]
-  end
-  CR -.translate.-> PR
-  PC -.translate.-> PEP
-  RP -.translate.-> PL
-  AC -.translate.-> ERC
-```
+![Publication redraw of Figure 4.1 showing the design-to-runtime translation chain.](../../assets/figures/publication/design-runtime-translation-screen.svg)
 
 The chapter treats each view as a category only to the extent that objects and morphisms can be mapped coherently.
 This is not an invitation to remodel every operational detail.
@@ -149,7 +133,7 @@ F(human approval ◦ satisfied ◦ policy check)
 The law says the runtime path may be more operationally explicit than the design path while still preserving the same approval meaning.
 If one side removes human approval, collapses policy evaluation, or loses traceability, the translation stops behaving like the chapter's intended functor.
 
-The [traceability matrix](../../examples/common/policy-gated-change-review/verification/traceability-matrix/) provides lightweight evidence that composition has not been forgotten.
+The traceability matrix provides lightweight evidence that composition has not been forgotten.
 It does not prove full functorial correctness.
 It does provide a repository-level check that the same claim appears across specification, design, verification, runtime, and implementation artifacts.
 
@@ -160,7 +144,7 @@ This section shows how the running example moves from specification to design an
 
 ### From specification to architecture
 
-The [problem statement](../../examples/common/policy-gated-change-review/spec/problem-statement/) and [acceptance criteria](../../examples/common/policy-gated-change-review/spec/acceptance-criteria/) provide the source obligations.
+The source obligations begin in the problem statement and acceptance criteria.
 They say that human approval is mandatory and that the artifact path must remain traceable.
 The design translation turns those obligations into named objects, control points, and edges.
 
@@ -176,7 +160,7 @@ If the architecture introduces a new shortcut that the specification never allow
 ### From architecture to operational workflow
 
 The next translation maps design structure into operational states and transitions.
-The new [runtime view](../../examples/common/policy-gated-change-review/runtime/runtime-view/) makes that mapping explicit.
+The runtime-side model makes that mapping explicit.
 `Change Request` becomes `Pending Request`.
 `Review Plan` becomes `Planned Review`.
 `Approved Change` becomes `Execution-Ready Change`.
@@ -185,7 +169,7 @@ This translation is useful because runtime systems rarely execute the same abstr
 They execute queues, state transitions, policy evaluations, and approval events.
 The translation remains trustworthy only if those runtime constructs still preserve the design-level approval meaning.
 
-The [implementation workflow](../../examples/common/policy-gated-change-review/implementation/workflow/) is therefore not the runtime model by itself.
+The implementation workflow is therefore not the runtime model by itself.
 It is the operational procedure that should align with the runtime view.
 The runtime view carries the structure.
 The workflow carries the sequence of work that realizes it.
@@ -255,8 +239,8 @@ If the runtime view changes, the implementation workflow and traceability matrix
 If the design diagram changes, the specification claim it realizes should be rechecked at the same time.
 
 This is the engineering payoff of functorial thinking.
-It gives the team a concrete way to ask whether change has preserved structure or only moved text around.
-That question sets up Chapter 05, where the book turns from translation between views to coherent change between alternative views of the same system.
+It gives the team a concrete way to ask whether change preserved structure or only moved labels around.
+Chapter 05 takes that same discipline into a harder situation: several views can all look legitimate while still disagreeing about one approval story.
 
 ## Summary
 

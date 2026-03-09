@@ -9,10 +9,10 @@ description: "Make effects explicit so agent orchestration remains safe, reviewa
 # Monads, Kleisli Composition, and Effect Boundaries
 
 Chapter 08 made coordination visible.
-This chapter addresses what coordination alone cannot solve: prompts, tool calls, state changes, and dispatch steps that cross effect boundaries and therefore cannot be reasoned about as if they were pure artifact moves.
-It makes effects explicit so AI-assisted orchestration remains safe, reviewable, and testable.
-It uses the [effect boundary](../../examples/common/policy-gated-change-review/implementation/effect-boundary/), the [execution trace](../../examples/common/policy-gated-change-review/implementation/execution-trace/), and the [acceptance evidence artifact](../../examples/common/policy-gated-change-review/verification/acceptance-evidence/) to connect categorical language to repository operations.
-Read it with the [orchestration diagram](../../examples/common/policy-gated-change-review/implementation/orchestration-diagram/) from Chapter 08.
+The most expensive workflow defects often begin after the diagram has already stopped helping.
+A tool call writes state, an override bypasses a gate, or a dispatch step runs before the repository can explain why it was allowed.
+This chapter makes those effects explicit so AI-assisted orchestration remains safe, reviewable, and testable.
+Figure 9.1 and Table 9.1 restate the first-reading version of that effect story locally before the reader returns to the canonical repository artifacts.
 
 ## Learning goals
 
@@ -34,8 +34,8 @@ Read it with the [orchestration diagram](../../examples/common/policy-gated-chan
 
 ## Running example linkage
 
-- Read the [effect boundary](../../examples/common/policy-gated-change-review/implementation/effect-boundary/) first to see which steps are pure and which are effectful.
-- Keep the [execution trace](../../examples/common/policy-gated-change-review/implementation/execution-trace/) and [acceptance evidence](../../examples/common/policy-gated-change-review/verification/acceptance-evidence/) open when assessing whether effectful chaining remains auditable.
+- The [effect boundary](../../examples/common/policy-gated-change-review/implementation/effect-boundary/), [execution trace](../../examples/common/policy-gated-change-review/implementation/execution-trace/), and [acceptance evidence](../../examples/common/policy-gated-change-review/verification/acceptance-evidence/) are the canonical sources behind Figure 9.1 and Table 9.1.
+- Chapter 08's [orchestration diagram](../../examples/common/policy-gated-change-review/implementation/orchestration-diagram/) remains the upstream coordination context, but the local figure and table below are sufficient for first reading.
 
 ## Why effects need explicit boundaries
 
@@ -49,7 +49,7 @@ In an AI-assisted engineering workflow, a tool call is not a private implementat
 It can change which policy route is chosen, which evidence is visible to the reviewer, and which execution target receives the change.
 That makes every side effect part of the design commitment.
 
-The [effect boundary](../../examples/common/policy-gated-change-review/implementation/effect-boundary/) captures this by naming the effect class, the dependency, and the emitted evidence for each step.
+The effect model captures this by naming the effect class, the dependency, and the emitted evidence for each step.
 `draft-plan-with-agent` depends on prompt context and model invocation.
 `evaluate-policy` depends on repository metadata and the policy engine.
 `record-review-decision` depends on human judgment and audit writes.
@@ -85,20 +85,14 @@ Those steps are still important, but they are easier to test and review because 
 The effectful shell begins where the repository reaches outside that pure core.
 Prompting an agent, reading repository metadata, querying a policy engine, recording human approval, and dispatching execution are all effectful steps.
 Each one changes what later steps are allowed to believe.
-That is why the [effect boundary](../../examples/common/policy-gated-change-review/implementation/effect-boundary/) keeps the pure core small and names the shell explicitly.
+That is why the effect boundary keeps the pure core small and names the shell explicitly.
 
 Figure 9.1 shows the governed effect chain that the trace and acceptance artifacts must later justify.
 
 Figure 9.1. Governed effect chain for the running example.
 > **Reader takeaway.** Effectful steps stay governable only when reviewed context, authority, and evidence survive each tool-mediated move.
 
-```mermaid
-flowchart LR
-  RP[Review Plan] -->|draft-plan-with-agent| RP2[Reviewed Plan Revision]
-  RP2 -->|evaluate-policy| PEP[Policy-Evaluated Plan]
-  PEP -->|record-review-decision| AC[Approved Change]
-  AC -->|dispatch-execution| ECS[Executable Change Set]
-```
+![Publication redraw of Figure 9.1 showing the governed effect chain.](../../assets/figures/publication/effect-boundary-screen.svg)
 
 This separation has an immediate engineering benefit.
 If the pure core says evidence is incomplete, the repository can reject the packet without needing to replay external effects.
@@ -113,6 +107,23 @@ Table 9.1. Dominant effect classes in the running example.
 | `evaluate-policy` | Repository read plus policy engine evaluation | Policy classification, policy source, evaluation timestamp |
 | `record-review-decision` | Human decision plus durable write | Approval decision record, route, reviewer identity |
 | `dispatch-execution` | External state change | Execution trace entry, dispatch target, resulting operational status |
+
+### Transfer case: customer-support escalation workflow
+
+The same effect discipline appears in customer-support escalation.
+An AI assistant may classify or summarize the case, but customer-visible state change still crosses a named effect boundary that must emit evidence.
+
+| Running-example role | Customer-support escalation workflow |
+| --- | --- |
+| Core objects | `Support Request`, `Escalation Packet`, `Approved Escalation`, `Action Record` |
+| Core morphisms | `classify-request`, `draft-escalation-packet`, `approve-escalation`, `dispatch-action` |
+| Core diagram claim | The escalation route is acceptable only if case identity, severity meaning, and selected action remain aligned across triage and approval. |
+| Effect boundary | Customer communication, ticket-state mutation, external paging, incident-channel writes |
+| Approval and evidence model | Approval is the operator-approved escalation packet, while evidence includes transcript excerpts, severity rules, routing notes, and action timestamps. |
+
+Appendix D expands the full mapping.
+For this chapter, the essential lesson is simpler.
+Even outside software delivery, effectful dispatch is governed only when the emitted evidence stays attached to the same approved packet.
 
 ### Reading unit and bind in engineering terms
 
@@ -255,13 +266,13 @@ Retries should stop at the branch or synchronization point that failed.
 Rollback should target the last safe boundary rather than replay the whole pipeline blindly.
 Execution dispatch should happen only after the workflow can attach it to `Approved Change` and to the current trace context.
 
-The [acceptance evidence artifact](../../examples/common/policy-gated-change-review/verification/acceptance-evidence/) closes this loop.
+Acceptance evidence closes this loop.
 It says which records must survive even when the workflow returns for rework.
-The [execution trace](../../examples/common/policy-gated-change-review/implementation/execution-trace/) records what actually happened.
+The execution trace records what actually happened.
 Together they keep rollback and audit attached to the same governed story instead of splitting them across logs that readers cannot reconcile.
 
-With those boundaries in place, Chapter 10 can treat the running example as a full case study rather than as a collection of disconnected abstractions.
-The last chapter uses specification, diagrams, view translations, orchestration artifacts, and effect evidence as one continuous delivery argument.
+With those boundaries in place, Chapter 10 can stop teaching the pieces separately.
+It treats specification, design, review, orchestration, and effect evidence as one continuous delivery argument.
 
 ## Summary
 

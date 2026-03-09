@@ -33,22 +33,15 @@ Use [Appendix A](../appendices/appendix-a/) for notation and [Appendix B](../app
 
 ## Running example linkage
 
-- Read the [common running example](../../examples/common/policy-gated-change-review/README/) as the canonical artifact path for the full manuscript.
-- Inspect the [minimal example](../../examples/minimal/policy-gated-change-review/README/) when you want the shortest possible statement of the approval claim before later chapters add richer structure.
+- The [common running example](../../examples/common/policy-gated-change-review/README/) is the canonical repository source behind the full manuscript.
+- For a first reading, Figure 0.1 and Table 0.1 carry the local path through request, approval, and evidence, while the [minimal example](../../examples/minimal/policy-gated-change-review/README/) remains the shortest reusable repository form.
 
 Figure 0.1 gives the reader one compact map of the governed path before the later chapters formalize each boundary.
 
 Figure 0.1. Compositional design keeps authority attached to artifacts instead of to opaque automation.
 > **Reader takeaway.** The book's core promise is that higher-stakes AI-assisted work should cross visible artifact, approval, and evidence boundaries rather than one opaque automation boundary.
 
-```mermaid
-flowchart LR
-  CR[Change Request] -->|draft bounded proposal| RP[Review Plan]
-  RP -->|synchronize evidence| DP[Decision Packet]
-  DP -->|human approval| AC[Approved Change]
-  AC -->|dispatch governed execution| ERC[Execution-Ready Change]
-  ERC -->|emit trace and evidence| AE[Acceptance Evidence]
-```
+![Publication redraw of Figure 0.1 showing the governed path from request to evidence.](../../assets/figures/publication/introduction-governed-path-screen.svg)
 
 ## Why AI-assisted engineering needs stronger structure
 

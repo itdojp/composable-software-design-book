@@ -7,13 +7,18 @@
 - The current manuscript now contains publication-quality English content for the Introduction, Chapter 01, Chapter 02, Chapter 03, Chapter 04, Chapter 05, Chapter 06, Chapter 07, Chapter 08, Chapter 09, Chapter 10, Appendix A, and Appendix C.
 - Claim ID visibility, supported local build paths, variation artifact policy, and reusable counterexample policy are now documented as explicit repository decisions.
 - The repository now has a full first-draft publication path from specification through AI-assisted implementation, including orchestration, effect, execution-trace, and acceptance-evidence artifacts.
+- Core chapters now read locally before they read repository-first: each chapter carries a reader-facing figure or recap exhibit, a takeaway callout, and chapter-local explanation of the main artifact dependency.
+- Chapter openings and handoffs now vary by local tension and payoff rather than repeating one repository-instruction template.
 - All drafted chapters now include the reader-facing chapter packet sections required for the first publication milestone: learning goals, prerequisites, key concepts, running example linkage, summary, and review prompts.
 - The theory chapters now include compact formal bridge blocks so the categorical title of each chapter pays off in reader-visible structure tied to the running example.
 - The book package now includes front matter, part openers, afterword, and reader-facing backmatter so the manuscript reads as a book rather than as a repository outline.
 - Appendix D now provides three transfer caselets that show how the method carries into deployment approval, support escalation, and regulated change-management domains.
+- The late body chapters now thread transfer caselets directly into the main narrative so the method's portability is visible before the reader reaches Appendix D.
 - The manuscript now includes chapter-end notes and further reading blocks, a chapter-to-reference map, and an Appendix C chapter guide so source guidance is chapter-aware rather than appendix-only.
-- A publication-grade figure program now exists for the highest-value diagrams, including generated screen and print assets under `assets/figures/publication/`.
+- A publication-grade figure program now covers the Introduction and all ten core chapters, with generated screen and print assets under `assets/figures/publication/`.
 - The repository now has a stable house style guide and editorial decision log for capitalization, hyphenation, figure caption policy, and recurring chapter-level prose decisions.
+- The subject index and list-of-figures backmatter now include edition-stable cross-reference policy for web, ebook, and print reuse.
+- Transfer caselets and Appendix D exhibits are now recoverable from backmatter rather than only from chapter-by-chapter reading.
 - The glossary, editorial term base, and Japanese support map now cover the stable late-chapter running-example vocabulary and the clarified approval-evidence model.
 - Appendix A now provides a stable notation, figure-caption, and naming reference for the manuscript.
 - Appendix C now provides an annotated follow-on reading set for category theory, software architecture, lightweight formal methods, AI governance, and agent evaluation.

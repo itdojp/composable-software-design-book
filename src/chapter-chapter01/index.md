@@ -34,8 +34,8 @@ It also distinguishes the decision outcome from the emitted evidence that later 
 
 ## Running example linkage
 
-- Read the [problem statement](../../examples/common/policy-gated-change-review/spec/problem-statement/) and [acceptance criteria](../../examples/common/policy-gated-change-review/spec/acceptance-criteria/) before evaluating the chapter's boundary claims.
-- Keep the [review checks](../../examples/common/policy-gated-change-review/verification/review-checks/), [execution trace](../../examples/common/policy-gated-change-review/implementation/execution-trace/), and [acceptance evidence](../../examples/common/policy-gated-change-review/verification/acceptance-evidence/) nearby when comparing decision outcome and evidence roles.
+- The [problem statement](../../examples/common/policy-gated-change-review/spec/problem-statement/) and [acceptance criteria](../../examples/common/policy-gated-change-review/spec/acceptance-criteria/) are the canonical source behind the governed request that Figure 1.1 and Table 1.1 summarize locally.
+- The [review checks](../../examples/common/policy-gated-change-review/verification/review-checks/), [execution trace](../../examples/common/policy-gated-change-review/implementation/execution-trace/), and [acceptance evidence](../../examples/common/policy-gated-change-review/verification/acceptance-evidence/) deepen the repository detail after the local exhibits have established the authority split.
 
 ## Why responsibility boundaries matter
 
@@ -53,15 +53,7 @@ Figure 1.1 makes that separation visible before the chapter turns to the support
 Figure 1.1. Responsibility boundaries separate decision artifacts from emitted evidence.
 > **Reader takeaway.** A trustworthy workflow keeps the approval outcome distinct from the evidence that later explains or audits it.
 
-```mermaid
-flowchart LR
-  CR[Change Request] -->|draft-review-plan| RP[Review Plan]
-  RP -->|synchronize-for-review| DP[Decision Packet]
-  DP -->|approve-or-return| AC[Approved Change]
-  DP -->|emit decision evidence| ADR[Approval Decision Record]
-  AC -->|dispatch-and-observe| ET[Execution Trace]
-  ET -->|assemble acceptance claim| AE[Acceptance Evidence]
-```
+![Publication redraw of Figure 1.1 showing responsibility boundaries between decision artifacts and evidence.](../../assets/figures/publication/responsibility-boundaries-screen.svg)
 
 Table 1.1. Canonical authority boundaries in the running example.
 

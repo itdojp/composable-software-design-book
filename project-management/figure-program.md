@@ -3,7 +3,8 @@
 ## Purpose
 
 This document defines the publication-grade figure system for the manuscript.
-The repository-native Mermaid diagrams remain the chapter-local explanatory source, while the publication assets under `assets/figures/publication/` provide the polished screen and print variants.
+Compact Mermaid figures may still appear where a lightweight inline sketch is enough.
+The main reader-facing argument figures use the publication assets under `assets/figures/publication/` for screen and print reuse.
 
 ## Visual system
 
@@ -20,17 +21,27 @@ The repository-native Mermaid diagrams remain the chapter-local explanatory sour
 
 | Figure family | Canonical manuscript anchor | Source artifact | Publication assets |
 | --- | --- | --- | --- |
+| Introduction governed path | Figure 0.1 | `src/chapter-introduction/index.md` | `introduction-governed-path-*` |
+| Responsibility boundaries | Figure 1.1 | `src/chapter-chapter01/index.md` | `responsibility-boundaries-*` |
+| Minimal object composition baseline | Figure 2.1 and Figure 3.1 | `src/chapter-chapter02/index.md` and `src/chapter-chapter03/index.md` | `object-composition-*` |
 | Commutative approval claim | Figure 3.2 | `examples/common/policy-gated-change-review/design/commutative-diagram.md` | `commutative-approval-*` |
+| Design-to-runtime translation | Figure 4.1 | `src/chapter-chapter04/index.md` | `design-runtime-translation-*` |
+| Reviewer-facing naturality | Figure 5.1 | `src/chapter-chapter05/index.md` | `reviewer-naturality-*` |
+| Product-like review context | Figure 6.1 | `src/chapter-chapter06/index.md` | `review-context-product-*` |
 | Variation paths | Figure 6.2 | `examples/common/policy-gated-change-review/design/variation-paths.md` | `variation-paths-*` |
+| Shared-boundary join | Figure 7.1 | `src/chapter-chapter07/index.md` | `shared-boundary-join-*` |
+| Replacement gateway | Figure 7.2 | `src/chapter-chapter07/index.md` | `replacement-gateway-*` |
 | Orchestration fan-out | Figure 8.1 | `examples/common/policy-gated-change-review/implementation/orchestration-diagram.md` | `orchestration-diagram-*` |
 | Synchronization boundary | Chapter 08 table and prose | `examples/common/policy-gated-change-review/implementation/synchronization-boundary.md` | `synchronization-boundary-*` |
 | Effect boundary | Figure 9.1 | `examples/common/policy-gated-change-review/implementation/effect-boundary.md` | `effect-boundary-*` |
+| Case-study delivery path | Figure 10.1 | `src/chapter-chapter10/index.md` | `delivery-case-study-*` |
 
 ## Asset policy
 
 - `*-screen.svg` is the ebook-safe and web-safe asset.
 - `*-print.svg` is the grayscale-safe vector asset.
 - `*-print.pdf` is the print-distribution fallback asset generated from the same canonical drawing spec.
+- A single publication asset may be reused by more than one figure when the reader-facing semantics are intentionally the same baseline claim.
 - Do not hand-edit generated assets.
 - Regenerate assets by running `npm run figures:render` or `python3 scripts/render-publication-figures.py`.
 

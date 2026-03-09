@@ -9,9 +9,9 @@ description: "Walk through a full design and delivery flow from problem framing 
 # Case Study: From Specification to AI-Assisted Implementation
 
 After nine chapters of local concepts, the method has to survive one continuous delivery story.
-This chapter demonstrates the full workflow from problem framing to delivery with explicit artifacts and review points.
-It uses the [running example](../../examples/common/policy-gated-change-review/README/) as one continuous artifact path from specification through verification and implementation.
-Read it with the [problem statement](../../examples/common/policy-gated-change-review/spec/problem-statement/), [artifact map](../../examples/common/policy-gated-change-review/design/artifact-map/), [orchestration diagram](../../examples/common/policy-gated-change-review/implementation/orchestration-diagram/), [execution trace](../../examples/common/policy-gated-change-review/implementation/execution-trace/), and [acceptance evidence](../../examples/common/policy-gated-change-review/verification/acceptance-evidence/).
+This chapter is where the manuscript stops arguing chapter by chapter and has to earn its keep as one governed packet from request to evidence.
+The risk at this stage is that the earlier formal vocabulary still reads like a stack of local tools rather than one delivery argument.
+This chapter therefore reconstructs that full argument locally before it sends the reader back to the canonical repository packet.
 
 ## Learning goals
 
@@ -33,8 +33,8 @@ Read it with the [problem statement](../../examples/common/policy-gated-change-r
 
 ## Running example linkage
 
-- Read the [running example](../../examples/common/policy-gated-change-review/README/) as the canonical artifact path for this case study rather than as a separate appendix.
-- Keep the [artifact map](../../examples/common/policy-gated-change-review/design/artifact-map/), [execution trace](../../examples/common/policy-gated-change-review/implementation/execution-trace/), and [acceptance evidence](../../examples/common/policy-gated-change-review/verification/acceptance-evidence/) visible while following the chapter.
+- The [running example](../../examples/common/policy-gated-change-review/README/) remains the canonical repository source for the case study.
+- For a first reading, Table 10.1 and Figure 10.1 restate the minimum end-to-end packet locally, while the [artifact map](../../examples/common/policy-gated-change-review/design/artifact-map/), [execution trace](../../examples/common/policy-gated-change-review/implementation/execution-trace/), and [acceptance evidence](../../examples/common/policy-gated-change-review/verification/acceptance-evidence/) provide the repository-level audit detail.
 
 ## Framing the case study
 
@@ -89,10 +89,10 @@ The acceptance criteria fix what counts as a successful governed outcome.
 These files prevent later implementation details from redefining the problem after work has already begun.
 
 The second layer is design.
-The [artifact map](../../examples/common/policy-gated-change-review/design/artifact-map/) says which files are canonical.
-The [commutative diagram](../../examples/common/policy-gated-change-review/design/commutative-diagram/) states the preserved approval meaning.
-The [variation paths](../../examples/common/policy-gated-change-review/design/variation-paths/) separate combined review context from alternate review routes.
-The [shared boundary](../../examples/common/policy-gated-change-review/design/shared-boundary/) and [replacement plan](../../examples/common/policy-gated-change-review/design/replacement-plan/) define how the example handles integration and migration pressure without rewriting its core approval semantics.
+One artifact map names the canonical files.
+One commutative diagram states the preserved approval meaning.
+One variation structure separates combined review context from alternate review routes.
+One shared-boundary and replacement plan define how the example handles integration and migration pressure without rewriting its core approval semantics.
 
 Together these artifacts act as interface contracts for the rest of the repository.
 They say which objects exist, which labels remain canonical, and which transformations are allowed to preserve meaning.
@@ -106,7 +106,7 @@ The runtime view and reviewer view translate that meaning into operational and h
 The orchestration diagram and synchronization boundary express sequential and parallel composition at the implementation layer.
 The effect boundary explains where external state and authority changes enter the system.
 
-The [traceability matrix](../../examples/common/policy-gated-change-review/verification/traceability-matrix/) ties these pieces together.
+The traceability matrix ties these pieces together.
 It records which claims about approval, synchronization, effect visibility, and evidence can be traced from specification to implementation.
 That matrix is deliberately lightweight.
 Its value comes from linking stable artifacts, not from replacing them with one master spreadsheet.
@@ -126,15 +126,7 @@ Figure 10.1 compresses the case study into the shortest reader-facing artifact p
 Figure 10.1. End-to-end artifact path for the case study.
 > **Reader takeaway.** The delivery argument is complete only when specification, design, review, implementation, and evidence remain one connected path.
 
-```mermaid
-flowchart LR
-  PS[Problem Statement] --> ACR[Acceptance Criteria]
-  ACR --> DAS[Design Artifact Set]
-  DAS --> DP[Decision Packet]
-  DP --> ACH[Approved Change]
-  ACH --> ET[Execution Trace]
-  ET --> AE[Acceptance Evidence]
-```
+![Publication redraw of Figure 10.1 showing the end-to-end case-study path.](../../assets/figures/publication/delivery-case-study-screen.svg)
 
 This is the chapter's central case-study lesson.
 A strong artifact set does not mean more documents for their own sake.
@@ -148,12 +140,12 @@ That design combines checklists, negative examples, traceability, acceptance evi
 
 ### Test strategy and acceptance evidence
 
-The [review checks](../../examples/common/policy-gated-change-review/verification/review-checks/) provide the short checklist.
+The review checks provide the short checklist.
 They confirm that the artifact set is complete, that the human approval gate and synchronization boundary are explicit, and that effectful steps emit trace evidence.
-The [coherence failure artifact](../../examples/common/policy-gated-change-review/verification/coherence-failure/) provides the negative case.
+The coherence-failure example provides the negative case.
 It reminds reviewers what happens when route or policy meaning drifts across views.
 
-The [acceptance evidence artifact](../../examples/common/policy-gated-change-review/verification/acceptance-evidence/) is where the case study closes the loop.
+Acceptance evidence is where the case study closes the loop.
 Acceptance requires a specification reference, design references, review evidence, `Approved Change`, and execution trace entries that all point to the same governed outcome.
 If those references disagree, the repository should treat the change as unaccepted even if individual files or logs look plausible in isolation.
 
@@ -195,7 +187,7 @@ It names the work without claiming authority over approval.
 From there, the workflow can parallelize agent-assisted and tool-assisted tasks safely.
 The policy branch can query repository policy.
 The evidence branch can collect diff summaries or link known checks.
-The orchestration diagram shows that both branches still owe the synchronization boundary one coherent packet before human review continues.
+The local orchestration argument shows that both branches still owe the synchronization boundary one coherent packet before human review continues.
 
 This is the chapter's practical answer to a common automation mistake.
 Do not delegate "handle the change."
@@ -208,8 +200,8 @@ Review is where the case study proves whether the earlier formalism was worth th
 If the synchronized packet is complete, the reviewer can decide on one artifact with one route and one evidence set.
 If policy evaluation failed, if evidence is missing, or if a new plan revision appears, the workflow returns for rework rather than improvising around partial state.
 
-The [execution trace](../../examples/common/policy-gated-change-review/implementation/execution-trace/) makes these branches visible after the fact.
-The [effect boundary](../../examples/common/policy-gated-change-review/implementation/effect-boundary/) explains why some steps may be retried and others require explicit human action.
+The execution trace makes these branches visible after the fact.
+The effect boundary explains why some steps may be retried and others require explicit human action.
 The acceptance evidence rules explain which records must survive even when the change is not accepted on the first attempt.
 
 This is what controlled AI-assisted implementation looks like in practice.
@@ -233,8 +225,25 @@ Acceptance can be justified by a small evidence bundle rather than by institutio
 Just as important, the example remains small enough to inspect manually.
 That matters because compositional design should sharpen engineering judgment before it becomes automation.
 If the example required a large platform before the reader could test the method, the method would be much weaker.
+The transfer cases threaded through the late body chapters make the same point inside the body rather than only in an appendix.
 Appendix D extends that claim by mapping the same backbone into deployment approval, customer-support escalation, and regulated change-management workflows.
 What remains invariant across those domains is the same bounded request, reviewable plan, synchronized packet, governed decision outcome, and post-approval evidence model.
+
+### Transfer case: deployment approval pipeline
+
+The same end-to-end packet appears in deployment approval work.
+Release automation may prepare a rollout path, but the delivery argument still depends on one bounded request, one governed decision, and one evidence trail that survives execution.
+
+| Running-example role | Deployment approval pipeline |
+| --- | --- |
+| Core objects | `Deployment Request`, `Release Plan`, `Approved Release`, `Execution Window` |
+| Core morphisms | `derive-release-plan`, `evaluate-release-policy`, `approve-release`, `dispatch-rollout` |
+| Core diagram claim | The release path is valid only if rollout scope, policy evaluation, and human approval preserve the same release revision. |
+| Effect boundary | Release write, environment mutation, rollback trigger, external incident notification |
+| Approval and evidence model | Approval is the signed `Approved Release`, while evidence includes test reports, policy results, rollout logs, and rollback records. |
+
+Appendix D provides the fuller transfer appendix.
+What matters in the body chapter is that the same composed packet can govern repository delivery and release delivery without forking the method into a second narrative.
 
 ### Where the method needs stronger tooling
 

@@ -9,9 +9,9 @@ description: "Design concurrent workflows, toolchains, and review loops with seq
 # Monoidal Categories and String Diagrams
 
 Integration discipline is not enough once several governed branches run at the same time.
-This chapter models concurrent workflows and coordination structures with sequential and parallel composition so the reader can tell the difference between safe parallel preparation and faster ambiguity.
-It uses the [orchestration diagram](../../examples/common/policy-gated-change-review/implementation/orchestration-diagram/) and the [synchronization boundary](../../examples/common/policy-gated-change-review/implementation/synchronization-boundary/) to keep monoidal language tied to repository artifacts.
-Read it with the [implementation workflow](../../examples/common/policy-gated-change-review/implementation/workflow/) and the [reviewer view](../../examples/common/policy-gated-change-review/review/reviewer-view/).
+Parallelism is attractive because it promises speed.
+In governed workflows, it mostly tests whether the team can name one lawful fan-out and one lawful fan-in without manufacturing a new approval meaning along the way.
+Figure 8.1 and Table 8.1 restate that governed fan-out locally before the reader returns to the canonical repository artifacts.
 
 ## Learning goals
 
@@ -33,8 +33,8 @@ Read it with the [implementation workflow](../../examples/common/policy-gated-ch
 
 ## Running example linkage
 
-- Read the [orchestration diagram](../../examples/common/policy-gated-change-review/implementation/orchestration-diagram/) as the canonical concurrency artifact for this chapter.
-- Keep the [synchronization boundary](../../examples/common/policy-gated-change-review/implementation/synchronization-boundary/) and [implementation workflow](../../examples/common/policy-gated-change-review/implementation/workflow/) nearby when deciding whether two branches are genuinely independent.
+- The [orchestration diagram](../../examples/common/policy-gated-change-review/implementation/orchestration-diagram/) is the canonical source behind Figure 8.1.
+- The [synchronization boundary](../../examples/common/policy-gated-change-review/implementation/synchronization-boundary/), [implementation workflow](../../examples/common/policy-gated-change-review/implementation/workflow/), and [reviewer view](../../examples/common/policy-gated-change-review/review/reviewer-view/) provide repository detail after the local figure and table establish the fan-out and fan-in argument.
 
 ## Sequential and parallel composition
 
@@ -53,7 +53,7 @@ The step that drafts a bounded plan must happen before the step that evaluates p
 The step that synchronizes review evidence must happen before human approval because the reviewer should not infer missing evidence from branch-local logs.
 
 Parallel work begins only after one artifact boundary is stable enough to be shared.
-In the running example, the [orchestration diagram](../../examples/common/policy-gated-change-review/implementation/orchestration-diagram/) lets policy evaluation and evidence collection branch from the same `Review Plan`.
+In the running example, policy evaluation and evidence collection branch from the same `Review Plan`.
 Those branches can finish at different wall-clock times without changing the meaning of approval.
 They still owe the workflow one named fan-in before review may continue.
 
@@ -74,14 +74,7 @@ Figure 8.1 makes that governed fan-out explicit before the chapter turns to the 
 Figure 8.1. Running example fan-out and synchronization boundary.
 > **Reader takeaway.** Parallel work is acceptable only when one explicit fan-in restores a single review packet before authority can advance.
 
-```mermaid
-flowchart LR
-  RP[Review Plan] -->|evaluate-policy| PEP[Policy-Evaluated Plan]
-  RP -->|collect-evidence-links| EB[Evidence Bundle]
-  PEP -->|synchronize-for-review| DP[Decision Packet]
-  EB -->|synchronize-for-review| DP
-  DP -->|approve-or-return| AC[Approved Change]
-```
+![Publication redraw of Figure 8.1 showing governed fan-out and synchronization.](../../assets/figures/publication/orchestration-diagram-screen.svg)
 
 This is also where teams often over-parallelize.
 If a faster path can substitute for a slower path without a named rule, the design has confused throughput with correctness.
@@ -122,7 +115,7 @@ That is why Chapter 08 treats shared context as part of the structure rather tha
 ### Coordination costs and synchronization points
 
 Parallel composition pays for itself only when the fan-in is explicit and cheap enough to reason about.
-The [synchronization boundary](../../examples/common/policy-gated-change-review/implementation/synchronization-boundary/) is where that cost becomes visible in the running example.
+The synchronization boundary is where that cost becomes visible in the running example.
 The boundary requires one `Change Identity`, one `Plan Revision`, one policy classification, one evidence set, and one route identifier before the `Decision Packet` may exist.
 
 This boundary is the operational form of the product-like `Combined Review Context` from Chapter 06.
@@ -154,7 +147,7 @@ The diagram can distinguish a tool call from an approval boundary.
 It can show which branch is allowed to emit evidence and which branch is allowed to change authority.
 When those wires are missing, the repository has lost a design argument even if the runtime still happens to work.
 
-The [orchestration diagram](../../examples/common/policy-gated-change-review/implementation/orchestration-diagram/) therefore serves one concrete review purpose.
+The governed fan-out therefore serves one concrete review purpose.
 It shows that only the `approve-or-return` morphism can create `Approved Change`.
 Every earlier branch may prepare information.
 None of them may silently turn preparation into authorization.
@@ -263,7 +256,7 @@ They mutate scope or route labels without creating a new revision boundary.
 
 When those signs appear, the design problem is not simply "add more locks" or "serialize the queue."
 The workflow is missing a compositional interface.
-Chapter 09 builds on this point by making the effect boundaries of those branches explicit so the next chapter can reason about prompts, tool calls, approval writes, and execution dispatch without hiding risk.
+Chapter 09 keeps the same branches in view, but asks the harder operational question: what happens once those branches start calling tools, writing state, and crossing irreversible boundaries.
 
 ## Summary
 

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="520" viewBox="0 0 1080 520">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<defs>
+<marker id="arrow-print" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+<path d="M0,0 L12,6 L0,12 z" fill="#333333"/>
+</marker>
+</defs>
+<g style="color:#111111">
+<line x1="260" y1="212.0" x2="430" y2="122.0" stroke="#333333" stroke-width="4" marker-end="url(#arrow-print)"/>
+<text x="345.0" y="153.0" fill="currentColor" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="500" text-anchor="middle">draft review plan</text>
+<line x1="610" y1="122.0" x2="780" y2="282.0" stroke="#333333" stroke-width="4" marker-end="url(#arrow-print)"/>
+<text x="695.0" y="188.0" fill="currentColor" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="500" text-anchor="middle">human approval</text>
+<path d="M 260 212.0 Q 520.0 372.0 780 282.0" fill="none" stroke="#333333" stroke-width="4" marker-end="url(#arrow-print)"/>
+<text x="520.0" y="282.0" fill="currentColor" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="500" text-anchor="middle">policy-gated approval</text>
+<rect x="70" y="180" width="190" height="64" rx="18" ry="18" fill="#f0f0f0" stroke="#3f3f3f" stroke-width="3"/>
+<text x="165.0" y="219.0" fill="currentColor" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="600" text-anchor="middle">Change Request</text>
+<rect x="430" y="90" width="180" height="64" rx="18" ry="18" fill="#f0f0f0" stroke="#3f3f3f" stroke-width="3"/>
+<text x="520.0" y="129.0" fill="currentColor" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="600" text-anchor="middle">Review Plan</text>
+<rect x="780" y="250" width="210" height="64" rx="18" ry="18" fill="#d9d9d9" stroke="#111111" stroke-width="3"/>
+<text x="885.0" y="289.0" fill="currentColor" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="600" text-anchor="middle">Approved Change</text>
+</g></svg>

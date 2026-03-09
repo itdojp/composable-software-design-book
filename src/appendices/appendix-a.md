@@ -98,8 +98,9 @@ If a heading changes, verify the downstream links and navigation assumptions in 
 - Public prose uses one sentence per line where practical.
   This keeps review diffs smaller and translation workflows easier to control.
 - Commands, file paths, environment variables, schema keys, and code identifiers remain in English and are formatted as code.
-- Mermaid blocks are used when a compact reader-facing diagram is helpful inside a chapter.
-  Repository artifacts may also hold the canonical longer-form diagram or workflow description.
+- Publication-grade image assets are preferred for core reader-facing figures when the figure program defines them.
+- Mermaid blocks are still useful when a chapter needs a lightweight local sketch or no publication-grade redraw exists yet.
+- Repository artifacts may also hold the canonical longer-form diagram or workflow description.
 - Figure captions use the format `Figure N.M. Short declarative title.`
   The next line is a short `Reader takeaway` callout that teaches the reader how to read the figure.
 

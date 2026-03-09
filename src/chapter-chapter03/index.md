@@ -12,8 +12,7 @@ Chapter 02 named the objects and morphisms of the workflow.
 This chapter turns those names into a stronger question: do the visible paths preserve the same approval meaning, or do they only look compatible on paper.
 It uses diagrams as compact proofs of consistency across multiple design views.
 It begins with the minimal policy-gated approval diagram before expanding to the richer repository-level diagram used by the common running example.
-Use the [minimal diagram](../../examples/minimal/policy-gated-change-review/diagram/), the [common commutative diagram](../../examples/common/policy-gated-change-review/design/commutative-diagram/), and the [traceability matrix](../../examples/common/policy-gated-change-review/verification/traceability-matrix/) together.
-They provide the shortest path from a design claim to a reviewable artifact set.
+The linked diagrams and matrix remain the canonical repository source, but Figure 3.1, Figure 3.2, and Table 3.1 carry the first-reading argument inside the chapter.
 
 ## Learning goals
 
@@ -35,8 +34,8 @@ They provide the shortest path from a design claim to a reviewable artifact set.
 
 ## Running example linkage
 
-- Start with the [minimal diagram](../../examples/minimal/policy-gated-change-review/diagram/) before moving to the [common commutative diagram](../../examples/common/policy-gated-change-review/design/commutative-diagram/).
-- Use the [traceability matrix](../../examples/common/policy-gated-change-review/verification/traceability-matrix/) and [coherence failure artifact](../../examples/common/policy-gated-change-review/verification/coherence-failure/) when checking whether a square is genuinely reviewable.
+- The [minimal diagram](../../examples/minimal/policy-gated-change-review/diagram/) is the canonical source behind Figure 3.1, and the [common commutative diagram](../../examples/common/policy-gated-change-review/design/commutative-diagram/) is the canonical source behind Figure 3.2.
+- The [traceability matrix](../../examples/common/policy-gated-change-review/verification/traceability-matrix/) and [coherence failure artifact](../../examples/common/policy-gated-change-review/verification/coherence-failure/) become secondary inspection tools once the local figures and table have established the chapter's main claim.
 
 ## Why diagrams matter in engineering
 
@@ -55,12 +54,7 @@ Figure 3.1 shows the smallest version of that question in the running example.
 Figure 3.1. Minimal approval commutativity claim.
 > **Reader takeaway.** The diagram matters only because the two visible paths are claiming one shared approval meaning.
 
-```mermaid
-flowchart LR
-  CR[Change Request] -->|draft-review-plan| RP[Review Plan]
-  RP -->|human-approval| AC[Approved Change]
-  CR -->|policy-gated-approval| AC
-```
+![Publication redraw of Figure 3.1 showing the minimal approval commutativity claim.](../../assets/figures/publication/object-composition-screen.svg)
 
 The minimal diagram does not yet describe every operational detail.
 It isolates one design claim that can be reviewed by hand.
@@ -104,14 +98,7 @@ Figure 3.2 expands the same claim into the repository-level artifact path.
 Figure 3.2. Repository-level approval claim with explicit policy dependency (`PGCR-01`).
 > **Reader takeaway.** The direct approval edge is safe only if policy evaluation and human review preserve one invariant across named artifacts.
 
-```mermaid
-flowchart LR
-  CR[Change Request] -->|derive review plan| RP[Review Plan]
-  RP -->|human approval| AC[Approved Change]
-  CR -->|policy-gated approval path| AC
-  CR -->|policy check| PC[Policy Check]
-  PC -->|satisfied| RP
-```
+![Publication redraw of Figure 3.2 showing the repository-level approval claim.](../../assets/figures/publication/commutative-approval-screen.svg)
 
 The [traceability matrix](../../examples/common/policy-gated-change-review/verification/traceability-matrix/) matters because it anchors this diagram to named repository artifacts.
 That link prevents the diagram from drifting into a standalone picture with no verification consequence.
