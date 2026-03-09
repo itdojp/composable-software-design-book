@@ -8,10 +8,10 @@ description: "Preserve structure while translating between domain, architecture,
 
 # Functors and Model Translation
 
-Chapter 03 showed how a diagram fails when path equivalence is false.
-The more common engineering failure is quieter.
-Several artifacts all look reasonable until the translation between specification, design, runtime, and implementation stops preserving the same approval claim.
-This chapter treats Table 4.1 and Figure 4.1 as the local proof that those translations still carry one meaning.
+Chapter 03 showed how a design can fail visibly when path equivalence is false.
+Translation failure is more deceptive.
+A system can look well documented all the way from specification to runtime while still losing the one approval meaning that made the workflow governable in the first place.
+This chapter uses Table 4.1 and Figure 4.1 to show how readers can test that one meaning before they ever inspect companion artifacts.
 
 ## Learning goals
 

@@ -9,8 +9,9 @@ description: "Walk through a full design and delivery flow from problem framing 
 # Case Study: From Specification to AI-Assisted Implementation
 
 After nine chapters of local concepts, the method has to survive one continuous delivery story.
-This chapter is where the manuscript stops arguing chapter by chapter and has to earn its keep as one governed packet from request to evidence.
-The risk at this stage is that the earlier formal vocabulary still reads like a stack of local tools rather than one delivery argument.
+This chapter is where the book has to earn its claims as one governed packet from request to evidence.
+The risk at this stage is not missing terminology.
+It is that the earlier vocabulary still reads like separate local tools instead of one delivery argument a reader could actually apply.
 This chapter therefore reconstructs that full argument locally as one case-study packet before it turns back to repository detail.
 
 ## Learning goals
@@ -252,10 +253,10 @@ The synchronization boundary is still checked by repository discipline and light
 Claim IDs are traceable, but they are not yet rendered automatically into diagrams or acceptance evidence bundles.
 Execution trace collation remains a documented structure rather than a generated report.
 
-Those are not reasons to discard the method.
-They are reasons to treat the current book as a usable method rather than as a finished platform.
-The book now has a full artifact path from specification to AI-assisted implementation.
-The next stage is to harden selected parts of that path with stronger automation while preserving the same canonical interfaces.
+Those gaps do not weaken the method the chapter has demonstrated.
+They mark the points where teams can add stronger automation once the underlying packet, evidence path, and review boundaries are already stable.
+The book's claim is that the method is mature enough to apply now.
+Future hardening should preserve the same canonical interfaces rather than replace them.
 
 ## Summary
 

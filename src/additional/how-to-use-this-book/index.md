@@ -9,6 +9,8 @@ description: "Reader guidance, reading paths, and workflow for using the manuscr
 This book supports more than one reading mode.
 Some readers need a sequential conceptual build.
 Others need a targeted path for governance, architecture, or delivery work.
+In every case, the book is meant to carry the primary reading experience.
+Use the repository companion when you want to inspect the running example, validators, or file-level realization of a chapter claim.
 
 ## Read it front to back if you are adopting the full method
 
@@ -31,10 +33,11 @@ Use this path when your team already has a delivery workflow but struggles with 
 Read the Introduction, Chapter 01, Chapter 08, Chapter 09, and Chapter 10.
 Use this path when concurrency, tool use, effect boundaries, and acceptance evidence are the dominant operational concerns.
 
-## Use the repository artifacts as a companion, not as a substitute
+## Use the repository companion after the chapter argument is clear
 
 The canonical running example remains the shortest operational proof of the book's claims.
-When a chapter points to an artifact, inspect it to confirm how the prose lands in a repository-native workflow.
+When a chapter points to an artifact, inspect it after the prose has established the main claim.
+Use the companion to confirm how the argument lands in a repository-native workflow.
 Do not reverse the dependency.
 The chapter should explain the main argument on its own, and the repository should deepen inspection rather than carry the whole explanation by itself.
 

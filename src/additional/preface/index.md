@@ -15,11 +15,12 @@ This manuscript uses category-theoretic vocabulary for that purpose, but it does
 The goal is not to turn working engineers into pure mathematicians.
 The goal is to make compositional reasoning usable at the point where AI-assisted work becomes a governance, safety, or audit concern.
 
-The repository-native running example stays small on purpose.
+The running example stays small on purpose.
 It lets the reader see one governed approval path repeatedly while the formal vocabulary grows around it.
 That design choice reflects the book's core promise.
 If a concept cannot improve one bounded engineering workflow, it does not belong here as a central technique.
 
-This book should therefore be read as a book with an operational companion.
-The prose explains the method.
-The repository artifacts, validators, and example files show what the method looks like when it is versioned, reviewed, and extended in practice.
+This book should therefore be read as the primary explanation of the method.
+The repository companion exists so readers can inspect the same method at artifact level, with validators, example files, and versioned changes.
+The explanation belongs in the book.
+The companion material exists to deepen inspection after the argument is already clear.
