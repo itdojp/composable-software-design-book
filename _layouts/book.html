@@ -150,11 +150,13 @@
                 <footer class="book-footer" role="contentinfo">
                     <div class="book-footer-inner">
                         <div class="book-footer-license">
-                            {{ site.license_text | default: "Content licensed under CC BY-NC-SA 4.0 (commercial use requires a separate agreement)." }}
+                            {{ site.license_text | default: "Book content: CC BY-NC-SA 4.0. Code, build, and reusable technical assets: Apache-2.0." }}
                         </div>
                         <div class="book-footer-links">
                             {% if repo_url %}
                                 <a href="{{ repo_url }}" target="_blank" rel="noopener">GitHub</a>
+                                <a href="{{ repo_url }}/blob/{{ repo_branch }}/LICENSE-SCOPE.md" target="_blank" rel="noopener">Licensing</a>
+                                <a href="{{ repo_url }}/blob/{{ repo_branch }}/COMMERCIAL.md" target="_blank" rel="noopener">Commercial</a>
                             {% endif %}
                             {% if site.contact.email %}
                                 <a href="mailto:{{ site.contact.email | escape }}">Contact</a>

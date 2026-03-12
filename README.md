@@ -22,6 +22,11 @@ Contributor workflow and local build guidance are documented in [`CONTRIBUTING.m
   - Public site: https://itdojp.github.io/categorical-software-design-book/
   - Repository: https://github.com/itdojp/categorical-software-design-book
 
+## Licensing
+
+Reader-facing book content is licensed under [`CC BY-NC-SA 4.0`](LICENSE).
+Code, build files, schemas, site-generation assets, and reusable technical examples are licensed under [`Apache-2.0`](LICENSES/Apache-2.0.txt).
+The canonical boundary, embedded-code carve-out, `_data/` review result, commercial guidance, trademark handling, and third-party notices are documented in [`LICENSE-SCOPE.md`](LICENSE-SCOPE.md), [`COMMERCIAL.md`](COMMERCIAL.md), [`TRADEMARKS.md`](TRADEMARKS.md), and [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md).
 ## Repository Structure
 
 - English canonical manuscript: `index.md` and `src/`

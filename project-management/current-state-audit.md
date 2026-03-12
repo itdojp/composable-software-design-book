@@ -23,6 +23,7 @@
 - Appendix A now provides a stable notation, figure-caption, and naming reference for the manuscript.
 - Appendix C now provides an annotated follow-on reading set for category theory, software architecture, lightweight formal methods, AI governance, and agent evaluation.
 - The repository now has an explicit `v0.1.0-rc1` release-candidate note and changelog entry for stabilization review.
+- The repository now has an explicit dual-license policy: reader-facing book content is scoped to `CC BY-NC-SA 4.0`, while code, build, and reusable technical assets are scoped to `Apache-2.0`.
 - CI now runs repository QA and a separate native Ruby/Bundler build job, so the canonical primary build path remains under continuous verification.
 - GitHub Pages publication now uses a dedicated GitHub Actions workflow that builds from the repository root and deploys the generated `_site/` artifact.
 - Example QA now includes manifest schema validation, generated trace collation, and section-level checks for the Chapter 08 through Chapter 10 artifacts.
@@ -43,6 +44,7 @@
 | Supporting policy decisions | `project-management/claim-id-visibility-decision.md`, `project-management/build-support-policy.md`, `project-management/variation-artifact-decision.md`, and `project-management/non-natural-counterexample-decision.md` |
 | Figure inventory and asset policy | `project-management/figure-program.md` and `assets/figures/publication/` |
 | Release notes and history | `project-management/release-v0.1.0-rc1.md` and `CHANGELOG.md` |
+| Repository license architecture | `LICENSE`, `LICENSES/Apache-2.0.txt`, `LICENSE-SCOPE.md`, `COMMERCIAL.md`, `TRADEMARKS.md`, and `THIRD_PARTY_NOTICES.md` |
 | Running example artifacts | `examples/minimal/policy-gated-change-review/` and `examples/common/policy-gated-change-review/` |
 | Editorial rules | `docs/style/*.md`, `project-management/editorial-checklist.md`, and `project-management/editorial-style-decision-log.md` |
 | Translation workflow and rules | `project-management/translation_workflow.md` and `project-management/translation_rules.md` |
@@ -60,6 +62,7 @@
 - The running example remains `policy-gated-change-review` for Chapters 01 through 10 unless the TOC and project-management files are intentionally revised together.
 - Appendix B may expand incrementally as later revisions introduce genuinely new canonical terms, but established wording should remain stable once introduced.
 - Containerized Jekyll build remains an acceptable fallback when native Ruby and Bundler are unavailable in the contributor environment.
+- The current licensing split is administratively viable because `git shortlog -sne --all` currently reports one contributor identity for the committed history.
 
 ## Concrete blockers
 

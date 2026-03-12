@@ -106,8 +106,10 @@ They are distinct from the separately published Japanese book in `categorical-so
 
 ## License
 
-This book is published under CC BY-NC-SA 4.0.
-Commercial use requires a separate agreement.
+Reader-facing book content is published under [CC BY-NC-SA 4.0](LICENSE).
+Code, build files, schemas, and reusable technical assets in this repository are published under [Apache-2.0](LICENSES/Apache-2.0.txt).
+Executable code snippets, shell commands, JSON fragments, YAML fragments, and other machine-readable examples embedded in the book content are treated as Apache-2.0 unless a file states otherwise.
+See [LICENSE-SCOPE.md](LICENSE-SCOPE.md) for the canonical path boundary and [COMMERCIAL.md](COMMERCIAL.md) for commercial-use guidance.
 
 ---
 
