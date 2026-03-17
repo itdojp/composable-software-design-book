@@ -105,6 +105,9 @@ The neutral element in this chapter is not an abstract symbol floating above the
 It is the case in which no extra branch adds information beyond the existing plan boundary.
 If a low-risk change needs no additional evidence collector, the workflow still keeps the same approval contract.
 The neutral branch contributes no new artifact, but it does not change the meaning of the composed path.
+The engineering reading of the unit law `X ⊗ I ≅ X` is that optional work is safe only when the omitted branch contributes no new synchronization field, no new route label, and no new evidence obligation.
+A supposed no-op branch that emits a timestamp, cache marker, or route hint is not the unit.
+It has changed the meaning of the composed packet and should be reviewed as a real branch rather than as harmless parallelism.
 
 Shared resources keep this from becoming a naive parallelism story.
 Both branches depend on repository metadata, canonical policy labels, and finite reviewer attention.
@@ -182,6 +185,11 @@ This matters because hidden coupling is where concurrent workflows usually becom
 A prose description can hide a dependency inside a verb such as "summarize" or "prepare."
 A string diagram has less room to cheat.
 Once the missing wire is drawn, the team can see that the claimed independence was false or that the synchronization boundary was underspecified.
+A lawful fan-in sends the same `Change Identity` and `Plan Revision` through both branches and defines `synchronize-for-review` only when those wires still match.
+A broken fan-in lets the evidence branch reread mutable prompt context or widened scope after fan-out and then merge through an unlabeled summary step.
+Generic workflow prose can hide that defect because the summary still sounds plausible.
+The string-diagram reading cannot.
+The merge no longer has one well-defined pair of inputs, so the claimed synchronization point has no trustworthy approval meaning.
 
 The chapter's design lesson is simple.
 Whenever a workflow claims to be parallel, ask which wires make that claim true.
