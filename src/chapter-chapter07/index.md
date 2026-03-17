@@ -10,7 +10,7 @@ description: "Structure integrations and migrations around shared boundaries, pr
 
 Chapter 06 made combination and variation explicit inside one governed workflow.
 Integration work fails less often at the moment of cutover than at the moment a team decides two artifacts "mean the same thing" without proving a shared boundary.
-This chapter applies categorical integration patterns to joins, migrations, and controlled replacement where route semantics, provenance, and approval meaning are under pressure.
+Categorical integration patterns help with joins, migrations, and controlled replacement when route semantics, provenance, and approval meaning are under pressure.
 The danger is not visible incompatibility.
 It is the quieter case where two systems appear to join successfully while route, scope, or policy meaning has already drifted.
 The chapter therefore restates the shared boundary and both migration patterns locally before returning to the canonical repository artifacts.
@@ -46,8 +46,8 @@ If that boundary is vague, every later join or migration becomes a negotiation i
 ### Canonical keys, schemas, and policies
 
 The running example makes this boundary explicit as one small contract shared by design, review, runtime, and migration artifacts.
-The point is not to centralize every field in the repository.
-The point is to stabilize the smallest set of labels that reviewer, runtime, verification, and migration artifacts must agree on before they can be composed safely.
+It is not trying to centralize every field in the repository.
+It stabilizes the smallest set of labels that reviewer, runtime, verification, and migration artifacts must agree on before they can be composed safely.
 
 The shared boundary can be summarized as follows.
 
@@ -80,7 +80,7 @@ These are design commitments, not merely data fields.
 If one artifact drops `Approval Route ID`, the repository can no longer tell whether reviewer evidence and runtime evidence describe the same path.
 If one artifact renames `Policy Classification` without an explicit schema mapping, the integration boundary has already started to drift.
 
-This is why Chapter 07 starts with boundary objects rather than with joins.
+Chapter 07 therefore starts with boundary objects rather than with joins.
 Pullbacks and pushouts are only as trustworthy as the shared boundary they preserve.
 
 ### Why integration fails at the boundary
@@ -148,8 +148,7 @@ Its shared-boundary square no longer commutes, so there is no governed integrate
 An ordinary join tolerates disagreement and asks downstream consumers to repair the meaning later.
 The pullback earns its keep by refusing that repair strategy and surfacing the mismatch exactly where the supposed shared boundary fails.
 
-That matters operationally.
-A reviewer who sees one route while the runtime logs another is not looking at a minor inconsistency.
+Operationally, a reviewer who sees one route while the runtime logs another is not looking at a minor inconsistency.
 The repository has lost the constrained join that justified treating those records as one governed approval path.
 
 ### Provenance and policy preservation
@@ -216,7 +215,7 @@ The result may look migrated because a downstream consumer still receives one re
 It is not a pushout-like replacement because the common interface is being reconstructed after the fact instead of being preserved during the cutover.
 Pushout reasoning matters precisely because it forces the team to preserve the boundary before claiming that the replacement is complete.
 
-This is why blind cutovers are dangerous in AI-assisted systems.
+Blind cutovers are dangerous in AI-assisted systems.
 Tooling can be replaced quickly, but approval meaning changes more slowly.
 Pushout-style thinking forces the team to ask which boundary is being preserved before it celebrates a successful swap.
 
@@ -254,7 +253,7 @@ When assumptions conflict, the first task is to name the level of the conflict.
 Is the mismatch in keys, in route labels, in policy classifications, or in approval meaning.
 The answer determines whether the team needs a narrower pullback, a fuller schema mapping, or a redesign instead of an integration.
 
-The running example provides a simple rule.
+One simple rule is enough in the running example.
 If the conflict touches the meaning of `Approved Change`, do not hide it inside a migration step.
 That is a redesign problem, not a routine merge.
 If the conflict is only in field naming or artifact location, a controlled mapping may be enough.
@@ -278,7 +277,7 @@ In practice, the lineage record should answer four questions.
 
 This record does not need to be heavyweight.
 It does need to survive long enough that another engineer can audit the migration without reverse-engineering old tool output.
-That is why the chapter pairs the replacement plan with the traceability matrix instead of treating migration notes as ephemeral operations chatter.
+That pairing keeps migration notes anchored to the replacement plan and the traceability matrix instead of treating them as ephemeral operations chatter.
 
 ## Integration and migration heuristics
 

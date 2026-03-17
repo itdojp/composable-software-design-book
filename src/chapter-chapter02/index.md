@@ -9,8 +9,8 @@ description: "Model systems, interfaces, and transformations with the core vocab
 # Objects, Morphisms, and Composition
 
 Once a workflow has explicit responsibility boundaries, the next question is which parts of that workflow are stable enough to deserve names and laws.
-This chapter introduces the core compositional vocabulary for modeling systems, interfaces, and transformations.
-It reuses the [minimal example](../../examples/minimal/policy-gated-change-review/README/) and the [common running example](../../examples/common/policy-gated-change-review/README/) so that the formal language remains tied to reviewable repository artifacts.
+The core compositional vocabulary of objects, morphisms, and composition answers that question for systems, interfaces, and transformations.
+The chapter keeps the [minimal example](../../examples/minimal/policy-gated-change-review/README/) and the [common running example](../../examples/common/policy-gated-change-review/README/) nearby so the formal language stays tied to reviewable artifacts.
 Use [Appendix A](../appendices/appendix-a/) for notation and [Appendix B](../appendices/appendix-b/) for canonical definitions.
 
 ## Learning goals
@@ -39,7 +39,7 @@ Use [Appendix A](../appendices/appendix-a/) for notation and [Appendix B](../app
 
 ## Modeling systems as objects
 
-This chapter does not begin by treating every file, function, or event as an object.
+The argument does not begin by treating every file, function, or event as an object.
 It begins by asking which units stay stable enough to support review, reuse, and traceable change.
 
 ### Choosing the right units of design
@@ -52,7 +52,7 @@ Each one is a durable artifact class with a specific role in the workflow.
 Each one can be inspected independently.
 Each one can also fail in a different way.
 
-This is why the chapter does not start with prompts, model weights, or individual shell commands.
+For the same reason, the model does not start with prompts, model weights, or individual shell commands.
 Those details may matter later, especially when effect boundaries become explicit.
 At this stage, they are usually implementation detail rather than the stable unit the reviewer needs.
 
@@ -93,7 +93,7 @@ A single blob cannot explain where a request becomes reviewable, where policy is
 
 Object choice therefore stabilizes the later argument.
 If the reader cannot tell what counts as the same object before and after a step, it becomes impossible to state whether a transformation preserved meaning.
-That is why object selection is the first modeling decision, not an afterthought.
+Object selection is therefore the first modeling decision, not an afterthought.
 
 ## Morphisms as interfaces and transformations
 
@@ -111,7 +111,7 @@ The morphism claim becomes stronger when the preserved behavior is explicit.
 In the running example, `draft-review-plan` should preserve the relevant scope and constraints of the `Change Request`.
 `human-approval` should preserve the judgment that the plan is acceptable under the stated policy and acceptance criteria.
 
-This is why morphisms are design claims before they are implementation claims.
+Morphisms are design claims before they are implementation claims.
 A script, API call, or agent interaction may realize the morphism, but it is not identical to the morphism.
 If the implementation changes while the preserved artifact relationship stays the same, the morphism is stable.
 If the implementation silently drops a constraint, the morphism claim has failed even if the code still runs.
@@ -159,7 +159,7 @@ If the workflow later inserts request normalization or policy evidence generatio
 That is what allows modular reasoning.
 Different engineers can review adjacent parts of the path without losing the whole-system claim.
 
-This is not abstract bookkeeping.
+None of this is abstract bookkeeping.
 It affects how repositories are reviewed.
 A team can validate one morphism against one contract, then compose the approved steps into a larger workflow argument.
 Without associativity, every longer path would have to be re-argued from scratch.
@@ -191,7 +191,7 @@ An API request can be modeled as an object when its schema and guarantees matter
 A schema translation can be modeled as a morphism when the preserved fields and constraints are explicit.
 A deployment manifest can be an object when later steps depend on its contract rather than on one tool's internal representation.
 
-The running example keeps the discussion grounded.
+The canonical example keeps the discussion grounded.
 The [problem statement](../../examples/common/policy-gated-change-review/spec/problem-statement/) provides the source boundary.
 The [artifact map](../../examples/common/policy-gated-change-review/design/artifact-map/) shows the durable units that matter across phases.
 The [design diagram](../../examples/common/policy-gated-change-review/design/commutative-diagram/) then states the composition claim that later chapters will test more rigorously.
@@ -200,7 +200,7 @@ The [design diagram](../../examples/common/policy-gated-change-review/design/com
 The same modeling choice appears when a `Deployment Request` becomes a `Release Plan` and then an `Approved Release`.
 The repository example remains canonical, but a release workflow still needs one stable request, one bounded plan, one approved outcome, and one execution boundary before a reviewer can trust the longer path.
 
-This vocabulary helps teams separate model from mechanism.
+The vocabulary helps teams separate model from mechanism.
 An AI agent, a service call, and a script may all realize the same morphism if they preserve the same contract.
 The tool choice still matters operationally, but it should not be confused with the design relation being claimed.
 

@@ -11,8 +11,8 @@ description: "Make effects explicit so agent orchestration remains safe, reviewa
 Chapter 08 made coordination visible.
 The most expensive workflow defects often begin after the diagram has already stopped helping.
 A tool call writes state, an override bypasses a gate, or a dispatch step runs before the repository can explain why it was allowed.
-This chapter makes those effects explicit so AI-assisted orchestration remains safe, reviewable, and testable.
-Figure 9.1 and Table 9.1 restate the first-reading version of that effect story locally before the reader returns to the canonical repository artifacts.
+Chapter 09 makes those effects explicit so AI-assisted orchestration remains safe, reviewable, and testable.
+Figure 9.1 and Table 9.1 give the first-reading version of that effect story before the canonical repository artifacts become necessary for deeper inspection.
 
 ## Learning goals
 
@@ -68,24 +68,24 @@ If execution dispatch happens before the trace is anchored to `Approved Change`,
 The cost is not only debugging complexity.
 It is the loss of a truthful design model.
 A workflow cannot claim to be auditable if the important operational behavior lives outside the artifact set.
-This is why Chapter 09 treats effect visibility as a first-class design requirement rather than as an observability enhancement.
+Effect visibility therefore becomes a first-class design requirement rather than an observability enhancement.
 
 ## Monads as operational envelopes
 
 A monad is useful in this book because it gives a disciplined way to say that one computation returns both a value and the operational context needed to continue safely.
-The point is not to force readers into a specific language runtime.
-The point is to keep effects attached to their obligations instead of unpacking them into ambient global state.
+The goal is not to force readers into a specific language runtime.
+It is to keep effects attached to their obligations instead of unpacking them into ambient global state.
 
 ### Pure core and effectful shell
 
-The running example keeps a small pure core.
+The running example keeps the pure core small.
 Scope comparison, route-rule comparison, and evidence-completeness checks can be reasoned about as transformations over explicit artifacts.
 Those steps are still important, but they are easier to test and review because they do not depend on external systems.
 
 The effectful shell begins where the repository reaches outside that pure core.
 Prompting an agent, reading repository metadata, querying a policy engine, recording human approval, and dispatching execution are all effectful steps.
 Each one changes what later steps are allowed to believe.
-That is why the effect boundary keeps the pure core small and names the shell explicitly.
+The effect boundary therefore keeps the pure core small and names the shell explicitly.
 
 Figure 9.1 shows the governed effect chain that the trace and acceptance artifacts must later justify.
 
@@ -172,7 +172,7 @@ Treating those steps as ordinary function composition would hide too much.
 The workflow must know which prompt context was used, which tool version produced the result, and which actor changed authority.
 Kleisli composition is the book's way of saying that effectful steps compose only if they preserve the governed context that later review depends on.
 
-This is why the [execution trace](../../examples/common/policy-gated-change-review/implementation/execution-trace/) is not a debugging afterthought.
+The [execution trace](../../examples/common/policy-gated-change-review/implementation/execution-trace/) is therefore not a debugging afterthought.
 It is the concrete record of how Kleisli-style chaining happened in the repository.
 Each step carries the artifact boundary, the effect class, the actor or tool, and the evidence link that justifies continuing.
 
@@ -232,7 +232,7 @@ State still matters because plan revisions and route labels can change.
 I/O still matters because the workflow reads repository metadata and writes execution results.
 But those concerns are interpreted through one dominant question: can the step still support a truthful review and approval story.
 
-This is why the effect boundary names human approval as effectful.
+For the same reason, the effect boundary names human approval as effectful.
 Approval changes authority, which is the workflow's most important state transition.
 If the envelope fails to model that transition, it has already chosen the wrong dominant effect model for this system.
 
