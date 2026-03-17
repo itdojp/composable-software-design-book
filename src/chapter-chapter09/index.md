@@ -34,7 +34,7 @@ Figure 9.1 and Table 9.1 restate the first-reading version of that effect story 
 
 ## Running example linkage
 
-- The [effect boundary](../../examples/common/policy-gated-change-review/implementation/effect-boundary/), [execution trace](../../examples/common/policy-gated-change-review/implementation/execution-trace/), and [acceptance evidence](../../examples/common/policy-gated-change-review/verification/acceptance-evidence/) are the canonical sources behind Figure 9.1 and Table 9.1.
+- The [effect boundary](../../examples/common/policy-gated-change-review/implementation/effect-boundary/), [execution trace](../../examples/common/policy-gated-change-review/implementation/execution-trace/), and [acceptance evidence](../../examples/common/policy-gated-change-review/verification/acceptance-evidence/) are the canonical sources behind Figure 9.1, Figure 9.2, and Table 9.1.
 - Chapter 08's [orchestration diagram](../../examples/common/policy-gated-change-review/implementation/orchestration-diagram/) remains the upstream coordination context, but the local figure and table below are sufficient for first reading.
 
 ## Why effects need explicit boundaries
@@ -107,6 +107,14 @@ Table 9.1. Dominant effect classes in the running example.
 | `evaluate-policy` | Repository read plus policy engine evaluation | Policy classification, policy source, evaluation timestamp |
 | `record-review-decision` | Human decision plus durable write | Approval decision record, route, reviewer identity |
 | `dispatch-execution` | External state change | Execution trace entry, dispatch target, resulting operational status |
+
+Figure 9.2 separates the chapter's pure reasoning core from the effectful shell that emits durable evidence.
+This is the visual distinction the later unit, bind, and Kleisli discussion depends on.
+
+Figure 9.2. Pure checks stay inside the core while governed effects remain in the shell.
+> **Reader takeaway.** The envelope is useful only when pure checks stay stable and every effectful step emits reviewable evidence at the shell boundary.
+
+![Publication redraw of Figure 9.2 showing the pure core and effectful shell.](../../assets/figures/publication/pure-core-effectful-shell-screen.svg)
 
 ### Transfer case: customer-support escalation workflow
 

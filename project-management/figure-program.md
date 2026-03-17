@@ -33,8 +33,10 @@ The main reader-facing argument figures use the publication assets under `assets
 | Shared-boundary join | Figure 7.1 | `src/chapter-chapter07/index.md` | `shared-boundary-join-*` |
 | Replacement gateway | Figure 7.2 | `src/chapter-chapter07/index.md` | `replacement-gateway-*` |
 | Orchestration fan-out | Figure 8.1 | `examples/common/policy-gated-change-review/implementation/orchestration-diagram.md` | `orchestration-diagram-*` |
+| String-diagram fan-in contrast | Figure 8.2 | `src/chapter-chapter08/index.md` | `string-diagram-fan-in-*` |
 | Synchronization boundary | Chapter 08 table and prose | `examples/common/policy-gated-change-review/implementation/synchronization-boundary.md` | `synchronization-boundary-*` |
 | Effect boundary | Figure 9.1 | `examples/common/policy-gated-change-review/implementation/effect-boundary.md` | `effect-boundary-*` |
+| Pure core and effectful shell | Figure 9.2 | `src/chapter-chapter09/index.md` | `pure-core-effectful-shell-*` |
 | Case-study delivery path | Figure 10.1 | `src/chapter-chapter10/index.md` | `delivery-case-study-*` |
 
 ## Asset policy

@@ -35,7 +35,9 @@ The `Publication asset` column names the publication-grade redraw used for each 
 | Figure 7.1 | [Chapter 07](../../chapter-chapter07/) | Constrained joins remain valid only through one preserved shared boundary. | [`shared-boundary-join-screen.svg`](../../../assets/figures/publication/shared-boundary-join-screen.svg) |
 | Figure 7.2 | [Chapter 07](../../chapter-chapter07/) | Controlled replacement stays anchored to one shared boundary. | [`replacement-gateway-screen.svg`](../../../assets/figures/publication/replacement-gateway-screen.svg) |
 | Figure 8.1 | [Chapter 08](../../chapter-chapter08/) | Running example fan-out and synchronization boundary. | [`orchestration-diagram-screen.svg`](../../../assets/figures/publication/orchestration-diagram-screen.svg) |
+| Figure 8.2 | [Chapter 08](../../chapter-chapter08/) | String-diagram reading distinguishes lawful fan-in from broken summary merges. | [`string-diagram-fan-in-screen.svg`](../../../assets/figures/publication/string-diagram-fan-in-screen.svg) |
 | Figure 9.1 | [Chapter 09](../../chapter-chapter09/) | Governed effect chain for the running example. | [`effect-boundary-screen.svg`](../../../assets/figures/publication/effect-boundary-screen.svg) |
+| Figure 9.2 | [Chapter 09](../../chapter-chapter09/) | Pure checks stay inside the core while governed effects remain in the shell. | [`pure-core-effectful-shell-screen.svg`](../../../assets/figures/publication/pure-core-effectful-shell-screen.svg) |
 | Figure 10.1 | [Chapter 10](../../chapter-chapter10/) | End-to-end artifact path for the case study. | [`delivery-case-study-screen.svg`](../../../assets/figures/publication/delivery-case-study-screen.svg) |
 
 ## Tables and exhibits
