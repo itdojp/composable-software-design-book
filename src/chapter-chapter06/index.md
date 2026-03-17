@@ -134,6 +134,11 @@ The reviewer UI might still make local sense of that bundle by compensating for 
 The workflow and the traceability layer cannot project one unique `Policy Result` and one unique `Evidence Links` artifact out of it without adding consumer-specific repair rules.
 That bundle can be convenient.
 It is not the product-like boundary that Chapter 06 needs because there is no unique mediating map back to one smallest review-ready context.
+The failure becomes concrete on an escalated route.
+If the packet still carries scope and evidence but drops the route-specific `Policy Result`, the reviewer can still see something that looks locally complete.
+The repository cannot recover `π_policy`.
+That packet is not missing one convenience field.
+It has ceased to be the canonical combined context that approval depends on.
 
 This matters because approval is not a property of any one component alone.
 Scope without policy status is incomplete.

@@ -142,6 +142,9 @@ A weaker alternative is a permissive integration row keyed only by `Change Ident
 That row can still be materialized even when `Approval Route ID` or `Policy Classification` has drifted.
 It may be useful for debugging.
 It is not a governed join.
+If the reviewer-facing packet says `Standard Review Path` while the runtime-side plan says `Escalated Review Path`, a database join can still return one row on the shared change identifier.
+The pullback cannot.
+Its shared-boundary square no longer commutes, so there is no governed integrated record to trust.
 An ordinary join tolerates disagreement and asks downstream consumers to repair the meaning later.
 The pullback earns its keep by refusing that repair strategy and surfacing the mismatch exactly where the supposed shared boundary fails.
 
