@@ -223,6 +223,11 @@ Human and AI responsibility boundaries can stay explicit even when the workflow 
 Diagram reasoning can survive translation across design, runtime, review, and implementation views.
 Effect boundaries can make prompts, tool calls, approval writes, and dispatch steps auditable.
 Acceptance can be justified by a small evidence bundle rather than by institutional memory.
+The late theory chapters matter specifically because they rule out weaker alternatives that ordinary workflow prose might tolerate.
+Chapter 08 explains why optional or parallel branches are lawful only when the synchronization boundary preserves the same approval meaning.
+Chapter 09 explains why effectful steps must return a governed envelope instead of bare artifacts plus hopeful logging.
+Without those chapters, the case study would still look organized.
+It would not explain why some refactors preserve approval semantics while others silently break them.
 
 Just as important, the example remains small enough to inspect manually.
 That matters because compositional design should sharpen engineering judgment before it becomes automation.

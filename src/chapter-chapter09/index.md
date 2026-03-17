@@ -136,6 +136,11 @@ If `evaluate-policy` fails, the bind result is not a naked absence of value.
 It is a governed state that still carries trace obligations, route meaning, and a next action such as retry, manual review, or return-for-rework.
 This is the practical reason monadic language helps here.
 It forces the workflow to preserve context across effectful chaining instead of dropping it between tool calls.
+Left identity gives the reader a concrete test.
+If the repository places a pure artifact into the envelope and immediately evaluates policy, the governed result should match the direct governed policy evaluation for that same artifact.
+Right identity gives another.
+If the repository rewraps an already governed state, it must not quietly add an approval-like record, create a new trace event, or drop an evidence link.
+Otherwise the supposed bookkeeping step has changed authority or observability and was never neutral.
 
 In the running example, every successful bind keeps the same `Change Identity` and current `Plan Revision`.
 Every failing bind yields an outcome the rest of the workflow can still review.
@@ -178,6 +183,12 @@ Review Plan -> M Executable Change Set
 
 Here `M` is the governed effect envelope that carries trace obligations, authority changes, and permitted next actions together with the value.
 The chain is safe only when each step returns another governed state instead of dropping context between tool calls.
+A bare artifact chain would let `evaluate-policy` return only `Policy-Evaluated Plan` and ask later steps to infer whether the result was cached, manually overridden, or produced from stale context.
+That is ordinary composition plus logging.
+It forces every downstream step to guess which effect already happened.
+The governed envelope chain avoids that guesswork because each step returns value, trace obligation, authority state, and permitted next action together.
+That is the practical payoff of Kleisli composition.
+Teams may regroup the chain across services or queues without changing the governed outcome that the reviewer and the audit trail must reconstruct.
 
 ### Chaining effectful steps safely
 
