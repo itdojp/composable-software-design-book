@@ -42,9 +42,14 @@ decision packet,決定パケット,software-design,A synchronized reviewer-facin
 combined review context,統合レビュー文脈,software-design,The smallest shared context from which requested scope policy result and evidence links can be projected for review,Core Chapter 06 term
 review route,レビュールート,software-design,A named shared boundary that keeps review variants explicit before they converge on one approval model,Core Chapter 06 term
 shared boundary,共有境界,software-design,A canonical set of keys schemas or policy labels that multiple artifacts must preserve before they can be safely joined or replaced,Core Chapter 07 term
+change identity,変更同一性,software-design,The stable request lineage that keeps joins parallel branches and later execution evidence attached to the same governed change,Core late-book retrieval term across Chapters 07 to 09
 approval route id,承認ルートID,software-design,A stable route label that records which review path a change followed across design runtime and migration artifacts,Core Chapter 07 term
+route semantics,ルート意味論,software-design,The approval meaning carried by route labels and route-specific obligations that joins migrations and replacements must preserve,Core Chapter 07 interpretation term
 schema mapping,スキーマ写像,software-design,A defined translation between data structures or interface schemas,Important in migration
 migration plan,移行計画,software-design,A staged plan for replacing or restructuring a running system,Important in Chapter 07
+replacement plan,置換計画,software-design,The canonical artifact that records how legacy and new structures stay comparable during controlled replacement,Canonical Chapter 07 artifact
+transformation lineage,変換来歴,software-design,The recorded history of how one integrated or replaced structure became another across mapping shadow comparison and cutover,Core Chapter 07 auditability term
+shadow mode,シャドウモード,software-design,The overlap period in which old and new structures run side by side so route and policy meaning can be compared before cutover,Useful alternate retrieval term for controlled replacement
 adapter,アダプタ,software-design,A component that reshapes one interface into another compatible form,Appears in Chapter 05
 facade,ファサード,software-design,A simplified interface that hides internal complexity behind one boundary,Appears in Chapter 05
 version skew,バージョンスキュー,software-design,A condition where linked views or artifacts evolve at different times and temporarily disagree,Important in Chapter 05 review work
@@ -52,6 +57,7 @@ coherence failure,整合失敗,software-design,A mismatch in which supposedly co
 review checkpoint,レビューチェックポイント,software-design,A planned decision point where artifacts and risks are examined,Supports controlled delivery
 rollback,ロールバック,software-design,A controlled return to a previous safe operational state,Appears in Chapters 01 and 09
 operational workflow,運用ワークフロー,software-design,A sequence of runtime or human activities that delivers system outcomes,Appears in Chapters 04 and 10
+plan revision,計画改訂,software-design,The current governed revision of a review plan that parallel branches retries and rework must continue to reference,Core Chapter 08 and Chapter 09 synchronization term
 policy-evaluated plan,ポリシー評価済み計画,software-design,A runtime-side plan after policy evaluation and before human approval or execution readiness,Core Chapter 04 Chapter 08 and Chapter 09 artifact
 execution-ready change,実行準備済み変更,software-design,A runtime-state translation of the approved change that is ready for controlled dispatch,Core Chapter 04 and Chapter 09 artifact
 evidence bundle,証跡バンドル,software-design,A collected set of evidence links and supporting material synchronized into the decision packet,Core Chapter 08 and Chapter 10 artifact
