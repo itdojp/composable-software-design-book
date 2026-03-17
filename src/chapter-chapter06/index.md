@@ -128,6 +128,13 @@ there exists a unique ⟨s, p, e⟩ : X -> Combined Review Context.
 This sketch makes the product claim visible.
 Any richer review packet is acceptable only if it still reduces to the same canonical context without inventing another approval boundary.
 
+A weaker design shows why the universal condition matters.
+Suppose the repository defines one `Reviewer Prep Bundle` with optional `policy_status`, optional `evidence_links`, and free-form notes that different tools may or may not fill in.
+The reviewer UI might still make local sense of that bundle by compensating for missing pieces.
+The workflow and the traceability layer cannot project one unique `Policy Result` and one unique `Evidence Links` artifact out of it without adding consumer-specific repair rules.
+That bundle can be convenient.
+It is not the product-like boundary that Chapter 06 needs because there is no unique mediating map back to one smallest review-ready context.
+
 This matters because approval is not a property of any one component alone.
 Scope without policy status is incomplete.
 Policy status without evidence is hard to trust.
@@ -200,6 +207,12 @@ Coproduct sketch:
 
 The injections make route origin explicit while preserving one downstream review boundary.
 The workflow may branch on route-specific obligations, but it should not create a second canonical approval meaning after route selection.
+
+A weaker alternative would keep one `needs_escalation` flag inside the plan and let each downstream tool decide for itself what that flag means.
+That looks simpler until a third route appears or one consumer starts treating escalation as a policy exception while another treats it as a review-order hint.
+At that point the repository no longer has one shared route boundary.
+It has several local interpretations that only happen to share a label.
+The coproduct-like design earns its place because each new route must enter through one named injection instead of teaching every consumer a new private branch rule.
 
 This is better than hiding the distinction inside free-form comments or a boolean flag.
 An opaque flag says that some difference exists.

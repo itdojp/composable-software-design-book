@@ -138,6 +138,13 @@ Policy-Evaluated Plan -> Shared Boundary
 The join is valid only where both lower paths preserve `Change Identity`, `Repository Scope`, `Policy Classification`, and `Approval Route ID`.
 If one of those boundary elements drifts, the repository no longer has the constrained join that justified treating the records as one governed packet.
 
+A weaker alternative is a permissive integration row keyed only by `Change Identity`.
+That row can still be materialized even when `Approval Route ID` or `Policy Classification` has drifted.
+It may be useful for debugging.
+It is not a governed join.
+An ordinary join tolerates disagreement and asks downstream consumers to repair the meaning later.
+The pullback earns its keep by refusing that repair strategy and surfacing the mismatch exactly where the supposed shared boundary fails.
+
 That matters operationally.
 A reviewer who sees one route while the runtime logs another is not looking at a minor inconsistency.
 The repository has lost the constrained join that justified treating those records as one governed approval path.
@@ -199,6 +206,12 @@ Legacy Route Mapper ----> Unified Review Gateway
 
 The pushout claim is that both old and replacement components meet at one shared interface before downstream artifacts consume the new gateway.
 If the cutover changes the shared boundary itself, the migration is no longer a controlled replacement of the same approval path.
+
+A weaker alternative is a cutover script that flattens legacy and new outputs into one generic status field after the swap.
+That can keep dashboards green while silently erasing route or policy distinctions that the reviewer and the traceability matrix still depend on.
+The result may look migrated because a downstream consumer still receives one record.
+It is not a pushout-like replacement because the common interface is being reconstructed after the fact instead of being preserved during the cutover.
+Pushout reasoning matters precisely because it forces the team to preserve the boundary before claiming that the replacement is complete.
 
 This is why blind cutovers are dangerous in AI-assisted systems.
 Tooling can be replaced quickly, but approval meaning changes more slowly.
