@@ -2,11 +2,35 @@
 
 ## A Category-Theoretic Guide to Human-AI Boundaries and Verifiable Engineering
 
-A practical guide to designing AI-assisted software systems with composition, diagrams, and effect boundaries that remain auditable and verifiable.
+A practical guide to governed AI-assisted software delivery using composition, diagrams, and effect boundaries that remain auditable and verifiable.
+
+## Why this book exists
+
+AI-assisted delivery is now moving faster than many teams can explain who may approve a change, which boundaries still define the system, and what evidence must remain after execution.
+This book addresses that gap with a compositional design method for governed software delivery.
+It is written for readers who need architecture decisions, review checkpoints, runtime behavior, and acceptance evidence to remain one coherent engineering story.
+
+## Who this book is for
+
+This book is for software architects, staff engineers, technical leads, platform engineers, review owners, and AI product builders who need stronger control over AI-assisted engineering work.
+It is aimed at teams that need more than tool-specific tactics.
+It is for readers who need a reusable method for deciding what may be delegated, what must remain human-led, and how evidence should survive from design through execution.
+
+## What makes this book different
+
+- It treats AI-assisted engineering as a compositional design problem rather than a prompt-optimization problem.
+- It uses category theory selectively as a working vocabulary for real software boundaries, not as a stand-alone mathematics primer.
+- It connects review, architecture, orchestration, and verification in one method that can be inspected chapter by chapter and reused as a desk reference.
+
+## Start reading
+
+- Public site: https://itdojp.github.io/composable-software-design-book/
+- Best first pass: `Preface`, `How to Use This Book`, `Who This Book Is For`, `Introduction`, and `Chapter 01`
+- Repository artifacts are companions to the book, not replacements for the book's main argument.
 
 ## Scope
 
-This repository contains the English canonical manuscript and the supporting project management assets.
+This repository publishes the English canonical manuscript and the supporting project management assets.
 Japanese drafts under `manuscript/ja/` are working inputs and are not published.
 Those internal drafts are distinct from the separately published Japanese book in `categorical-software-design-book`.
 Contributor workflow and local build guidance are documented in [`CONTRIBUTING.md`](CONTRIBUTING.md).
@@ -18,15 +42,15 @@ Contributor workflow and local build guidance are documented in [`CONTRIBUTING.m
 - The two books share themes and some terminology, but they are not legacy/current versions and are not simple translations of each other.
 - Start with this repository if you want the English-first canonical manuscript and the current composition centered on compositional design for agentic systems.
 - Start with the Japanese book if you want a Japanese reader-facing book focused on design artifacts for the AI agent era, Context Pack usage, and GitHub/CI-oriented guidance.
-- Related Japanese book:
-  - Public site: https://itdojp.github.io/categorical-software-design-book/
-  - Repository: https://github.com/itdojp/categorical-software-design-book
+- Related Japanese book public site: https://itdojp.github.io/categorical-software-design-book/
+- Related Japanese book repository: https://github.com/itdojp/categorical-software-design-book
 
 ## Licensing
 
 Reader-facing book content is licensed under [`CC BY-NC-SA 4.0`](LICENSE).
 Code, build files, schemas, site-generation assets, and reusable technical examples are licensed under [`Apache-2.0`](LICENSES/Apache-2.0.txt).
 The canonical boundary, embedded-code carve-out, `_data/` review result, commercial guidance, trademark handling, and third-party notices are documented in [`LICENSE-SCOPE.md`](LICENSE-SCOPE.md), [`COMMERCIAL.md`](COMMERCIAL.md), [`TRADEMARKS.md`](TRADEMARKS.md), and [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md).
+
 ## Repository Structure
 
 - English canonical manuscript: `index.md` and `src/`
@@ -96,8 +120,8 @@ GitHub Actions continuously verifies the canonical primary path through a separa
 
 ## Running Example Quickstart
 
-Start with the [minimal example](examples/minimal/policy-gated-change-review/README.md) to see one object-morphism-diagram chain.
-Then move to the [common running example](examples/common/policy-gated-change-review/README.md) to follow the full specification-to-implementation artifact path.
+Start with the [minimal example](examples/minimal/policy-gated-change-review/README.md) after the front matter and Introduction if you want one object-morphism-diagram chain in the smallest form.
+Then move to the [common running example](examples/common/policy-gated-change-review/README.md) to follow the full specification-to-implementation artifact path once the chapter claims are already clear.
 
 ## English-first authoring policy
 
