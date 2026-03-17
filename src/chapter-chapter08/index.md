@@ -172,6 +172,14 @@ Review Plan
 The tensor-like operator `⊗` marks the point where two branches may proceed in parallel while preserving the same `Review Plan`, `Change Identity`, and `Plan Revision`.
 The synchronization morphism is what turns those parallel results back into one governed packet instead of two unrelated outputs.
 
+Figure 8.2 isolates the pedagogical move that Figure 8.1 compresses.
+It contrasts one lawful fan-in with one broken one.
+
+Figure 8.2. String-diagram reading distinguishes lawful fan-in from broken summary merges.
+> **Reader takeaway.** The fan-in is valid only when both branches preserve the same identity and revision all the way into one named synchronization point.
+
+![Publication redraw of Figure 8.2 contrasting lawful and broken fan-in.](../../assets/figures/publication/string-diagram-fan-in-screen.svg)
+
 ### Exposing hidden coupling in workflows
 
 String diagrams expose hidden coupling by forcing the author to draw every preserved dependency.

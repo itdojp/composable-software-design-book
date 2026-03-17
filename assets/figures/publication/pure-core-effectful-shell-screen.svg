@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="560" viewBox="0 0 1320 560">
+<rect width="100%" height="100%" fill="#fbfcfe"/>
+<defs>
+<marker id="arrow-screen" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+<path d="M0,0 L12,6 L0,12 z" fill="#43516d"/>
+</marker>
+</defs>
+<g style="color:#172033">
+<rect x="40" y="90" width="520" height="360" rx="20" ry="20" fill="#f6f8fc" fill-opacity="0.55" stroke="#75829b" stroke-width="3" stroke-dasharray="12 8"/>
+<text x="300.0" y="78" fill="currentColor" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="600" text-anchor="middle">Pure core</text>
+<rect x="720" y="90" width="560" height="360" rx="20" ry="20" fill="#fff3dc" fill-opacity="0.55" stroke="#b8872f" stroke-width="3"/>
+<text x="1000.0" y="78" fill="currentColor" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="600" text-anchor="middle">Effectful shell</text>
+<line x1="270" y1="272.0" x2="300" y2="172.0" stroke="#43516d" stroke-width="4" marker-end="url(#arrow-screen)"/>
+<text x="285.0" y="208.0" fill="currentColor" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="500" text-anchor="middle">pure checks</text>
+<line x1="270" y1="272.0" x2="300" y2="352.0" stroke="#43516d" stroke-width="4" marker-end="url(#arrow-screen)"/>
+<text x="285.0" y="298.0" fill="currentColor" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="500" text-anchor="middle">pure checks</text>
+<line x1="520" y1="172.0" x2="560" y2="272.0" stroke="#43516d" stroke-width="4" marker-end="url(#arrow-screen)"/>
+<text x="540.0" y="208.0" fill="currentColor" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="500" text-anchor="middle">same plan meaning</text>
+<line x1="520" y1="352.0" x2="560" y2="272.0" stroke="#43516d" stroke-width="4" marker-end="url(#arrow-screen)"/>
+<text x="540.0" y="298.0" fill="currentColor" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="500" text-anchor="middle">same plan meaning</text>
+<line x1="780" y1="272.0" x2="830" y2="172.0" stroke="#43516d" stroke-width="4" marker-end="url(#arrow-screen)"/>
+<text x="805.0" y="208.0" fill="currentColor" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="500" text-anchor="middle">invoke governed tools</text>
+<line x1="1060" y1="172.0" x2="1100" y2="172.0" stroke="#43516d" stroke-width="4" marker-end="url(#arrow-screen)"/>
+<text x="1080.0" y="158.0" fill="currentColor" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="500" text-anchor="middle">produce reviewed state</text>
+<line x1="1280" y1="172.0" x2="1100" y2="352.0" stroke="#43516d" stroke-width="4" marker-end="url(#arrow-screen)"/>
+<text x="1190.0" y="248.0" fill="currentColor" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="500" text-anchor="middle">authorize dispatch</text>
+<line x1="1100" y1="172.0" x2="1040" y2="352.0" stroke="#43516d" stroke-width="4" marker-end="url(#arrow-screen)"/>
+<text x="1070.0" y="248.0" fill="currentColor" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="500" text-anchor="middle">emit decision evidence</text>
+<line x1="1100" y1="352.0" x2="1040" y2="352.0" stroke="#43516d" stroke-width="4" marker-end="url(#arrow-screen)"/>
+<text x="1070.0" y="338.0" fill="currentColor" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="500" text-anchor="middle">emit execution evidence</text>
+<rect x="80" y="240" width="190" height="64" rx="18" ry="18" fill="#edf4ff" stroke="#5f7db4" stroke-width="3"/>
+<text x="175.0" y="279.0" fill="currentColor" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="600" text-anchor="middle">Review Plan</text>
+<rect x="300" y="140" width="220" height="64" rx="18" ry="18" fill="#edf4ff" stroke="#5f7db4" stroke-width="3"/>
+<text x="410.0" y="179.0" fill="currentColor" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="600" text-anchor="middle">Scope + Route Checks</text>
+<rect x="300" y="320" width="220" height="64" rx="18" ry="18" fill="#edf4ff" stroke="#5f7db4" stroke-width="3"/>
+<text x="410.0" y="359.0" fill="currentColor" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="600" text-anchor="middle">Evidence Completeness</text>
+<rect x="560" y="240" width="220" height="64" rx="18" ry="18" fill="#dde8ff" stroke="#2f5cb4" stroke-width="3"/>
+<text x="670.0" y="279.0" fill="currentColor" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="600" text-anchor="middle">Governed Envelope</text>
+<rect x="830" y="140" width="230" height="64" rx="18" ry="18" fill="#fff3dc" stroke="#b8872f" stroke-width="3"/>
+<text x="945.0" y="179.0" fill="currentColor" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="600" text-anchor="middle">Agent + Policy Tools</text>
+<rect x="1100" y="140" width="180" height="64" rx="18" ry="18" fill="#dde8ff" stroke="#2f5cb4" stroke-width="3"/>
+<text x="1190.0" y="179.0" fill="currentColor" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="600" text-anchor="middle">Approval Write</text>
+<rect x="1100" y="320" width="190" height="64" rx="18" ry="18" fill="#fff3dc" stroke="#b8872f" stroke-width="3"/>
+<text x="1195.0" y="359.0" fill="currentColor" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="600" text-anchor="middle">Dispatch Action</text>
+<rect x="830" y="320" width="210" height="64" rx="18" ry="18" fill="#edf8f1" stroke="#4e8a64" stroke-width="3"/>
+<text x="935.0" y="359.0" fill="currentColor" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="600" text-anchor="middle">Trace + Evidence</text>
+</g></svg>
