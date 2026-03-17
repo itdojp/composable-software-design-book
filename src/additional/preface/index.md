@@ -15,7 +15,7 @@ It is solved by giving them a design language that connects architecture decisio
 This manuscript uses category-theoretic vocabulary for that purpose, but it does so selectively.
 The goal is not to turn working engineers into pure mathematicians.
 The goal is to make compositional reasoning usable at the point where AI-assisted work becomes a governance, safety, or audit concern.
-It is therefore not a general AI-engineering handbook and not a broad category theory survey.
+It is therefore not a general AI-assisted engineering handbook and not a broad category theory survey.
 It is a book about governed AI-assisted delivery for readers who need formal discipline and operational realism at the same time.
 
 The running example stays small on purpose.

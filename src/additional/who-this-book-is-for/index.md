@@ -13,9 +13,9 @@ It is written for people who need a method they can defend in design reviews, ad
 ## This book is for readers who need governed delivery
 
 You will get the most value from this manuscript if you need a concrete answer to questions such as these.
-Which artifacts must exist before an AI-assisted change is allowed to move forward.
-Which decisions may be delegated and which ones must remain explicitly human-led.
-How do diagrams, runtime views, traces, and evidence stay aligned as one engineering story that can still be inspected later.
+- Which artifacts must exist before an AI-assisted change is allowed to move forward?
+- Which decisions may be delegated and which ones must remain explicitly human-led?
+- How do diagrams, runtime views, traces, and evidence stay aligned as one engineering story that can still be inspected later?
 
 ## This book is for teams that want a reusable method rather than isolated tips
 
