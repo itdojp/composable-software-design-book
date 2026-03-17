@@ -105,7 +105,7 @@ Continue with the [common running example](examples/common/policy-gated-change-r
 
 ## Afterword
 
-- [About the Author and ITDO](src/afterword/about-the-author-and-itdo/)
+- [Publisher Note and ITDO](src/afterword/about-the-author-and-itdo/)
 - [Acknowledgments](src/afterword/acknowledgments/)
 
 ## Publication Policy

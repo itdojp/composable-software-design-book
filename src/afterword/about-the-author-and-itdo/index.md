@@ -1,18 +1,18 @@
 ---
 layout: book
-title: "About the Author and ITDO"
+title: "Publisher Note and ITDO"
 description: "Publisher note on the editorial voice, scope, and intended use of the book."
 ---
 
-# About the Author and ITDO
+# Publisher Note and ITDO
 
 This book is published under the ITDO Inc. name because its method is meant to be reused by engineering teams rather than tied to one person's private workflow.
-The voice of the manuscript is therefore institutional on purpose.
+The voice of the book is therefore institutional on purpose.
 It is centered on software architecture, governed AI-assisted delivery, and reviewable engineering practice.
 
 Readers should trust the book in the same way the book asks them to trust a system.
 Look for explicit boundaries, stable terms, reviewable claims, and evidence that survives beyond the first pass.
-The manuscript tries to earn authority through inspectable reasoning rather than through personality or tool enthusiasm.
+The book tries to earn authority through inspectable reasoning rather than through personality or tool enthusiasm.
 
 That is also why the running example stays small and explicit.
 The goal is not to persuade readers that one repository workflow is universally important.
