@@ -11,6 +11,7 @@ This appendix proves that the method of the book generalizes beyond repository c
 The running example remains canonical because it is the most detailed artifact path in the manuscript.
 These transfer cases are deliberately smaller.
 They broaden applicability without creating rival narratives of equal size.
+Throughout the body chapters, the deployment approval pipeline serves as the recurring secondary transfer cue because it broadens the book's market fit without competing with the canonical repository example.
 
 ## How to read the transfer cases
 
@@ -24,6 +25,7 @@ If one domain cannot support an explicit object boundary, one stable morphism ch
 ## Transfer case 1. Deployment approval pipeline
 
 This caselet maps the running example into a staged production deployment workflow where release automation proposes a rollout but humans retain final release authority.
+It is the recurring secondary transfer thread used earlier in the body chapters because it is close enough to the main example to stay legible while still broadening the book's perceived applicability.
 
 Exhibit D.1. Transfer mapping for the deployment approval pipeline.
 

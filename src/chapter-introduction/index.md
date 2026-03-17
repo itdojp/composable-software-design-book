@@ -11,13 +11,14 @@ description: "Purpose, audience, scope, and reading strategy for the book."
 Many AI-assisted teams can explain which tool ran, but they cannot explain why one generated path was allowed to alter production-bound software.
 This introduction frames the book around that gap between automation detail and governable design.
 Its running example is the [policy-gated change review](../../examples/common/policy-gated-change-review/README/), which follows a `Change Request` through a `Review Plan` to an `Approved Change`.
+The body chapters also reuse a smaller deployment-approval cue so that release-governance readers can see the same method before they reach [Appendix D](../appendices/appendix-d/).
 Use [Appendix A](../appendices/appendix-a/) for notation and [Appendix B](../appendices/appendix-b/) for canonical terms.
 
 ## Learning goals
 
 - Explain why AI-assisted engineering needs explicit artifacts, boundaries, and compositional review claims.
 - Identify the audience, reading paths, and reference material that organize the rest of the book.
-- Understand how the running example anchors later formal chapters to one reusable repository workflow.
+- Understand how the running example anchors later formal chapters while a smaller deployment-approval cue shows that the method is not repository-exclusive.
 
 ## Prerequisites
 
@@ -35,6 +36,7 @@ Use [Appendix A](../appendices/appendix-a/) for notation and [Appendix B](../app
 
 - The [common running example](../../examples/common/policy-gated-change-review/README/) is the canonical repository source behind the full manuscript.
 - For a first reading, Figure 0.1 and Table 0.1 carry the local path through request, approval, and evidence, while the [minimal example](../../examples/minimal/policy-gated-change-review/README/) remains the shortest reusable repository form.
+- The book keeps repository change review as the canonical example, but it threads deployment approval as a smaller recurring cue so the same compositional method is visible in a second governed workflow before the appendix.
 
 Figure 0.1 gives the reader one compact map of the governed path before the later chapters formalize each boundary.
 
@@ -143,6 +145,7 @@ It continues with an artifact map, a diagram that states the main preservation c
 That packet is small enough to maintain in a repository and rich enough to support review, change control, and later verification.
 The workflow is not tied to one toolchain or one agent platform.
 It is a way to structure the boundary between intention, transformation, approval, and execution.
+The same packet logic can govern release approval as well as repository review when both workflows keep bounded requests, governed decisions, and post-approval evidence explicit.
 
 Teams can scale it up for larger systems or reduce it for smaller changes.
 What should remain stable is the demand for explicit artifacts and explicit claims about how they compose.
@@ -218,7 +221,7 @@ It also leads directly into Chapter 01, which turns that claim into an explicit 
 
 - AI-assisted delivery needs explicit artifact paths because hidden transformations make review and governance brittle.
 - The book is organized to move from responsibility boundaries and formal vocabulary to a full governed case study.
-- The running example and appendices provide stable interfaces that the later chapters reuse instead of redefining.
+- The running example is canonical, but the method is meant to transfer to release approval and other governed workflows rather than to remain repository-exclusive.
 
 ## Review prompts
 

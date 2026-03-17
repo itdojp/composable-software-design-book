@@ -34,6 +34,7 @@ A system can look well documented all the way from specification to runtime whil
 
 - The design, runtime, and implementation views are the canonical companion sources behind Table 4.1 and Figure 4.1.
 - Use the [traceability matrix](../../examples/common/policy-gated-change-review/verification/traceability-matrix/) when you want file-level audit detail beyond the local chapter argument.
+- The chapter also reuses deployment approval as a smaller transfer cue so the translation discipline is visible outside repository review before [Appendix D](../appendices/appendix-d/).
 
 ## Multiple abstraction levels in one system
 
@@ -172,6 +173,11 @@ It is the operational procedure that should align with the runtime view.
 The runtime view carries the structure.
 The workflow carries the sequence of work that realizes it.
 
+**Transfer cue: deployment approval pipeline.**
+The same translation burden appears in release governance.
+A specification-level release obligation has to map to design-level release gates and then to runtime states such as `Pending Release`, `Policy-Evaluated Release Plan`, and `Execution Window`.
+If one of those views hides human release approval inside an opaque automation status, the translation has lost the same approval meaning that the repository example is trying to preserve.
+
 ## Lossy mappings and risk boundaries
 
 Not every translation can preserve every detail.
@@ -244,7 +250,7 @@ Chapter 05 takes that same discipline into a harder situation: several views can
 
 - Functorial translation matters because engineering views are trustworthy only when they preserve the invariants the source model cares about.
 - A translation must preserve composed paths, not only label correspondences, if it is to support review and audit.
-- Semantic drift should be handled as a design defect unless the omitted detail and preserved invariant are both explicit.
+- Semantic drift should be handled as a design defect unless the omitted detail and preserved invariant are both explicit, regardless of whether the governed workflow is repository review or release approval.
 
 ## Review prompts
 

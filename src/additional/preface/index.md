@@ -22,6 +22,7 @@ The running example stays small on purpose.
 It lets the reader see one governed approval path repeatedly while the formal vocabulary grows around it.
 That design choice reflects the book's core promise.
 If a concept cannot improve one bounded engineering workflow, it does not belong here as a central technique.
+Repository change review is the teaching vehicle, but the same boundary-and-evidence pattern also governs release approval and other high-consequence delivery workflows.
 
 This book should therefore be read as the primary explanation of the method.
 Readers who want file-level examples, validators, and versioned artifacts can use the companion repository after the chapter argument is clear.
