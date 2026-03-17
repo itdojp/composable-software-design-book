@@ -313,18 +313,18 @@ Once combination and variation are explicit inside one workflow, the next questi
 
 ## Summary
 
-- Product-like structures are useful when several components must be present together at one decision boundary.
-- Coproduct-like structures are useful when genuine alternatives need one explicit shared consumer boundary.
-- Universality rewards the smallest construction that supports reuse and rejects ad hoc branching that hides review consequences.
+- A product-like design is credible only when the `canonical combined context` can be reconstructed from named components without hidden lookups or ambient state.
+- A coproduct-like design is credible only when each real variant crosses one `shared consumer boundary` instead of smuggling route differences through unlabeled flags.
+- Universality asks for the `smallest correct construction`, which means every retained field or branch must still carry approval meaning, evidence value, or verification consequence.
 
 ## Review prompts
 
-1. Which review packet in your current workflow is pretending to be one object while actually hiding three unrelated inputs.
-2. Which route variation in your system deserves a named coproduct-style boundary rather than a boolean flag.
-3. Which extra field in your review context is operationally convenient but not part of the smallest correct universal construction.
+1. Which artifact in your current review packet is the real product, and which named component would break approval meaning if you removed it.
+2. Which route variation in your system deserves a named coproduct boundary because obligations diverge after selection rather than only in presentation.
+3. Which extra field or branch is still present for convenience even though it is not part of the smallest correct construction.
 
 ## Notes and Further Reading
 
-- Mac Lane remains the long-term reference for universal constructions once you want the canonical statements behind this chapter's engineering paraphrases.
-- Fong and Spivak are the most practical companion because they connect products, coproducts, and compositional selection to applied systems rather than to notation alone.
-- Evans is again useful here because many supposed product or coproduct decisions are actually bounded-context decisions disguised as workflow convenience.
+- Mac Lane remains the long-term reference when you want the formal universal-property statements behind this chapter's engineering tests for products and coproducts.
+- Fong and Spivak are the most practical companion because they connect universal constructions to compositional selection, shared consumer boundaries, and applied systems rather than to notation alone.
+- Evans is again useful when a supposed product or coproduct turns out to be a bounded-context diagnosis problem disguised as workflow convenience.
