@@ -217,7 +217,7 @@ It shows that the book's formal vocabulary is useful when it improves artifact q
 
 ### What the case study validates
 
-The case study validates five concrete claims.
+The case study validates several concrete claims.
 Compositional vocabulary can be attached to repository artifacts without turning the book into a generic mathematics text.
 Human and AI responsibility boundaries can stay explicit even when the workflow uses parallel branches and effectful tools.
 Diagram reasoning can survive translation across design, runtime, review, and implementation views.
