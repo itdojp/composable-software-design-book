@@ -8,12 +8,15 @@ description: "Origin, scope, and promise of the book for engineers designing AI-
 
 This book began with a practical engineering problem.
 Teams were adding AI assistance to software delivery faster than they were improving the artifact boundaries that explain who proposed a change, who approved it, and which evidence justified execution.
+That mismatch is now a design and governance problem for mainstream software teams, not a niche tooling concern.
 
 That gap is not solved by telling engineers to be careful.
 It is solved by giving them a design language that connects architecture decisions, review checkpoints, operational traces, and verification consequences.
 This manuscript uses category-theoretic vocabulary for that purpose, but it does so selectively.
 The goal is not to turn working engineers into pure mathematicians.
 The goal is to make compositional reasoning usable at the point where AI-assisted work becomes a governance, safety, or audit concern.
+It is therefore not a general AI-engineering handbook and not a broad category theory survey.
+It is a book about governed AI-assisted delivery for readers who need formal discipline and operational realism at the same time.
 
 The running example stays small on purpose.
 It lets the reader see one governed approval path repeatedly while the formal vocabulary grows around it.
