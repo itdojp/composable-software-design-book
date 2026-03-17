@@ -177,6 +177,10 @@ An `Approved Change` is not the end of responsibility.
 It is the start of a higher-confidence execution path whose effects still need observation.
 The workflow should therefore connect approval to monitoring conditions, rollback criteria, and incident routing.
 
+**Transfer cue: deployment approval pipeline.**
+The same responsibility model appears when release automation proposes a rollout but a human release owner still decides whether an `Approved Release` may cross into an execution window.
+Monitoring, rollback, and incident response are part of the governed boundary there as well, not postscript operations.
+
 If the implementation violates an expected invariant, the team needs an `execution trace` that identifies what ran and a `rollback` path that returns the system to a known safe state.
 This requirement matters even for repository work.
 A generated change can corrupt configuration, policy files, or automation scripts without failing immediately.

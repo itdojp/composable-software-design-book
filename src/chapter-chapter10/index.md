@@ -235,6 +235,7 @@ What remains invariant across those domains is the same bounded request, reviewa
 
 The same end-to-end packet appears in deployment approval work.
 Release automation may prepare a rollout path, but the delivery argument still depends on one bounded request, one governed decision, and one evidence trail that survives execution.
+This is the same secondary transfer cue that the Introduction, Chapter 02, and Chapter 04 use in smaller form to show earlier that the method is not repository-exclusive.
 
 | Running-example role | Deployment approval pipeline |
 | --- | --- |

@@ -35,6 +35,7 @@ Use [Appendix A](../appendices/appendix-a/) for notation and [Appendix B](../app
 
 - The [minimal diagram](../../examples/minimal/policy-gated-change-review/diagram/) and the [artifact map](../../examples/common/policy-gated-change-review/design/artifact-map/) are the canonical sources behind Figure 2.1 and Table 2.1.
 - For a first reading, the local figure and table carry the model-selection argument, while the linked artifacts remain the repository detail for later inspection.
+- A smaller deployment-approval cue will recur when the same object-and-morphism choices apply to `Deployment Request`, `Release Plan`, and `Approved Release` without replacing the canonical repository example.
 
 ## Modeling systems as objects
 
@@ -195,6 +196,10 @@ The [problem statement](../../examples/common/policy-gated-change-review/spec/pr
 The [artifact map](../../examples/common/policy-gated-change-review/design/artifact-map/) shows the durable units that matter across phases.
 The [design diagram](../../examples/common/policy-gated-change-review/design/commutative-diagram/) then states the composition claim that later chapters will test more rigorously.
 
+**Transfer cue: deployment approval pipeline.**
+The same modeling choice appears when a `Deployment Request` becomes a `Release Plan` and then an `Approved Release`.
+The repository example remains canonical, but a release workflow still needs one stable request, one bounded plan, one approved outcome, and one execution boundary before a reviewer can trust the longer path.
+
 This vocabulary helps teams separate model from mechanism.
 An AI agent, a service call, and a script may all realize the same morphism if they preserve the same contract.
 The tool choice still matters operationally, but it should not be confused with the design relation being claimed.
@@ -250,7 +255,7 @@ With those object and morphism choices in place, Chapter 03 can ask the next har
 
 - Objects should name stable artifacts or states that support separate review questions.
 - Morphisms should name preserved transformations rather than transient implementation detail.
-- Composition is the core move that turns local artifact checks into a whole-workflow claim.
+- Composition is the core move that turns local artifact checks into a whole-workflow claim, whether the governed workflow is repository review or release approval.
 
 ## Review prompts
 

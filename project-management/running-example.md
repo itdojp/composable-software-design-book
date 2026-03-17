@@ -15,6 +15,7 @@
 - Minimal example: Policy-Gated Change Review
 - Common example root: `examples/common/policy-gated-change-review/`
 - Reusable variation artifact: `examples/common/policy-gated-change-review/design/variation-paths.md`
+- Secondary transfer thread: Deployment approval pipeline
 
 ## Adoption Rationale
 
@@ -24,6 +25,13 @@ It is small enough for a minimal example and rich enough for the case-study chap
 `Approved Change` remains the single canonical approval artifact through Chapter 10.
 The emitted `approval decision record`, the broader `audit log`, and the final `acceptance evidence` remain evidence layers around that outcome rather than parallel approval artifacts.
 Post-approval execution is justified by execution trace and acceptance evidence rather than by a second approval artifact.
+
+## Secondary Transfer Thread Rationale
+
+The recurring secondary transfer thread is the deployment approval pipeline.
+It broadens the book's addressable audience toward release governance and platform-delivery readers without replacing the canonical repository workflow.
+It is close enough to the running example to preserve the same bounded request, governed decision, execution boundary, and evidence pattern.
+That makes it suitable for repeated short cues in the body chapters and a fuller mapping in Appendix D.
 
 ## Chapter Usage
 
