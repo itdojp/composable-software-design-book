@@ -311,7 +311,7 @@ Chapter 08 follows the same governed meaning into a different failure mode: para
 
 ## Review prompts
 
-1. Is your current change better described as a pullback, a pushout, or `not ready`, and which missing condition makes that classification true.
+1. Is your current change better described as a pullback, a pushout, or not ready, and which missing condition makes that classification true.
 2. Which shared boundary in your system is still too vague to support a constrained join without collapsing important distinctions.
 3. Which schema mapping, provenance record, or lineage trail would another engineer need in order to audit your latest cutover without reverse-engineering logs.
 

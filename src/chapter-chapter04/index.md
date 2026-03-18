@@ -248,7 +248,7 @@ Chapter 05 takes that same discipline into a harder situation: several views can
 
 ## Summary
 
-- Functorial translation matters because the move from specification to design to runtime is trustworthy only when it preserves human approval, the separation of policy evaluation from review, traceability, and evidence linkage.
+- Functorial translation matters because the move from specification to design to runtime is trustworthy only when it preserves human approval, the separation of policy evaluation from human review, traceability, and evidence linkage.
 - A translation must preserve composed paths, not only label correspondences, if a reader is to trust that the runtime view still tells the same approval story as the design view.
 - Semantic drift is acceptable only when the approximation is explicit about what was omitted, why it was omitted, and which invariants still survive the translation.
 
