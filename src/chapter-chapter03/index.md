@@ -205,7 +205,7 @@ Ask what happens if an implementation step bypasses the named approval path enti
 These are not adversarial exercises for their own sake.
 They are ways to discover whether the diagram is missing a node, an arrow, a branch, or a scope restriction.
 If a counterexample invalidates the claim, the team should update the diagram and the artifacts together rather than arguing that the edge case is too operational to matter.
-The repository keeps one reusable [coherence failure artifact](../../examples/common/policy-gated-change-review/verification/coherence-failure/) so later chapters can cite the same broken claim without inventing a new negative example each time.
+The running example keeps one reusable [coherence failure artifact](../../examples/common/policy-gated-change-review/verification/coherence-failure/) so later chapters can cite the same broken claim without inventing a new negative example each time.
 
 Edge cases are also useful for review sequencing.
 The team can often decide whether a diagram is safe enough for a design review before any code exists.
