@@ -253,18 +253,18 @@ With those object and morphism choices in place, Chapter 03 can ask the next har
 
 ## Summary
 
-- Objects should name stable artifacts or states that support separate review questions.
-- Morphisms should name preserved transformations rather than transient implementation detail.
-- Composition is the core move that turns local artifact checks into a whole-workflow claim, whether the governed workflow is repository review or release approval.
+- Objects should name stable artifacts or states that support distinct review questions, not temporary tool outputs that only look durable.
+- Morphisms should name preserved transformations, including the places where a step is partial because one precondition, policy check, or evidence requirement might fail.
+- Identity and composition matter because they expose whether a pass-through really preserves the same boundary or only looks stable until one tool, prompt, or route label changes.
 
 ## Review prompts
 
-1. Which unit in your current workflow is stable enough to model as an object, and which one only looks stable because of tool habit.
-2. Which transformation in your process is really partial even though the team talks about it as if it were total.
-3. Which composed path in your repository deserves one explicit invariant before it grows further.
+1. Which artifact in your workflow should become its own object because the review question changes at that boundary.
+2. Which transformation in your process is partial, and what missing precondition or failure path makes that partiality visible.
+3. Which pass-through in your system is being treated as an identity morphism even though it actually widens scope, changes labels, or injects hidden context.
 
 ## Notes and Further Reading
 
-- Awodey's *Category Theory* gives the most compact formal continuation from this chapter's definitions, while Riehl's *Category Theory in Context* provides a more example-driven route into the same vocabulary.
-- Fong and Spivak remain the closest match to this chapter's intent because they keep objects, morphisms, and composition connected to real engineered systems.
-- Evans's *Domain-Driven Design* is a valuable companion when object choice in this chapter overlaps with bounded contexts, canonical models, and interface language discipline.
+- Awodey's *Category Theory* and Riehl's *Category Theory in Context* are the right next stop if you want the formal account of objects, morphisms, identity, and associativity that this chapter only uses in engineering form.
+- Fong and Spivak are the best follow-up if your practical question is how to model preserved transformations without collapsing back into implementation detail.
+- Evans's *Domain-Driven Design* becomes useful the moment object choice starts looking like a bounded-context or canonical-language problem instead of a purely formal one.

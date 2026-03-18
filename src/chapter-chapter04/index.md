@@ -248,18 +248,18 @@ Chapter 05 takes that same discipline into a harder situation: several views can
 
 ## Summary
 
-- Functorial translation matters because engineering views are trustworthy only when they preserve the invariants the source model cares about.
-- A translation must preserve composed paths, not only label correspondences, if it is to support review and audit.
-- Semantic drift should be handled as a design defect unless the omitted detail and preserved invariant are both explicit, regardless of whether the governed workflow is repository review or release approval.
+- Functorial translation matters because the move from specification to design to runtime is trustworthy only when it preserves human approval, the separation of policy evaluation from human review, traceability, and evidence linkage.
+- A translation must preserve composed paths, not only label correspondences, if a reader is to trust that the runtime view still tells the same approval story as the design view.
+- Semantic drift is acceptable only when the approximation is explicit about what was omitted, why it was omitted, and which invariants still survive the translation.
 
 ## Review prompts
 
-1. Which invariant in your current system must survive the move from design view to runtime view.
-2. Where does one of your repository views preserve labels but not composition.
-3. Which translation in your workflow needs an explicit approximation note before it can be trusted.
+1. Which invariant must remain explicit when your system translates `Change Request` into the next reviewable state in a runtime or implementation view.
+2. Where does one of your views preserve labels but silently drop a step such as `Policy Check`, evidence linkage, or human approval.
+3. Which translation in your workflow should force a coordinated update to the runtime view, implementation workflow, and traceability matrix before it can be trusted.
 
 ## Notes and Further Reading
 
-- Riehl is the strongest next stop if you want the formal account of functors after this chapter's engineering translation.
-- Fong and Spivak are especially useful here because they keep structure-preserving translation attached to real systems instead of to isolated notation.
-- Bass, Clements, and Kazman provide the architecture-view vocabulary that most closely parallels this chapter's concern with preserving meaning across specification, design, and runtime views.
+- Riehl is the strongest next stop if you want the formal account of functors after this chapter's engineering translation of view-to-view preservation.
+- Fong and Spivak are especially useful here because they connect structure-preserving translation to concrete systems rather than to notation alone, which is exactly the pressure this chapter puts on runtime views.
+- Bass, Clements, and Kazman provide the most practical follow-up when you want to turn this chapter's preservation test into architecture-view discipline, approximation notes, and coordinated change control.

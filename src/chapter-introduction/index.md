@@ -219,18 +219,18 @@ It also leads directly into Chapter 01, which turns that claim into an explicit 
 
 ## Summary
 
-- AI-assisted delivery needs explicit artifact paths because hidden transformations make review and governance brittle.
-- The book is organized to move from responsibility boundaries and formal vocabulary to a full governed case study.
-- The running example is canonical, but the method is meant to transfer to release approval and other governed workflows rather than to remain repository-exclusive.
+- A governed workflow becomes reviewable when the path from `Change Request` to `Review Plan` to `Approved Change` is explicit instead of hidden inside tools and prompts.
+- `policy gate` and `human review gate` must stay distinct because they assign different kinds of authority and therefore support different audit questions.
+- The book's reading paths, Appendix A notation guide, and Appendix B terminology list are meant to make later chapters re-enterable without sending the reader back through the whole repository.
 
 ## Review prompts
 
-1. Which hidden transformations in your current workflow would need explicit artifacts before you could review them confidently.
-2. Which reading path in this introduction best matches your immediate engineering problem.
-3. Which artifact labels in the running example must stay stable if later chapters are to remain reviewable.
+1. Which reading path in this introduction best matches your immediate problem: AI governance, architectural modeling, or workflow coordination.
+2. Which artifact is missing in your current packet between the incoming request and the final approved state.
+3. Where does your workflow blur the line between a `policy gate` and a `human review gate`, and what review question gets lost when it does.
 
 ## Notes and Further Reading
 
-- Fong and Spivak's *An Invitation to Applied Category Theory* is the closest external match to this introduction because it treats composition as a practical modeling move rather than as detached formalism.
-- Bass, Clements, and Kazman's *Software Architecture in Practice* is the strongest bridge for readers who want to connect this introduction's artifact discipline to views, interfaces, and decision documentation.
-- NIST AI RMF 1.0 and the Generative AI Profile provide the broader organizational risk vocabulary behind this chapter's repository-centered governance framing.
+- Fong and Spivak's *An Invitation to Applied Category Theory* is the best immediate next step if you want this chapter's treatment of composition, diagrams, and workflow packets to feel less like analogy and more like method.
+- Bass, Clements, and Kazman's *Software Architecture in Practice* is the most useful companion if your next question is how these artifact paths relate to views, interfaces, and decision records in a larger architecture.
+- NIST AI RMF 1.0 and the Generative AI Profile are the right follow-up when you need a broader risk vocabulary for separating automated policy checks from human approval authority.

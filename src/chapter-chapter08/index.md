@@ -275,18 +275,18 @@ Chapter 09 keeps the same branches in view, but asks the harder operational ques
 
 ## Summary
 
-- Sequential and parallel composition are safe only when the workflow makes authority, shared context, and synchronization boundaries explicit.
-- Monoidal structure is useful because it explains which branches may run side by side without changing approval meaning.
-- String-diagram-style reasoning exposes hidden coupling that ordinary prose can hide inside vague workflow verbs.
+- Sequential and parallel composition are safe only when the workflow makes authority, shared context, synchronization boundaries, and authoritative state creation explicit.
+- The most important brittle signs are `hidden shared mutable context`, an `unlabeled summary step`, `branch-local success`, an `opaque fallback`, and `revision boundary mutation`.
+- Monoidal reasoning is useful only when the same `Change Identity` and `Plan Revision` survive to the synchronization boundary instead of being reconstructed after the fact.
 
 ## Review prompts
 
-1. Which branch in your current orchestration still claims independence without a stable shared input wire.
-2. Which synchronization boundary in your workflow is doing too much implicit reconstruction.
-3. Which morphism alone should be allowed to create the next authoritative state in your parallel flow.
+1. Which branches in your current orchestration genuinely share one `Change Identity` and `Plan Revision`, and where is that packet being recreated instead of propagated.
+2. Which fan-in step in your workflow is really an unlabeled summary step or an opaque fallback, and what explicit artifact should replace it.
+3. Which morphism alone should be allowed to create the next authoritative state, and which branch-local success should stop short of that boundary.
 
 ## Notes and Further Reading
 
-- Fong and Spivak are the most relevant mathematical follow-up here because they keep monoidal reasoning tied to compositional systems and diagrams that engineers can actually read.
-- ReAct is a useful contrast case because it highlights how reasoning-and-acting loops become risky when their coordination boundaries are implicit.
-- Bass, Clements, and Kazman complement this chapter by supplying architectural language for coordination cost, shared resources, and failure isolation.
+- Fong and Spivak are the most relevant mathematical follow-up here because they keep string-diagram reasoning tied to compositional systems and diagrams that engineers can actually reread during design review.
+- ReAct is a useful contrast case because it shows how reasoning-and-acting loops become risky when shared mutable context and coordination boundaries stay implicit.
+- Bass, Clements, and Kazman complement this chapter by supplying architectural language for failure isolation, shared resources, and the cost of choosing the wrong synchronization boundary.

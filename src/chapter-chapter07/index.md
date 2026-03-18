@@ -305,18 +305,18 @@ Chapter 08 follows the same governed meaning into a different failure mode: para
 
 ## Summary
 
-- Pullbacks are useful when the repository should join artifacts only where identity, scope, and policy meaning already agree.
-- Pushouts are useful when replacement proceeds through one preserved boundary rather than through blind cutover.
-- Provenance, schema mapping, and lineage matter because integration and migration claims must remain auditable after the change lands.
+- A pullback is a constrained join, which means the repository should merge artifacts only where `Change Identity`, `Repository Scope`, and policy meaning already agree.
+- A pushout is a controlled replacement, which means migration should proceed through one preserved boundary and an explicit schema mapping rather than through blind cutover.
+- `provenance`, `schema mapping`, `shadow execution`, and `transformation lineage` matter because they keep integration and migration claims auditable after the new route goes live.
 
 ## Review prompts
 
-1. Which shared boundary in your current system is still too vague to support a constrained join.
-2. Which migration step in your repository is really changing approval meaning instead of only replacing an interface.
-3. Which lineage record would another engineer need in order to audit your latest cutover without reverse-engineering logs.
+1. Is your current change better described as a pullback, a pushout, or not ready, and which missing condition makes that classification true.
+2. Which shared boundary in your system is still too vague to support a constrained join without collapsing important distinctions.
+3. Which schema mapping, provenance record, or lineage trail would another engineer need in order to audit your latest cutover without reverse-engineering logs.
 
 ## Notes and Further Reading
 
-- Riehl and Mac Lane provide the formal background for pullbacks and pushouts, but this chapter deliberately translates them into governed integration and migration decisions.
-- Bass, Clements, and Kazman help bridge these constructions back to real integration work because they keep views, interfaces, and quality tradeoffs explicit.
-- Evans is valuable here when the shared boundary is really a domain-language problem before it becomes a mapping or migration problem.
+- Riehl and Mac Lane provide the formal background for pullbacks and pushouts, but this chapter is best reread with them when you need to test whether a join or replacement really preserves one governed meaning.
+- Bass, Clements, and Kazman help bridge these constructions back to integration work because they keep interfaces, quality tradeoffs, and migration boundaries explicit.
+- Evans is valuable here when the shared boundary is unstable because the language of the domain is still unsettled before any schema mapping or migration plan is written.
