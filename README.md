@@ -38,7 +38,7 @@ Contributor workflow and local build guidance are documented in [`CONTRIBUTING.m
 ## Relationship to the related Japanese book
 
 - This repository is an independent English book.
-- The related Japanese book is `圏論によるAIエージェント時代の合成的ソフトウェア設計` (`categorical-software-design-book`).
+- The related Japanese book is maintained in `categorical-software-design-book`.
 - The two books share themes and some terminology, but they are not legacy/current versions and are not simple translations of each other.
 - Start with this repository if you want the English-first canonical manuscript and the current composition centered on compositional design for agentic systems.
 - Start with the Japanese book if you want a Japanese reader-facing book focused on design artifacts for the AI agent era, Context Pack usage, and GitHub/CI-oriented guidance.
