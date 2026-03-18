@@ -9,9 +9,9 @@ description: "Use diagrams to test consistency across requirements, architecture
 # Diagrams and Commutativity
 
 Chapter 02 named the objects and morphisms of the workflow.
-This chapter turns those names into a stronger question: do the visible paths preserve the same approval meaning, or do they only look compatible on paper.
-It uses diagrams as compact proofs of consistency across multiple design views.
-It begins with the minimal policy-gated approval diagram before expanding to the richer repository-level diagram used by the common running example.
+The next question is whether the visible paths preserve the same approval meaning or only look compatible on paper.
+Diagrams answer that question as compact proofs of consistency across multiple design views.
+The chapter begins with the minimal policy-gated approval diagram before expanding to the richer repository-level diagram used by the common running example.
 The linked diagrams and matrix remain the canonical repository source, but Figure 3.1, Figure 3.2, and Table 3.1 carry the first-reading argument inside the chapter.
 
 ## Learning goals
@@ -39,7 +39,7 @@ The linked diagrams and matrix remain the canonical repository source, but Figur
 
 ## Why diagrams matter in engineering
 
-This chapter treats a diagram as a compact design argument rather than an illustration.
+A diagram here is a compact design argument rather than an illustration.
 The argument matters when a team needs to compare multiple paths, preserve one invariant, and decide whether the workflow is still trustworthy after a change.
 
 ### Diagrams as compact design arguments
@@ -60,7 +60,7 @@ The minimal diagram does not yet describe every operational detail.
 It isolates one design claim that can be reviewed by hand.
 If the composed path from `Change Request` through `Review Plan` to `Approved Change` is supposed to justify the direct edge `policy-gated-approval`, the diagram turns that statement into a visible proof obligation.
 
-That is why diagrams are useful in engineering.
+In engineering, that makes diagrams useful.
 They compress a long explanation into a testable structure.
 They also reveal missing nodes and edges quickly.
 If the team cannot draw the intended transformation path without adding vague labels, the underlying design is usually underspecified.
@@ -76,7 +76,7 @@ It adds `Policy Check` as a separate node and shows that the direct approval cla
 The result is not more abstraction for its own sake.
 It is a tighter explanation of where the workflow may go wrong.
 
-This is why the chapter starts with a minimal diagram and then expands to the richer repository view.
+The chapter starts with a minimal diagram and then expands to the richer repository view.
 The minimal diagram teaches the reader how to read the claim.
 The richer diagram shows why the same reading matters for actual repository artifacts, review checkpoints, and verification evidence.
 
@@ -128,12 +128,11 @@ If such a case exists, the diagram either needs narrower scope, richer objects, 
 
 ## Cross-view consistency
 
-The point of a diagram is not confined to one chapter-local argument.
-It should connect specification, design, implementation, and verification views without forcing the reader to guess how the pieces line up.
+A diagram should connect specification, design, implementation, and verification views without forcing the reader to guess how the pieces line up.
 
 ### Requirements, architecture, and runtime views
 
-The running example already provides the relevant views.
+The relevant views are already present in the running example.
 The [problem statement](../../examples/common/policy-gated-change-review/spec/problem-statement/) states the core constraint.
 The [acceptance criteria](../../examples/common/policy-gated-change-review/spec/acceptance-criteria/) define what must be true for the example to count as complete.
 The [design diagram](../../examples/common/policy-gated-change-review/design/commutative-diagram/) states the structural claim.
@@ -144,7 +143,7 @@ The diagram should not imply a shortcut that the workflow never executes.
 The workflow should not contain a gate that the specification never names.
 The verification artifact should not check labels that the design never uses.
 
-This is where diagrams become practical integration tools.
+At that point, diagrams become practical integration tools.
 They allow one reviewer to compare requirement language with workflow structure without reading the entire repository as free-form prose.
 They also prepare the reader for Chapter 04, where those cross-view mappings will be discussed more explicitly as structure-preserving translations.
 
@@ -154,7 +153,7 @@ Repository-level engineering still needs a path from diagram labels to concrete 
 Without that mapping, a commutative claim is too vague to maintain.
 The team needs to know which file, workflow step, policy definition, or test artifact corresponds to each node and edge that the diagram names.
 
-The running example keeps this small on purpose.
+The example keeps this mapping small on purpose.
 The artifact map identifies the canonical files.
 The review checks verify that the names remain aligned.
 The traceability matrix shows where each core claim is represented across specification, design, verification, and implementation.
@@ -181,7 +180,7 @@ The goal is to expose hidden assumptions before they reach implementation or ope
 ### Minimal diagrams for design reviews
 
 Start with the smallest diagram that expresses one invariant and one review question.
-That is why this chapter begins with the minimal approval diagram rather than the richer repository view.
+Start with the minimal approval diagram rather than the richer repository view.
 A reviewer can quickly ask whether `draft-review-plan` followed by `human-approval` really justifies `policy-gated-approval`.
 
 Only after that reading is stable should the team introduce the richer diagram.

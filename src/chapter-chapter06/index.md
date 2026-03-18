@@ -9,7 +9,7 @@ description: "Use universal properties to select the simplest correct decomposit
 # Universality with Products and Coproducts
 
 Once multiple views cohere, the next design question is not translation but choice.
-This chapter uses universal properties to decide which combined context should be canonical and where variation should become explicit instead of hiding in flags, routes, or reviewer folklore.
+Universal properties answer that question by deciding which combined context should be canonical and where variation should become explicit instead of hiding in flags, routes, or reviewer folklore.
 The chapter-local figures and tables carry the first-reading case for one canonical combination and one explicit route split before the reader returns to the repository artifacts that anchor them.
 
 ## Learning goals
@@ -45,7 +45,7 @@ They help a team choose a canonical combination or a canonical variation point i
 Software teams often pick structures because they resemble a familiar pattern.
 That is weaker than asking what problem the structure solves and why it is the simplest correct answer.
 
-In the running example, there are many ways to package review information.
+The running example admits many ways to package review information.
 One team might pass the raw change request, the policy result, and evidence links as three separate inputs.
 Another team might create one oversized review object with unrelated metadata attached.
 Both approaches can work locally, but neither tells the reviewer whether the chosen object is the right shared boundary for the workflow.
@@ -56,7 +56,7 @@ For Chapter 06, that question leads to a product-like `Combined Review Context`.
 The same discipline applies to variation.
 Instead of sprinkling boolean flags and special cases through the workflow, the repository can make route alternatives explicit through a coproduct-like `Review Route`.
 
-This is why universality beats pattern matching.
+Universality beats pattern matching for that reason.
 It does not ask whether the shape looks familiar.
 It asks whether other equally valid candidates can reduce through the chosen construction without inventing new semantics.
 
@@ -73,7 +73,7 @@ For a coproduct, the obligation is explicit variation.
 If a new review route is introduced, it should enter the same `Review Route` boundary through a named path rather than forcing every downstream consumer to learn another hidden branch rule.
 If it cannot, the repository probably does not have a stable shared interface for route-specific behavior.
 
-This is the practical meaning of universality in this book.
+In practical terms, universality in this book means choosing the canonical place where a repeated design obligation is assembled or consumed.
 The design is not chosen because it is mathematically elegant in isolation.
 It is chosen because it minimizes accidental branching and makes review consequences explicit.
 
@@ -166,7 +166,7 @@ The workflow can project the scope, policy status, and evidence links separately
 It can also ask whether they still belong to the same review event.
 That is a stronger guarantee than passing three fields through ambient state and hoping they stay aligned.
 
-This is why products matter in software design.
+That is the engineering value of products in software design.
 They turn joint requirements into an explicit interface.
 That interface can then be reviewed, versioned, and reused across artifacts instead of being rebuilt informally in each tool or script.
 
@@ -177,7 +177,7 @@ They are useful only when the alternatives share a real downstream boundary rath
 
 ### Variant handling and explicit branching
 
-The running example now makes route variation explicit through the same [variation paths](../../examples/common/policy-gated-change-review/design/variation-paths/) artifact.
+Route variation now appears explicitly through the same [variation paths](../../examples/common/policy-gated-change-review/design/variation-paths/) artifact.
 It distinguishes `Standard Review Path` from `Escalated Review Path`.
 Both are legitimate routes to approval.
 Neither is allowed to invent its own terminal artifact.
