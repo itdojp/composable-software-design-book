@@ -137,7 +137,13 @@ See [Chapter 05](../chapter-chapter05/) and [Chapter 07](../chapter-chapter07/).
 **Shared boundary.** The canonical set of keys, schemas, or policy labels that multiple artifacts must preserve before they can be safely joined or replaced.
 See [Chapter 07](../chapter-chapter07/).
 
+**Change Identity.** The stable request lineage that keeps joins, parallel branches, and later execution evidence attached to the same governed change.
+See [Chapter 07](../chapter-chapter07/), [Chapter 08](../chapter-chapter08/), and [Chapter 09](../chapter-chapter09/).
+
 **Approval Route ID.** The stable route label that records which review path a change followed across design, runtime, and migration artifacts.
+See [Chapter 07](../chapter-chapter07/).
+
+**Route semantics.** The approval meaning carried by route labels and route-specific obligations that joins, migrations, and replacements must preserve.
 See [Chapter 07](../chapter-chapter07/).
 
 ### Integration boundaries, migrations, and orchestration
@@ -151,8 +157,20 @@ See [Chapter 07](../chapter-chapter07/).
 **Migration plan.** A staged plan for replacing or restructuring a system while preserving required invariants and rollback options.
 See [Chapter 07](../chapter-chapter07/).
 
+**Replacement plan.** The canonical artifact that records how legacy and new structures stay comparable during controlled replacement.
+See [Chapter 07](../chapter-chapter07/) and [Chapter 10](../chapter-chapter10/).
+
+**Transformation lineage.** The recorded history of how one integrated or replaced structure became another across mapping, shadow comparison, and cutover.
+See [Chapter 07](../chapter-chapter07/).
+
+**Shadow mode.** The overlap period in which old and new structures run side by side so route and policy meaning can be compared before cutover.
+See [Chapter 07](../chapter-chapter07/).
+
 **Operational workflow.** A sequence of runtime or human activities that moves an artifact set from one reviewed state to the next.
 See [Chapter 01](../chapter-chapter01/) and [Chapter 10](../chapter-chapter10/).
+
+**Plan Revision.** The current governed revision of a review plan that parallel branches, retries, and rework must continue to reference.
+See [Chapter 08](../chapter-chapter08/) and [Chapter 09](../chapter-chapter09/).
 
 **Policy-Evaluated Plan.** The runtime-side plan after policy evaluation and before human approval or execution readiness.
 See [Chapter 04](../chapter-chapter04/), [Chapter 08](../chapter-chapter08/), and [Chapter 09](../chapter-chapter09/).

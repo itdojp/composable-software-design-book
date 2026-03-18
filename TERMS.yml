@@ -57,8 +57,12 @@ terms:
     en: provenance
   共有境界:
     en: shared boundary
+  変更同一性:
+    en: change identity
   承認ルートID:
     en: approval route id
+  ルート意味論:
+    en: route semantics
   整合失敗:
     en: coherence failure
   意味ドリフト:
@@ -85,8 +89,16 @@ terms:
     en: schema mapping
   移行計画:
     en: migration plan
+  置換計画:
+    en: replacement plan
+  変換来歴:
+    en: transformation lineage
+  シャドウモード:
+    en: shadow mode
   ポリシー評価済み計画:
     en: policy-evaluated plan
+  計画改訂:
+    en: plan revision
   実行準備済み変更:
     en: execution-ready change
   証跡バンドル:
