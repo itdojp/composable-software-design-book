@@ -116,7 +116,7 @@ They are distinct from the separately published Japanese book in `categorical-so
 
 ## Related Japanese Book
 
-- `圏論によるAIエージェント時代の合成的ソフトウェア設計` (`categorical-software-design-book`) is a related but independent Japanese book.
+- `categorical-software-design-book` is a related but independent Japanese book.
 - This English book is not a rename or replacement for that Japanese book.
 - Start here if you want the English-first canonical manuscript and the current part-based composition.
 - Start with the Japanese book if you want a Japanese reader-facing guide focused on software design artifacts for the AI agent era, Context Pack usage, and GitHub/CI-oriented guidance.
