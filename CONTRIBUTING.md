@@ -6,12 +6,12 @@ English content in `index.md` and `src/` is the publication source of truth.
 Japanese files under `manuscript/ja/` are working inputs and must not be published as-is.
 Canonical terminology is governed by `project-management/term-base.csv` and `TERMS.yml`.
 
-## Licensing By Path
+## Licensing by Path
 
-Contributions follow the license scope of the files they modify.
+Contributions follow the license scope of the files they add or modify.
 Reader-facing book content, figures, and editorial metadata are `CC BY-NC-SA 4.0`.
 Code, build files, schemas, site-generation assets, and reusable technical examples are `Apache-2.0`.
-Embedded executable snippets inside `index.md`, `src/**`, and `manuscript/ja/**` are treated as `Apache-2.0` unless a file says otherwise.
+Embedded code snippets, shell commands, JSON fragments, YAML fragments, and other machine-readable examples inside `index.md`, `src/**`, and `manuscript/ja/**` are treated as `Apache-2.0` unless a file says otherwise.
 Review `LICENSE-SCOPE.md` before adding a mixed-content path or moving material between content and technical trees.
 
 ## Recommended Local Workflow
