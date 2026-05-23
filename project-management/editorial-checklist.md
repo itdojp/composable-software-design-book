@@ -45,3 +45,13 @@
 - Notes and Further Reading are present in drafted public chapters.
 - Running example linkage uses the canonical `policy-gated-change-review` example and points readers to the relevant artifact or example landing page.
 - QA and translation validation scripts still pass after the edit set.
+
+## Phase 5 Practical-Connection Review Gate
+
+- A theory-to-practice claim names the preserved structure or invariant before it asks the reader to trust a formal term.
+- The claim points to a concrete artifact boundary, interface, type, checklist, test, trace, or evidence bundle that would carry the preserved structure.
+- The revision states how a reviewer would detect drift, such as by checking a diagram claim, traceability row, schema field, test result, or review prompt.
+- The revision states at least one trade-off, precondition, or non-applicability condition when the abstraction could otherwise be read as universal.
+- Examples that discuss AI-assisted delivery distinguish delegated drafting, policy evaluation, human approval, effectful execution, and emitted evidence.
+- Changes that mention `categorical-software-design-book` preserve the independent-book boundary: this repository owns the English-first compositional method for agentic systems, while the Japanese book owns its Japanese reader-facing design-artifact and Context Pack workflow emphasis.
+- Pull requests that change reader-facing content record the review evidence, pass repository QA, receive GitHub Copilot review, and reach zero unresolved review threads before merge.
