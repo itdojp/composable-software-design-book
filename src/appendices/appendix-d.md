@@ -22,6 +22,10 @@ The point is to show which invariants, boundaries, and evidence obligations surv
 Use the mapping tables as compact translation aids.
 If one domain cannot support an explicit object boundary, one stable morphism chain, one core diagram claim, one effect boundary, and one approval-evidence model, the method will expose that weakness quickly.
 
+Before transferring the method, reviewers should record what is preserved, what carries that preservation, how drift would be detected, and where the analogy stops.
+A transfer case is not stronger because every row resembles category-theory vocabulary.
+It is stronger when the domain exposes an auditable artifact boundary, a practical verification signal, and a clear stop line for cases where composition would hide operational risk.
+
 ## Transfer case 1. Deployment approval pipeline
 
 This caselet maps the running example into a staged production deployment workflow where release automation proposes a rollout but humans retain final release authority.
@@ -84,3 +88,5 @@ What changes is the surrounding control vocabulary and the lifetime of the evide
 The method generalizes because the domain nouns may change while the architectural obligations stay recognizable.
 Each domain still needs stable objects, explicit transformations, one named approval boundary, one effect boundary, and evidence that can be traced back to a governing claim.
 That is the invariant Chapter 10 relies on when it argues that the running example is canonical but not exclusive.
+The method should not be applied when the domain cannot define those obligations without inventing evidence after the fact.
+In that case, a conventional checklist, incident playbook, or risk register may be the safer artifact until the boundary and evidence model are stable enough to compose.

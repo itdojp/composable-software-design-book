@@ -1,5 +1,17 @@
 # Changelog
 
+## [Unreleased]
+
+### Added
+
+- Phase 5 practical-connection review gates in `README.md` and the public landing page.
+- Editorial checks for theory-to-practice mapping, evidence boundaries, non-applicability conditions, and the related-book responsibility boundary.
+- Pull request template items for related issues, GitHub Copilot review, unresolved thread checks, and repository validation evidence.
+
+### Changed
+
+- Appendix D now states how transfer cases should record preserved structure, drift detection, and the limits of a compositional analogy.
+
 ## [0.1.0-rc1] - 2026-03-08
 
 ### Added

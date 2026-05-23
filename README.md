@@ -35,6 +35,21 @@ Japanese drafts under `manuscript/ja/` are working inputs and are not published.
 Those internal drafts are distinct from the separately published Japanese book in `categorical-software-design-book`.
 Contributor workflow and local build guidance are documented in [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
+## Phase 5 Practical-Connection Review Gate
+
+Use this gate when reviewing changes that connect composition, category-theoretic vocabulary, architecture examples, interfaces, types, tests, or AI-assisted delivery workflows.
+Each practical claim should name the structure being preserved, the artifact or interface boundary that carries it, the check or evidence that would detect drift, and the limitation that prevents overgeneralizing the theory.
+If a chapter cannot point to those four items, keep the claim as motivation rather than as an implementation rule.
+Design examples should also state when composition is the wrong abstraction, such as when a boundary is unstable, an effect cannot be isolated, or the evidence model would be weaker than an ordinary checklist.
+
+Reviewers should verify the following before merging a content change:
+
+- The formal term being used has a visible engineering counterpart in the manuscript, running example, or supporting artifact.
+- The example identifies the preserved invariant, the artifact boundary, and the verification or review evidence.
+- Trade-offs and non-applicability conditions are stated when the method would otherwise look universally valid.
+- The boundary with `categorical-software-design-book` remains explicit: this English book owns the English-first compositional method for agentic systems, while the Japanese book owns its Japanese reader-facing design-artifact and Context Pack workflow emphasis.
+- GitHub Copilot review feedback, inline comments, and suggestions are all addressed or explicitly answered, with zero unresolved review threads before merge.
+
 ## Relationship to the related Japanese book
 
 - This repository is an independent English book.

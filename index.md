@@ -59,6 +59,17 @@ Start with the front matter and the Introduction if you want the book's main pro
 Use the [minimal example](examples/minimal/policy-gated-change-review/README/) after that first pass to see the smallest reusable chain of objects, morphisms, and a diagram.
 Continue with the [common running example](examples/common/policy-gated-change-review/README/) when you want to inspect the specification, design, verification, and implementation artifacts that support the chapter arguments.
 
+## Phase 5 Practical Review Gate
+
+This book should not ask readers to accept a category-theoretic word as practical guidance unless the manuscript also shows what the word preserves in engineering terms.
+For each revised example, reviewer prompt, or architecture claim, check four things: the preserved structure, the artifact or interface boundary, the evidence that would reveal drift, and the limit of the abstraction.
+When those four items are absent, the text should present the idea as intuition rather than as an implementation rule.
+When those four items are present, the text should still identify cases where ordinary engineering review is better than forcing a compositional model.
+
+This gate also protects the relationship with the related Japanese book.
+`categorical-software-design-book` remains a related but independent Japanese reader-facing book with a stronger emphasis on design artifacts, Context Pack use, and GitHub/CI workflows.
+This English book remains the canonical English manuscript for compositional design in agentic systems, so cross-references must clarify responsibility rather than imply a rename, replacement, or translation chain.
+
 ## Front Matter
 
 - [Preface](src/additional/preface/)
