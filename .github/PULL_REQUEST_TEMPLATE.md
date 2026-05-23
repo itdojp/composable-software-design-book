@@ -10,7 +10,7 @@
 
 ## Review Completion Gate
 
-- [ ] The PR explains the practical review scope and content-audit judgment.
+- [ ] The PR explains the practical-connection scope and audit judgment.
 - [ ] Reader-facing changes preserve the English canonical source.
 - [ ] Japanese drafts from `manuscript/ja/` are not published as-is.
 - [ ] Theory-to-practice claims name preserved structure and boundaries.

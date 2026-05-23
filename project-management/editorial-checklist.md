@@ -46,7 +46,7 @@
 - Running example linkage uses the canonical `policy-gated-change-review` example and points readers to the relevant artifact or example landing page.
 - QA and translation validation scripts still pass after the edit set.
 
-## Phase 5 Practical-Connection Review Checks
+## Phase 5 Practical-Connection Review Gate
 
 - A theory-to-practice claim names the preserved structure or invariant before it asks the reader to trust a formal term.
 - The claim points to a concrete artifact boundary, interface, type, checklist, test, trace, or evidence bundle that would carry the preserved structure.

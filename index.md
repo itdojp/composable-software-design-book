@@ -59,7 +59,7 @@ Start with the front matter and the Introduction if you want the book's main pro
 Use the [minimal example](examples/minimal/policy-gated-change-review/README/) after that first pass to see the smallest reusable chain of objects, morphisms, and a diagram.
 Continue with the [common running example](examples/common/policy-gated-change-review/README/) when you want to inspect the specification, design, verification, and implementation artifacts that support the chapter arguments.
 
-## Phase 5 Practical Review Gate
+## Phase 5 Practical-Connection Review Gate
 
 This book should not ask readers to accept a category-theoretic word as practical guidance unless the manuscript also shows what the word preserves in engineering terms.
 For each revised example, reviewer prompt, or architecture claim, check four things: the preserved structure, the artifact or interface boundary, the evidence that would reveal drift, and the limit of the abstraction.
