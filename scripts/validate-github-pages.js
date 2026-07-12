@@ -26,6 +26,31 @@ function expectRegex(text, regex, message, errors) {
   }
 }
 
+function frontMatterValue(text, key) {
+  const frontMatter = text.match(/^---\r?\n([\s\S]*?)\r?\n---(?:\r?\n|$)/);
+  if (!frontMatter) {
+    return "";
+  }
+  const value = frontMatter[1].match(new RegExp(`^${key}:\\s*["']?([^"'\\n]+)["']?\\s*$`, "m"));
+  return value ? value[1].trim() : "";
+}
+
+function isValidCalendarDate(value) {
+  const match = value.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (!match) {
+    return false;
+  }
+
+  const [, yearText, monthText, dayText] = match;
+  const year = Number(yearText);
+  const month = Number(monthText);
+  const day = Number(dayText);
+  const leapYear = year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0);
+  const daysByMonth = [31, leapYear ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+  return month >= 1 && month <= 12 && day >= 1 && day <= daysByMonth[month - 1];
+}
+
 function flattenNavItems(items) {
   if (!Array.isArray(items)) {
     return [];
@@ -74,6 +99,17 @@ function main() {
     if (/]\((?:\/)?src\/.+\.md\)/.test(indexText)) {
       errors.push("index.md still links to source markdown files instead of published URLs");
     }
+
+    const lastUpdated = frontMatterValue(indexText, "last_updated");
+    if (!isValidCalendarDate(lastUpdated)) {
+      errors.push("index.md last_updated must be a valid YYYY-MM-DD date");
+    }
+    expectRegex(
+      indexText,
+      /^\*\*Last updated:\*\*\s+\{\{\s*page\.last_updated\s*\}\}$/m,
+      "public last-updated label must use the canonical index.md front matter value",
+      errors,
+    );
 
     const allNavItems = [
       ...flattenNavItems(nav.additional),
