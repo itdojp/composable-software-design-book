@@ -4,6 +4,10 @@
   "description": "A practical guide to designing AI-assisted software systems with composition, diagrams, and effect boundaries that remain auditable and verifiable.",
   "author": "ITDO Inc.",
   "license": "SEE LICENSE IN LICENSE-SCOPE.md",
+  "engines": {
+    "node": ">=22.0.0",
+    "npm": ">=10.0.0"
+  },
   "scripts": {
     "qa:core": "bash scripts/qa.sh core",
     "qa:examples": "python3 scripts/check-examples.py && npm run qa:examples:deep",

@@ -115,6 +115,7 @@ The canonical boundary, embedded-code carve-out, `_data/` review result, commerc
 
 ## QA
 
+Use Node.js 22 or later with npm 10 or later; this is the supported npm QA toolchain and matches GitHub Actions.
 Run `npm ci` from a clean checkout and `npm run check:security` to verify the locked npm dependency set before the repository QA.
 Run `npm run qa:core` before opening a pull request.
 This command fetches the current `book-formatter` QA tooling into `.cache/book-formatter`, runs the core checks, and writes reports to `qa-reports/core/`.
