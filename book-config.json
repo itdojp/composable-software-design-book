@@ -165,9 +165,9 @@
     ]
   },
   "ux": {
-    "profile": "A",
+    "profile": "C",
     "modules": {
-      "quickStart": true,
+      "quickStart": false,
       "readingGuide": true,
       "checklistPack": false,
       "troubleshootingFlow": false,
