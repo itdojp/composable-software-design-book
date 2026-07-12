@@ -27,8 +27,12 @@ function expectRegex(text, regex, message, errors) {
 }
 
 function frontMatterValue(text, key) {
-  const match = text.match(new RegExp(`^${key}:\\s*["']?([^"'\\n]+)["']?\\s*$`, "m"));
-  return match ? match[1].trim() : "";
+  const frontMatter = text.match(/^---\r?\n([\s\S]*?)\r?\n---(?:\r?\n|$)/);
+  if (!frontMatter) {
+    return "";
+  }
+  const value = frontMatter[1].match(new RegExp(`^${key}:\\s*["']?([^"'\\n]+)["']?\\s*$`, "m"));
+  return value ? value[1].trim() : "";
 }
 
 function isValidCalendarDate(value) {
