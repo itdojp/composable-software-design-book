@@ -10,12 +10,13 @@ Most readers come to this book with one urgent pressure, not with a plan to read
 Some need to restore approval discipline around AI-assisted work.
 Others need to repair model drift between specification, design, runtime, and evidence.
 Choose the path that matches the decision pressure in front of you.
+Use the [Concept Map](../concept-map/) when you need to see how responsibility, categorical structures, effect boundaries, and acceptance evidence connect before choosing a path.
 In every case, the book carries the primary reading experience.
 Use the companion repository later when you want to inspect the running example, validators, or file-level realization of a chapter claim.
 
 ## Read it front to back if you are adopting the full method
 
-Read the Preface, this guide, the Introduction, and Chapters 01 through 10 in order.
+Read the Preface, this guide, the Concept Map, the Introduction, and Chapters 01 through 10 in order.
 This path is best when you want one method for architecture, review, orchestration, and evidence rather than a set of local fixes.
 It preserves the intended narrative arc from responsibility boundaries to orchestration, effects, and the full case study.
 

@@ -75,6 +75,7 @@ This English book remains the canonical English manuscript for compositional des
 
 - [Preface](src/additional/preface/)
 - [How to Use This Book](src/additional/how-to-use-this-book/)
+- [Concept Map](src/additional/concept-map/)
 - [Who This Book Is For](src/additional/who-this-book-is-for/)
 
 ## Introduction

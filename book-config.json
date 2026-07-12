@@ -171,7 +171,7 @@
       "readingGuide": true,
       "checklistPack": false,
       "troubleshootingFlow": false,
-      "conceptMap": false,
+      "conceptMap": true,
       "figureIndex": true,
       "legalNotice": false,
       "glossary": true
