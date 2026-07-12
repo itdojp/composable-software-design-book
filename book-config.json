@@ -165,13 +165,13 @@
     ]
   },
   "ux": {
-    "profile": "A",
+    "profile": "C",
     "modules": {
-      "quickStart": true,
+      "quickStart": false,
       "readingGuide": true,
       "checklistPack": false,
       "troubleshootingFlow": false,
-      "conceptMap": true,
+      "conceptMap": false,
       "figureIndex": true,
       "legalNotice": false,
       "glossary": true
