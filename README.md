@@ -75,6 +75,8 @@ The canonical boundary, embedded-code carve-out, `_data/` review result, commerc
 
 ## Commands
 
+- `npm ci`
+- `npm run check:security`
 - `npm run qa:core`
 - `npm run qa:examples`
 - `npm run qa:examples:deep`
@@ -113,6 +115,7 @@ The canonical boundary, embedded-code carve-out, `_data/` review result, commerc
 
 ## QA
 
+Run `npm ci` from a clean checkout and `npm run check:security` to verify the locked npm dependency set before the repository QA.
 Run `npm run qa:core` before opening a pull request.
 This command fetches the current `book-formatter` QA tooling into `.cache/book-formatter`, runs the core checks, and writes reports to `qa-reports/core/`.
 It also runs the repository-local manuscript structure check for chapter packets and reader-facing figure coverage.

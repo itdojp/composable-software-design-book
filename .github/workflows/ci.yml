@@ -28,6 +28,12 @@ jobs:
           python3 --version
           git --version
 
+      - name: Install locked npm dependencies
+        run: npm ci
+
+      - name: Audit npm dependencies
+        run: npm run check:security
+
       - name: Run repository QA
         run: npm run qa
 
