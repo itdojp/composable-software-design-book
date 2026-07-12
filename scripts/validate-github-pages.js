@@ -26,6 +26,11 @@ function expectRegex(text, regex, message, errors) {
   }
 }
 
+function frontMatterValue(text, key) {
+  const match = text.match(new RegExp(`^${key}:\\s*["']?([^"'\\n]+)["']?\\s*$`, "m"));
+  return match ? match[1].trim() : "";
+}
+
 function flattenNavItems(items) {
   if (!Array.isArray(items)) {
     return [];
@@ -74,6 +79,17 @@ function main() {
     if (/]\((?:\/)?src\/.+\.md\)/.test(indexText)) {
       errors.push("index.md still links to source markdown files instead of published URLs");
     }
+
+    const lastUpdated = frontMatterValue(indexText, "last_updated");
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(lastUpdated) || Number.isNaN(Date.parse(`${lastUpdated}T00:00:00Z`))) {
+      errors.push("index.md last_updated must be a valid YYYY-MM-DD date");
+    }
+    expectRegex(
+      indexText,
+      /^\*\*Last updated:\*\*\s+\{\{\s*page\.last_updated\s*\}\}$/m,
+      "public last-updated label must use the canonical index.md front matter value",
+      errors,
+    );
 
     const allNavItems = [
       ...flattenNavItems(nav.additional),

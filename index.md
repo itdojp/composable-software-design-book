@@ -5,6 +5,7 @@ subtitle: "A Category-Theoretic Guide to Human-AI Boundaries and Verifiable Engi
 description: "A practical guide to governed AI-assisted software delivery using composition, diagrams, and effect boundaries that remain auditable and verifiable."
 author: "ITDO Inc."
 version: "First Edition"
+last_updated: "2026-05-23"
 ---
 
 # Compositional Software Design for Agentic Systems
@@ -144,4 +145,4 @@ See [LICENSE-SCOPE.md](LICENSE-SCOPE.md) for the canonical path boundary and [CO
 
 **Author:** ITDO Inc.  
 **Edition:** First Edition
-**Last updated:** 2026-03-17
+**Last updated:** {{ page.last_updated }}
