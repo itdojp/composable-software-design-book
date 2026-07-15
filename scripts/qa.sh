@@ -32,7 +32,10 @@ ensure_book_formatter() {
 
   if [[ ! -d "${BOOK_FORMATTER_DIR}/.git" ]]; then
     log "Cloning book-formatter into ${BOOK_FORMATTER_DIR}"
-    git clone --depth 1 --branch "${BOOK_FORMATTER_REF}" "${BOOK_FORMATTER_REPO}" "${BOOK_FORMATTER_DIR}"
+    git init --quiet "${BOOK_FORMATTER_DIR}"
+    git -C "${BOOK_FORMATTER_DIR}" remote add origin "${BOOK_FORMATTER_REPO}"
+    git -C "${BOOK_FORMATTER_DIR}" fetch --depth 1 origin "${BOOK_FORMATTER_REF}"
+    git -C "${BOOK_FORMATTER_DIR}" checkout --detach FETCH_HEAD
   else
     log "Updating book-formatter cache"
     git -C "${BOOK_FORMATTER_DIR}" fetch --depth 1 origin "${BOOK_FORMATTER_REF}"
