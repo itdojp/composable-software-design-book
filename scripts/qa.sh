@@ -7,7 +7,7 @@ ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 CACHE_DIR="${ROOT}/.cache"
 BOOK_FORMATTER_DIR="${CACHE_DIR}/book-formatter"
 BOOK_FORMATTER_REPO="${BOOK_FORMATTER_REPO:-https://github.com/itdojp/book-formatter.git}"
-BOOK_FORMATTER_REF="${BOOK_FORMATTER_REF:-main}"
+BOOK_FORMATTER_REF="${BOOK_FORMATTER_REF:-69eb5c12f5a750b65614bc9bbbc3d7abd5aa6f6c}"
 REPORT_ROOT="${ROOT}/qa-reports"
 REPORT_DIR="${REPORT_ROOT}/${MODE}"
 
