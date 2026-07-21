@@ -64,10 +64,14 @@ See [Chapter 06](../chapter-chapter06/).
 **Coproduct.** A construction that makes alternatives explicit by giving each variant a named entry into one shared boundary.
 See [Chapter 06](../chapter-chapter06/).
 
-**Pullback.** A construction that joins structures only where they agree on a stated shared boundary or constraint.
+**Pullback.** The limit of a cospan `A -> C <- B`.
+It has maps to `A` and `B` whose composites to `C` agree, and every other object with such agreeing maps factors through it uniquely.
+In the book's engineering reading, it joins structures only where they agree on a stated shared boundary or constraint; that analogy is not itself a proof of the universal property.
 See [Chapter 07](../chapter-chapter07/).
 
-**Pushout.** A construction that merges or replaces structures along a shared boundary while preserving the meaning that boundary carries.
+**Pushout.** The colimit of a span `A <- C -> B`.
+It receives maps from `A` and `B` that agree on the images of `C`, and every other object receiving such agreeing maps receives a unique map from the pushout.
+In the book's engineering reading, it merges or replaces structures along a shared boundary while preserving the meaning that boundary carries; that analogy is not itself a proof of the universal property.
 See [Chapter 07](../chapter-chapter07/).
 
 **Monoidal category.** A category equipped with a parallel composition operator and a unit object so sequential and parallel structure can be reasoned about together.

@@ -175,7 +175,7 @@ In software work, that means the replacement should happen through an interface 
 ### Replacing components without losing meaning
 
 The running example models this with [design/replacement-plan.md](../../examples/common/policy-gated-change-review/design/replacement-plan/).
-The plan replaces a `Legacy Route Mapper` with a `Unified Review Gateway`.
+The plan replaces a `Legacy Route Mapper` with a `Replacement Mapper` behind a `Unified Review Gateway`.
 The migration is safe only if both sides preserve the same shared review boundary while the cutover happens.
 
 That is the engineering reading of a pushout in this chapter.
@@ -188,26 +188,42 @@ If the new gateway changes any of those without an explicit mapping, the replace
 The result might still compile.
 It would no longer preserve the boundary that made the migration governable.
 
-Figure 7.2 makes the replacement path visible before the chapter turns back to the pushout sketch.
+Figure 7.2 makes the replacement path visible before the chapter states the pushout-shaped obligation precisely.
 
-Figure 7.2. Controlled replacement stays anchored to one shared boundary.
-> **Reader takeaway.** Replacement is safe only when legacy and new outputs stay comparable on one preserved boundary during migration.
+Figure 7.2. Controlled replacement forms a cocone over one shared boundary.
+> **Reader takeaway.** A pushout-shaped migration maps one shared boundary into both implementations and maps both implementations into one gateway without changing the boundary mapping.
 
-![Publication redraw of Figure 7.2 showing controlled replacement through one preserved boundary.](../../assets/figures/publication/replacement-gateway-screen.svg)
+![Publication redraw of Figure 7.2 showing the shared boundary mapping to legacy and replacement components, which both map to the unified gateway.](../../assets/figures/publication/replacement-gateway-screen.svg)
 
 **Formal bridge.**
 
 ```text
-Pushout sketch:
-
-Legacy Route Mapper ----> Unified Review Gateway
-        |                          ^
-        v                          |
-   Shared Boundary <---- Replacement Mapper
+                         q_L
+Legacy Route Mapper ------------> Unified Review Gateway
+        ^                                  ^
+    i_L |                                  | q_R
+        |                                  |
+Shared Boundary ----------------> Replacement Mapper
+                    i_R
 ```
 
-The pushout claim is that both old and replacement components meet at one shared interface before downstream artifacts consume the new gateway.
-If the cutover changes the shared boundary itself, the migration is no longer a controlled replacement of the same approval path.
+Let `B` denote the Shared Boundary, `L` the Legacy Route Mapper, `R` the Replacement Mapper, and `P` the Unified Review Gateway.
+The upper-left arrow is `i_L: B -> L`, the lower arrow is `i_R: B -> R`, and the arrows into the gateway are `q_L: L -> P` and `q_R: R -> P`.
+The square must commute: `q_L ∘ i_L = q_R ∘ i_R`.
+
+Commutativity alone does not make `P` a pushout.
+For `P` to be the pushout of the span `L <- B -> R`, every other candidate `Q` with maps `f: L -> Q` and `g: R -> Q` satisfying `f ∘ i_L = g ∘ i_R` must receive exactly one map `u: P -> Q` with `u ∘ q_L = f` and `u ∘ q_R = g`.
+This universal property makes the gateway the canonical colimit of the stated span rather than merely another place where records happen to meet.
+
+The arrow direction distinguishes this construction from the pullback used earlier in the chapter.
+A pullback is the limit of a cospan `L -> B <- R` and maps into the two structures while enforcing agreement at their common target.
+A pushout is the colimit of a span `L <- B -> R` and receives maps from the two structures after identifying the images of their common source.
+See [Appendix B](../appendices/appendix-b/) for the canonical definitions.
+
+This repository example is a pushout-shaped design obligation, not a proof that the artifacts form a pushout in a specified category.
+It treats artifacts as objects and schema mappings as arrows without defining all objects, morphisms, or admissible equivalences, and the operational checks below establish boundary preservation rather than the universal property over every candidate `Q`.
+The stricter term applies only when a design supplies that formal setting and proves the universal property.
+If the cutover changes the shared boundary itself, the migration is no longer even a controlled replacement of the same approval path.
 
 A weaker alternative is a cutover script that flattens legacy and new outputs into one generic status field after the swap.
 That can keep dashboards green while silently erasing route or policy distinctions that the reviewer and the traceability matrix still depend on.
@@ -225,6 +241,7 @@ Real migrations often fail through schema drift before behavior is obviously wro
 The replacement plan therefore includes an explicit schema mapping from legacy field names to the shared boundary.
 That mapping is not a clerical detail.
 It is the evidence that old and new structures can be compared on one contract.
+This comparison adapter runs from implementation-native fields back to the boundary and is not one of the formal span arrows `B -> L` and `B -> R`.
 
 In the running example, `legacy_policy_status` becomes `Policy Classification`.
 `legacy_route_hint` becomes `Approval Route ID`.
