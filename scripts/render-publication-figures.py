@@ -541,6 +541,16 @@ def accessibility_metadata(fig: dict) -> tuple[str, str]:
     return title, description
 
 
+def pillow_modules():
+    try:
+        from PIL import Image, ImageDraw, ImageFont
+    except ModuleNotFoundError as exc:
+        raise RuntimeError(
+            "Pillow is required to render publication PDFs; install Pillow before running this command."
+        ) from exc
+    return Image, ImageDraw, ImageFont
+
+
 def render_svg(fig: dict, theme_name: str) -> str:
     theme = THEMES[theme_name]
     nodes = node_lookup(fig["nodes"])
@@ -602,7 +612,7 @@ def render_svg(fig: dict, theme_name: str) -> str:
 
 
 def render_pdf(fig: dict) -> "Image.Image":
-    from PIL import Image, ImageDraw, ImageFont
+    Image, ImageDraw, ImageFont = pillow_modules()
 
     theme = THEMES["print"]
     image = Image.new("RGB", (fig["width"], fig["height"]), theme["background"])
@@ -651,6 +661,7 @@ def render_pdf(fig: dict) -> "Image.Image":
 
 
 def main() -> None:
+    pillow_modules()
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     for fig in FIGURES:
         for theme_name in ("screen", "print"):

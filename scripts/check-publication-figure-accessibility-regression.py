@@ -52,6 +52,17 @@ def run_checker(root: Path, *, no_site_packages: bool = False) -> subprocess.Com
     )
 
 
+def run_renderer_without_site_packages(root: Path) -> subprocess.CompletedProcess[str]:
+    return subprocess.run(
+        [sys.executable, "-S", str(root / "scripts" / "render-publication-figures.py")],
+        cwd=root,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        check=False,
+    )
+
+
 def replace_once(path: Path, old: str, new: str) -> None:
     text = path.read_text(encoding="utf-8")
     if old not in text:
@@ -82,9 +93,30 @@ def main() -> int:
         copy_fixture(fixture)
         positive = run_checker(fixture)
         positive_without_site_packages = run_checker(fixture, no_site_packages=True)
-    if positive.returncode != 0 or positive_without_site_packages.returncode != 0:
+        asset_snapshot = {
+            path.relative_to(fixture): path.read_bytes()
+            for path in (fixture / "assets" / "figures" / "publication").iterdir()
+            if path.is_file()
+        }
+        renderer_without_pillow = run_renderer_without_site_packages(fixture)
+        assets_after_failed_render = {
+            path.relative_to(fixture): path.read_bytes()
+            for path in (fixture / "assets" / "figures" / "publication").iterdir()
+            if path.is_file()
+        }
+        renderer_failed_closed = (
+            renderer_without_pillow.returncode != 0
+            and asset_snapshot == assets_after_failed_render
+            and "Pillow is required" in renderer_without_pillow.stderr
+        )
+    if (
+        positive.returncode != 0
+        or positive_without_site_packages.returncode != 0
+        or not renderer_failed_closed
+    ):
         print(positive.stdout, positive_without_site_packages.stdout)
         print(positive.stderr, positive_without_site_packages.stderr)
+        print(renderer_without_pillow.stdout, renderer_without_pillow.stderr)
         return 1
 
     cases = (
@@ -236,8 +268,8 @@ def main() -> int:
     report = {
         "negative_detected": len(results) - len(failed),
         "negative_total": len(results),
-        "positive_passed": 2,
-        "positive_total": 2,
+        "positive_passed": 3,
+        "positive_total": 3,
         "undetected": [name for name, _ in failed],
     }
     print(json.dumps(report, indent=2, ensure_ascii=False))
