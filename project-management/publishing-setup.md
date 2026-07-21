@@ -15,6 +15,13 @@ There is no `docs/_config.yml` in the current setup.
 - baseurl: `/composable-software-design-book`
 - repository: `itdojp/composable-software-design-book`
 
+## Canonical Source and Related-Book Boundary
+
+- English text in this repository is the canonical publication source for *Compositional Software Design for Agentic Systems*.
+- Japanese drafts under `manuscript/ja/` are editorial inputs and are not published as-is.
+- `categorical-software-design-book` is a related but independent Japanese reader-facing book, not a rename, replacement, or translation chain for this book.
+- Maintainer cross-references must preserve that ownership boundary; the public landing page should expose only the reader-relevant route to the related book.
+
 ## Layout and Defaults
 
 All published pages use the `book` layout.

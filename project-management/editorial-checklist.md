@@ -48,6 +48,7 @@
 
 ## Phase 5 Practical-Connection Review Gate
 
+- This is a maintainer-only editorial gate; keep it in project-management material rather than placing it in the public landing-page onboarding flow.
 - A theory-to-practice claim names the preserved structure or invariant before it asks the reader to trust a formal term.
 - The claim points to a concrete artifact boundary, interface, type, checklist, test, trace, or evidence bundle that would carry the preserved structure.
 - The revision states how a reviewer would detect drift, such as by checking a diagram claim, traceability row, schema field, test result, or review prompt.

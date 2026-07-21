@@ -18,58 +18,45 @@ AI-assisted delivery is moving faster than many teams can explain who may approv
 This book addresses that gap with a compositional design method for governed software delivery.
 It uses category-theoretic ideas selectively so that architecture, review, orchestration, and verification remain one inspectable engineering story.
 
+## Start Here
+
+This book is for software architects, staff engineers, technical leads, platform engineers, and AI product builders who need AI-assisted delivery to remain reviewable when work crosses from proposal to approval and from approval to execution.
+You should be comfortable with software architecture, interface design, and technical review; prior exposure to category theory is helpful but not required.
+Begin with [How to Use This Book](src/additional/how-to-use-this-book/), [Who This Book Is For](src/additional/who-this-book-is-for/), the [Introduction](src/chapter-introduction/), and [Chapter 01](src/chapter-chapter01/) before inspecting repository artifacts.
+
+## What You Will Be Able to Produce
+
+- A responsibility-boundary map that separates delegated drafting, policy evaluation, human approval, execution, and evidence.
+- A set of named objects, transformations, and diagrams that makes preservation claims reviewable across design and runtime views.
+- A synchronized decision packet that keeps request scope, policy results, evidence, and approval authority distinguishable.
+- An effect boundary, execution trace, and acceptance-evidence path that connects an approved change to its operational outcome.
+
+## Fit and Limits
+
+Use this method when AI-assisted work crosses an approval or execution boundary, when multiple views must preserve one design meaning, or when a team must reconstruct why an automated action was allowed.
+The method is not a prompt-optimization guide, a product comparison, or a substitute for domain-specific legal, security, safety, or architecture review.
+Do not force a categorical abstraction onto a local problem when an ordinary interface contract, checklist, or test communicates the obligation more clearly.
+
+## Choose a Reading Path
+
+- **Full method:** read the [Preface](src/additional/preface/), [How to Use This Book](src/additional/how-to-use-this-book/), [Concept Map](src/additional/concept-map/), [Introduction](src/chapter-introduction/), and Chapters 01 through 10 in order.
+- **Governance path:** read the [Introduction](src/chapter-introduction/), [Chapter 01](src/chapter-chapter01/), [Chapter 03](src/chapter-chapter03/), [Chapter 09](src/chapter-chapter09/), and [Chapter 10](src/chapter-chapter10/).
+- **Architecture path:** read the [Introduction](src/chapter-introduction/), Chapters [01](src/chapter-chapter01/), [02](src/chapter-chapter02/), and [03](src/chapter-chapter03/), followed by Chapters [04](src/chapter-chapter04/) through [07](src/chapter-chapter07/).
+- **Delivery path:** read the [Introduction](src/chapter-introduction/), [Chapter 01](src/chapter-chapter01/), [Chapter 08](src/chapter-chapter08/), [Chapter 09](src/chapter-chapter09/), and [Chapter 10](src/chapter-chapter10/).
+
+After the prose establishes the method, use the [minimal example](examples/minimal/policy-gated-change-review/README/) to inspect its smallest artifact chain and the [common running example](examples/common/policy-gated-change-review/README/) to trace the full specification, design, review, implementation, and evidence path.
+
 ## Why This Book Now
 
 Many teams can generate candidate changes, workflow steps, and implementation drafts more quickly than they can govern them.
 That mismatch creates review debt, ambiguous ownership, and weak evidence trails.
-This book is for readers who need AI-assisted engineering to stay explainable at the moment a system crosses from proposal to approval and from approval to execution.
+This book addresses that gap at the points where a system changes approval authority or causes an operational effect.
 
 ## What Makes This Book Different
 
 - It treats AI-assisted delivery as a design problem about boundaries, evidence, and accountability rather than a prompt-optimization problem.
 - It uses category theory as a working design vocabulary for software systems rather than as a stand-alone mathematics survey.
-- It builds one reusable method that connects diagrams, review gates, runtime views, traces, and acceptance evidence across a full engineering workflow.
-
-## What You Will Learn
-
-- Define clear responsibility boundaries between human reviewers and AI-assisted workflows.
-- Model software systems with objects, morphisms, composition, and diagrams.
-- Use universal constructions and effect boundaries to reason about integration, migration, and orchestration.
-- Translate the formal vocabulary into an auditable end-to-end engineering workflow.
-
-## Intended Readers
-
-This book is written for software architects, staff engineers, technical leads, platform engineers, and AI product builders.
-It assumes readers care about both formal rigor and delivery realism.
-It is especially aimed at teams that need to keep approval authority, system meaning, and operational evidence aligned while AI systems participate in delivery.
-
-## Prerequisites
-
-Readers should be comfortable with software architecture, interface design, and technical review.
-Prior exposure to category theory is helpful but not required.
-
-## Reading Guide
-
-Read the Preface, How to Use This Book, Who This Book Is For, the Introduction, and Chapter 01 first if you want the clearest entry into the book's promise and scope.
-Read Chapters 02 through 09 in order if you want the conceptual build-up from composition and diagrams to orchestration and effect boundaries.
-Read Chapter 10 after the core chapters to see the method applied as one end-to-end engineering argument.
-
-## Quickstart
-
-Start with the front matter and the Introduction if you want the book's main promise before any repository inspection.
-Use the [minimal example](examples/minimal/policy-gated-change-review/README/) after that first pass to see the smallest reusable chain of objects, morphisms, and a diagram.
-Continue with the [common running example](examples/common/policy-gated-change-review/README/) when you want to inspect the specification, design, verification, and implementation artifacts that support the chapter arguments.
-
-## Phase 5 Practical-Connection Review Gate
-
-This book should not ask readers to accept a category-theoretic word as practical guidance unless the manuscript also shows what the word preserves in engineering terms.
-For each revised example, reviewer prompt, or architecture claim, check four things: the preserved structure, the artifact or interface boundary, the evidence that would reveal drift, and the limit of the abstraction.
-When those four items are absent, the text should present the idea as intuition rather than as an implementation rule.
-When those four items are present, the text should still identify cases where ordinary engineering review is better than forcing a compositional model.
-
-This gate also protects the relationship with the related Japanese book.
-`categorical-software-design-book` remains a related but independent Japanese reader-facing book with a stronger emphasis on design artifacts, Context Pack use, and GitHub/CI workflows.
-This English book remains the canonical English manuscript for compositional design in agentic systems, so cross-references must clarify responsibility rather than imply a rename, replacement, or translation chain.
+- It connects diagrams, review boundaries, runtime views, traces, and acceptance evidence as one reusable engineering method.
 
 ## Front Matter
 
@@ -121,19 +108,9 @@ This English book remains the canonical English manuscript for compositional des
 - [Publisher Note and ITDO](src/afterword/about-the-author-and-itdo/)
 - [Acknowledgments](src/afterword/acknowledgments/)
 
-## Publication Policy
+## Related Reading
 
-English text is the canonical source for publication.
-Japanese drafts under `manuscript/ja/` are editorial inputs and are not published as-is.
-They are distinct from the separately published Japanese book in `categorical-software-design-book`.
-
-## Related Japanese Book
-
-- `categorical-software-design-book` is a related but independent Japanese book.
-- This English book is not a rename or replacement for that Japanese book.
-- Start here if you want the English-first canonical manuscript and the current part-based composition.
-- Start with the Japanese book if you want a Japanese reader-facing guide focused on software design artifacts for the AI agent era, Context Pack usage, and GitHub/CI-oriented guidance.
-- Related Japanese book: [Public site](https://itdojp.github.io/categorical-software-design-book/) / [Repository](https://github.com/itdojp/categorical-software-design-book)
+For a Japanese reader-facing treatment centered on design artifacts, Context Pack use, and GitHub/CI workflows, see the independent [Categorical Software Design Book](https://itdojp.github.io/categorical-software-design-book/).
 
 ## License
 
