@@ -145,6 +145,12 @@ run_core() {
   log "Running publication figure accessibility mutation regression"
   python3 "${ROOT}/scripts/check-publication-figure-accessibility-regression.py" > "${REPORT_DIR}/check-publication-figure-accessibility-regression.json"
 
+  log "Running reader onboarding contract check"
+  python3 "${ROOT}/scripts/check-reader-onboarding.py" > "${REPORT_DIR}/check-reader-onboarding.json"
+
+  log "Running reader onboarding mutation regression"
+  python3 "${ROOT}/scripts/check-reader-onboarding-regression.py" > "${REPORT_DIR}/check-reader-onboarding-regression.json"
+
   cat > "${REPORT_DIR}/summary.txt" <<EOF
 QA mode: ${MODE}
 Repository root: ${ROOT}
@@ -164,6 +170,8 @@ Reports:
 - check-chapter09-monad-scope-regression.json
 - check-publication-figure-accessibility.json
 - check-publication-figure-accessibility-regression.json
+- check-reader-onboarding.json
+- check-reader-onboarding-regression.json
 EOF
 
   log "Core QA completed"
