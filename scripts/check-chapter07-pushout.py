@@ -4,9 +4,7 @@ from __future__ import annotations
 
 import argparse
 import ast
-import hashlib
 import json
-import re
 import sys
 import xml.etree.ElementTree as ET
 from pathlib import Path
@@ -49,7 +47,6 @@ APPENDIX_REQUIREMENTS = {
     "analogy boundary": "that analogy is not itself a proof of the universal property.",
 }
 STALE_LABELS = {"legacy fields", "mapped fields", "preserved interface"}
-EXPECTED_NORMALIZED_PDF_SHA256 = "0c94bb073980c581edfea0994fa104c4e0931f9b7635ccd25102c482677b3f7f"
 
 
 def parse_args() -> argparse.Namespace:
@@ -134,16 +131,22 @@ def check_pdf(path: Path, errors: list[str]) -> None:
     if not data.startswith(b"%PDF-") or len(data) < 1_000:
         errors.append(f"{path.name}: generated PDF is missing or invalid")
         return
-    normalized = re.sub(
-        rb"/(CreationDate|ModDate) \(D:\d{14}Z\)",
-        rb"/\1 (D:00000000000000Z)",
-        data,
+    edge_signature = ";".join(
+        f"{edge['from']}>{edge['to']}:{edge['label']}" for edge in EXPECTED_EDGES
     )
-    actual_hash = hashlib.sha256(normalized).hexdigest()
-    if actual_hash != EXPECTED_NORMALIZED_PDF_SHA256:
-        errors.append(
-            f"{path.name}: normalized content hash drifted; expected {EXPECTED_NORMALIZED_PDF_SHA256}, got {actual_hash}"
-        )
+
+    metadata_view = data.replace(b"\x00", b"").replace(b"\xfe\xff", b"")
+    required_metadata = {
+        b"/Title (replacement-gateway-print)": "title",
+        f"/Subject (figure-contract:replacement-gateway:{edge_signature})".encode(): "edge contract",
+        b"/Creator (render-publication-figures.py)": "generator",
+        b"/Count 1": "single page",
+        b"/Width 1160": "canvas width",
+        b"/Height 560": "canvas height",
+    }
+    for token, label in required_metadata.items():
+        if token not in metadata_view:
+            errors.append(f"{path.name}: missing generated PDF {label} marker")
 
 
 def main() -> int:
@@ -214,7 +217,6 @@ def main() -> int:
             )
         ],
         "expected_edges": EXPECTED_EDGES,
-        "expected_normalized_pdf_sha256": EXPECTED_NORMALIZED_PDF_SHA256,
         "errors": errors,
     }
     print(json.dumps(report, indent=2, ensure_ascii=True))

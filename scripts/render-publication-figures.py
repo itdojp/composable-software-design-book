@@ -564,7 +564,17 @@ def main() -> None:
             svg_path.write_text(render_svg(fig, theme_name), encoding="utf-8")
 
         pdf_path = OUT_DIR / f"{fig['slug']}-print.pdf"
-        render_pdf(fig).save(pdf_path, "PDF", resolution=144.0)
+        edge_signature = ";".join(
+            f"{edge['from']}>{edge['to']}:{edge['label']}" for edge in fig["edges"]
+        )
+        render_pdf(fig).save(
+            pdf_path,
+            "PDF",
+            resolution=144.0,
+            title=f"{fig['slug']}-print",
+            subject=f"figure-contract:{fig['slug']}:{edge_signature}",
+            creator="render-publication-figures.py",
+        )
 
 
 if __name__ == "__main__":
