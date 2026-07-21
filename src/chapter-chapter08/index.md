@@ -75,6 +75,11 @@ Figure 8.1. Running example fan-out and synchronization boundary.
 
 ![Publication redraw of Figure 8.1 showing governed fan-out and synchronization.](../../assets/figures/publication/orchestration-diagram-screen.svg)
 
+**Long description — Figure 8.1.**
+One Review Plan fans out into a Policy-Evaluated Plan through policy evaluation and an Evidence Bundle through evidence collection.
+Both branches enter the same Decision Packet through arrows labeled synchronize for review, and only that packet may move through approve-or-return to Approved Change.
+The orchestration is governed because parallel preparation cannot advance authority independently; fan-in must restore one reviewable packet before the approval decision.
+
 This is also where teams often over-parallelize.
 If a faster path can substitute for a slower path without a named rule, the design has confused throughput with correctness.
 The right question is not "Can this run concurrently?"

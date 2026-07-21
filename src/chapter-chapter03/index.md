@@ -56,6 +56,11 @@ Figure 3.1. Minimal approval commutativity claim.
 
 ![Publication redraw of Figure 3.1 showing the minimal approval commutativity claim.](../../assets/figures/publication/minimal-approval-commutativity-screen.svg)
 
+**Long description — Figure 3.1.**
+The change request reaches the approved change by a two-step route through draft review plan and human approval.
+A second edge, labeled minimal commutative claim, connects the same request directly to the same approved change.
+The diagram claims that the direct edge has the same approval meaning as the composed route; if review scope or human authority differs between them, the triangle does not commute and the claimed shortcut is invalid.
+
 The minimal diagram does not yet describe every operational detail.
 It isolates one design claim that can be reviewed by hand.
 If the composed path from `Change Request` through `Review Plan` to `Approved Change` is supposed to justify the direct edge `policy-gated-approval`, the diagram turns that statement into a visible proof obligation.

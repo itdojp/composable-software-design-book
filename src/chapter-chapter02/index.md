@@ -67,6 +67,11 @@ Figure 2.1. The running example becomes a model only when stable artifacts and n
 
 ![Publication redraw of Figure 2.1 showing the minimal object-and-morphism chain.](../../assets/figures/publication/object-composition-screen.svg)
 
+**Long description — Figure 2.1.**
+Three stable objects appear in order: Change Request, Review Plan, and Approved Change.
+The request reaches the plan through draft review plan, and the plan reaches the approved change through human approval; a separate policy-gated approval arrow connects the request directly to the same result.
+The figure's modeling claim is that objects name durable boundaries and morphisms name the transformations whose composition must preserve the request and approval meaning.
+
 Table 2.1. Minimal modeling map for the running example.
 
 | Model element | Running example instance | Preserved design question |

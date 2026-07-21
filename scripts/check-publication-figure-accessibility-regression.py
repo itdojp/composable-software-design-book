@@ -15,14 +15,31 @@ ROOT = Path(__file__).resolve().parents[1]
 CACHE_DIR = ROOT / ".cache"
 CHECKER = ROOT / "scripts" / "check-publication-figure-accessibility.py"
 
+LONG_DESCRIPTION_FILES = (
+    ("0.1", "src/chapter-introduction/index.md"),
+    ("1.1", "src/chapter-chapter01/index.md"),
+    ("2.1", "src/chapter-chapter02/index.md"),
+    ("3.1", "src/chapter-chapter03/index.md"),
+    ("3.2", "src/chapter-chapter03/index.md"),
+    ("4.1", "src/chapter-chapter04/index.md"),
+    ("5.1", "src/chapter-chapter05/index.md"),
+    ("6.1", "src/chapter-chapter06/index.md"),
+    ("6.2", "src/chapter-chapter06/index.md"),
+    ("7.1", "src/chapter-chapter07/index.md"),
+    ("7.2", "src/chapter-chapter07/index.md"),
+    ("8.1", "src/chapter-chapter08/index.md"),
+    ("8.2", "src/chapter-chapter08/index.md"),
+    ("9.1", "src/chapter-chapter09/index.md"),
+    ("9.2", "src/chapter-chapter09/index.md"),
+    ("10.1", "src/chapter-chapter10/index.md"),
+)
+
 COPY_PATHS = (
     "scripts/render-publication-figures.py",
     "scripts/check-publication-figure-accessibility.py",
     "assets/figures/publication",
     "docs/style/diagram-style.md",
-    "src/chapter-chapter03/index.md",
-    "src/chapter-chapter08/index.md",
-    "src/chapter-chapter10/index.md",
+    *dict.fromkeys(path for _, path in LONG_DESCRIPTION_FILES),
 )
 
 
@@ -120,24 +137,6 @@ def main() -> int:
         return 1
 
     cases = (
-        (
-            "missing Figure 3.2 long description",
-            "src/chapter-chapter03/index.md",
-            "**Long description — Figure 3.2.**",
-            "**Figure notes — Figure 3.2.**",
-        ),
-        (
-            "missing Figure 8.2 long description",
-            "src/chapter-chapter08/index.md",
-            "**Long description — Figure 8.2.**",
-            "**Figure notes — Figure 8.2.**",
-        ),
-        (
-            "missing Figure 10.1 long description",
-            "src/chapter-chapter10/index.md",
-            "**Long description — Figure 10.1.**",
-            "**Figure notes — Figure 10.1.**",
-        ),
         (
             "Figure 3.2 omits plan revision",
             "src/chapter-chapter03/index.md",
@@ -242,7 +241,16 @@ def main() -> int:
         ),
     )
 
-    results = [negative_case(*case) for case in cases]
+    results = [
+        negative_case(
+            f"missing Figure {number} long description",
+            path,
+            f"**Long description — Figure {number}.**",
+            f"**Figure notes — Figure {number}.**",
+        )
+        for number, path in LONG_DESCRIPTION_FILES
+    ]
+    results.extend(negative_case(*case) for case in cases)
     results.extend(
         [
             fixture_case(
