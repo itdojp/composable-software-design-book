@@ -1,4 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="560" viewBox="0 0 1160 560">
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="560" viewBox="0 0 1160 560" role="img" aria-labelledby="orchestration-diagram-screen-title orchestration-diagram-screen-description">
+<title id="orchestration-diagram-screen-title">Policy and evidence branches synchronized for review</title>
+<desc id="orchestration-diagram-screen-description">The diagram contains Review Plan, Policy-Evaluated Plan, Evidence Bundle, Decision Packet, Approved Change. Directed connections represent evaluate policy, collect evidence links, synchronize for review, approve or return.</desc>
 <rect width="100%" height="100%" fill="#fbfcfe"/>
 <defs>
 <marker id="arrow-screen" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">

@@ -1,4 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="600" viewBox="0 0 1180 600">
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="600" viewBox="0 0 1180 600" role="img" aria-labelledby="effect-boundary-print-title effect-boundary-print-description">
+<title id="effect-boundary-print-title">Authority-changing operations inside an effect boundary</title>
+<desc id="effect-boundary-print-description">The diagram has named regions for Effect boundary. The diagram contains Review Plan, Decision Packet, Tool Call, Approval Write, Execution Dispatch, Execution Trace, Acceptance Evidence. Directed connections represent prepare bounded inputs, record approved outcome, authorize dispatch, emit trace, emit decision evidence, assemble acceptance claim.</desc>
 <rect width="100%" height="100%" fill="#ffffff"/>
 <defs>
 <marker id="arrow-print" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">

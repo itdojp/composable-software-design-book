@@ -1,4 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1380" height="520" viewBox="0 0 1380 520">
+<svg xmlns="http://www.w3.org/2000/svg" width="1380" height="520" viewBox="0 0 1380 520" role="img" aria-labelledby="responsibility-boundaries-print-title responsibility-boundaries-print-description">
+<title id="responsibility-boundaries-print-title">Human and agent responsibilities along the approval path</title>
+<desc id="responsibility-boundaries-print-description">The diagram contains Change Request, Review Plan, Decision Packet, Approved Change, Approval Decision Record, Execution Trace, Acceptance Evidence. Directed connections represent draft review plan, synchronize for review, approve or return, emit decision evidence, dispatch and observe, assemble acceptance claim.</desc>
 <rect width="100%" height="100%" fill="#ffffff"/>
 <defs>
 <marker id="arrow-print" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">

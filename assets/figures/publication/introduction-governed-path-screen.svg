@@ -1,4 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1260" height="360" viewBox="0 0 1260 360">
+<svg xmlns="http://www.w3.org/2000/svg" width="1260" height="360" viewBox="0 0 1260 360" role="img" aria-labelledby="introduction-governed-path-screen-title introduction-governed-path-screen-description">
+<title id="introduction-governed-path-screen-title">Governed path from change request to acceptance evidence</title>
+<desc id="introduction-governed-path-screen-description">The diagram contains Change Request, Review Plan, Decision Packet, Approved Change, Execution-Ready Change, Acceptance Evidence. Directed connections represent draft bounded proposal, synchronize evidence, human approval, dispatch governed execution, emit trace and evidence.</desc>
 <rect width="100%" height="100%" fill="#fbfcfe"/>
 <defs>
 <marker id="arrow-screen" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">

@@ -1,4 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="520" viewBox="0 0 1080 520">
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="520" viewBox="0 0 1080 520" role="img" aria-labelledby="reviewer-naturality-screen-title reviewer-naturality-screen-description">
+<title id="reviewer-naturality-screen-title">Reviewer outcome preserved across packaging</title>
+<desc id="reviewer-naturality-screen-description">The diagram contains Review Plan, Approved Change, Decision Packet, Review Outcome. Directed connections represent human approval, package for review, approve or return, project review outcome.</desc>
 <rect width="100%" height="100%" fill="#fbfcfe"/>
 <defs>
 <marker id="arrow-screen" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">

@@ -100,6 +100,11 @@ Figure 3.2. Repository-level approval claim with explicit policy dependency (`PG
 
 ![Publication redraw of Figure 3.2 showing the repository-level approval claim.](../../assets/figures/publication/commutative-approval-screen.svg)
 
+**Long description — Figure 3.2.**
+The change request has two explicit routes into the review plan: a direct derivation and a policy check whose satisfied result feeds that same plan.
+The review plan reaches the approved change through human approval, while a separate curved edge depicts the claimed policy-gated path from the request to the approved change.
+The diagram commutes only when all routes preserve the same request scope, policy result, plan revision, and human approval meaning; if any route weakens one of those obligations, the direct edge is not equivalent to the reviewed route.
+
 The [traceability matrix](../../examples/common/policy-gated-change-review/verification/traceability-matrix/) matters because it anchors this diagram to named repository artifacts.
 That link prevents the diagram from drifting into a standalone picture with no verification consequence.
 

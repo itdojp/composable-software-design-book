@@ -1,4 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="520" viewBox="0 0 1080 520">
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="520" viewBox="0 0 1080 520" role="img" aria-labelledby="commutative-approval-screen-title commutative-approval-screen-description">
+<title id="commutative-approval-screen-title">Repository-level approval paths and policy dependency</title>
+<desc id="commutative-approval-screen-description">A change request reaches an approved change through a review plan and human approval, or through a policy check that feeds the same review plan. A direct policy-gated approval path is equivalent only when every route preserves the same request scope and approval meaning.</desc>
 <rect width="100%" height="100%" fill="#fbfcfe"/>
 <defs>
 <marker id="arrow-screen" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">

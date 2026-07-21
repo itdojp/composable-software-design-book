@@ -130,6 +130,11 @@ Figure 10.1. End-to-end artifact path for the case study.
 
 ![Publication redraw of Figure 10.1 showing the end-to-end case-study path.](../../assets/figures/publication/delivery-case-study-screen.svg)
 
+**Long description — Figure 10.1.**
+The governed path begins with a problem statement, which fixes scope for acceptance criteria, and the criteria are realized as a design artifact set.
+The design artifacts are assembled into a decision packet for approval or return, and only an approved change may dispatch work that produces an execution trace.
+The execution trace and the recorded approved outcome converge on acceptance evidence, so the end-to-end claim is complete only when specification, design, review authority, execution, and evidence remain connected to the same change.
+
 This is the chapter's central case-study lesson.
 A strong artifact set does not mean more documents for their own sake.
 It means each important claim has one stable place to live and a short path to the other places that depend on it.

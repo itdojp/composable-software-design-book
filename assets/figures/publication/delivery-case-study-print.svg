@@ -1,4 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="360" viewBox="0 0 1320 360">
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="360" viewBox="0 0 1320 360" role="img" aria-labelledby="delivery-case-study-print-title delivery-case-study-print-description">
+<title id="delivery-case-study-print-title">End-to-end governed artifact path</title>
+<desc id="delivery-case-study-print-description">The path starts with a problem statement and acceptance criteria, continues through a design artifact set and decision packet to an approved change, and finishes with an execution trace and acceptance evidence. The delivery claim is complete only when scope, review authority, execution, and evidence remain connected along this path.</desc>
 <rect width="100%" height="100%" fill="#ffffff"/>
 <defs>
 <marker id="arrow-print" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">

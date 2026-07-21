@@ -1,4 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="560" viewBox="0 0 1160 560">
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="560" viewBox="0 0 1160 560" role="img" aria-labelledby="replacement-gateway-screen-title replacement-gateway-screen-description">
+<title id="replacement-gateway-screen-title">Legacy and replacement routes joined at one gateway</title>
+<desc id="replacement-gateway-screen-description">The diagram contains Shared Boundary, Legacy Route Mapper, Replacement Mapper, Unified Review Gateway. Directed connections represent legacy boundary map i_L, replacement boundary map i_R, legacy cocone q_L, replacement cocone q_R.</desc>
 <rect width="100%" height="100%" fill="#fbfcfe"/>
 <defs>
 <marker id="arrow-screen" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">

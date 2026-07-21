@@ -1,4 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="520" viewBox="0 0 1080 520">
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="520" viewBox="0 0 1080 520" role="img" aria-labelledby="object-composition-print-title object-composition-print-description">
+<title id="object-composition-print-title">Object and morphism composition for approval artifacts</title>
+<desc id="object-composition-print-description">The diagram contains Change Request, Review Plan, Approved Change. Directed connections represent draft review plan, human approval, policy-gated approval.</desc>
 <rect width="100%" height="100%" fill="#ffffff"/>
 <defs>
 <marker id="arrow-print" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">

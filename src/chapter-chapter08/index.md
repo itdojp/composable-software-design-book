@@ -183,6 +183,11 @@ Figure 8.2. String-diagram reading distinguishes lawful fan-in from broken summa
 
 ![Publication redraw of Figure 8.2 contrasting lawful and broken fan-in.](../../assets/figures/publication/string-diagram-fan-in-screen.svg)
 
+**Long description — Figure 8.2.**
+The lawful side fans one review plan into policy and evidence branches, carries the same change identity and plan revision through both branches, and reunites the preserved policy result and evidence at one named synchronized packet.
+The broken side starts from one review plan but lets mutable context widen the evidence branch after fan-out, then combines the policy result and evidence through an unlabeled summary.
+Because the broken merge cannot prove that its inputs describe the same scope and revision, it cannot establish one trustworthy approval meaning; the lawful merge can do so only at the explicit synchronization point.
+
 ### Exposing hidden coupling in workflows
 
 String diagrams expose hidden coupling by forcing the author to draw every preserved dependency.
