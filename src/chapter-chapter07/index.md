@@ -241,6 +241,7 @@ Real migrations often fail through schema drift before behavior is obviously wro
 The replacement plan therefore includes an explicit schema mapping from legacy field names to the shared boundary.
 That mapping is not a clerical detail.
 It is the evidence that old and new structures can be compared on one contract.
+This comparison adapter runs from implementation-native fields back to the boundary and is not one of the formal span arrows `B -> L` and `B -> R`.
 
 In the running example, `legacy_policy_status` becomes `Policy Classification`.
 `legacy_route_hint` becomes `Approval Route ID`.

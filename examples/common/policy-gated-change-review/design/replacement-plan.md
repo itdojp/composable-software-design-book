@@ -23,7 +23,19 @@ The Unified Review Gateway is the downstream facade that receives both legacy an
 - Inputs: Change Identity, Repository Scope, Policy Classification
 - Outputs: Approval Route ID, policy provenance, migration note
 
-## Schema Mapping
+## Pushout Arrow Mapping
+
+The formal span uses boundary-to-implementation arrows.
+
+- `i_L`: Change Identity -> `legacy_change_key`; Repository Scope -> `legacy_scope_bucket`; Policy Classification -> `legacy_policy_status`; Approval Route ID -> `legacy_route_hint`
+- `i_R`: Change Identity -> Change Identity; Repository Scope -> Repository Scope; Policy Classification -> Policy Classification; Approval Route ID -> Approval Route ID
+
+The Replacement Mapper consumes the canonical field names directly, so `i_R` is identity-like on this stated boundary.
+
+## Operational Comparison Mapping
+
+Shadow comparison also normalizes legacy-native fields back to canonical boundary names.
+These observation adapters support operational comparison; they are not the `B -> L` and `B -> R` arrows that define the formal span.
 
 - `legacy_change_key` -> Change Identity
 - `legacy_scope_bucket` -> Repository Scope

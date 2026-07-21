@@ -38,6 +38,7 @@ CHAPTER_REQUIREMENTS = {
     "scope classification": "a pushout-shaped design obligation, not a proof",
     "scope omissions": "without defining all objects, morphisms, or admissible equivalences",
     "scope universal-property limit": "rather than the universal property over every candidate `Q`",
+    "comparison adapter direction": "This comparison adapter runs from implementation-native fields back to the boundary and is not one of the formal span arrows `B -> L` and `B -> R`.",
 }
 APPENDIX_REQUIREMENTS = {
     "pullback direction": "**Pullback.** The limit of a cospan `A -> C <- B`.",
@@ -53,6 +54,9 @@ REPLACEMENT_PLAN_REQUIREMENTS = {
     "shadow comparison": "Run the Legacy Route Mapper and Replacement Mapper in shadow mode",
     "gateway agreement": "Map both outputs into the Unified Review Gateway only when their composites from the Review Boundary Contract agree.",
     "span and cocone": "a pushout-shaped cocone over the common-source span",
+    "legacy span arrow": "`i_L`: Change Identity -> `legacy_change_key`",
+    "replacement span arrow": "`i_R`: Change Identity -> Change Identity",
+    "comparison direction scope": "they are not the `B -> L` and `B -> R` arrows that define the formal span.",
 }
 STALE_LABELS = {"legacy fields", "mapped fields", "preserved interface"}
 

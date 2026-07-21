@@ -150,6 +150,14 @@ def main() -> int:
             lambda root: replace_text(root, "examples/common/policy-gated-change-review/design/replacement-plan.md", "Map both outputs into the Unified Review Gateway only when their composites from the Review Boundary Contract agree.", "Compare both outputs before cutover."),
         ),
         (
+            "remove replacement span arrow",
+            lambda root: replace_text(root, "examples/common/policy-gated-change-review/design/replacement-plan.md", "`i_R`: Change Identity -> Change Identity", "Replacement fields remain canonical"),
+        ),
+        (
+            "conflate comparison adapter with span arrows",
+            lambda root: replace_text(root, "src/chapter-chapter07/index.md", "This comparison adapter runs from implementation-native fields back to the boundary and is not one of the formal span arrows `B -> L` and `B -> R`.", "This schema mapping defines the pushout span."),
+        ),
+        (
             "stale generated SVG label",
             lambda root: replace_text(root, "assets/figures/publication/replacement-gateway-screen.svg", "legacy boundary map i_L", "legacy fields"),
         ),
