@@ -20,6 +20,8 @@ CRITICAL_FIGURES = {
     "commutative-approval": {
         "path": "src/chapter-chapter03/index.md",
         "number": "3.2",
+        "caption": "Figure 3.2. Repository-level approval claim with explicit policy dependency (`PGCR-01`).",
+        "alt_required": ("publication redraw", "repository-level approval claim"),
         "required": (
             "change request",
             "review plan",
@@ -34,6 +36,8 @@ CRITICAL_FIGURES = {
     "string-diagram-fan-in": {
         "path": "src/chapter-chapter08/index.md",
         "number": "8.2",
+        "caption": "Figure 8.2. String-diagram reading distinguishes lawful fan-in from broken summary merges.",
+        "alt_required": ("publication redraw", "lawful and broken fan-in"),
         "required": (
             "lawful side",
             "policy and evidence branches",
@@ -49,6 +53,8 @@ CRITICAL_FIGURES = {
     "delivery-case-study": {
         "path": "src/chapter-chapter10/index.md",
         "number": "10.1",
+        "caption": "Figure 10.1. End-to-end artifact path for the case study.",
+        "alt_required": ("publication redraw", "end-to-end case-study path"),
         "required": (
             "problem statement",
             "acceptance criteria",
@@ -96,15 +102,18 @@ def load_renderer(root: Path) -> ModuleType:
     return module
 
 
-def long_description_block(text: str, number: str, asset_slug: str) -> str | None:
+def image_match(text: str, asset_slug: str) -> re.Match[str] | None:
     image_pattern = re.compile(
-        rf"^!\[[^\n]+\]\([^\n)]*{re.escape(asset_slug)}-screen\.svg\)\s*$",
+        rf"^!\[(?P<alt>[^\n]*)\]\([^\n)]*{re.escape(asset_slug)}-screen\.svg\)\s*$",
         re.MULTILINE,
     )
-    image_match = image_pattern.search(text)
-    if image_match is None:
+    return image_pattern.search(text)
+
+
+def long_description_block(text: str, number: str, match: re.Match[str]) -> str | None:
+    if match is None:
         return None
-    tail = text[image_match.end() :]
+    tail = text[match.end() :]
     next_heading = re.search(r"^#{2,6}\s", tail, re.MULTILINE)
     section = tail[: next_heading.start()] if next_heading else tail
     label = f"**Long description — Figure {number}.**"
@@ -124,7 +133,26 @@ def validate_long_descriptions(root: Path, errors: list[str]) -> int:
             errors.append(f"missing chapter source for Figure {contract['number']}: {path}")
             continue
         text = path.read_text(encoding="utf-8")
-        block = long_description_block(text, contract["number"], slug)
+        match = image_match(text, slug)
+        if match is None:
+            errors.append(f"Figure {contract['number']} is missing its publication SVG image")
+            continue
+        alt_text = normalize(match.group("alt"))
+        if not 30 <= len(alt_text) <= 180:
+            errors.append(
+                f"Figure {contract['number']} alt text must be concise and descriptive: {len(alt_text)} characters"
+            )
+        if PLACEHOLDER_PATTERN.search(alt_text) or alt_text.lower() in {"diagram", "figure", "image"}:
+            errors.append(f"Figure {contract['number']} alt text is generic or contains placeholder text")
+        for phrase in contract["alt_required"]:
+            if phrase.lower() not in alt_text.lower():
+                errors.append(f"Figure {contract['number']} alt text is missing: {phrase}")
+
+        caption = contract["caption"]
+        if text.count(caption) != 1 or text.find(caption) > match.start():
+            errors.append(f"Figure {contract['number']} must have its canonical claim-bearing caption before the image")
+
+        block = long_description_block(text, contract["number"], match)
         if block is None:
             errors.append(
                 f"Figure {contract['number']} must have an adjacent Long description block after {slug}-screen.svg"
@@ -207,7 +235,34 @@ def validate_svg(
         errors.append(f"{path.name} aria-labelledby has dangling references: {', '.join(missing_ids)}")
 
 
-def validate_assets(root: Path, renderer: ModuleType, errors: list[str]) -> int:
+def validate_pdf(path: Path, figure: dict, errors: list[str]) -> None:
+    try:
+        data = path.read_bytes()
+    except OSError as exc:
+        errors.append(f"{path.name}: cannot read generated PDF: {exc}")
+        return
+    if not data.startswith(b"%PDF-") or len(data) < 1_000:
+        errors.append(f"{path.name}: generated PDF is missing or invalid")
+        return
+
+    edge_signature = ";".join(
+        f"{edge['from']}>{edge['to']}:{edge['label']}" for edge in figure["edges"]
+    )
+    metadata_view = data.replace(b"\x00", b"").replace(b"\xfe\xff", b"")
+    required_metadata = {
+        f"/Title ({figure['slug']}-print)".encode(): "title",
+        f"/Subject (figure-contract:{figure['slug']}:{edge_signature})".encode(): "edge contract",
+        b"/Creator (render-publication-figures.py)": "generator",
+        b"/Count 1": "single page",
+        f"/Width {figure['width']}".encode(): "canvas width",
+        f"/Height {figure['height']}".encode(): "canvas height",
+    }
+    for token, label in required_metadata.items():
+        if token not in metadata_view:
+            errors.append(f"{path.name}: missing generated PDF {label} marker")
+
+
+def validate_assets(root: Path, renderer: ModuleType, errors: list[str]) -> tuple[int, int]:
     figures = renderer.FIGURES
     metadata = renderer.ACCESSIBILITY
     slugs = [figure["slug"] for figure in figures]
@@ -227,7 +282,16 @@ def validate_assets(root: Path, renderer: ModuleType, errors: list[str]) -> int:
             f"missing={sorted(expected_names - actual_names)}, extra={sorted(actual_names - expected_names)}"
         )
 
-    checked = 0
+    expected_pdf_names = {f"{slug}-print.pdf" for slug in slugs}
+    actual_pdf_names = {path.name for path in asset_dir.glob("*.pdf")}
+    if actual_pdf_names != expected_pdf_names:
+        errors.append(
+            "publication PDF inventory differs from renderer: "
+            f"missing={sorted(expected_pdf_names - actual_pdf_names)}, extra={sorted(actual_pdf_names - expected_pdf_names)}"
+        )
+
+    checked_svg = 0
+    checked_pdf = 0
     for figure in figures:
         try:
             expected_title, expected_description = renderer.accessibility_metadata(figure)
@@ -240,8 +304,12 @@ def validate_assets(root: Path, renderer: ModuleType, errors: list[str]) -> int:
                 continue
             expected = renderer.render_svg(figure, theme)
             validate_svg(path, expected, expected_title, expected_description, errors)
-            checked += 1
-    return checked
+            checked_svg += 1
+        pdf_path = asset_dir / f"{figure['slug']}-print.pdf"
+        if pdf_path.is_file():
+            validate_pdf(pdf_path, figure, errors)
+            checked_pdf += 1
+    return checked_svg, checked_pdf
 
 
 def main() -> int:
@@ -251,15 +319,17 @@ def main() -> int:
     long_descriptions = validate_long_descriptions(root, errors)
     validate_style_guide(root, errors)
     svg_assets = 0
+    pdf_assets = 0
     try:
         renderer = load_renderer(root)
-        svg_assets = validate_assets(root, renderer, errors)
+        svg_assets, pdf_assets = validate_assets(root, renderer, errors)
     except Exception as exc:  # noqa: BLE001 - emit a stable QA report
         errors.append(f"renderer validation failed: {exc}")
 
     report = {
         "critical_long_descriptions": long_descriptions,
         "publication_svg_assets": svg_assets,
+        "publication_pdf_assets": pdf_assets,
         "errors": errors,
         "status": "ok" if not errors else "failed",
     }

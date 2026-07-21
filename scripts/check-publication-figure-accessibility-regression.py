@@ -7,6 +7,7 @@ import shutil
 import subprocess
 import tempfile
 from pathlib import Path
+from typing import Callable
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -53,13 +54,20 @@ def replace_once(path: Path, old: str, new: str) -> None:
     path.write_text(text.replace(old, new, 1), encoding="utf-8")
 
 
-def negative_case(name: str, relative: str, old: str, new: str) -> tuple[str, bool, str]:
+def fixture_case(name: str, mutate: Callable[[Path], None]) -> tuple[str, bool, str]:
     with tempfile.TemporaryDirectory(prefix="figure-a11y-negative-", dir=CACHE_DIR) as temp_dir:
         fixture = Path(temp_dir)
         copy_fixture(fixture)
-        replace_once(fixture / relative, old, new)
+        mutate(fixture)
         result = run_checker(fixture)
         return name, result.returncode != 0, result.stdout or result.stderr
+
+
+def negative_case(name: str, relative: str, old: str, new: str) -> tuple[str, bool, str]:
+    return fixture_case(
+        name,
+        lambda fixture: replace_once(fixture / relative, old, new),
+    )
 
 
 def main() -> int:
@@ -115,6 +123,18 @@ def main() -> int:
             "src/chapter-chapter10/index.md",
             "review authority",
             "review stage",
+        ),
+        (
+            "Figure 3.2 has generic alt text",
+            "src/chapter-chapter03/index.md",
+            "Publication redraw of Figure 3.2 showing the repository-level approval claim.",
+            "diagram",
+        ),
+        (
+            "Figure 10.1 has a non-claim-bearing caption",
+            "src/chapter-chapter10/index.md",
+            "Figure 10.1. End-to-end artifact path for the case study.",
+            "Figure 10.1. Diagram.",
         ),
         (
             "style guide omits distinct deliverables",
@@ -185,6 +205,27 @@ def main() -> int:
     )
 
     results = [negative_case(*case) for case in cases]
+    results.extend(
+        [
+            fixture_case(
+                "missing generated print PDF",
+                lambda fixture: (fixture / "assets/figures/publication/delivery-case-study-print.pdf").unlink(),
+            ),
+            fixture_case(
+                "stale generated print PDF",
+                lambda fixture: shutil.copy2(
+                    fixture / "assets/figures/publication/shared-boundary-join-print.pdf",
+                    fixture / "assets/figures/publication/delivery-case-study-print.pdf",
+                ),
+            ),
+            fixture_case(
+                "invalid generated print PDF",
+                lambda fixture: (fixture / "assets/figures/publication/delivery-case-study-print.pdf").write_bytes(
+                    b"not a PDF"
+                ),
+            ),
+        ]
+    )
     failed = [(name, output) for name, detected, output in results if not detected]
     report = {
         "negative_detected": len(results) - len(failed),

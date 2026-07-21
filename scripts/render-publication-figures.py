@@ -665,6 +665,8 @@ def main() -> None:
             title=f"{fig['slug']}-print",
             subject=f"figure-contract:{fig['slug']}:{edge_signature}",
             creator="render-publication-figures.py",
+            creationDate=None,
+            modDate=None,
         )
 
 
