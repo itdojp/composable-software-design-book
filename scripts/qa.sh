@@ -127,6 +127,12 @@ run_core() {
   log "Running manuscript structure check"
   python3 "${ROOT}/scripts/check-manuscript-structure.py" > "${REPORT_DIR}/check-manuscript-structure.json"
 
+  log "Running Chapter 07 pushout contract check"
+  python3 "${ROOT}/scripts/check-chapter07-pushout.py" > "${REPORT_DIR}/check-chapter07-pushout.json"
+
+  log "Running Chapter 07 pushout mutation regression"
+  python3 "${ROOT}/scripts/check-chapter07-pushout-regression.py" > "${REPORT_DIR}/check-chapter07-pushout-regression.json"
+
   cat > "${REPORT_DIR}/summary.txt" <<EOF
 QA mode: ${MODE}
 Repository root: ${ROOT}
@@ -140,6 +146,8 @@ Reports:
 - check-textlint.json
 - check-placeholders.json
 - check-manuscript-structure.json
+- check-chapter07-pushout.json
+- check-chapter07-pushout-regression.json
 EOF
 
   log "Core QA completed"

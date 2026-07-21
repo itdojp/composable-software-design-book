@@ -173,19 +173,18 @@ FIGURES = [
         "slug": "replacement-gateway",
         "width": 1160,
         "height": 560,
-        "zones": [
-            {"x": 420, "y": 170, "w": 250, "h": 180, "label": "Shared boundary", "kind": "boundary"},
-        ],
+        "zones": [],
         "nodes": [
-            {"id": "lrm", "label": "Legacy Route Mapper", "x": 70, "y": 110, "w": 230, "h": 64, "kind": "object"},
-            {"id": "rm", "label": "Replacement Mapper", "x": 70, "y": 350, "w": 230, "h": 64, "kind": "object"},
-            {"id": "sb", "label": "Shared Boundary", "x": 445, "y": 230, "w": 200, "h": 64, "kind": "object"},
+            {"id": "sb", "label": "Shared Boundary", "x": 70, "y": 230, "w": 200, "h": 64, "kind": "object"},
+            {"id": "lrm", "label": "Legacy Route Mapper", "x": 420, "y": 110, "w": 230, "h": 64, "kind": "object"},
+            {"id": "rm", "label": "Replacement Mapper", "x": 420, "y": 350, "w": 230, "h": 64, "kind": "object"},
             {"id": "urg", "label": "Unified Review Gateway", "x": 840, "y": 230, "w": 240, "h": 64, "kind": "decision"},
         ],
         "edges": [
-            {"from": "lrm", "to": "sb", "label": "legacy fields"},
-            {"from": "rm", "to": "sb", "label": "mapped fields"},
-            {"from": "sb", "to": "urg", "label": "preserved interface"},
+            {"from": "sb", "to": "lrm", "label": "legacy boundary map i_L"},
+            {"from": "sb", "to": "rm", "label": "replacement boundary map i_R"},
+            {"from": "lrm", "to": "urg", "label": "legacy cocone q_L"},
+            {"from": "rm", "to": "urg", "label": "replacement cocone q_R"},
         ],
     },
     {
