@@ -43,9 +43,9 @@ Later mentions should point back to that primary chapter unless the concept is m
 | Execution-Ready Change | [Chapter 04](../../chapter-chapter04/) | `Approved Change`, `effect boundary` | It marks the runtime-facing state reached only after the governed approval meaning is preserved. |
 | Functor | [Chapter 04](../../chapter-chapter04/) | `runtime view`, `reviewer view` | It explains structure-preserving translation across views. |
 | Human review gate | [Chapter 01](../../chapter-chapter01/) | `policy gate`, `Bounded delegation` | It keeps final risk acceptance explicitly human-led. |
-| Kleisli composition | [Chapter 09](../../chapter-chapter09/) | `monad`, `effect boundary` | It chains effectful steps without hiding context and evidence obligations. |
+| Kleisli composition | [Chapter 09](../../chapter-chapter09/) | `monad`, `effect boundary` | It composes arrows `A -> T B`; the chapter then adds governed context and evidence obligations. |
 | Migration plan | [Chapter 07](../../chapter-chapter07/) | `shared boundary`, `replacement plan` | It governs replacement work without blind cutover. |
-| Monad | [Chapter 09](../../chapter-chapter09/) | `Kleisli composition`, `effect boundary` | It gives the chapter's envelope for effectful operational steps. |
+| Monad | [Chapter 09](../../chapter-chapter09/) | `Kleisli composition`, `effect boundary` | It has a general endofunctor-and-laws definition; the chapter's envelope is one engineering instance. |
 | Morphism | [Chapter 02](../../chapter-chapter02/) | `object`, `composition` | It names the transformation that preserves the model's structure. |
 | Object | [Chapter 02](../../chapter-chapter02/) | `morphism`, `identity morphism` | It fixes the stable artifact or state boundary that later reasoning depends on. |
 | Orchestration | [Chapter 08](../../chapter-chapter08/) | `synchronization boundary`, `effect boundary` | It coordinates parallel and sequential work into one governed workflow. |
