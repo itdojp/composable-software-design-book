@@ -13,11 +13,13 @@ The most expensive workflow defects often begin after the diagram has already st
 A tool call writes state, an override bypasses a gate, or a dispatch step runs before the repository can explain why it was allowed.
 Chapter 09 makes those effects explicit so AI-assisted orchestration remains safe, reviewable, and testable.
 Figure 9.1 and Table 9.1 give the first-reading version of that effect story before the canonical repository artifacts become necessary for deeper inspection.
+This chapter uses monads and Kleisli composition through one governed-workflow engineering reading.
+Unless a passage explicitly states the general definition, the terms `envelope`, `trace obligation`, and `dominant effect model` describe this book's design choice rather than a requirement imposed by category theory.
 
 ## Learning goals
 
 - Distinguish pure artifact reasoning from effectful operational steps that change authority or external state.
-- Read monads and Kleisli composition as workflow envelopes that preserve evidence and next-step obligations across tool calls.
+- Distinguish the general definitions of monads and Kleisli composition from this chapter's governed-envelope reading.
 - Review effect boundaries, retries, and escape hatches without losing the governed approval story.
 
 ## Prerequisites
@@ -72,7 +74,13 @@ Effect visibility therefore becomes a first-class design requirement rather than
 
 ## Monads as operational envelopes
 
-A monad is useful in this book because it gives a disciplined way to say that one computation returns both a value and the operational context needed to continue safely.
+In general, a monad on a category `C` consists of an endofunctor `T: C -> C`, a unit natural transformation `eta: Id_C -> T`, and a multiplication natural transformation `mu: T composed with T -> T`.
+The unit laws say that applying `mu` after either unit insertion leaves `T` unchanged, and the associativity law says that flattening three nested applications of `T` is independent of grouping.
+An equivalent programming-oriented presentation uses `return` and `bind` subject to left identity, right identity, and associativity.
+These definitions do not require `T` to be an operational envelope or require a computation to return audit context.
+
+This book chooses a governed envelope as one concrete engineering interpretation of `T`.
+Under that interpretation, one computation returns a value together with the operational context needed to continue safely.
 The goal is not to force readers into a specific language runtime.
 It is to keep effects attached to their obligations instead of unpacking them into ambient global state.
 
@@ -135,20 +143,31 @@ Even outside software delivery, effectful dispatch is governed only when the emi
 
 ### Reading unit and bind in engineering terms
 
-The unit operation is the move that places a pure artifact into the governed workflow without adding new side effects.
+In the return/bind presentation, `return` places a value of type `A` into `T A`, while `bind` combines a value in `T A` with a function `A -> T B` to produce `T B`.
+Under this chapter's chosen interpretation, the unit operation places a pure artifact into the governed workflow without adding new side effects.
 In practice, that means taking a completed artifact such as `Review Plan` and treating it as the current value inside the review envelope.
 The repository has not yet changed external state merely by acknowledging that artifact.
 
-Bind is the step that consumes the governed context and produces the next governed context.
+The chapter reads bind as the step that consumes the governed context and produces the next governed context.
 If `evaluate-policy` fails, the bind result is not a naked absence of value.
 It is a governed state that still carries trace obligations, route meaning, and a next action such as retry, manual review, or return-for-rework.
 This is the practical reason monadic language helps here.
 It forces the workflow to preserve context across effectful chaining instead of dropping it between tool calls.
-Left identity gives the reader a concrete test.
+
+The formal laws provide three comparison obligations.
+Left identity says `return a >>= f` is equivalent to `f a`.
+Right identity says `m >>= return` is equivalent to `m`.
+Associativity says `(m >>= f) >>= g` is equivalent to `m >>= (lambda x: f x >>= g)`.
+The repository observations below are engineering test oracles for the chosen envelope, not proofs of those laws in a specified category.
+
+Left identity gives the reader one concrete test.
 If the repository places a pure artifact into the envelope and immediately evaluates policy, the governed result should match the direct governed policy evaluation for that same artifact.
 Right identity gives another.
 If the repository rewraps an already governed state, it must not quietly add an approval-like record, create a new trace event, or drop an evidence link.
 Otherwise the supposed bookkeeping step has changed authority or observability and was never neutral.
+
+The requirement that a failure carry trace obligations, route meaning, and a permitted next action belongs to this selected `T` and its workflow contract.
+It is not a consequence of the monad laws alone.
 
 In the running example, every successful bind keeps the same `Change Identity` and current `Plan Revision`.
 Every failing bind yields an outcome the rest of the workflow can still review.
@@ -157,7 +176,8 @@ That is more valuable than the abstract term itself because it turns effect hand
 ## Kleisli composition for agent orchestration
 
 Kleisli composition matters when the output of one effectful step already lives inside the workflow's operational envelope.
-The next step must accept that envelope and return another one.
+A next Kleisli arrow still accepts the underlying value `B` and returns `T C`; it does not have type `T B -> T C`.
+Bind or Kleisli composition threads the existing `T B` through that arrow and flattens the result into `T C`.
 That is exactly what happens in AI-assisted orchestration.
 
 ### Tool calls, prompts, and execution context
@@ -178,6 +198,11 @@ Each step carries the artifact boundary, the effect class, the actor or tool, an
 
 **Formal bridge.**
 
+The Kleisli category has the same objects as the underlying category.
+For a monad `T`, a Kleisli arrow from `A` to `B` is an arrow `A -> T B` in the underlying category.
+The Kleisli identity on `A` is `eta_A`, and arrows `f: A -> T B` and `g: B -> T C` compose as `mu_C composed with T(g) composed with f`.
+The monad laws make that composition associative and give it identities.
+
 ```text
 Effectful chain:
 draft-plan-with-agent : Review Plan -> M Reviewed Plan Revision
@@ -189,14 +214,14 @@ Combined path:
 Review Plan -> M Executable Change Set
 ```
 
-Here `M` is the governed effect envelope that carries trace obligations, authority changes, and permitted next actions together with the value.
+Here `M` is this book's chosen instance of `T`: a governed effect envelope that carries trace obligations, authority changes, and permitted next actions together with the value.
 The chain is safe only when each step returns another governed state instead of dropping context between tool calls.
 A bare artifact chain would let `evaluate-policy` return only `Policy-Evaluated Plan` and ask later steps to infer whether the result was cached, manually overridden, or produced from stale context.
 That is ordinary composition plus logging.
 It forces every downstream step to guess which effect already happened.
 The governed envelope chain avoids that guesswork because each step returns value, trace obligation, authority state, and permitted next action together.
-That is the practical payoff of Kleisli composition.
-Teams may regroup the chain across services or queues without changing the governed outcome that the reviewer and the audit trail must reconstruct.
+That is the practical payoff of the chapter's Kleisli reading.
+Teams may regroup the chain across services or queues without changing the governed outcome only when the implementation preserves the stated equivalence and the selected effect semantics satisfy the required laws.
 
 ### Chaining effectful steps safely
 
@@ -224,6 +249,7 @@ The challenge is to choose one dominant design envelope so the repository has a 
 ### Choosing the dominant effect model
 
 The running example chooses governed review state as the dominant envelope.
+That is an architecture decision for this repository, not a theorem about monads and not the only valid way to represent multiple effects.
 Every important step is evaluated by asking what it means for review, approval, traceability, and execution rights.
 That choice is more practical than choosing a generic error-only or state-only model because the repository's main risk is unauthorized or unreviewable change.
 
@@ -250,6 +276,17 @@ The running example solves this by keeping one reader-facing envelope and surfac
 Prompt context, tool outputs, approval writes, and dispatch results all appear in the trace and acceptance evidence.
 The repository does not need separate public formalisms for each internal helper library.
 It needs one stable operational story.
+
+Other systems may choose a different representation.
+
+| Design choice | Primary benefit | Primary cost or risk |
+| --- | --- | --- |
+| One governed envelope | One review surface for authority, evidence, and next actions | Couples effect semantics and can make the envelope broad |
+| Monad transformers or layered composite effects | Keeps error, state, and I/O concerns separately typed | Ordering, lifting, and interaction rules become part of the design |
+| Effect handlers or capability interfaces | Lets components request effects without fixing one global envelope | Handler scope, runtime support, and evidence capture need explicit governance |
+| Explicit workflow state machine | Makes operational transitions and recovery paths directly visible | Does not automatically provide Kleisli composition or the monad laws |
+
+The selection should follow the system's failure, authority, and audit requirements rather than a claim that category theory mandates one dominant envelope.
 
 That strategy also reduces confusion during review.
 The reviewer asks one question at each boundary.
@@ -296,7 +333,8 @@ It treats specification, design, review, orchestration, and effect evidence as o
 ## Summary
 
 - Effect boundaries matter because tool calls, approval writes, and execution dispatch change what later steps may safely assume.
-- Monadic and Kleisli language is useful when it keeps value, evidence, and authority inside one explicit operational envelope.
+- A monad has a general endofunctor-and-laws definition; the governed envelope is this book's engineering instance, not that definition.
+- Kleisli composition chains arrows `A -> T B`; trace and authority preservation are additional semantics selected for this workflow.
 - Escape hatches, retries, rollback, and audit remain trustworthy only when they emit reviewable evidence at named boundaries.
 
 ## Review prompts

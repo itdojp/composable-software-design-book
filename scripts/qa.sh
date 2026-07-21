@@ -133,6 +133,12 @@ run_core() {
   log "Running Chapter 07 pushout mutation regression"
   python3 "${ROOT}/scripts/check-chapter07-pushout-regression.py" > "${REPORT_DIR}/check-chapter07-pushout-regression.json"
 
+  log "Running Chapter 09 monad scope check"
+  python3 "${ROOT}/scripts/check-chapter09-monad-scope.py" > "${REPORT_DIR}/check-chapter09-monad-scope.json"
+
+  log "Running Chapter 09 monad scope mutation regression"
+  python3 "${ROOT}/scripts/check-chapter09-monad-scope-regression.py" > "${REPORT_DIR}/check-chapter09-monad-scope-regression.json"
+
   cat > "${REPORT_DIR}/summary.txt" <<EOF
 QA mode: ${MODE}
 Repository root: ${ROOT}
@@ -148,6 +154,8 @@ Reports:
 - check-manuscript-structure.json
 - check-chapter07-pushout.json
 - check-chapter07-pushout-regression.json
+- check-chapter09-monad-scope.json
+- check-chapter09-monad-scope-regression.json
 EOF
 
   log "Core QA completed"

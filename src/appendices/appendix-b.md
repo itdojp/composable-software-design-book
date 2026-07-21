@@ -80,10 +80,14 @@ See [Chapter 08](../chapter-chapter08/).
 **String diagram.** A diagrammatic notation in which wires represent preserved context or artifacts and boxes represent composed steps.
 See [Chapter 08](../chapter-chapter08/).
 
-**Monad.** A structure that packages effectful computation so later steps must handle its operational context explicitly.
+**Monad.** On a category `C`, an endofunctor `T: C -> C` equipped with a unit natural transformation `eta: Id_C -> T` and a multiplication natural transformation `mu: T composed with T -> T` that satisfy the unit and associativity laws.
+An equivalent programming presentation uses `return` and `bind` with left identity, right identity, and associativity.
+Chapter 09's governed operational envelope is one engineering interpretation of this structure, not the general definition.
 See [Chapter 09](../chapter-chapter09/).
 
-**Kleisli composition.** The composition rule that chains effectful steps while keeping them inside one explicit effect envelope.
+**Kleisli composition.** The Kleisli category has the same objects as the underlying category and arrows `A -> B` represented by underlying arrows `A -> T B`.
+Arrows `A -> T B` and `B -> T C` compose into an arrow `A -> T C`, with identities supplied by the unit and associativity supplied by the monad laws.
+Chapter 09 reads those arrows as governed workflow steps; retaining error, audit, or authority context is an additional property of the selected `T`, not part of the definition alone.
 See [Chapter 09](../chapter-chapter09/).
 
 ## Software design terms
