@@ -4,9 +4,10 @@ from __future__ import annotations
 
 import html
 from pathlib import Path
+from typing import TYPE_CHECKING
 
-from PIL import Image, ImageDraw, ImageFont
-
+if TYPE_CHECKING:
+    from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT_DIR = ROOT / "assets" / "figures" / "publication"
@@ -600,7 +601,9 @@ def render_svg(fig: dict, theme_name: str) -> str:
     return "\n".join(parts)
 
 
-def render_pdf(fig: dict) -> Image.Image:
+def render_pdf(fig: dict) -> "Image.Image":
+    from PIL import Image, ImageDraw, ImageFont
+
     theme = THEMES["print"]
     image = Image.new("RGB", (fig["width"], fig["height"]), theme["background"])
     draw = ImageDraw.Draw(image)

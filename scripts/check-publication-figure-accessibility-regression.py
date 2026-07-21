@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 import shutil
 import subprocess
+import sys
 import tempfile
 from pathlib import Path
 from typing import Callable
@@ -36,9 +37,13 @@ def copy_fixture(destination: Path) -> None:
             shutil.copy2(source, target)
 
 
-def run_checker(root: Path) -> subprocess.CompletedProcess[str]:
+def run_checker(root: Path, *, no_site_packages: bool = False) -> subprocess.CompletedProcess[str]:
+    command = [sys.executable]
+    if no_site_packages:
+        command.append("-S")
+    command.extend([str(CHECKER), "--root", str(root)])
     return subprocess.run(
-        ["python3", str(CHECKER), "--root", str(root)],
+        command,
         cwd=ROOT,
         text=True,
         stdout=subprocess.PIPE,
@@ -76,9 +81,10 @@ def main() -> int:
         fixture = Path(temp_dir)
         copy_fixture(fixture)
         positive = run_checker(fixture)
-    if positive.returncode != 0:
-        print(positive.stdout)
-        print(positive.stderr)
+        positive_without_site_packages = run_checker(fixture, no_site_packages=True)
+    if positive.returncode != 0 or positive_without_site_packages.returncode != 0:
+        print(positive.stdout, positive_without_site_packages.stdout)
+        print(positive.stderr, positive_without_site_packages.stderr)
         return 1
 
     cases = (
@@ -230,8 +236,8 @@ def main() -> int:
     report = {
         "negative_detected": len(results) - len(failed),
         "negative_total": len(results),
-        "positive_passed": 1,
-        "positive_total": 1,
+        "positive_passed": 2,
+        "positive_total": 2,
         "undetected": [name for name, _ in failed],
     }
     print(json.dumps(report, indent=2, ensure_ascii=False))
