@@ -323,17 +323,21 @@ def image_match(text: str, asset_slug: str) -> re.Match[str] | None:
 
 
 def long_description_block(text: str, number: str, match: re.Match[str]) -> str | None:
-    if match is None:
-        return None
-    tail = text[match.end() :]
-    next_heading = re.search(r"^#{2,6}\s", tail, re.MULTILINE)
-    section = tail[: next_heading.start()] if next_heading else tail
     label = f"**Long description — Figure {number}.**"
-    label_offset = section.find(label)
-    if label_offset < 0:
+    lines = text[match.end() :].splitlines()
+    while lines and not lines[0].strip():
+        lines.pop(0)
+    if not lines or lines[0].strip() != label:
         return None
-    following = section[label_offset + len(label) :].lstrip("\n")
-    block = following.split("\n\n", 1)[0].strip()
+    lines.pop(0)
+    while lines and not lines[0].strip():
+        lines.pop(0)
+    block_lines: list[str] = []
+    for line in lines:
+        if not line.strip():
+            break
+        block_lines.append(line)
+    block = "\n".join(block_lines).strip()
     return block or None
 
 

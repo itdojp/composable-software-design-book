@@ -150,6 +150,12 @@ def main() -> int:
             "same scope, policy result",
         ),
         (
+            "Figure 3.2 long description is not adjacent to its image",
+            "src/chapter-chapter03/index.md",
+            "commutative-approval-screen.svg)\n\n**Long description — Figure 3.2.**",
+            "commutative-approval-screen.svg)\n\nAn intervening paragraph separates the figure from its equivalent text.\n\n**Long description — Figure 3.2.**",
+        ),
+        (
             "Figure 8.2 omits broken mutable context",
             "src/chapter-chapter08/index.md",
             "mutable context",
