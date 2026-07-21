@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import re
 import shutil
 import subprocess
 import sys
@@ -32,6 +33,26 @@ def replace_text(root: Path, relative: str, old: str, new: str) -> None:
     path.write_text(content.replace(old, new, 1), encoding="utf-8")
 
 
+def replace_regex(root: Path, relative: str, pattern: str, replacement: str) -> None:
+    path = root / relative
+    content = path.read_text(encoding="utf-8")
+    updated, count = re.subn(pattern, replacement, content, count=1)
+    if count != 1:
+        raise RuntimeError(
+            f"fixture pattern matched {count} times in {relative}: {pattern!r}"
+        )
+    path.write_text(updated, encoding="utf-8")
+
+
+def reverse_figure_edge(root: Path, source: str, target: str) -> None:
+    replace_regex(
+        root,
+        "scripts/render-publication-figures.py",
+        rf'\{{"from"\s*:\s*"{re.escape(source)}"\s*,\s*"to"\s*:\s*"{re.escape(target)}"',
+        f'{{"from": "{target}", "to": "{source}"',
+    )
+
+
 def copy_fixture(destination: Path) -> None:
     for relative in FILES:
         target = destination / relative
@@ -57,19 +78,19 @@ def main() -> int:
     mutations: list[tuple[str, Callable[[Path], None]]] = [
         (
             "reverse boundary-to-legacy edge",
-            lambda root: replace_text(root, "scripts/render-publication-figures.py", '{"from": "sb", "to": "lrm"', '{"from": "lrm", "to": "sb"'),
+            lambda root: reverse_figure_edge(root, "sb", "lrm"),
         ),
         (
             "reverse boundary-to-replacement edge",
-            lambda root: replace_text(root, "scripts/render-publication-figures.py", '{"from": "sb", "to": "rm"', '{"from": "rm", "to": "sb"'),
+            lambda root: reverse_figure_edge(root, "sb", "rm"),
         ),
         (
             "reverse legacy cocone edge",
-            lambda root: replace_text(root, "scripts/render-publication-figures.py", '{"from": "lrm", "to": "urg"', '{"from": "urg", "to": "lrm"'),
+            lambda root: reverse_figure_edge(root, "lrm", "urg"),
         ),
         (
             "reverse replacement cocone edge",
-            lambda root: replace_text(root, "scripts/render-publication-figures.py", '{"from": "rm", "to": "urg"', '{"from": "urg", "to": "rm"'),
+            lambda root: reverse_figure_edge(root, "rm", "urg"),
         ),
         (
             "remove commutativity equation",
