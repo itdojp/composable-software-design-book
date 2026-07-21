@@ -18,6 +18,7 @@ FILES = [
     Path("src/chapter-chapter07/index.md"),
     Path("src/appendices/appendix-b.md"),
     Path("src/backmatter/list-of-figures/index.md"),
+    Path("examples/common/policy-gated-change-review/design/replacement-plan.md"),
     Path("scripts/render-publication-figures.py"),
     Path("assets/figures/publication/replacement-gateway-screen.svg"),
     Path("assets/figures/publication/replacement-gateway-print.svg"),
@@ -139,6 +140,14 @@ def main() -> int:
         (
             "drift Chapter 07 caption",
             lambda root: replace_text(root, "src/chapter-chapter07/index.md", "Figure 7.2. Controlled replacement forms a cocone over one shared boundary.", "Figure 7.2. Controlled replacement stays anchored to one shared boundary."),
+        ),
+        (
+            "remove replacement component",
+            lambda root: replace_text(root, "examples/common/policy-gated-change-review/design/replacement-plan.md", "- Replacement Mapper\n", ""),
+        ),
+        (
+            "remove canonical gateway agreement",
+            lambda root: replace_text(root, "examples/common/policy-gated-change-review/design/replacement-plan.md", "Map both outputs into the Unified Review Gateway only when their composites from the Review Boundary Contract agree.", "Compare both outputs before cutover."),
         ),
         (
             "stale generated SVG label",

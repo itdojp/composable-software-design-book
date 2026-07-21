@@ -46,6 +46,14 @@ APPENDIX_REQUIREMENTS = {
     "pushout universality": "every other object receiving such agreeing maps receives a unique map from the pushout.",
     "analogy boundary": "that analogy is not itself a proof of the universal property.",
 }
+REPLACEMENT_PLAN_REQUIREMENTS = {
+    "replacement component": "- Replacement Mapper",
+    "replacement role": "The Replacement Mapper is the candidate new route-selection implementation.",
+    "gateway role": "The Unified Review Gateway is the downstream facade that receives both legacy and replacement mappings",
+    "shadow comparison": "Run the Legacy Route Mapper and Replacement Mapper in shadow mode",
+    "gateway agreement": "Map both outputs into the Unified Review Gateway only when their composites from the Review Boundary Contract agree.",
+    "span and cocone": "a pushout-shaped cocone over the common-source span",
+}
 STALE_LABELS = {"legacy fields", "mapped fields", "preserved interface"}
 
 
@@ -155,6 +163,7 @@ def main() -> int:
     chapter_path = root / "src/chapter-chapter07/index.md"
     appendix_path = root / "src/appendices/appendix-b.md"
     figure_list_path = root / "src/backmatter/list-of-figures/index.md"
+    replacement_plan_path = root / "examples/common/policy-gated-change-review/design/replacement-plan.md"
     renderer_path = root / "scripts/render-publication-figures.py"
     asset_dir = root / "assets/figures/publication"
     errors: list[str] = []
@@ -163,11 +172,13 @@ def main() -> int:
         chapter = chapter_path.read_text(encoding="utf-8")
         appendix = appendix_path.read_text(encoding="utf-8")
         figure_list = figure_list_path.read_text(encoding="utf-8")
+        replacement_plan = replacement_plan_path.read_text(encoding="utf-8")
     except OSError as exc:
         errors.append(f"cannot read manuscript contract: {exc}")
         chapter = ""
         appendix = ""
         figure_list = ""
+        replacement_plan = ""
 
     for label, token in CHAPTER_REQUIREMENTS.items():
         if token not in chapter:
@@ -176,6 +187,9 @@ def main() -> int:
         expected_count = 2 if label == "analogy boundary" else 1
         if appendix.count(token) < expected_count:
             errors.append(f"appendix-b: missing {label}: {token!r}")
+    for label, token in REPLACEMENT_PLAN_REQUIREMENTS.items():
+        if token not in replacement_plan:
+            errors.append(f"replacement-plan: missing {label}: {token!r}")
 
     stale_chapter = "Shared Boundary <---- Replacement Mapper"
     if stale_chapter in chapter:
@@ -210,6 +224,7 @@ def main() -> int:
                 chapter_path,
                 appendix_path,
                 figure_list_path,
+                replacement_plan_path,
                 renderer_path,
                 asset_dir / "replacement-gateway-screen.svg",
                 asset_dir / "replacement-gateway-print.svg",

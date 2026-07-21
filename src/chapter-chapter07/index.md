@@ -175,7 +175,7 @@ In software work, that means the replacement should happen through an interface 
 ### Replacing components without losing meaning
 
 The running example models this with [design/replacement-plan.md](../../examples/common/policy-gated-change-review/design/replacement-plan/).
-The plan replaces a `Legacy Route Mapper` with a `Unified Review Gateway`.
+The plan replaces a `Legacy Route Mapper` with a `Replacement Mapper` behind a `Unified Review Gateway`.
 The migration is safe only if both sides preserve the same shared review boundary while the cutover happens.
 
 That is the engineering reading of a pushout in this chapter.
