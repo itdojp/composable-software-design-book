@@ -15,6 +15,7 @@
     "qa": "npm run qa:core && npm run qa:examples",
     "check:pushout": "python3 scripts/check-chapter07-pushout.py && python3 scripts/check-chapter07-pushout-regression.py",
     "check:monad-scope": "python3 scripts/check-chapter09-monad-scope.py && python3 scripts/check-chapter09-monad-scope-regression.py",
+    "check:figure-accessibility": "python3 scripts/check-publication-figure-accessibility.py && python3 scripts/check-publication-figure-accessibility-regression.py",
     "check:security": "npm audit --include=dev --audit-level=moderate",
     "figures:render": "python3 scripts/render-publication-figures.py",
     "build:native": "bash scripts/check-native-build.sh",

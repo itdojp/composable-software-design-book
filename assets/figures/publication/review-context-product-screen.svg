@@ -1,4 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="520" viewBox="0 0 1080 520">
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="520" viewBox="0 0 1080 520" role="img" aria-labelledby="review-context-product-screen-title review-context-product-screen-description">
+<title id="review-context-product-screen-title">Combined review context and its projections</title>
+<desc id="review-context-product-screen-description">The diagram contains Combined Review Context, Requested Scope, Policy Result, Evidence Links. Directed connections represent scope of, policy status of, evidence links of.</desc>
 <rect width="100%" height="100%" fill="#fbfcfe"/>
 <defs>
 <marker id="arrow-screen" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">

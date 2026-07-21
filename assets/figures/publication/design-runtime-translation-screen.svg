@@ -1,4 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="640" viewBox="0 0 1320 640">
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="640" viewBox="0 0 1320 640" role="img" aria-labelledby="design-runtime-translation-screen-title design-runtime-translation-screen-description">
+<title id="design-runtime-translation-screen-title">Translation from design artifacts to runtime artifacts</title>
+<desc id="design-runtime-translation-screen-description">The diagram has named regions for Design view, Runtime view. The diagram contains Change Request, Policy Check, Review Plan, Approved Change, Pending Request, Planned Review, Policy-Evaluated Plan, Execution-Ready Change. Directed connections represent policy check, satisfied, human approval, classify request, evaluate policy, request approval, translate.</desc>
 <rect width="100%" height="100%" fill="#fbfcfe"/>
 <defs>
 <marker id="arrow-screen" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">

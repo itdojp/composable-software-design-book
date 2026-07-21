@@ -115,6 +115,11 @@ Figure 5.1. Reviewer-facing naturality square for one approval move.
 
 ![Publication redraw of Figure 5.1 showing the reviewer-facing naturality square.](../../assets/figures/publication/reviewer-naturality-screen.svg)
 
+**Long description — Figure 5.1.**
+Across the top, a review plan becomes an approved change through human approval; down the left, the same plan is packaged as a decision packet.
+The decision packet moves across the bottom through approve-or-return to a review outcome, while the approved change projects down the right to that same outcome.
+The square commutes only when packaging and reviewer action preserve the same approval meaning as the design path, so changing presentation must not create a different decision.
+
 **Formal bridge.**
 
 ```text

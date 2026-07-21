@@ -102,6 +102,11 @@ Figure 9.1. Governed effect chain for the running example.
 
 ![Publication redraw of Figure 9.1 showing the governed effect chain.](../../assets/figures/publication/effect-boundary-screen.svg)
 
+**Long description — Figure 9.1.**
+A Review Plan prepares bounded inputs for a Tool Call, while a Decision Packet records an approved outcome through an Approval Write inside the named Effect Boundary.
+The approval write authorizes Execution Dispatch and emits decision evidence; dispatch emits an Execution Trace, and the trace combines with the decision evidence as Acceptance Evidence.
+The chain remains governable only when reviewed context enters effects explicitly, authority changes at the approval write, and every external action leaves traceable evidence for the final acceptance claim.
+
 This separation has an immediate engineering benefit.
 If the pure core says evidence is incomplete, the repository can reject the packet without needing to replay external effects.
 If the effectful shell fails, the team knows which external dependency or irreversible step was involved.
@@ -123,6 +128,11 @@ Figure 9.2. Pure checks stay inside the core while governed effects remain in th
 > **Reader takeaway.** The envelope is useful only when pure checks stay stable and every effectful step emits reviewable evidence at the shell boundary.
 
 ![Publication redraw of Figure 9.2 showing the pure core and effectful shell.](../../assets/figures/publication/pure-core-effectful-shell-screen.svg)
+
+**Long description — Figure 9.2.**
+In the Pure Core, one Review Plan feeds Scope and Route Checks and Evidence Completeness, and both pure results converge on one Governed Envelope with the same plan meaning.
+The envelope crosses into the Effectful Shell, where Agent and Policy Tools produce reviewed state, Approval Write authorizes Dispatch Action, and both decision and execution paths emit Trace and Evidence.
+The separation keeps validation repeatable before effects occur and requires every authority-changing or external step in the shell to contribute reviewable evidence.
 
 ### Transfer case: customer-support escalation workflow
 

@@ -66,6 +66,11 @@ Figure 4.1. Design-to-runtime translation keeps the approval path intact.
 
 ![Publication redraw of Figure 4.1 showing the design-to-runtime translation chain.](../../assets/figures/publication/design-runtime-translation-screen.svg)
 
+**Long description — Figure 4.1.**
+The design view carries Change Request through Policy Check and Review Plan to Approved Change, while the runtime view carries Pending Request through Planned Review and Policy-Evaluated Plan to Execution-Ready Change.
+Horizontal translation arrows pair each design artifact with its runtime counterpart, and the vertical arrows retain policy evaluation and the request for approval in both views.
+The translation is coherent only when those paired paths preserve the same request scope, policy result, and human approval boundary even though the runtime artifacts contain different implementation detail.
+
 The chapter treats each view as a category only to the extent that objects and morphisms can be mapped coherently.
 This is not an invitation to remodel every operational detail.
 It is a way to reason about whether one view still preserves the structure that another view cares about.

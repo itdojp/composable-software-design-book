@@ -45,6 +45,11 @@ Figure 0.1. Compositional design keeps authority attached to artifacts instead o
 
 ![Publication redraw of Figure 0.1 showing the governed path from request to evidence.](../../assets/figures/publication/introduction-governed-path-screen.svg)
 
+**Long description — Figure 0.1.**
+The path begins with a change request, turns it into a bounded review plan, and synchronizes the plan and its evidence as a decision packet.
+Human approval moves that packet to an approved change, which authorizes an execution-ready change rather than unreviewed work.
+The final step emits trace and acceptance evidence, so every move from proposal to authority to execution remains attached to a named artifact instead of disappearing inside opaque automation.
+
 ## Why AI-assisted engineering needs stronger structure
 
 AI assistance increases delivery speed, but it also inserts more hidden transformations between intent and execution.

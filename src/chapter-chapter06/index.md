@@ -110,6 +110,11 @@ Figure 6.1. Product-like review context keeps all three approval inputs recovera
 
 ![Publication redraw of Figure 6.1 showing the product-like review context.](../../assets/figures/publication/review-context-product-screen.svg)
 
+**Long description — Figure 6.1.**
+One Combined Review Context stands on the left and has three labeled projections to Requested Scope, Policy Result, and Evidence Links on the right.
+Each projection recovers one input without asking a reviewer to infer it from an opaque summary, while the combined context keeps the three inputs associated with one review.
+The product-like claim is therefore about recoverability: the packet is trustworthy only when scope, policy status, and evidence remain separately inspectable after combination.
+
 **Formal bridge.**
 
 ```text
@@ -201,6 +206,11 @@ Figure 6.2. Explicit review routes converge on one approval meaning.
 > **Reader takeaway.** Route variation is safe only when multiple paths stay explicit while converging on one approval meaning and one outcome artifact.
 
 ![Publication redraw of Figure 6.2 showing explicit review routes converging on one approval meaning.](../../assets/figures/publication/variation-paths-screen.svg)
+
+**Long description — Figure 6.2.**
+The Combined Review Context branches into an explicitly named Standard Review Route and Escalated Review Route rather than hiding route choice inside one generic step.
+The standard route reaches Approved Change with standard controls, and the escalated route reaches the same artifact with escalated controls.
+The routes may differ operationally, but their convergence is valid only when both retain the same request identity and produce one comparable approval meaning instead of route-specific interpretations.
 
 **Formal bridge.**
 

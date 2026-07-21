@@ -1,4 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="560" viewBox="0 0 1160 560">
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="560" viewBox="0 0 1160 560" role="img" aria-labelledby="synchronization-boundary-print-title synchronization-boundary-print-description">
+<title id="synchronization-boundary-print-title">Inputs constrained by a synchronization boundary</title>
+<desc id="synchronization-boundary-print-description">The diagram has named regions for Synchronization boundary. The diagram contains Plan Revision, Policy Classification, Evidence Links, Decision Packet. Directed connections represent same change identity, same route semantics, same evidence set.</desc>
 <rect width="100%" height="100%" fill="#ffffff"/>
 <defs>
 <marker id="arrow-print" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">

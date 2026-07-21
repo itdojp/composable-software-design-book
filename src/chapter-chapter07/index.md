@@ -124,6 +124,11 @@ Figure 7.1. Constrained joins remain valid only through one preserved shared bou
 
 ![Publication redraw of Figure 7.1 showing the shared-boundary join.](../../assets/figures/publication/shared-boundary-join-screen.svg)
 
+**Long description — Figure 7.1.**
+Reviewer View and Policy-Evaluated Plan each project into the same Shared Boundary, which is drawn as the constrained integration region.
+Only after both inputs agree at that boundary does one outgoing arrow permit a constrained join into the Decision Packet.
+The figure's pullback-shaped lesson is that proximity is not enough for integration: route, scope, and policy meaning must match at the shared boundary before the joined packet can carry trustworthy review meaning.
+
 **Formal bridge.**
 
 ```text
@@ -194,6 +199,11 @@ Figure 7.2. Controlled replacement forms a cocone over one shared boundary.
 > **Reader takeaway.** A pushout-shaped migration maps one shared boundary into both implementations and maps both implementations into one gateway without changing the boundary mapping.
 
 ![Publication redraw of Figure 7.2 showing the shared boundary mapping to legacy and replacement components, which both map to the unified gateway.](../../assets/figures/publication/replacement-gateway-screen.svg)
+
+**Long description — Figure 7.2.**
+The Shared Boundary maps upward to the Legacy Route Mapper through `i_L` and downward to the Replacement Mapper through `i_R`.
+Both implementations then map to the Unified Review Gateway through cocone arrows `q_L` and `q_R`.
+The controlled replacement is valid only when the two composites from the shared boundary into the gateway agree, because otherwise legacy and replacement paths would assign different meanings to the same boundary contract.
 
 **Formal bridge.**
 

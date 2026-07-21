@@ -75,6 +75,11 @@ Figure 8.1. Running example fan-out and synchronization boundary.
 
 ![Publication redraw of Figure 8.1 showing governed fan-out and synchronization.](../../assets/figures/publication/orchestration-diagram-screen.svg)
 
+**Long description — Figure 8.1.**
+One Review Plan fans out into a Policy-Evaluated Plan through policy evaluation and an Evidence Bundle through evidence collection.
+Both branches enter the same Decision Packet through arrows labeled synchronize for review, and only that packet may move through approve-or-return to Approved Change.
+The orchestration is governed because parallel preparation cannot advance authority independently; fan-in must restore one reviewable packet before the approval decision.
+
 This is also where teams often over-parallelize.
 If a faster path can substitute for a slower path without a named rule, the design has confused throughput with correctness.
 The right question is not "Can this run concurrently?"
@@ -182,6 +187,11 @@ Figure 8.2. String-diagram reading distinguishes lawful fan-in from broken summa
 > **Reader takeaway.** The fan-in is valid only when both branches preserve the same identity and revision all the way into one named synchronization point.
 
 ![Publication redraw of Figure 8.2 contrasting lawful and broken fan-in.](../../assets/figures/publication/string-diagram-fan-in-screen.svg)
+
+**Long description — Figure 8.2.**
+The lawful side fans one review plan into policy and evidence branches, carries the same change identity and plan revision through both branches, and reunites the preserved policy result and evidence at one named synchronized packet.
+The broken side starts from one review plan but lets mutable context widen the evidence branch after fan-out, then combines the policy result and evidence through an unlabeled summary.
+Because the broken merge cannot prove that its inputs describe the same scope and revision, it cannot establish one trustworthy approval meaning; the lawful merge can do so only at the explicit synchronization point.
 
 ### Exposing hidden coupling in workflows
 

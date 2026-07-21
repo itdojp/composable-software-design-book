@@ -159,7 +159,12 @@ def main() -> int:
         ),
         (
             "stale generated SVG label",
-            lambda root: replace_text(root, "assets/figures/publication/replacement-gateway-screen.svg", "legacy boundary map i_L", "legacy fields"),
+            lambda root: replace_text(
+                root,
+                "assets/figures/publication/replacement-gateway-screen.svg",
+                ">legacy boundary map i_L</text>",
+                ">legacy fields</text>",
+            ),
         ),
         (
             "stale but valid generated PDF",

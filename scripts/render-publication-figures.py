@@ -4,12 +4,82 @@ from __future__ import annotations
 
 import html
 from pathlib import Path
+from typing import TYPE_CHECKING
 
-from PIL import Image, ImageDraw, ImageFont
-
+if TYPE_CHECKING:
+    from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT_DIR = ROOT / "assets" / "figures" / "publication"
+
+
+ACCESSIBILITY = {
+    "commutative-approval": {
+        "title": "Repository-level approval paths and policy dependency",
+        "description": (
+            "A change request reaches an approved change through a review plan and human approval, "
+            "or through a policy check that feeds the same review plan. "
+            "A direct policy-gated approval path is equivalent only when every route preserves the same request scope and approval meaning."
+        ),
+    },
+    "design-runtime-translation": {
+        "title": "Translation from design artifacts to runtime artifacts",
+    },
+    "reviewer-naturality": {
+        "title": "Reviewer outcome preserved across packaging",
+    },
+    "review-context-product": {
+        "title": "Combined review context and its projections",
+    },
+    "variation-paths": {
+        "title": "Standard and escalated review routes",
+    },
+    "shared-boundary-join": {
+        "title": "Constrained join at a shared review boundary",
+    },
+    "replacement-gateway": {
+        "title": "Legacy and replacement routes joined at one gateway",
+    },
+    "orchestration-diagram": {
+        "title": "Policy and evidence branches synchronized for review",
+    },
+    "string-diagram-fan-in": {
+        "title": "Lawful fan-in compared with a broken summary merge",
+        "description": (
+            "The lawful side sends one review plan through policy and evidence branches that preserve the same change identity and plan revision before producing a synchronized packet. "
+            "The broken side widens mutable context in the evidence branch and combines results as an unlabeled summary, so the merge cannot establish one trustworthy approval meaning."
+        ),
+    },
+    "synchronization-boundary": {
+        "title": "Inputs constrained by a synchronization boundary",
+    },
+    "effect-boundary": {
+        "title": "Authority-changing operations inside an effect boundary",
+    },
+    "pure-core-effectful-shell": {
+        "title": "Pure workflow checks and an effectful execution shell",
+    },
+    "delivery-case-study": {
+        "title": "End-to-end governed artifact path",
+        "description": (
+            "The path starts with a problem statement and acceptance criteria, continues through a design artifact set and decision packet to an approved change, "
+            "and finishes with an execution trace and acceptance evidence. "
+            "The delivery claim is complete only when scope, review authority, execution, and evidence remain connected along this path."
+        ),
+    },
+    "introduction-governed-path": {
+        "title": "Governed path from change request to acceptance evidence",
+    },
+    "responsibility-boundaries": {
+        "title": "Human and agent responsibilities along the approval path",
+    },
+    "object-composition": {
+        "title": "Object and morphism composition for approval artifacts",
+    },
+    "minimal-approval-commutativity": {
+        "title": "Minimal commutative approval claim",
+    },
+}
 
 
 THEMES = {
@@ -455,11 +525,43 @@ def svg_text(x: float, y: float, text: str, size: int = 22, weight: str = "400")
     )
 
 
+def accessibility_metadata(fig: dict) -> tuple[str, str]:
+    metadata = ACCESSIBILITY[fig["slug"]]
+    title = metadata["title"]
+    description = metadata.get("description")
+    if description is None:
+        zone_labels = ", ".join(zone["label"] for zone in fig["zones"])
+        node_labels = ", ".join(dict.fromkeys(node["label"] for node in fig["nodes"]))
+        edge_labels = ", ".join(dict.fromkeys(edge["label"] for edge in fig["edges"]))
+        region_sentence = f"The diagram has named regions for {zone_labels}. " if zone_labels else ""
+        description = region_sentence + (
+            f"The diagram contains {node_labels}. "
+            f"Directed connections represent {edge_labels}."
+        )
+    return title, description
+
+
+def pillow_modules():
+    try:
+        from PIL import Image, ImageDraw, ImageFont
+    except ModuleNotFoundError as exc:
+        raise RuntimeError(
+            "Pillow is required to render publication PDFs; install Pillow before running this command."
+        ) from exc
+    return Image, ImageDraw, ImageFont
+
+
 def render_svg(fig: dict, theme_name: str) -> str:
     theme = THEMES[theme_name]
     nodes = node_lookup(fig["nodes"])
+    title, description = accessibility_metadata(fig)
+    title_id = f"{fig['slug']}-{theme_name}-title"
+    description_id = f"{fig['slug']}-{theme_name}-description"
     parts = [
-        f'<svg xmlns="http://www.w3.org/2000/svg" width="{fig["width"]}" height="{fig["height"]}" viewBox="0 0 {fig["width"]} {fig["height"]}">',
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{fig["width"]}" height="{fig["height"]}" '
+        f'viewBox="0 0 {fig["width"]} {fig["height"]}" role="img" aria-labelledby="{title_id} {description_id}">',
+        f'<title id="{title_id}">{html.escape(title)}</title>',
+        f'<desc id="{description_id}">{html.escape(description)}</desc>',
         f'<rect width="100%" height="100%" fill="{theme["background"]}"/>',
         "<defs>",
         f'<marker id="arrow-{theme_name}" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">',
@@ -509,7 +611,9 @@ def render_svg(fig: dict, theme_name: str) -> str:
     return "\n".join(parts)
 
 
-def render_pdf(fig: dict) -> Image.Image:
+def render_pdf(fig: dict) -> "Image.Image":
+    Image, ImageDraw, ImageFont = pillow_modules()
+
     theme = THEMES["print"]
     image = Image.new("RGB", (fig["width"], fig["height"]), theme["background"])
     draw = ImageDraw.Draw(image)
@@ -557,6 +661,7 @@ def render_pdf(fig: dict) -> Image.Image:
 
 
 def main() -> None:
+    pillow_modules()
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     for fig in FIGURES:
         for theme_name in ("screen", "print"):
@@ -574,6 +679,8 @@ def main() -> None:
             title=f"{fig['slug']}-print",
             subject=f"figure-contract:{fig['slug']}:{edge_signature}",
             creator="render-publication-figures.py",
+            creationDate=None,
+            modDate=None,
         )
 
 

@@ -55,6 +55,11 @@ Figure 1.1. Responsibility boundaries separate decision artifacts from emitted e
 
 ![Publication redraw of Figure 1.1 showing responsibility boundaries between decision artifacts and evidence.](../../assets/figures/publication/responsibility-boundaries-screen.svg)
 
+**Long description — Figure 1.1.**
+A change request becomes a review plan and then a synchronized decision packet before any authority changes.
+The decision packet produces two distinct results: an approved change through approve-or-return and an approval decision record that preserves the review evidence.
+Only the approved change may dispatch execution, whose execution trace contributes to acceptance evidence; keeping that path separate from the decision record prevents later evidence from being mistaken for approval authority.
+
 Table 1.1. Canonical authority boundaries in the running example.
 
 | Artifact or boundary | Primary authority | Why the distinction matters |

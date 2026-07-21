@@ -56,6 +56,11 @@ Figure 3.1. Minimal approval commutativity claim.
 
 ![Publication redraw of Figure 3.1 showing the minimal approval commutativity claim.](../../assets/figures/publication/minimal-approval-commutativity-screen.svg)
 
+**Long description — Figure 3.1.**
+The change request reaches the approved change by a two-step route through draft review plan and human approval.
+A second edge, labeled minimal commutative claim, connects the same request directly to the same approved change.
+The diagram claims that the direct edge has the same approval meaning as the composed route; if review scope or human authority differs between them, the triangle does not commute and the claimed shortcut is invalid.
+
 The minimal diagram does not yet describe every operational detail.
 It isolates one design claim that can be reviewed by hand.
 If the composed path from `Change Request` through `Review Plan` to `Approved Change` is supposed to justify the direct edge `policy-gated-approval`, the diagram turns that statement into a visible proof obligation.
@@ -99,6 +104,11 @@ Figure 3.2. Repository-level approval claim with explicit policy dependency (`PG
 > **Reader takeaway.** The direct approval edge is safe only if policy evaluation and human review preserve one invariant across named artifacts.
 
 ![Publication redraw of Figure 3.2 showing the repository-level approval claim.](../../assets/figures/publication/commutative-approval-screen.svg)
+
+**Long description — Figure 3.2.**
+The change request has two explicit routes into the review plan: a direct derivation and a policy check whose satisfied result feeds that same plan.
+The review plan reaches the approved change through human approval, while a separate curved edge depicts the claimed policy-gated path from the request to the approved change.
+The diagram commutes only when all routes preserve the same request scope, policy result, plan revision, and human approval meaning; if any route weakens one of those obligations, the direct edge is not equivalent to the reviewed route.
 
 The [traceability matrix](../../examples/common/policy-gated-change-review/verification/traceability-matrix/) matters because it anchors this diagram to named repository artifacts.
 That link prevents the diagram from drifting into a standalone picture with no verification consequence.
