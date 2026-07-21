@@ -77,7 +77,7 @@ Effect visibility therefore becomes a first-class design requirement rather than
 In general, a monad on a category `C` consists of an endofunctor `T: C -> C`, a unit natural transformation `eta: Id_C -> T`, and a multiplication natural transformation `mu: T composed with T -> T`.
 The unit laws say that applying `mu` after either unit insertion leaves `T` unchanged, and the associativity law says that flattening three nested applications of `T` is independent of grouping.
 An equivalent programming-oriented presentation uses `return` and `bind` subject to left identity, right identity, and associativity.
-These definitions do not require `T` to be an operational envelope or require a computation to return audit context.
+Neither definition makes `T` an operational envelope or requires a computation to return audit context.
 
 This book chooses a governed envelope as one concrete engineering interpretation of `T`.
 Under that interpretation, one computation returns a value together with the operational context needed to continue safely.
@@ -221,7 +221,7 @@ That is ordinary composition plus logging.
 It forces every downstream step to guess which effect already happened.
 The governed envelope chain avoids that guesswork because each step returns value, trace obligation, authority state, and permitted next action together.
 That is the practical payoff of the chapter's Kleisli reading.
-Teams may regroup the chain across services or queues without changing the governed outcome only when the implementation preserves the stated equivalence and the selected effect semantics satisfy the required laws.
+Regrouping the chain across services or queues is safe only when the implementation preserves the stated equivalence and the selected effect semantics satisfy the required laws.
 
 ### Chaining effectful steps safely
 
